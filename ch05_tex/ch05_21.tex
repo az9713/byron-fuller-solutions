@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.21}
+
+\textbf{Problem:} Show that the set of functions $\{e^{inx},\, n = 0, \pm 1, \pm 2, \ldots\}$ is a complete set in the mean on $[-1, 1]$ for $m \geq 1$. (Of course, by Weierstrass's theorem, the above is true for $m = 0$.)
+
+\bigskip
+\textbf{Solution:}
+
+We need to show that the set $\{e^{inx}\}_{n\in\mathbb{Z}}$ is complete in $L^2[-1,1]$, meaning that if $f \in L^2[-1,1]$ and
+\[
+\int_{-1}^{1} f(x)\,e^{-inx}\,dx = 0 \quad \text{for all } n \in \mathbb{Z},
+\]
+then $f = 0$ almost everywhere.
+
+\subsection*{Proof}
+
+\textbf{Step 1:} By Weierstrass's approximation theorem, the trigonometric polynomials (finite linear combinations of $e^{inx}$) are dense in the space of continuous functions on $[-1,1]$ with the supremum norm.
+
+\textbf{Step 2:} Suppose $f \in L^2[-1,1]$ is orthogonal to all $e^{inx}$:
+\[
+c_n = \int_{-1}^{1} f(x)\,e^{-inx}\,dx = 0 \quad \forall\, n.
+\]
+
+Then for any trigonometric polynomial $T(x) = \sum_{n=-N}^{N} a_n e^{inx}$:
+\[
+\int_{-1}^{1}f(x)\,\overline{T(x)}\,dx = \sum_{n=-N}^{N}\bar{a}_n\int_{-1}^{1}f(x)\,e^{-inx}\,dx = \sum_{n=-N}^{N}\bar{a}_n\cdot 0 = 0.
+\]
+
+\textbf{Step 3:} Since trigonometric polynomials are dense in the continuous functions, and continuous functions are dense in $L^2[-1,1]$, the trigonometric polynomials are dense in $L^2[-1,1]$.
+
+\textbf{Step 4:} For any $\epsilon > 0$, there exists a trigonometric polynomial $T$ such that $\|f - T\|_2 < \epsilon$. Then:
+\[
+\|f\|_2^2 = \int_{-1}^{1}|f|^2\,dx = \int_{-1}^{1}f\,\bar{f}\,dx = \int_{-1}^{1}f(\bar{f}-\bar{T})\,dx + \int_{-1}^{1}f\,\bar{T}\,dx.
+\]
+
+The second integral vanishes (from Step 2). By Cauchy--Schwarz:
+\[
+\|f\|_2^2 = \left|\int_{-1}^{1}f(\bar{f}-\bar{T})\,dx\right| \leq \|f\|_2\cdot\|f - T\|_2 < \|f\|_2\cdot\epsilon.
+\]
+
+Therefore $\|f\|_2 < \epsilon$ for all $\epsilon > 0$, which implies $\|f\|_2 = 0$, so $f = 0$ a.e.
+
+\subsection*{Conclusion}
+
+\[
+\boxed{\text{The set } \{e^{inx}\}_{n\in\mathbb{Z}} \text{ is complete in } L^2[-1,1].}
+\]
+
+Any function $f \in L^2[-1,1]$ can be expanded as:
+\[
+f(x) = \sum_{n=-\infty}^{\infty}c_n\,e^{inx}, \quad c_n = \frac{1}{2}\int_{-1}^{1}f(x)\,e^{-inx}\,dx,
+\]
+with convergence in the $L^2$ sense.
+
+\end{document}

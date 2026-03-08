@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 3.} Minkowski's Inequality.
+
+\textbf{(a)} Show that $|f(x)+g(x)|^p \le |f(x)+g(x)|^{p-1}|f(x)| + |f(x)+g(x)|^{p-1}|g(x)|$, and hence that if $f$ and $g$ belong to $L_p$ (the space of $p$-integrable functions), then so does $f+g$. Thus $L_p$ is indeed a vector space.
+
+\textbf{(b)} Show that for $p > 1$,
+\[
+\int_a^b |f+g|^p\,dx \le \int_a^b |f+g|^{p-1}|f|\,dx + \int_a^b |f+g|^{p-1}|g|\,dx,
+\]
+and that $|f+g|^{p-1}$ belongs to $L_q$ if $f$ and $g$ belong to $L_p$, where $1/p+1/q=1$.
+
+\textbf{(c)} Apply H\"older's inequality (see Problem 8.2) to each of the two integrals on the right-hand side of the inequality in part (b), and hence show that
+\[
+\left[\int_a^b|f+g|^p\,dx\right]^{1/p} \le \left[\int_a^b|f|^p\,dx\right]^{1/p}+\left[\int_a^b|g|^p\,dx\right]^{1/p}.
+\]
+This is Minkowski's inequality.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part (a):}
+By the triangle inequality,
+\[
+|f(x)+g(x)| \le |f(x)| + |g(x)|.
+\]
+Multiplying both sides by $|f(x)+g(x)|^{p-1}\ge 0$:
+\[
+|f+g|^p \le |f+g|^{p-1}|f| + |f+g|^{p-1}|g|.
+\]
+Now if $f,g\in L_p$, then $|f|^p$ and $|g|^p$ are integrable. Since $|f+g|\le|f|+|g|$:
+\[
+|f+g|^p \le (|f|+|g|)^p \le 2^p\max(|f|^p,|g|^p) \le 2^p(|f|^p+|g|^p).
+\]
+Integrating shows $\int|f+g|^p\,dx < \infty$, so $f+g\in L_p$. Hence $L_p$ is closed under addition and is a vector space. $\checkmark$
+
+\textbf{Part (b):}
+Integrating the inequality from part (a):
+\[
+\int_a^b |f+g|^p\,dx \le \int_a^b |f+g|^{p-1}|f|\,dx + \int_a^b |f+g|^{p-1}|g|\,dx.
+\]
+Now, since $1/p+1/q=1$ implies $q = p/(p-1)$, we have $(p-1)q = p$. Thus
+\[
+\int_a^b \left(|f+g|^{p-1}\right)^q dx = \int_a^b |f+g|^p\,dx < \infty,
+\]
+since $f+g\in L_p$ by part (a). Therefore $|f+g|^{p-1}\in L_q$. $\checkmark$
+
+\textbf{Part (c):}
+Apply H\"older's inequality to each integral on the right:
+\[
+\int |f+g|^{p-1}|f|\,dx \le \left[\int|f|^p\,dx\right]^{1/p}\left[\int|f+g|^{(p-1)q}\,dx\right]^{1/q}
+= \|f\|_p\left[\int|f+g|^p\,dx\right]^{1/q},
+\]
+and similarly
+\[
+\int|f+g|^{p-1}|g|\,dx \le \|g\|_p\left[\int|f+g|^p\,dx\right]^{1/q}.
+\]
+Combining:
+\[
+\int|f+g|^p\,dx \le (\|f\|_p+\|g\|_p)\left[\int|f+g|^p\,dx\right]^{1/q}.
+\]
+Dividing both sides by $\left[\int|f+g|^p\,dx\right]^{1/q}$ (assuming it is nonzero; if zero, the result is trivial):
+\[
+\left[\int|f+g|^p\,dx\right]^{1-1/q} \le \|f\|_p+\|g\|_p.
+\]
+Since $1-1/q = 1/p$:
+\[
+\boxed{\|f+g\|_p \le \|f\|_p + \|g\|_p.}
+\]
+This is Minkowski's inequality, confirming that $\|\cdot\|_p$ defines a norm on $L_p$. $\blacksquare$
+
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 37.} In Section 5.10, we defined the Hermite polynomials in terms of the generating function
+\[
+e^{-t^2+2xt} = \sum_{n=0}^{\infty}\frac{H_n(x)}{n!}t^n, \quad t > 0,
+\]
+and deduced from this the Rodrigues formula:
+\[
+H_n(x) = (-1)^n e^{x^2}\frac{d^n}{dx^n}e^{-x^2}.
+\]
+
+Now prove the converse: that Rodrigues' formula implies the generating function. Enroute, establish the integral representation
+\[
+H_n(x) = \frac{n!}{2\pi i}\oint_C \frac{2^n e^{-t^2+2xt}}{t^{n+1}}\,dt \cdot (\text{or similar}),
+\]
+where $C$ encloses the point $x$.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Step 1: Integral representation.}
+
+From Rodrigues' formula $H_n(x) = (-1)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2}$, apply Cauchy's formula for the $n$-th derivative:
+\[
+\frac{d^n}{dx^n}e^{-x^2} = \frac{n!}{2\pi i}\oint_C\frac{e^{-t^2}}{(t-x)^{n+1}}\,dt,
+\]
+where $C$ encloses $t = x$.
+
+Therefore:
+\[
+H_n(x) = (-1)^ne^{x^2}\cdot\frac{n!}{2\pi i}\oint_C\frac{e^{-t^2}}{(t-x)^{n+1}}\,dt = \frac{(-1)^nn!}{2\pi i}\oint_C\frac{e^{x^2-t^2}}{(t-x)^{n+1}}\,dt.
+\]
+
+Let $u = t - x$, so $t = u + x$ and $t^2 = u^2+2ux+x^2$:
+\[
+x^2 - t^2 = -u^2 - 2ux.
+\]
+\[
+H_n(x) = \frac{(-1)^nn!}{2\pi i}\oint\frac{e^{-u^2-2ux}}{u^{n+1}}\,du.
+\]
+
+Now substitute $u = -s$:
+\[
+H_n(x) = \frac{(-1)^nn!}{2\pi i}\oint\frac{e^{-s^2+2sx}}{(-s)^{n+1}}(-ds) = \frac{n!}{2\pi i}\oint\frac{e^{-s^2+2sx}}{s^{n+1}}\,ds.
+\]
+
+So:
+\[
+\boxed{H_n(x) = \frac{n!}{2\pi i}\oint_C\frac{e^{-s^2+2sx}}{s^{n+1}}\,ds.}
+\]
+
+\textbf{Step 2: Derive the generating function.}
+
+The generating function is:
+\[
+\sum_{n=0}^{\infty}\frac{H_n(x)}{n!}t^n = \sum_{n=0}^{\infty}\frac{t^n}{2\pi i}\oint\frac{e^{-s^2+2sx}}{s^{n+1}}\,ds.
+\]
+
+Interchange sum and integral:
+\[
+= \frac{1}{2\pi i}\oint\frac{e^{-s^2+2sx}}{s}\sum_{n=0}^{\infty}\left(\frac{t}{s}\right)^n\,ds = \frac{1}{2\pi i}\oint\frac{e^{-s^2+2sx}}{s-t}\,ds,
+\]
+where the geometric series converges for $|t/s| < 1$ (choose $C$ large enough).
+
+By Cauchy's integral formula (the pole at $s = t$ is inside $C$):
+\[
+\frac{1}{2\pi i}\oint\frac{e^{-s^2+2sx}}{s-t}\,ds = e^{-t^2+2xt}.
+\]
+
+Therefore:
+\[
+\sum_{n=0}^{\infty}\frac{H_n(x)}{n!}t^n = e^{-t^2+2xt}. \quad
+\]
+
+\end{document}

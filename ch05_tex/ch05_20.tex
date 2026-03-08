@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.20}
+
+\textbf{Problem:} Let $\{Q_n\}$ be an orthonormal system of Sturm--Liouville polynomials with weight function $w$, on the interval $[a,b]$. Prove that the functions $Q_0, Q_1, Q_2, \ldots$ form an orthogonal system of polynomials with weight function $w$, where the notation is that of Section 5.10.
+
+\bigskip
+\textbf{Solution:}
+
+Sturm--Liouville theory provides us with a sequence of polynomial solutions $\{Q_n(x)\}$ satisfying the eigenvalue problem:
+\[
+\frac{d}{dx}\left[p(x)\frac{dQ_n}{dx}\right] + [\lambda_n w(x) - q(x)]Q_n = 0,
+\]
+where $p(x)$, $q(x)$, and $w(x) > 0$ are given functions, and $\lambda_n$ are the eigenvalues.
+
+\subsection*{Orthogonality}
+
+Take two eigenfunctions $Q_m$ and $Q_n$ with eigenvalues $\lambda_m \neq \lambda_n$. They satisfy:
+\[
+(pQ_m')' + (\lambda_m w - q)Q_m = 0, \tag{1}
+\]
+\[
+(pQ_n')' + (\lambda_n w - q)Q_n = 0. \tag{2}
+\]
+
+Multiply (1) by $Q_n$ and (2) by $Q_m$, and subtract:
+\[
+Q_n(pQ_m')' - Q_m(pQ_n')' + (\lambda_m - \lambda_n)w\,Q_m Q_n = 0.
+\]
+
+The first two terms can be written as:
+\[
+\frac{d}{dx}\left[p(Q_m'Q_n - Q_n'Q_m)\right] + (\lambda_m - \lambda_n)w\,Q_mQ_n = 0.
+\]
+
+Integrating from $a$ to $b$:
+\[
+\left[p(Q_m'Q_n - Q_n'Q_m)\right]_a^b + (\lambda_m - \lambda_n)\int_a^b w(x)\,Q_m(x)Q_n(x)\,dx = 0.
+\]
+
+The boundary terms vanish due to the Sturm--Liouville boundary conditions (e.g., $p(a) = 0$, $p(b) = 0$, or the appropriate boundary conditions at the endpoints). Since $\lambda_m \neq \lambda_n$:
+\[
+\int_a^b w(x)\,Q_m(x)Q_n(x)\,dx = 0 \quad \text{for } m \neq n.
+\]
+
+\subsection*{Normalization}
+
+The functions can be normalized:
+\[
+\int_a^b w(x)\,[Q_n(x)]^2\,dx = N_n > 0.
+\]
+
+Defining $\hat{Q}_n = Q_n/\sqrt{N_n}$, we obtain an orthonormal system:
+\[
+\int_a^b w(x)\,\hat{Q}_m(x)\hat{Q}_n(x)\,dx = \delta_{mn}.
+\]
+
+\subsection*{Completeness}
+
+The completeness of the Sturm--Liouville eigenfunctions follows from Weierstrass's theorem: any continuous function on $[a,b]$ can be uniformly approximated by polynomials, and the $Q_n$ span the polynomial space (since $Q_n$ has degree $n$, the set $\{Q_0, Q_1, \ldots, Q_N\}$ spans all polynomials of degree $\leq N$). Therefore any function that can be approximated by polynomials can be approximated by the $Q_n$, establishing completeness.
+
+\[
+\boxed{\text{The Sturm--Liouville polynomials } \{Q_n\} \text{ form a complete orthogonal system with weight } w.}
+\]
+
+\end{document}

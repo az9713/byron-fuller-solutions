@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 4}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Let $B$ be an $n \times n$ matrix. Define the $n \times n$ matrix $A = e^B$ in terms of the power series expansion of the exponential. That is,
+\[
+A = e^B = \sum_{k=0}^{\infty} \frac{B^k}{k!}.
+\]
+Assuming the series converges, prove that $A$ is isometric if $B$ is anti-Hermitian ($B^\dagger = -B$). Also show that any isometry $U$ can be written as $U = \exp(iH)$, where $H$ is Hermitian. Obtain an expression for $H$ in terms of quantities related to $U$.
+
+[Hint: the properties of the eigenvectors and eigenvalues of the operators will be helpful.]
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part 1: $B$ anti-Hermitian $\Rightarrow$ $A = e^B$ is isometric (unitary).}
+
+We need to show $A^\dagger A = I$. First compute $A^\dagger$:
+\[
+A^\dagger = \left(e^B\right)^\dagger = \sum_{k=0}^{\infty} \frac{(B^\dagger)^k}{k!} = e^{B^\dagger}.
+\]
+Since $B^\dagger = -B$:
+\[
+A^\dagger = e^{-B}.
+\]
+Therefore:
+\[
+A^\dagger A = e^{-B} e^{B}.
+\]
+Since $-B$ and $B$ commute (any matrix commutes with itself), we can use the identity $e^X e^Y = e^{X+Y}$ when $[X,Y] = 0$:
+\[
+A^\dagger A = e^{-B+B} = e^0 = I.
+\]
+Similarly, $AA^\dagger = e^B e^{-B} = I$. Hence $A$ is unitary (isometric). \qed
+
+\bigskip
+\textbf{Part 2: Any unitary $U$ can be written as $U = e^{iH}$ with $H$ Hermitian.}
+
+Since $U$ is unitary, it is a normal operator and can be diagonalized by a unitary similarity transformation:
+\[
+U = P D P^\dagger,
+\]
+where $D = \text{diag}(e^{i\theta_1}, e^{i\theta_2}, \ldots, e^{i\theta_n})$ and the $\theta_k$ are real (since the eigenvalues of a unitary matrix have modulus 1).
+
+Define $\Lambda = \text{diag}(\theta_1, \theta_2, \ldots, \theta_n)$, which is a real diagonal matrix (hence Hermitian). Then:
+\[
+D = e^{i\Lambda}.
+\]
+Now define:
+\[
+H = P \Lambda P^\dagger.
+\]
+Since $\Lambda$ is Hermitian and $P$ is unitary, $H$ is Hermitian:
+\[
+H^\dagger = (P\Lambda P^\dagger)^\dagger = P \Lambda^\dagger P^\dagger = P \Lambda P^\dagger = H.
+\]
+Furthermore:
+\[
+e^{iH} = e^{iP\Lambda P^\dagger} = P\, e^{i\Lambda}\, P^\dagger = P D P^\dagger = U.
+\]
+Here we used the fact that $e^{P X P^\dagger} = P e^X P^\dagger$ for unitary $P$, which follows from the power series definition.
+
+\bigskip
+\textbf{Expression for $H$:}
+
+If $\lambda_k = e^{i\theta_k}$ are the eigenvalues of $U$ with corresponding orthonormal eigenvectors $|u_k\rangle$, then $\theta_k = -i \ln \lambda_k$ and:
+\[
+H = \sum_{k=1}^n \theta_k\, |u_k\rangle\langle u_k| = -i \sum_{k=1}^n (\ln \lambda_k)\, |u_k\rangle\langle u_k|.
+\]
+More compactly, $H = -i \ln U$, where the logarithm is defined via the spectral decomposition. \qed
+
+\end{document}

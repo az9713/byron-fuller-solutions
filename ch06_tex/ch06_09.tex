@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 9.} Show that the $n$-sheeted Riemann surface for $w = z^{1/n}$ ($z = w^n$) for $-A \leq B$ can be cut and joined along the line segment $[a,b]$ of the real axis (assume for convenience that $a$ and $b$ are real). Make an appropriate definition of $w(z)$ in terms of the polar representation of complex numbers, including a definition of the range of $\theta$.
+
+\bigskip
+\textbf{Solution.}
+
+Consider $w = [(z-a)(z-b)]^{1/n}$, which has branch points at $z = a$ and $z = b$ (both real, $a < b$).
+
+We place the branch cut along the real axis from $a$ to $b$. Write:
+\[
+z - a = r_1 e^{i\theta_1}, \qquad z - b = r_2 e^{i\theta_2}
+\]
+where $r_1 = |z-a|$, $r_2 = |z-b|$, and we choose the angles $\theta_1, \theta_2$ as follows.
+
+For the branch cut along $[a,b]$, we define:
+\[
+0 \leq \theta_1 < 2\pi, \qquad 0 \leq \theta_2 < 2\pi,
+\]
+with the cut preventing continuous variation of $\theta_1$ and $\theta_2$ across the segment $[a,b]$.
+
+On the $k$-th sheet ($k = 0, 1, \ldots, n-1$):
+\[
+w_k(z) = (r_1 r_2)^{1/n} \exp\!\left[\frac{i(\theta_1 + \theta_2 + 2k\pi \cdot 2)}{n}\right]
+\]
+
+More precisely, for $w = z^{1/n}$ with branch cut along $[a,b]$ re-centered: if we set $\zeta = z - (a+b)/2$ and work with the function $(z-a)^{1/n}(z-b)^{1/n}$...
+
+Let us consider the simpler case $w = z^{1/n}$ with the standard branch cut from $0$ to $\infty$, placed along $[a,b]$.
+
+For the Riemann surface of $w = z^{1/n}$:
+\begin{itemize}
+\item Take $n$ copies of the $z$-plane, each cut along $[a,b]$.
+\item On sheet $k$, define $\theta$ to lie in $[2k\pi/n, 2(k+1)\pi/n)$ so that $w = r^{1/n}e^{i\theta/n}$ restricted to sheet $k$ gives the $k$-th branch.
+\item When crossing the cut from above to below on sheet $k$, join to sheet $(k+1) \bmod n$.
+\end{itemize}
+
+Specifically, for a point just above the cut on sheet $k$, $\theta_k \to 0^+$ from above the real axis gives one value; crossing below gives $\theta \to 2\pi^-$, which corresponds to the value on sheet $k+1$.
+
+After encircling both branch points $a$ and $b$, the angles $\theta_1$ and $\theta_2$ each increase by $2\pi$, giving a total phase change of $e^{i \cdot 4\pi/n}$ for $(z-a)^{1/n}(z-b)^{1/n}$. After $n$ circuits, we return to the original value.
+
+The definition on sheet $k$:
+\[
+\boxed{w_k(z) = r^{1/n} \exp\!\left(\frac{i(\theta + 2k\pi)}{n}\right), \quad k = 0, 1, \ldots, n-1, \quad 0 \leq \theta < 2\pi.}
+\]
+
+The sheets are joined along the cut so that the upper lip of the cut on sheet $k$ connects to the lower lip on sheet $k+1 \pmod{n}$, making $w$ single-valued and analytic on the resulting $n$-sheeted Riemann surface (except at the branch points).
+
+\end{document}

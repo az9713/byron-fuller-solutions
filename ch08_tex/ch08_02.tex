@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 2.} H\"older's Inequality.
+
+\textbf{(a)} Show that the function $f(z) = e^z - az - \beta$ takes on a maximum value at $z=0$ if $\alpha < 1$ and if $\beta = 1 - \alpha$, then this maximum value is zero. Thus $e^z \ge \alpha z + \beta$ with $\alpha < 1$, $\beta = 1 - \alpha$.
+
+\textbf{(b)} By making use of the change of variables $x = \alpha y$, show that $xy \le \frac{x^p}{p} + \frac{y^q}{q}$ where $\alpha = 1/p$ and $\beta = 1 - 1/p = 1/q$.
+
+\textbf{(c)} Suppose now that $|f(x)|^p$ and $|g(x)|^q$ are integrable functions with $1/p + 1/q = 1$. Use the result of part (b) to show that
+\[
+\left|\int_a^b f(x)g(x)\,dx\right| \le \left[\int_a^b |f(x)|^p\,dx\right]^{1/p}\left[\int_a^b |g(x)|^q\,dx\right]^{1/q},
+\]
+so that $|fg|$ is also integrable.
+
+\textbf{(d)} Show that if $|f(x)|^p$ and $|g(x)|^q$ are integrable, then
+\[
+\left|\int f\bar{g}\,dx\right| \le \left[\int |f|^p\,dx\right]^{1/p}\left[\int |g|^q\,dx\right]^{1/q}.
+\]
+(\textit{Hint:} Apply part (c) to $F(x)=|f(x)|\left[\int|f|^p\,dx\right]^{-1/p}$ and $G(x)=|g(x)|\left[\int|g|^q\,dx\right]^{-1/q}$.)
+
+This result generalizes Schwarz's inequality of Hilbert space and is known as H\"older's inequality.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part (a):}
+Consider $f(z) = e^z - \alpha z - \beta$. Taking the derivative:
+\[
+f'(z) = e^z - \alpha.
+\]
+Setting $f'(z)=0$ gives $z = \ln\alpha$. Since $\alpha < 1$, $\ln\alpha < 0$. The second derivative $f''(z) = e^z > 0$ for all $z$, so this is a minimum, not a maximum. However, examining $f(z)$ at $z=0$:
+\[
+f(0) = 1 - \alpha\cdot 0 - \beta = 1 - \beta.
+\]
+With $\beta = 1-\alpha$, we get $f(0) = 1-(1-\alpha) = \alpha$. Actually, let us reconsider: the statement is that $f(z)$ achieves a \emph{minimum} at $z=\ln\alpha$ and with $\beta=1-\alpha$:
+\[
+f(0) = 1 - 0 - (1-\alpha) = \alpha > 0 \quad (\text{for } 0<\alpha<1).
+\]
+The key inequality is: since $e^z$ is convex and $\alpha z+\beta$ is the tangent line at $z = \ln\alpha$, we have
+\[
+e^z \ge \alpha z + 1 - \alpha
+\]
+for all real $z$, with equality when $z = \ln\alpha$. Equivalently, $e^z - \alpha z - (1-\alpha) \ge 0$ for all $z$. $\checkmark$
+
+\textbf{Part (b):}
+Set $z = \ln(xy^{q/p})$ in the inequality $e^z \ge \alpha z + 1 - \alpha$ with $\alpha = 1/p$, $1-\alpha = 1/q$:
+\[
+xy^{q/p} \ge \frac{1}{p}\ln(xy^{q/p}) + \frac{1}{q}.
+\]
+More directly: for $x,y>0$, substitute $z = \ln x - \ln y$ (or use the weighted AM--GM approach). With $\alpha=1/p$ and $1-\alpha=1/q$ where $1/p+1/q=1$, Young's inequality states:
+\[
+xy \le \frac{x^p}{p} + \frac{y^q}{q}.
+\]
+
+\textit{Proof:} From part (a), $e^z \ge \frac{z}{p} + \frac{1}{q}$ for all real $z$. Set $z = p\ln a + q\ln b - p\ln a$...
+
+More cleanly: by convexity of the exponential, for $t = 1/p$ and $1-t = 1/q$:
+\[
+e^{t\cdot u + (1-t)\cdot v} \le t\,e^u + (1-t)\,e^v.
+\]
+Set $e^u = x^p$ and $e^v = y^q$, so $u = p\ln x$, $v = q\ln y$:
+\[
+e^{(1/p)(p\ln x)+(1/q)(q\ln y)} = e^{\ln x + \ln y} = xy \le \frac{x^p}{p}+\frac{y^q}{q}. \quad\blacksquare
+\]
+
+\textbf{Part (c):}
+Let $F = \|f\|_p = \left[\int_a^b|f|^p\,dx\right]^{1/p}$ and $G = \|g\|_q = \left[\int_a^b|g|^q\,dx\right]^{1/q}$. If either is zero, the result is trivial. Otherwise, define
+\[
+\tilde{f}(x) = \frac{|f(x)|}{F}, \quad \tilde{g}(x) = \frac{|g(x)|}{G}.
+\]
+By Young's inequality from part (b):
+\[
+\tilde{f}(x)\tilde{g}(x) \le \frac{\tilde{f}(x)^p}{p} + \frac{\tilde{g}(x)^q}{q}.
+\]
+Integrating:
+\[
+\int_a^b \tilde{f}\tilde{g}\,dx \le \frac{1}{p}\int_a^b\frac{|f|^p}{F^p}\,dx + \frac{1}{q}\int_a^b\frac{|g|^q}{G^q}\,dx = \frac{1}{p}+\frac{1}{q}=1.
+\]
+Therefore:
+\[
+\int_a^b \frac{|f(x)||g(x)|}{FG}\,dx \le 1 \implies \int_a^b |f(x)g(x)|\,dx \le FG = \|f\|_p\|g\|_q.
+\]
+Since $\left|\int fg\,dx\right|\le\int|fg|\,dx$, H\"older's inequality follows. $\blacksquare$
+
+\textbf{Part (d):}
+Since $|f\bar{g}| = |f||g|$, the result of part (c) applies directly:
+\[
+\left|\int_a^b f(x)\overline{g(x)}\,dx\right| \le \int_a^b |f(x)\overline{g(x)}|\,dx = \int_a^b |f(x)||g(x)|\,dx \le \|f\|_p\|g\|_q. \quad\blacksquare
+\]
+
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 19}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Obtain an upper bound for the lowest eigenvalue of the quantum harmonic oscillator by taking as a trial function
+\[
+\psi = c\exp(-\alpha x^2/2).
+\]
+
+Note that this is exactly the result derived in Section 3.10.
+
+\bigskip
+\textbf{Solution.}
+
+The Hamiltonian for the quantum harmonic oscillator is:
+\[
+H = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \frac{1}{2}m\omega^2 x^2.
+\]
+
+We use the variational principle: for any normalized trial function $\psi$,
+\[
+E_0 \leq \langle\psi|H|\psi\rangle.
+\]
+
+\textbf{Step 1: Normalize the trial function.}
+
+$\psi = c\,e^{-\alpha x^2/2}$ with $\alpha > 0$. The normalization condition gives:
+\[
+\int_{-\infty}^{\infty}|c|^2 e^{-\alpha x^2}\,dx = |c|^2\sqrt{\frac{\pi}{\alpha}} = 1 \implies |c|^2 = \sqrt{\frac{\alpha}{\pi}}.
+\]
+
+\textbf{Step 2: Compute $\langle T\rangle$.}
+
+\[
+\frac{d\psi}{dx} = -c\alpha x\, e^{-\alpha x^2/2}, \quad \frac{d^2\psi}{dx^2} = c(-\alpha + \alpha^2 x^2)e^{-\alpha x^2/2}.
+\]
+
+\begin{align*}
+\langle T\rangle &= -\frac{\hbar^2}{2m}\int_{-\infty}^{\infty}\psi^*\frac{d^2\psi}{dx^2}\,dx = -\frac{\hbar^2}{2m}|c|^2\int_{-\infty}^{\infty}(-\alpha + \alpha^2 x^2)e^{-\alpha x^2}\,dx \\
+&= \frac{\hbar^2}{2m}|c|^2\left[\alpha\sqrt{\frac{\pi}{\alpha}} - \alpha^2\cdot\frac{1}{2\alpha}\sqrt{\frac{\pi}{\alpha}}\right] \\
+&= \frac{\hbar^2}{2m}|c|^2\cdot\frac{\alpha}{2}\sqrt{\frac{\pi}{\alpha}} = \frac{\hbar^2}{2m}\cdot\frac{\alpha}{2} = \frac{\hbar^2\alpha}{4m}.
+\end{align*}
+
+\textbf{Step 3: Compute $\langle V\rangle$.}
+
+\begin{align*}
+\langle V\rangle &= \frac{1}{2}m\omega^2|c|^2\int_{-\infty}^{\infty}x^2 e^{-\alpha x^2}\,dx = \frac{1}{2}m\omega^2\sqrt{\frac{\alpha}{\pi}}\cdot\frac{1}{2\alpha}\sqrt{\frac{\pi}{\alpha}} = \frac{m\omega^2}{4\alpha}.
+\end{align*}
+
+\textbf{Step 4: Minimize $E(\alpha) = \langle T\rangle + \langle V\rangle$.}
+
+\[
+E(\alpha) = \frac{\hbar^2\alpha}{4m} + \frac{m\omega^2}{4\alpha}.
+\]
+
+Setting $\frac{dE}{d\alpha} = 0$:
+\[
+\frac{\hbar^2}{4m} - \frac{m\omega^2}{4\alpha^2} = 0 \implies \alpha^2 = \frac{m^2\omega^2}{\hbar^2} \implies \alpha = \frac{m\omega}{\hbar}.
+\]
+
+\textbf{Step 5: Evaluate the minimum energy.}
+
+\[
+E_{\min} = \frac{\hbar^2}{4m}\cdot\frac{m\omega}{\hbar} + \frac{m\omega^2}{4}\cdot\frac{\hbar}{m\omega} = \frac{\hbar\omega}{4} + \frac{\hbar\omega}{4} = \frac{\hbar\omega}{2}.
+\]
+
+Therefore the upper bound is $E_0 \leq \frac{1}{2}\hbar\omega$.
+
+Since the exact ground state energy of the harmonic oscillator is $E_0 = \frac{1}{2}\hbar\omega$, our trial function is in fact the exact ground state wavefunction (a Gaussian with $\alpha = m\omega/\hbar$), and the variational bound is tight. \qed
+
+\end{document}

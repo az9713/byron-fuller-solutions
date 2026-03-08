@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 16}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.}
+\begin{itemize}
+\item[(a)] Find the eigenvalues and eigenvectors of the Lorentz transformation. Verify that the eigenvectors are null vectors.
+\item[(b)] Evaluate the determinant of the pure Lorentz matrix.
+\item[(c)] Any other matrix representation of the Lorentz transformation can be found by performing a similarity transformation on the matrix of Problem 14. What is the value of the determinant of any matrix representation of the Lorentz transformation?
+\end{itemize}
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{(a)} Consider the standard Lorentz boost in the $x$-direction (working in the $ct$-$x$ subspace):
+\[
+L = \begin{pmatrix} \gamma & -\beta\gamma \\ -\beta\gamma & \gamma \end{pmatrix}.
+\]
+
+The eigenvalue equation $\det(L - \lambda I) = 0$ gives:
+\[
+(\gamma - \lambda)^2 - \beta^2\gamma^2 = 0 \implies \gamma - \lambda = \pm\beta\gamma.
+\]
+\[
+\lambda_1 = \gamma(1-\beta) = \gamma\cdot\frac{1-\beta}{1} = \sqrt{\frac{1-\beta}{1+\beta}}, \quad \lambda_2 = \gamma(1+\beta) = \sqrt{\frac{1+\beta}{1-\beta}}.
+\]
+
+Note: $\lambda_1\lambda_2 = 1$, consistent with $\det L = 1$.
+
+\textbf{Eigenvectors:} For $\lambda_1 = \gamma(1-\beta)$:
+\[
+(\gamma - \lambda_1)\,v_1 - \beta\gamma\,v_2 = 0 \implies \beta\gamma\,v_1 = \beta\gamma\,v_2 \implies v_1 = v_2.
+\]
+So $\mathbf{e}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$, corresponding to $(ct, x)$ with $ct = x$.
+
+For $\lambda_2 = \gamma(1+\beta)$:
+\[
+(\gamma - \lambda_2)\,v_1 - \beta\gamma\,v_2 = 0 \implies -\beta\gamma\,v_1 = \beta\gamma\,v_2 \implies v_1 = -v_2.
+\]
+So $\mathbf{e}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$, corresponding to $ct = -x$.
+
+\textbf{Verification that eigenvectors are null:} Using the Minkowski metric $ds^2 = c^2t^2 - x^2$:
+\begin{align*}
+\text{For } \mathbf{e}_1: &\quad (ct)^2 - x^2 = 1 - 1 = 0. \checkmark \\
+\text{For } \mathbf{e}_2: &\quad (ct)^2 - x^2 = 1 - 1 = 0. \checkmark
+\end{align*}
+Both eigenvectors lie along the light cone and are therefore null vectors.
+
+\bigskip
+\textbf{(b)} As computed in Problem 12(a):
+\[
+\det L = \gamma^2(1-\beta^2) = \gamma^2 \cdot \frac{1}{\gamma^2} = 1.
+\]
+
+\bigskip
+\textbf{(c)} The determinant is invariant under similarity transformations:
+\[
+\det(P^{-1}LP) = \det(P^{-1})\det(L)\det(P) = \det(L) = 1.
+\]
+Therefore the determinant of any matrix representation of a proper Lorentz transformation is $+1$. \qed
+
+\end{document}

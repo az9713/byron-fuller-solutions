@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 15}
+
+\textbf{Problem:} In obtaining the Lippmann--Schwinger bound-state equation by the Fourier transform method, it almost appears that we applied no boundary conditions at all (no ``$a$-prescription'' was necessary) and yet we got a uniquely determined Green's function. Show that this is not actually the case, i.e., that we really did insert a boundary condition. Relate your discussion to the work in Section 7.2.
+
+\bigskip
+\textbf{Solution:}
+
+In the Fourier transform method for the bound-state problem ($E < 0$), we solve:
+\[
+\Bigl(-\frac{d^2}{dx^2} + \kappa^2\Bigr)G(x,x') = \delta(x-x'),
+\]
+where $\kappa^2 = -k^2 > 0$.
+
+Taking the Fourier transform:
+\[
+(p^2 + \kappa^2)\tilde{G}(p) = e^{-ipx'},
+\]
+so
+\[
+\tilde{G}(p) = \frac{e^{-ipx'}}{p^2 + \kappa^2}.
+\]
+
+The crucial point is that the denominator $p^2 + \kappa^2$ \textbf{has no real zeros} when $\kappa^2 > 0$. The poles are at $p = \pm i\kappa$, both on the imaginary axis. Therefore, the Fourier inversion integral:
+\[
+G(x,x') = \int_{-\infty}^{\infty} \frac{e^{ip(x-x')}}{p^2 + \kappa^2}\,\frac{dp}{2\pi}
+\]
+is unambiguous --- no $i\epsilon$ prescription is needed because the integration contour (the real axis) does not pass through any singularities.
+
+The boundary condition is \textbf{implicitly imposed} by requiring that $G$ be a Fourier-transformable function, i.e., that $G \in L^2(\mathbb{R})$ (square-integrable) or at least that $G \to 0$ as $|x| \to \infty$. This is a very specific boundary condition: it selects the unique Green's function that decays at both $\pm\infty$.
+
+Evaluating by contour integration (closing in the upper half-plane for $x > x'$ and in the lower half-plane for $x < x'$):
+\[
+G(x,x') = \frac{e^{-\kappa|x-x'|}}{2\kappa},
+\]
+which indeed decays exponentially at infinity.
+
+\textbf{Relation to Section 7.2:} In Section 7.2, the Green's function is constructed by finding two solutions that satisfy the boundary conditions at each endpoint and matching them at $x = x'$. Here, $e^{-\kappa x}$ decays as $x \to +\infty$ and $e^{+\kappa x}$ decays as $x \to -\infty$. The Green's function is their product (divided by the Wronskian), which is exactly what the Fourier method produces automatically.
+
+For the scattering case ($E > 0$), the poles $p = \pm k$ lie on the real axis, and the Fourier integral \textit{is} ambiguous --- one must specify an $i\epsilon$ prescription (outgoing vs.\ incoming waves), corresponding to a genuine physical boundary-condition choice. The fact that no such choice was needed for $E < 0$ is because the decay boundary condition is the only physical option, and it is automatically built into the requirement of Fourier transformability. $\blacksquare$
+
+\end{document}

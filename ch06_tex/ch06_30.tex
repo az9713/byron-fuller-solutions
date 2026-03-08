@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 30.} What are the positions and natures of the singularities and the residues at these singularities of the following functions in the $z$-plane, excluding the point at infinity?
+
+(a) $f(z) = \cot z$, \qquad (b) $f(z) = \dfrac{1}{e^z - 1}$.
+
+[\textit{Note:} Both these functions have nonisolated and hence essential singularities at infinity because the origin for $f(1/z)$ and $f(1/z)$ is a limit point of poles.]
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{(a) $f(z) = \cot z = \cos z / \sin z$:}
+
+Singularities occur where $\sin z = 0$, i.e., at $z_n = n\pi$ for all $n \in \mathbb{Z}$.
+
+At each $z_n$: $\sin z$ has a simple zero (since $\sin'(n\pi) = \cos(n\pi) = (-1)^n \neq 0$), and $\cos(n\pi) = (-1)^n \neq 0$.
+
+Therefore $\cot z$ has a \textbf{simple pole} at each $z_n = n\pi$.
+
+Residue:
+\[
+\text{Res}_{z=n\pi}\cot z = \frac{\cos(n\pi)}{(\sin z)'|_{z=n\pi}} = \frac{(-1)^n}{(-1)^n} = 1.
+\]
+
+All residues equal $1$.
+
+\textbf{(b) $f(z) = 1/(e^z-1)$:}
+
+Singularities occur where $e^z = 1$, i.e., $z_n = 2n\pi i$ for all $n \in \mathbb{Z}$.
+
+At each $z_n$: $e^z - 1$ has a simple zero (since $(e^z)' = e^z$, and $e^{2n\pi i} = 1 \neq 0$).
+
+Therefore $1/(e^z-1)$ has a \textbf{simple pole} at each $z_n = 2n\pi i$.
+
+Residue:
+\[
+\text{Res}_{z=2n\pi i}\frac{1}{e^z-1} = \frac{1}{(e^z)'|_{z=2n\pi i}} = \frac{1}{e^{2n\pi i}} = 1.
+\]
+
+All residues equal $1$.
+
+\textbf{Note on infinity:} In both cases, the poles $z_n$ have no finite accumulation point, but they do accumulate at $\infty$. Under the transformation $w = 1/z$, the origin $w = 0$ becomes a limit point of singularities, making it a non-isolated essential singularity. Therefore, $z = \infty$ is an essential singularity for both functions.
+
+\end{document}

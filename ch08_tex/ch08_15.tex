@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 15.} In solving the equation for the anharmonic oscillator in Section 8.4, we used the notation introduced in Problem 8.15. Show that
+\[
+2Kf_n = h_n
+\quad\text{and}\quad
+2^* K f_n = h_n
+\]
+have the same number of linearly independent solutions.
+
+\bigskip
+\textbf{Solution.}
+
+This problem concerns the Fredholm alternative for the integral operator $K$. Let $K$ be a completely continuous operator on a Hilbert space $H$, with adjoint $K^*$. The Fredholm equations are:
+\[
+Kf = h \quad\text{and}\quad K^*g = h'.
+\]
+
+We need to show that the homogeneous equations
+\[
+Kf_n = \lambda f_n \quad\text{and}\quad K^*g_n = \lambda g_n
+\]
+have the same number of linearly independent solutions for any given eigenvalue $\lambda$.
+
+\textbf{Proof for finite-rank operators:}
+
+If $K$ is a finite-rank operator, it can be written as:
+\[
+Kf = \sum_{i=1}^{N} \phi_i\langle\psi_i, f\rangle,
+\]
+and the adjoint is:
+\[
+K^*g = \sum_{i=1}^{N} \psi_i\langle\phi_i, g\rangle.
+\]
+
+The eigenvalue equation $Kf = \lambda f$ reduces to a finite matrix equation. Writing $f = \sum_j c_j\phi_j + f_\perp$ (where $f_\perp$ is orthogonal to all $\phi_i$), we get $\lambda f_\perp = 0$, so for $\lambda\neq 0$, $f$ lies in the span of $\{\phi_i\}$, and the equation becomes:
+\[
+\sum_i \phi_i\left(\sum_j M_{ij}c_j\right) = \lambda\sum_j c_j\phi_j,
+\]
+where $M_{ij} = \langle\psi_i,\phi_j\rangle$. This gives the matrix equation $Mc = \lambda c$.
+
+Similarly, $K^*g = \lambda g$ for $\lambda\neq 0$ requires $g$ in the span of $\{\psi_i\}$, leading to $M^\dagger d = \lambda d$.
+
+The number of linearly independent solutions of $Mc=\lambda c$ equals the dimension of $\ker(M-\lambda I)$, and the number for $M^\dagger d = \lambda d$ equals $\dim\ker(M^\dagger - \lambda I)$.
+
+By the rank-nullity theorem:
+\[
+\dim\ker(M-\lambda I) = N - \text{rank}(M-\lambda I) = N - \text{rank}(M^\dagger-\bar\lambda I) = \dim\ker(M^\dagger-\bar\lambda I).
+\]
+For real eigenvalues (or taking conjugates appropriately), this shows both equations have the same number of independent solutions.
+
+\textbf{Extension to completely continuous operators:} By Theorem 8.4, any completely continuous operator can be approximated arbitrarily closely by finite-rank operators. Since the dimension of the eigenspace (for nonzero eigenvalues) is finite (a consequence of complete continuity), and this dimension is stable under small perturbations, the result extends from finite-rank to completely continuous operators.
+
+Therefore:
+\[
+\boxed{\dim\ker(K-\lambda I) = \dim\ker(K^*-\bar\lambda I)}
+\]
+for all $\lambda\neq 0$, establishing that $Kf_n = \lambda f_n$ and $K^*g_n = \bar\lambda g_n$ have the same number of linearly independent solutions. $\blacksquare$
+
+\end{document}

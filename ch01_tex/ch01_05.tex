@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\begin{document}
+
+\section*{Problem 5}
+
+\textbf{Problem:} Prove that $\varepsilon_{ijk}\,\varepsilon_{ijk} = 6$.
+
+\bigskip
+\textbf{Solution:}
+
+The Levi-Civita symbol $\varepsilon_{ijk}$ is defined by:
+\[
+\varepsilon_{ijk} = \begin{cases}
++1 & \text{if $(i,j,k)$ is an even permutation of $(1,2,3)$}, \\
+-1 & \text{if $(i,j,k)$ is an odd permutation of $(1,2,3)$}, \\
+\;\;0 & \text{if any two indices are equal}.
+\end{cases}
+\]
+
+The expression $\varepsilon_{ijk}\,\varepsilon_{ijk}$ uses the Einstein summation convention---we sum over all values of $i$, $j$, and $k$ from 1 to 3:
+\[
+\varepsilon_{ijk}\,\varepsilon_{ijk} = \sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3} (\varepsilon_{ijk})^2.
+\]
+
+Since $\varepsilon_{ijk}^2$ equals either 0 or 1, the sum counts the number of index combinations $(i,j,k)$ for which $\varepsilon_{ijk} \neq 0$, i.e., the number of permutations of $(1,2,3)$.
+
+The nonzero values of $\varepsilon_{ijk}$ correspond to all permutations of the distinct indices $(1,2,3)$. These are:
+\begin{center}
+\begin{tabular}{ccc}
+\textbf{Even permutations} ($\varepsilon = +1$): & \textbf{Odd permutations} ($\varepsilon = -1$): \\[4pt]
+$(1,2,3)$ & $(1,3,2)$ \\
+$(2,3,1)$ & $(3,2,1)$ \\
+$(3,1,2)$ & $(2,1,3)$
+\end{tabular}
+\end{center}
+
+There are $3! = 6$ permutations of three distinct objects. For each of these, $\varepsilon_{ijk}^2 = (\pm 1)^2 = 1$.
+
+Therefore:
+\[
+\varepsilon_{ijk}\,\varepsilon_{ijk} = \sum_{\text{permutations}} 1 = \boxed{6}.
+\]
+
+\hfill $\blacksquare$
+
+\medskip
+\textit{Alternative proof using the identity} $\varepsilon_{ijk}\,\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}$ (Eq.~1.30 in Byron \& Fuller):
+
+Setting $m = j$ and $n = k$:
+\[
+\varepsilon_{ijk}\,\varepsilon_{ijk} = \delta_{jj}\delta_{kk} - \delta_{jk}\delta_{kj} = (3)(3) - \delta_{jj} = 9 - 3 = 6.
+\]
+
+Here we used $\delta_{jj} = 3$ (trace of the identity in 3D) and $\delta_{jk}\delta_{kj} = \delta_{jj} = 3$.
+
+\end{document}

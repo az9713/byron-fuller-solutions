@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 13}
+
+\textbf{Problem.} Prove that $\operatorname{tr}(AB) = \operatorname{tr}(BA)$ for arbitrary $n \times n$ matrices $A$ and $B$. Use this result to prove that if $C$ and $D$ are similar, then $\operatorname{tr}(C) = \operatorname{tr}(D)$.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part 1:} $\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
+
+By definition of the trace:
+\[
+\operatorname{tr}(AB) = \sum_{i=1}^{n} (AB)_{ii} = \sum_{i=1}^{n} \sum_{j=1}^{n} A_{ij} B_{ji}.
+\]
+Similarly:
+\[
+\operatorname{tr}(BA) = \sum_{j=1}^{n} (BA)_{jj} = \sum_{j=1}^{n} \sum_{i=1}^{n} B_{ji} A_{ij}.
+\]
+Since these are finite double sums of the same terms $A_{ij}B_{ji}$ (just with the order of summation interchanged), they are equal:
+\[
+\operatorname{tr}(AB) = \sum_{i,j} A_{ij}B_{ji} = \operatorname{tr}(BA). \quad \checkmark
+\]
+
+\medskip
+\textbf{Part 2:} If $C$ and $D$ are similar, i.e., $D = P^{-1}CP$ for some invertible matrix $P$, then:
+\[
+\operatorname{tr}(D) = \operatorname{tr}(P^{-1}CP).
+\]
+Using the cyclic property of the trace (which follows from Part 1), let $A = P^{-1}C$ and $B = P$:
+\[
+\operatorname{tr}(P^{-1}CP) = \operatorname{tr}(P \cdot P^{-1}C) = \operatorname{tr}(C).
+\]
+
+Therefore $\operatorname{tr}(D) = \operatorname{tr}(C)$. The trace is invariant under similarity transformations. \hfill $\blacksquare$
+
+\end{document}

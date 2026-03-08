@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 20}
+
+\textbf{Problem:} Using the eigenfunction expansion method, show that the potential energy in a two-dimensional, charge-free region bounded by circles of radii $R_1$ and $R_2$ is given by
+\[
+V(r,\theta) = \oint G_1(r,\theta;\,R_1,\theta')\frac{\partial V}{\partial r'}\bigg|_{r'=R_1}R_1\,d\theta' + \oint G_2(r,\theta;\,R_2,\theta')\frac{\partial V}{\partial r'}\bigg|_{r'=R_2}R_2\,d\theta',
+\]
+where $V(R_1,\theta)$ is the known value of the potential on the first surface as a function of $\theta$, and $V(R_2,\theta')$ is its value on the second surface. Find the eigenfunction expansion of $G_1$ and $G_2$, using the fact that $\nabla^2 V = 0$ is an Hermitian operator if one imposes periodic boundary conditions on $(0,2\pi)$. Why do we require such conditions? Does the result you expect? Show that $G_1(R_1,\theta;R_1,\theta') = \delta(\theta-\theta')$ and $G_1(R_2,\theta;R_2,\theta') = 0$, and give the result you expect.
+
+\bigskip
+\textbf{Solution:}
+
+In the annular region $R_1 \le r \le R_2$, Laplace's equation in polar coordinates is:
+\[
+\nabla^2 V = \frac{1}{r}\frac{\partial}{\partial r}\Bigl(r\frac{\partial V}{\partial r}\Bigr) + \frac{1}{r^2}\frac{\partial^2 V}{\partial\theta^2} = 0.
+\]
+
+\textbf{Periodic BCs:} We require $V(\theta + 2\pi) = V(\theta)$ since $\theta$ is an angular variable. This makes the angular part of $\nabla^2$ Hermitian.
+
+\textbf{Separation of variables:} Write $V(r,\theta) = R(r)\Theta(\theta)$. The angular equation gives $\Theta'' = -n^2\Theta$ with solutions $e^{in\theta}$, $n = 0, \pm 1, \pm 2, \ldots$
+
+The radial equation for $n \neq 0$ gives $R(r) = A_n r^n + B_n r^{-n}$, and for $n = 0$: $R = A_0 + B_0\ln r$.
+
+\textbf{Green's function construction:} The Green's function for Laplace's equation in the annular region satisfies:
+\[
+\nabla^2 G = \frac{1}{r}\delta(r-r')\delta(\theta-\theta')
+\]
+with $G = 0$ on both boundaries $r = R_1$ and $r = R_2$.
+
+For each angular mode $n$, the radial Green's function is constructed from two solutions: one vanishing at $R_1$ and one vanishing at $R_2$.
+
+For $n \neq 0$, the solution vanishing at $R_1$ is $\phi_1(r) = r^n - R_1^{2n}r^{-n}$ and the solution vanishing at $R_2$ is $\phi_2(r) = r^n - R_2^{2n}r^{-n}$.
+
+The Green's function is:
+\[
+G(r,\theta;r',\theta') = \frac{1}{2\pi}\sum_{n=-\infty}^{\infty}g_n(r,r')\,e^{in(\theta-\theta')},
+\]
+where $g_n(r,r')$ is the radial Green's function for mode $n$, constructed from $\phi_1$ and $\phi_2$ in the standard way.
+
+The boundary Green's functions $G_1$ and $G_2$ are obtained via Green's theorem. For the Dirichlet problem where $V$ is specified on the boundaries:
+\[
+V(r,\theta) = -\oint_{R_1} V(R_1,\theta')\frac{\partial G}{\partial r'}\bigg|_{r'=R_1}R_1\,d\theta' - \oint_{R_2}V(R_2,\theta')\frac{\partial G}{\partial r'}\bigg|_{r'=R_2}R_2\,d\theta'.
+\]
+
+We identify:
+\[
+G_1(r,\theta;R_1,\theta') = -R_1\frac{\partial G}{\partial r'}\bigg|_{r'=R_1}, \quad G_2(r,\theta;R_2,\theta') = -R_2\frac{\partial G}{\partial r'}\bigg|_{r'=R_2}.
+\]
+
+\textbf{Verification:} At $r = R_1$: $G(R_1,\theta;r',\theta') = 0$ for all $r'$ in the interior. But $\partial G/\partial r'|_{r'=R_1}$ contains the delta function information. Specifically:
+\[
+G_1(R_1,\theta;R_1,\theta') = \delta(\theta - \theta'),
+\]
+which ensures that $V(R_1,\theta) = \int V(R_1,\theta')\delta(\theta-\theta')\,d\theta' = V(R_1,\theta)$. $\checkmark$
+
+Similarly, $G_1(R_2,\theta;R_1,\theta') = 0$ because the Green's function vanishes at $r = R_2$, so specifying $V$ on the inner boundary does not directly contribute at the outer boundary (the contribution comes through $G_2$ instead). $\blacksquare$
+
+\end{document}

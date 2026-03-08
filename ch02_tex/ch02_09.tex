@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 2, Problem 9}
+
+\subsection*{Problem Statement}
+Show that if $\psi$ and $\psi^*$ are taken as two independent field variables (dependent variables), the real Lagrangian density
+\[
+  \mathscr{L} = \frac{\hbar^2}{2m}\nabla\psi^*\cdot\nabla\psi + V\psi^*\psi + \frac{i\hbar}{2}\left(\psi^*\dot{\psi} - \dot{\psi}^*\psi\right),
+\]
+where $\dot{\psi} = \partial\psi/\partial t$, leads to the time-dependent Schr\"odinger equation
+\[
+  -\frac{\hbar^2}{2m}\nabla^2\psi + V\psi = i\hbar\frac{\partial\psi}{\partial t}
+\]
+and its complex conjugate.
+
+\subsection*{Solution}
+
+We treat $\psi$ and $\psi^*$ as independent field variables with independent variables $(x,y,z,t)$. The action is
+\[
+  S = \int \mathscr{L}\,d^3x\,dt.
+\]
+
+\subsubsection*{Euler--Lagrange equation for $\psi^*$:}
+
+The Euler--Lagrange equation with respect to $\psi^*$ is:
+\[
+  \frac{\partial\mathscr{L}}{\partial\psi^*}
+  - \frac{\partial}{\partial t}\frac{\partial\mathscr{L}}{\partial\dot{\psi}^*}
+  - \sum_{k=1}^{3}\frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi^*/\partial x_k)}
+  = 0.
+\]
+
+Computing each term:
+
+1) $\dfrac{\partial\mathscr{L}}{\partial\psi^*} = V\psi + \dfrac{i\hbar}{2}\dot{\psi}$
+
+2) $\dfrac{\partial\mathscr{L}}{\partial\dot{\psi}^*} = -\dfrac{i\hbar}{2}\psi$, so $\dfrac{\partial}{\partial t}\dfrac{\partial\mathscr{L}}{\partial\dot{\psi}^*} = -\dfrac{i\hbar}{2}\dot{\psi}$
+
+3) $\dfrac{\partial\mathscr{L}}{\partial(\partial\psi^*/\partial x_k)} = \dfrac{\hbar^2}{2m}\dfrac{\partial\psi}{\partial x_k}$, so $\displaystyle\sum_k \frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi^*/\partial x_k)} = \frac{\hbar^2}{2m}\nabla^2\psi$
+
+Substituting into the Euler--Lagrange equation:
+\[
+  V\psi + \frac{i\hbar}{2}\dot{\psi} - \left(-\frac{i\hbar}{2}\dot{\psi}\right) - \frac{\hbar^2}{2m}\nabla^2\psi = 0,
+\]
+\[
+  V\psi + \frac{i\hbar}{2}\dot{\psi} + \frac{i\hbar}{2}\dot{\psi} - \frac{\hbar^2}{2m}\nabla^2\psi = 0,
+\]
+\[
+  -\frac{\hbar^2}{2m}\nabla^2\psi + V\psi + i\hbar\dot{\psi} = 0.
+\]
+
+Rearranging:
+\[
+  \boxed{-\frac{\hbar^2}{2m}\nabla^2\psi + V\psi = i\hbar\frac{\partial\psi}{\partial t}.}
+\]
+This is the time-dependent Schr\"odinger equation.
+
+\subsubsection*{Euler--Lagrange equation for $\psi$:}
+
+The Euler--Lagrange equation with respect to $\psi$ is:
+\[
+  \frac{\partial\mathscr{L}}{\partial\psi}
+  - \frac{\partial}{\partial t}\frac{\partial\mathscr{L}}{\partial\dot{\psi}}
+  - \sum_k \frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi/\partial x_k)}
+  = 0.
+\]
+
+Computing:
+
+1) $\dfrac{\partial\mathscr{L}}{\partial\psi} = V\psi^* - \dfrac{i\hbar}{2}\dot{\psi}^*$
+
+2) $\dfrac{\partial\mathscr{L}}{\partial\dot{\psi}} = \dfrac{i\hbar}{2}\psi^*$, so $\dfrac{\partial}{\partial t}\dfrac{\partial\mathscr{L}}{\partial\dot{\psi}} = \dfrac{i\hbar}{2}\dot{\psi}^*$
+
+3) $\dfrac{\partial\mathscr{L}}{\partial(\partial\psi/\partial x_k)} = \dfrac{\hbar^2}{2m}\dfrac{\partial\psi^*}{\partial x_k}$, so $\displaystyle\sum_k \frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi/\partial x_k)} = \frac{\hbar^2}{2m}\nabla^2\psi^*$
+
+Substituting:
+\[
+  V\psi^* - \frac{i\hbar}{2}\dot{\psi}^* - \frac{i\hbar}{2}\dot{\psi}^* - \frac{\hbar^2}{2m}\nabla^2\psi^* = 0,
+\]
+\[
+  -\frac{\hbar^2}{2m}\nabla^2\psi^* + V\psi^* - i\hbar\dot{\psi}^* = 0,
+\]
+\[
+  \boxed{-\frac{\hbar^2}{2m}\nabla^2\psi^* + V\psi^* = -i\hbar\frac{\partial\psi^*}{\partial t},}
+\]
+which is the complex conjugate of the Schr\"odinger equation.
+
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.29}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[(i)] What is the expectation value of the operator $X$ of Problem 5.26 in the state $\Psi(x) = (1/\pi^{1/4})e^{-x^2/2}$?
+\item[(ii)] What is the dispersion, $\Delta_\Psi X$, about this average value?
+\item[(iii)] What is the expectation value of the $p_x = -i\hbar\,d/dx$ in the above state?
+\item[(iv)] What is the dispersion, $\Delta_\Psi p_x$, about this average value?
+\end{itemize}
+
+Note that as the dispersion in $X$ gets smaller (i.e., as $a$ gets smaller, which means that the wave function $\Psi$ becomes more sharply peaked about $x = 0$), the dispersion in $p_x$ gets larger. The product of the two dispersions, $\Delta_\Psi X \cdot \Delta_\Psi p_x$, is a constant, equal to $\hbar/2$. One can show that for any state $\Psi$, we must always have $\Delta_\Psi X \cdot \Delta_\Psi p_x \geq \hbar/2$.
+
+\bigskip
+\textbf{Solution:}
+
+The state is $\Psi(x) = \pi^{-1/4}e^{-x^2/2}$, which is a normalized Gaussian:
+\[
+\int_{-\infty}^{\infty}|\Psi|^2\,dx = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-x^2}\,dx = \frac{1}{\sqrt{\pi}}\cdot\sqrt{\pi} = 1. \quad\checkmark
+\]
+
+\subsection*{(i) Expectation value of $X$}
+
+\[
+\langle X\rangle = \int_{-\infty}^{\infty}\Psi^*(x)\,x\,\Psi(x)\,dx = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}x\,e^{-x^2}\,dx = 0,
+\]
+since the integrand is odd.
+
+\[
+\boxed{\langle X\rangle = 0.}
+\]
+
+\subsection*{(ii) Dispersion of $X$}
+
+\[
+\langle X^2\rangle = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}x^2\,e^{-x^2}\,dx = \frac{1}{\sqrt{\pi}}\cdot\frac{\sqrt{\pi}}{2} = \frac{1}{2}.
+\]
+
+The dispersion (standard deviation) is:
+\[
+\Delta_\Psi X = \sqrt{\langle X^2\rangle - \langle X\rangle^2} = \sqrt{\frac{1}{2} - 0} = \frac{1}{\sqrt{2}}.
+\]
+
+\[
+\boxed{\Delta_\Psi X = \frac{1}{\sqrt{2}}.}
+\]
+
+\subsection*{(iii) Expectation value of $p_x$}
+
+\[
+\langle p_x\rangle = \int_{-\infty}^{\infty}\Psi^*(x)\left(-i\hbar\frac{d}{dx}\right)\Psi(x)\,dx.
+\]
+
+\[
+\frac{d\Psi}{dx} = \pi^{-1/4}(-x)e^{-x^2/2} = -x\Psi(x).
+\]
+
+\[
+\langle p_x\rangle = -i\hbar\cdot\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}(-x)e^{-x^2}\,dx = \frac{i\hbar}{\sqrt{\pi}}\int_{-\infty}^{\infty}x\,e^{-x^2}\,dx = 0,
+\]
+since the integrand is odd.
+
+\[
+\boxed{\langle p_x\rangle = 0.}
+\]
+
+\subsection*{(iv) Dispersion of $p_x$}
+
+\[
+\langle p_x^2\rangle = \int_{-\infty}^{\infty}\Psi^*\left(-\hbar^2\frac{d^2}{dx^2}\right)\Psi\,dx.
+\]
+
+\[
+\frac{d^2\Psi}{dx^2} = \frac{d}{dx}(-x\Psi) = -\Psi + x^2\Psi = (x^2 - 1)\Psi.
+\]
+
+\[
+\langle p_x^2\rangle = -\hbar^2\cdot\frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}(x^2-1)e^{-x^2}\,dx = -\hbar^2\left(\frac{1}{2} - 1\right) = \frac{\hbar^2}{2}.
+\]
+
+\[
+\Delta_\Psi p_x = \sqrt{\langle p_x^2\rangle - \langle p_x\rangle^2} = \sqrt{\frac{\hbar^2}{2}} = \frac{\hbar}{\sqrt{2}}.
+\]
+
+\[
+\boxed{\Delta_\Psi p_x = \frac{\hbar}{\sqrt{2}}.}
+\]
+
+\subsection*{Uncertainty product}
+
+\[
+\Delta_\Psi X \cdot \Delta_\Psi p_x = \frac{1}{\sqrt{2}}\cdot\frac{\hbar}{\sqrt{2}} = \frac{\hbar}{2}.
+\]
+
+This saturates the Heisenberg uncertainty principle $\Delta X\cdot\Delta p \geq \hbar/2$. The Gaussian wave function is the \textbf{minimum uncertainty state}.
+
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 12}
+
+\textbf{Problem:} This Green's function was used in Problem 10 to convert Schr\"odinger's differential equation into the Lippmann--Schwinger integral equation. Show that a general solution to the equation
+\[
+X''(r) + k^2 X(r) = F(r)
+\]
+can be written in terms of the function $G(r,r')$ as
+\[
+X(r) = A\cos kr + B\sin kr + \int G(r,r')F(r')\,dr',
+\]
+where $A$ and $B$ are to be determined in terms of the boundary conditions. For classical mechanical one-point boundary conditions, they will clearly depend on $F$. Show that if we require $x(0) = x_0$ and $x'(0) = 0$, then the equation reduces to the familiar result.
+
+\bigskip
+\textbf{Solution:}
+
+The Green's function for the operator $d^2/dx^2 + k^2$ on $[0,\infty)$ with outgoing boundary condition is:
+\[
+G(r,r') = -\frac{1}{k}\sin k(r - r')\,\theta(r-r') = -\frac{1}{k}\sin k|r-r'|/2 \cdot\ldots
+\]
+
+More precisely, the causal (retarded) Green's function satisfying $G(r,r')=0$ for $r < r'$ is:
+\[
+G(r,r') = \frac{\sin k(r-r')}{k}\,\theta(r-r').
+\]
+
+This can be verified: for $r > r'$, $G'' + k^2 G = 0$; at $r = r'$, $G$ is continuous (value 0), and $G'$ jumps by 1.
+
+The general solution to $X'' + k^2 X = F(r)$ is:
+\[
+X(r) = A\cos kr + B\sin kr + \frac{1}{k}\int_0^r \sin k(r-r')\,F(r')\,dr'.
+\]
+
+\textbf{Applying boundary conditions $X(0) = x_0$, $X'(0) = 0$:}
+
+At $r = 0$: The integral vanishes (limits coincide), so $X(0) = A = x_0$.
+
+For the derivative:
+\[
+X'(r) = -Ak\sin kr + Bk\cos kr + \int_0^r \cos k(r-r')\,F(r')\,dr'.
+\]
+At $r = 0$: $X'(0) = Bk = 0$, so $B = 0$.
+
+Therefore:
+\[
+X(r) = x_0\cos kr + \frac{1}{k}\int_0^r \sin k(r-r')\,F(r')\,dr'.
+\]
+
+This is the familiar result: the first term is the homogeneous solution satisfying the initial conditions, and the integral is the particular solution (Duhamel's principle / variation of parameters). For example, if $F = 0$, we recover simple harmonic motion $X(r) = x_0\cos kr$. $\blacksquare$
+
+\end{document}

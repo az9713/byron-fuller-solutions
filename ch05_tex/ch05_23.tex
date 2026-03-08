@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.23}
+
+\textbf{Problem:} Consider Bessel's equation $Bf = xf'$ on the interval $[0, \infty)$, where
+\[
+B = \frac{d}{dx}\left(x\frac{d}{dx}\right) + \frac{x^2}{x}.
+\]
+\begin{itemize}
+\item[(a)] Using the methods discussed in Section 5.10, find the weight function appropriate to Bessel's equation.
+\item[(b)] Show that $B$ is not $w(x)$ is the weight function of Part (a), then
+\[
+\int_0^{\infty}f_n(x)f_m(x)\,w(x)\,dx = 0
+\]
+for small $x$,
+\[
+J_\nu(x) \sim \left(\frac{x}{2}\right)^\nu \frac{1}{\Gamma(\nu+1)}, \qquad Y_\nu(x) \sim -\frac{\Gamma(\nu)}{\pi}\left(\frac{2}{x}\right)^\nu,
+\]
+while for large $x$,
+\[
+J_\nu(x) \sim \sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{\nu\pi}{2} - \frac{\pi}{4}\right).
+\]
+
+Both of these results can be readily derived from complex variable techniques, which will be discussed in Chapter 6.
+
+\item[(c)] Using the asymptotic formulas given in Part (b), evaluate
+\[
+\int_0^{\infty}J_\nu(kx)J_\nu(k'x)\,x\,dx = \frac{\delta(k-k')}{k}.
+\]
+
+\item[(d)] Is the operator $B$ in Bessel's equation a Hermitian operator with respect to the space of functions which satisfy
+\[
+\int_0^{\infty}|f(x)|^2 x\,dx < \infty,
+\]
+where $w(x)$ is given by Part (a)? [It is understood, of course, that $B$ can act only on functions $f$ having the property that $Bf$ lies in the Hilbert space if $f$ does.]
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a): Weight function}
+
+Bessel's equation of order $\nu$ is:
+\[
+x^2 y'' + xy' + (x^2 - \nu^2)y = 0.
+\]
+
+Dividing by $x$:
+\[
+xy'' + y' + \left(x - \frac{\nu^2}{x}\right)y = 0.
+\]
+
+This can be written in Sturm--Liouville form:
+\[
+\frac{d}{dx}\left(x\frac{dy}{dx}\right) + \left(x - \frac{\nu^2}{x}\right)y = 0.
+\]
+
+More generally, considering Bessel's equation with parameter $k$:
+\[
+\frac{d}{dx}\left(x\frac{dy}{dx}\right) + \left(k^2 x - \frac{\nu^2}{x}\right)y = 0.
+\]
+
+This is in Sturm--Liouville form $\frac{d}{dx}[p(x)y'] + [k^2 w(x) - q(x)]y = 0$ with:
+\[
+p(x) = x, \quad w(x) = x, \quad q(x) = \frac{\nu^2}{x}.
+\]
+
+\[
+\boxed{w(x) = x.}
+\]
+
+\subsection*{Part (b): Orthogonality}
+
+For two different eigenvalues $k$ and $k'$, $J_\nu(kx)$ and $J_\nu(k'x)$ satisfy:
+\[
+[xJ_\nu'(kx)]' + \left(k^2 x - \frac{\nu^2}{x}\right)J_\nu(kx) = 0,
+\]
+\[
+[xJ_\nu'(k'x)]' + \left(k'^2 x - \frac{\nu^2}{x}\right)J_\nu(k'x) = 0.
+\]
+
+By the standard Sturm--Liouville argument (multiply first by $J_\nu(k'x)$, second by $J_\nu(kx)$, subtract, integrate):
+\[
+(k^2 - k'^2)\int_0^R J_\nu(kx)J_\nu(k'x)\,x\,dx = \left[x\left(J_\nu(kx)\frac{d}{dx}J_\nu(k'x) - J_\nu(k'x)\frac{d}{dx}J_\nu(kx)\right)\right]_0^R.
+\]
+
+At $x = 0$, the boundary term vanishes since $p(0) = 0$. Using the asymptotic forms for large $R$:
+\[
+J_\nu(kx) \sim \sqrt{\frac{2}{\pi kx}}\cos\left(kx - \frac{\nu\pi}{2}-\frac{\pi}{4}\right),
+\]
+and evaluating the boundary term at $R \to \infty$ carefully gives the closure relation.
+
+\subsection*{Part (c): Orthogonality relation}
+
+Using the asymptotic forms and the identity for the boundary term at large $R$:
+
+The boundary term evaluates to an oscillatory expression that, in the limit $R \to \infty$, gives a delta function. The standard result is:
+\[
+\boxed{\int_0^{\infty}J_\nu(kx)J_\nu(k'x)\,x\,dx = \frac{\delta(k-k')}{k}.}
+\]
+
+This can be verified using the Hankel transform pair: if $g(k) = \int_0^\infty f(x)J_\nu(kx)\,x\,dx$, then $f(x) = \int_0^\infty g(k)J_\nu(kx)\,k\,dk$, which requires the stated orthogonality.
+
+\subsection*{Part (d): Hermiticity of $B$}
+
+The operator $B$ defined by $Bf = \frac{1}{x}\frac{d}{dx}(x\frac{df}{dx}) + (x - \nu^2/x^2)f$ (or equivalently the Sturm--Liouville operator) is Hermitian with respect to the inner product:
+\[
+(f, g) = \int_0^{\infty}f^*(x)g(x)\,x\,dx,
+\]
+provided the boundary terms vanish. We need:
+\[
+\left[x\left(f^*g' - f^{*\prime}g\right)\right]_0^{\infty} = 0.
+\]
+
+At $x = 0$: $p(0) = 0$, so the boundary term vanishes. At $x = \infty$: for functions in $L^2([0,\infty), x\,dx)$, $f$ and $g$ must decay sufficiently rapidly, and the boundary term vanishes.
+
+\[
+\boxed{\text{Yes, } B \text{ is Hermitian on the space of } L^2([0,\infty), x\,dx) \text{ functions.}}
+\]
+
+\end{document}

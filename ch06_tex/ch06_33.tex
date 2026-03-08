@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 33.} Consider the problem of evaluating the integral of $z^{1/n}$ from $A$ to $D$ along the circular path $C_1$ shown in Fig.\ 6.24. We take the cut to lie along the ray $\theta = 0$ and define $z^{1/n} = r^{1/n}e^{i\theta/n}$ for $0 < \theta < 2\pi$. Compare this with the value obtained by integrating $z^{1/n}$ from $A$ to $D$ along the ``keyhole'' path $ABCD$. Do the results agree? Should they agree? Why?
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Path $C_1$ (circular arc):} The path goes from $A$ to $D$ along a circle of radius $a$ centered at the origin (say counterclockwise in the upper half-plane). We parametrize: $z = ae^{i\theta}$ with $\theta$ going from some initial angle to final angle.
+
+If $A$ is at $\theta = 0^+$ (just above the cut) and $D$ is at $\theta = 2\pi^-$ (just below the cut), then:
+\[
+I_1 = \int_{C_1} z^{1/n}\,dz = \int_0^{2\pi} (ae^{i\theta})^{1/n}\cdot iae^{i\theta}\,d\theta = ia^{1+1/n}\int_0^{2\pi}e^{i\theta(1+1/n)}\,d\theta.
+\]
+\[
+= ia^{1+1/n}\left[\frac{e^{i\theta(1+1/n)}}{i(1+1/n)}\right]_0^{2\pi} = \frac{a^{1+1/n}}{1+1/n}\left(e^{2\pi i(1+1/n)}-1\right).
+\]
+\[
+= \frac{na^{(n+1)/n}}{n+1}\left(e^{2\pi i(n+1)/n}-1\right).
+\]
+
+\textbf{Keyhole path $ABCD$:} This path goes from $A$ (just above the cut at the outer radius) inward along the cut to $B$ (near origin), around a small circle from $B$ to $C$, then outward along the bottom of the cut from $C$ to $D$.
+
+On the top of the cut ($\theta = 0^+$): $z^{1/n} = r^{1/n}$.
+On the bottom ($\theta = 2\pi^-$): $z^{1/n} = r^{1/n}e^{2\pi i/n}$.
+
+The small circle contribution vanishes as its radius $\to 0$ (since $|z^{1/n}| = r^{1/n} \to 0$).
+
+The keyhole integral:
+\[
+I_2 = \int_a^0 r^{1/n}\,dr + \int_0^a r^{1/n}e^{2\pi i/n}\,dr = (e^{2\pi i/n}-1)\int_0^a r^{1/n}\,dr = (e^{2\pi i/n}-1)\frac{na^{(n+1)/n}}{n+1}.
+\]
+
+\textbf{Comparison:} In general, $I_1 \neq I_2$ because $e^{2\pi i(n+1)/n}-1 \neq e^{2\pi i/n}-1$ in general.
+
+\textbf{Should they agree?} No, they should \textbf{not} agree in general. The two paths are not homotopic in the cut plane. The circular path $C_1$ encloses the origin (the branch point), while the keyhole path does not (it runs along the cut). On the cut plane (a simply-connected domain), different paths between the same endpoints give the same integral only if they are homotopic. The circular path cannot be continuously deformed into the keyhole path without crossing the branch cut.
+
+However, the two results are related: their difference equals the integral around a closed contour encircling the branch point.
+
+\end{document}

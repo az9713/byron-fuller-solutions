@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.3}
+
+\textbf{Problem:} A conducting sphere of radius $a$ sits in a charge-free region in an electric field. Its surface is kept at a fixed distribution of electric potential $V = F(\theta)$, where $\theta$ and $\phi$ are spherical coordinates with the origin at the center of the sphere. Determine the potential at all points in the space inside and outside the sphere, i.e., solve Laplace's equation $\nabla^2\Phi = 0$, assuming the following boundary conditions:
+
+a. $\lim_{r\to\infty} \Phi(r,\theta) = 0$
+
+b. $\Phi(a,\theta) = F(\theta)$
+
+c. $\lim_{r\to 0} \Phi(r,\theta) = 0$ (potential vanishes at points infinitely far away from sphere).
+
+\emph{Hint:} Use the method of separation of variables. Solve the $r$ equation by making the substitution $r = e^t$. When it is solved, set the exponent $-\ell$ (or $\ell+1$) $= s$ so that $s(s+1) = \ell(\ell+1)$ (separation constant). Solve the $\theta$ equation by an appropriate change of variable.
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Interior solution ($r < a$)}
+
+Laplace's equation in spherical coordinates with azimuthal symmetry ($\phi$-independent):
+\[
+\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \Phi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial \Phi}{\partial \theta}\right) = 0.
+\]
+
+Let $\Phi(r,\theta) = R(r)\Theta(\theta)$. Separation of variables gives:
+\[
+\frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) = \ell(\ell+1), \qquad \frac{1}{\Theta\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}{d\theta}\right) = -\ell(\ell+1).
+\]
+
+The $\theta$ equation, with $u = \cos\theta$, becomes Legendre's equation with solutions $P_\ell(\cos\theta)$ (we discard $Q_\ell$ for finiteness at $\theta = 0, \pi$).
+
+The radial equation has solutions $r^\ell$ and $r^{-(\ell+1)}$. For the interior, we need finiteness at $r=0$, so:
+\[
+\Phi_{\text{in}}(r,\theta) = \sum_{\ell=0}^{\infty} A_\ell \left(\frac{r}{a}\right)^\ell P_\ell(\cos\theta).
+\]
+
+Applying the boundary condition $\Phi(a,\theta) = F(\theta)$:
+\[
+F(\theta) = \sum_{\ell=0}^{\infty} A_\ell P_\ell(\cos\theta).
+\]
+
+Using orthogonality of Legendre polynomials:
+\[
+A_\ell = \frac{2\ell+1}{2}\int_0^{\pi} F(\theta) P_\ell(\cos\theta)\sin\theta\,d\theta.
+\]
+
+Therefore:
+\[
+\boxed{\Phi_{\text{in}}(r,\theta) = \sum_{\ell=0}^{\infty} \frac{2\ell+1}{2}\left(\frac{r}{a}\right)^\ell P_\ell(\cos\theta) \int_0^{\pi} F(\theta') P_\ell(\cos\theta')\sin\theta'\,d\theta'.}
+\]
+
+\subsection*{Exterior solution ($r > a$)}
+
+For the exterior, we need $\Phi \to 0$ as $r \to \infty$, so we keep only the $r^{-(\ell+1)}$ terms:
+\[
+\Phi_{\text{out}}(r,\theta) = \sum_{\ell=0}^{\infty} B_\ell \left(\frac{a}{r}\right)^{\ell+1} P_\ell(\cos\theta).
+\]
+
+Applying $\Phi(a,\theta) = F(\theta)$:
+\[
+F(\theta) = \sum_{\ell=0}^{\infty} B_\ell P_\ell(\cos\theta),
+\]
+so $B_\ell = A_\ell$ and:
+\[
+\boxed{\Phi_{\text{out}}(r,\theta) = \sum_{\ell=0}^{\infty} \frac{2\ell+1}{2}\left(\frac{a}{r}\right)^{\ell+1} P_\ell(\cos\theta) \int_0^{\pi} F(\theta') P_\ell(\cos\theta')\sin\theta'\,d\theta'.}
+\]
+
+\subsection*{Verification of hint: substitution $r = e^t$}
+
+With $r = e^t$, the radial equation $r^2 R'' + 2r R' - \ell(\ell+1)R = 0$ becomes:
+\[
+\frac{d^2R}{dt^2} + \frac{dR}{dt} - \ell(\ell+1)R = 0.
+\]
+
+The characteristic equation is $s^2 + s - \ell(\ell+1) = 0$, giving $s(s+1) = \ell(\ell+1)$, so $s = \ell$ or $s = -(\ell+1)$. Thus $R = e^{\ell t} = r^\ell$ or $R = e^{-(\ell+1)t} = r^{-(\ell+1)}$, confirming the standard result.
+
+\end{document}

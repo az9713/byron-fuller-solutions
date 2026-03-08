@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 22}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Using Eqs.~(9.104) and (9.105), show that if we denote the second iterative approximation to the amplitude by $f_l^{2\text{it}}(q_1)$, then for any real potential $V(r)$ we have
+\[
+\mathrm{Im}\,f_l^{2\text{it}}(q_1) = q_1|f_l^{\text{it}}(q_1)|^2.
+\]
+
+\bigskip
+\textbf{Solution.}
+
+From the text, Eq.~(9.104) gives the first iterative (Born) approximation:
+\[
+f_l^{\text{it}}(q_1) = -\frac{2m}{\hbar^2}\int_0^\infty j_l(q_1 r)\,V(r)\,j_l(q_1 r)\,r^2\,dr,
+\]
+which is \emph{real} for a real potential $V(r)$ (since $j_l$ is real for real $q_1$).
+
+Eq.~(9.105) gives the second iterative approximation:
+\[
+f_l^{2\text{it}}(q_1) = f_l^{\text{it}}(q_1) + \left(-\frac{2m}{\hbar^2}\right)^2 \int_0^\infty\!\!\int_0^\infty j_l(q_1 r)\,V(r)\,G_l(r,r')\,V(r')\,j_l(q_1 r')\,r^2\,r'^2\,dr\,dr',
+\]
+where $G_l(r,r')$ is the free Green's function for the $l$th partial wave:
+\[
+G_l(r,r') = -q_1\,j_l(q_1 r_<)\left[n_l(q_1 r_>) + i\,j_l(q_1 r_>)\right].
+\]
+
+The key observation is that for a real potential, $f_l^{\text{it}}$ is real, so:
+\[
+\mathrm{Im}\,f_l^{2\text{it}} = \text{Im of the second-order correction}.
+\]
+
+The imaginary part comes solely from the $i\,j_l(q_1 r_>)$ term in $G_l$:
+\[
+\mathrm{Im}\,G_l(r,r') = -q_1\,j_l(q_1 r)\,j_l(q_1 r').
+\]
+
+(Note: for $r < r'$, $\text{Im}\,G_l = -q_1 j_l(q_1 r)j_l(q_1 r')$, and similarly for $r > r'$; the result is symmetric.)
+
+Therefore:
+\begin{align}
+\mathrm{Im}\,f_l^{2\text{it}} &= \left(\frac{2m}{\hbar^2}\right)^2 q_1 \int_0^\infty\!\!\int_0^\infty j_l(q_1 r)\,V(r)\,j_l(q_1 r)\,j_l(q_1 r')\,V(r')\,j_l(q_1 r')\,r^2 r'^2\,dr\,dr' \\
+&= q_1\left[\frac{2m}{\hbar^2}\int_0^\infty j_l(q_1 r)^2\,V(r)\,r^2\,dr\right]^2 \\
+&= q_1\left[f_l^{\text{it}}(q_1)\right]^2 \\
+&= q_1\left|f_l^{\text{it}}(q_1)\right|^2.
+\end{align}
+
+The last equality holds because $f_l^{\text{it}}$ is real.
+
+Therefore:
+\[
+\boxed{\mathrm{Im}\,f_l^{2\text{it}}(q_1) = q_1\,|f_l^{\text{it}}(q_1)|^2}.
+\]
+
+This is the \textbf{optical theorem} (unitarity condition) satisfied to second order. It expresses the fact that the imaginary part of the forward scattering amplitude is related to the total cross section, ensuring conservation of probability in the scattering process. The exact relation $\mathrm{Im}\,f_l = q_1|f_l|^2$ (the full unitarity condition) is satisfied order by order in the Born series. \hfill $\blacksquare$
+
+\end{document}

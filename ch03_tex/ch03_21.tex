@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 21}
+
+\textbf{Problem.} Derive an expression for the inverse of a $4 \times 4$ matrix $A$ in terms of the eigenvalues and eigenvectors of $A$. Assume that the inverse of $A$ exists, and that the eigenvectors of $Q$ span the space in which $A$ acts. Are the eigenvectors all distinct?
+
+Consider an $n \times n$ matrix $Q$ whose elements are given by $Q_{ij} = v_i v_j$, where $v$ is a vector in $n$-dimensional space. Find the eigenvalues and eigenvectors of $Q$. Are the eigenvectors all distinct?
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part 1: Inverse in terms of eigenvalues and eigenvectors.}
+
+If $A$ is diagonalizable with eigenvalues $\lambda_1, \lambda_2, \lambda_3, \lambda_4$ (all nonzero since $A^{-1}$ exists) and corresponding linearly independent eigenvectors $x^{(1)}, x^{(2)}, x^{(3)}, x^{(4)}$, then $A = PDP^{-1}$ where $P = (x^{(1)} | x^{(2)} | x^{(3)} | x^{(4)})$ and $D = \text{diag}(\lambda_1, \lambda_2, \lambda_3, \lambda_4)$.
+
+The inverse is:
+\[
+A^{-1} = PD^{-1}P^{-1} = P\,\text{diag}\!\left(\frac{1}{\lambda_1}, \frac{1}{\lambda_2}, \frac{1}{\lambda_3}, \frac{1}{\lambda_4}\right)P^{-1}.
+\]
+
+In component form, using the spectral decomposition (when the eigenvectors are orthonormal):
+\[
+A^{-1} = \sum_{k=1}^{4} \frac{1}{\lambda_k}\, x^{(k)} (x^{(k)})^T.
+\]
+More generally (not assuming orthonormality), if $y^{(k)}$ are the rows of $P^{-1}$ (i.e., the left eigenvectors):
+\[
+(A^{-1})_{ij} = \sum_{k=1}^{4} \frac{1}{\lambda_k}\, x^{(k)}_i\, y^{(k)}_j.
+\]
+
+\medskip
+\textbf{Part 2: Eigenvalues and eigenvectors of $Q$ where $Q_{ij} = v_i v_j$.}
+
+The matrix $Q$ can be written as the outer product:
+\[
+Q = v\, v^T,
+\]
+where $v = (v_1, v_2, \ldots, v_n)^T$.
+
+\textit{Eigenvalue $\lambda_1 = |v|^2 = \sum_i v_i^2$:} For the eigenvector $v$ itself:
+\[
+Qv = (v\,v^T)v = v(v^T v) = v \|v\|^2 = \|v\|^2\, v.
+\]
+So $v$ is an eigenvector with eigenvalue $\lambda_1 = \|v\|^2$.
+
+\textit{Eigenvalue $\lambda = 0$ (multiplicity $n-1$):} For any vector $w$ orthogonal to $v$ (i.e., $v^T w = 0$):
+\[
+Qw = v(v^T w) = v \cdot 0 = 0.
+\]
+So $w$ is an eigenvector with eigenvalue 0. Since the orthogonal complement of $v$ is $(n-1)$-dimensional, there are $n-1$ linearly independent eigenvectors with eigenvalue 0.
+
+\medskip
+\textit{Summary:} The eigenvalues are $\|v\|^2$ (once) and $0$ (with multiplicity $n-1$). The eigenvalues are \emph{not} all distinct---the eigenvalue 0 is repeated $n-1$ times. However, there is a full set of $n$ linearly independent eigenvectors (one along $v$ and $n-1$ spanning the orthogonal complement), so $Q$ is diagonalizable. \hfill $\blacksquare$
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 14}
+
+\textbf{Problem.} Let $A$ be an $n \times n$ matrix with real entries. Prove that $A \neq 0$ if and only if $\operatorname{tr}(A^T A) > 0$.
+
+\bigskip
+\textbf{Solution.}
+
+Compute $\operatorname{tr}(A^T A)$:
+\[
+(A^T A)_{jj} = \sum_{i=1}^{n} (A^T)_{ji}\, A_{ij} = \sum_{i=1}^{n} A_{ij}\, A_{ij} = \sum_{i=1}^{n} A_{ij}^2.
+\]
+Therefore:
+\[
+\operatorname{tr}(A^T A) = \sum_{j=1}^{n} \sum_{i=1}^{n} A_{ij}^2 = \sum_{i,j} A_{ij}^2.
+\]
+
+Since each $A_{ij}$ is real, $A_{ij}^2 \ge 0$, and so $\operatorname{tr}(A^T A) \ge 0$.
+
+\medskip
+\textbf{($\Rightarrow$)} If $A \neq 0$, then at least one entry $A_{ij} \neq 0$, so $A_{ij}^2 > 0$. Since all other terms are non-negative:
+\[
+\operatorname{tr}(A^T A) = \sum_{i,j} A_{ij}^2 > 0.
+\]
+
+\textbf{($\Leftarrow$)} If $\operatorname{tr}(A^T A) > 0$, then $\sum_{i,j} A_{ij}^2 > 0$, which means at least one $A_{ij}^2 > 0$, hence $A_{ij} \neq 0$, so $A \neq 0$.
+
+\medskip
+Therefore $A \neq 0 \iff \operatorname{tr}(A^T A) > 0$. \hfill $\blacksquare$
+
+\end{document}

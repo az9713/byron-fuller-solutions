@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 15}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Show that the general Lorentz transformation worked out in Problem 14 may be expressed in vector notation as follows:
+\[
+\mathbf{r}' = \mathbf{r} + \frac{\gamma - 1}{v^2}(\mathbf{v}\cdot\mathbf{r})\mathbf{v} - \gamma\mathbf{v}t, \quad t' = \gamma\!\left(t - \frac{\mathbf{v}\cdot\mathbf{r}}{c^2}\right),
+\]
+where $\mathbf{v} = v\hat{n}$, $\beta = v/c$, and $\gamma = 1/\sqrt{1-v^2/c^2}$ is the relative velocity of the two frames. These formulas are a compact, convenient way to write the Lorentz transformation between systems with parallel axes moving with arbitrarily directed uniform relative velocity.
+
+\bigskip
+\textbf{Solution.}
+
+From Problem 14, the general Lorentz boost with velocity $\mathbf{v} = v\hat{n}$ has components:
+\[
+\Lambda^{0}{}_{0} = \gamma, \quad \Lambda^{0}{}_{i} = -\beta\gamma\, n_i, \quad \Lambda^{i}{}_{0} = -\beta\gamma\, n_i, \quad \Lambda^{i}{}_{j} = \delta_{ij} + (\gamma-1)n_i n_j.
+\]
+
+\textbf{Time transformation:}
+\[
+ct' = \Lambda^{0}{}_{0}\,(ct) + \Lambda^{0}{}_{i}\,x^i = \gamma\, ct - \beta\gamma\, n_i x^i = \gamma\, ct - \gamma\frac{v}{c}\,(\hat{n}\cdot\mathbf{r}).
+\]
+Dividing by $c$:
+\[
+t' = \gamma\!\left(t - \frac{v(\hat{n}\cdot\mathbf{r})}{c^2}\right) = \gamma\!\left(t - \frac{\mathbf{v}\cdot\mathbf{r}}{c^2}\right). \checkmark
+\]
+
+\textbf{Spatial transformation:}
+\[
+x'^i = \Lambda^{i}{}_{0}\,(ct) + \Lambda^{i}{}_{j}\,x^j = -\beta\gamma\, n_i\,(ct) + \delta_{ij}x^j + (\gamma-1)n_i n_j x^j.
+\]
+\[
+= x^i + (\gamma-1)(\hat{n}\cdot\mathbf{r})\,n_i - \gamma v\, n_i\, t.
+\]
+
+In vector form:
+\[
+\mathbf{r}' = \mathbf{r} + (\gamma-1)(\hat{n}\cdot\mathbf{r})\hat{n} - \gamma\mathbf{v}\,t.
+\]
+
+Since $\hat{n} = \mathbf{v}/v$, we have $(\hat{n}\cdot\mathbf{r})\hat{n} = \frac{(\mathbf{v}\cdot\mathbf{r})}{v^2}\mathbf{v}$. Therefore:
+\[
+\mathbf{r}' = \mathbf{r} + \frac{\gamma-1}{v^2}(\mathbf{v}\cdot\mathbf{r})\mathbf{v} - \gamma\mathbf{v}\,t. \checkmark
+\]
+
+This confirms the stated vector form of the general Lorentz transformation. \qed
+
+\end{document}

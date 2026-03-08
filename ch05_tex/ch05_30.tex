@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.30}
+
+\textbf{Problem:} Verify that for all $z$ not in the spectrum of $A$,
+\[
+(A - zI)^{-1} = \int_{-\infty}^{\infty}\frac{1}{\lambda - z}\,dE_\lambda,
+\]
+where $A$ is a self-adjoint operator whose spectral resolution is $E_\lambda(A)$.
+
+\bigskip
+\textbf{Solution:}
+
+By the spectral theorem, the self-adjoint operator $A$ has the representation:
+\[
+A = \int_{-\infty}^{\infty}\lambda\,dE_\lambda.
+\]
+
+For $z \notin \sigma(A)$ (the spectrum of $A$), the function $g(\lambda) = 1/(\lambda - z)$ is bounded and continuous on the spectrum. By the functional calculus for self-adjoint operators, we can define:
+\[
+g(A) = \int_{-\infty}^{\infty}g(\lambda)\,dE_\lambda = \int_{-\infty}^{\infty}\frac{1}{\lambda - z}\,dE_\lambda.
+\]
+
+We need to show that $g(A) = (A - zI)^{-1}$, i.e., $(A - zI)\,g(A) = I$.
+
+\subsection*{Verification}
+
+Compute $(A - zI)\,g(A)$ using the multiplicative property of the spectral calculus:
+\[
+(A - zI)\,g(A) = \int_{-\infty}^{\infty}(\lambda - z)\,dE_\lambda \cdot \int_{-\infty}^{\infty}\frac{1}{\lambda' - z}\,dE_{\lambda'}.
+\]
+
+By the product rule for spectral integrals:
+\[
+(A - zI)\,g(A) = \int_{-\infty}^{\infty}(\lambda - z)\cdot\frac{1}{\lambda - z}\,dE_\lambda = \int_{-\infty}^{\infty}1\,dE_\lambda = E_\infty - E_{-\infty} = I.
+\]
+
+Similarly:
+\[
+g(A)(A - zI) = \int_{-\infty}^{\infty}\frac{1}{\lambda-z}\cdot(\lambda-z)\,dE_\lambda = \int_{-\infty}^{\infty}dE_\lambda = I.
+\]
+
+Therefore $g(A)$ is both a left and right inverse of $(A - zI)$:
+\[
+\boxed{(A - zI)^{-1} = \int_{-\infty}^{\infty}\frac{1}{\lambda - z}\,dE_\lambda.}
+\]
+
+This operator is called the \textbf{resolvent} of $A$ at $z$, often denoted $R_z(A)$. It exists precisely when $z$ is not in the spectrum of $A$, since $1/(\lambda - z)$ must be bounded on the spectrum.
+
+The key property used is that the spectral calculus is a homomorphism: $f(A)g(A) = (fg)(A)$, and $(\lambda - z)\cdot\frac{1}{\lambda - z} = 1$ for all $\lambda$ in the spectrum when $z\notin\sigma(A)$.
+
+\end{document}

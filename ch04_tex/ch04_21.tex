@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 21}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Suppose that the harmonic oscillator Hamiltonian,
+\[
+A_0 = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2,
+\]
+is perturbed by a small term $A_1 = \epsilon x$. Find the first and second-order corrections to the eigenvalues of $A_0$ produced by $A_1$. Since this problem can be solved exactly, you can check your answers.
+
+\bigskip
+\textbf{Solution.}
+
+The unperturbed eigenvalues and eigenstates are $E_n^{(0)} = \hbar\omega(n+\tfrac{1}{2})$ and $|n\rangle$.
+
+Using creation and annihilation operators: $x = \sqrt{\frac{\hbar}{2m\omega}}(a + a^\dagger)$.
+
+\textbf{First-order correction:}
+\[
+E_n^{(1)} = \langle n|A_1|n\rangle = \epsilon\langle n|x|n\rangle = \epsilon\sqrt{\frac{\hbar}{2m\omega}}\langle n|(a+a^\dagger)|n\rangle = 0,
+\]
+since $\langle n|a|n\rangle = 0$ and $\langle n|a^\dagger|n\rangle = 0$.
+
+\textbf{Second-order correction:}
+\[
+E_n^{(2)} = \sum_{k \neq n} \frac{|\langle k|A_1|n\rangle|^2}{E_n^{(0)} - E_k^{(0)}}.
+\]
+
+The matrix elements of $x$ are:
+\[
+\langle k|x|n\rangle = \sqrt{\frac{\hbar}{2m\omega}}\bigl(\sqrt{n}\,\delta_{k,n-1} + \sqrt{n+1}\,\delta_{k,n+1}\bigr).
+\]
+
+So only $k = n\pm 1$ contribute:
+\begin{align*}
+E_n^{(2)} &= \frac{|\epsilon|^2\frac{\hbar}{2m\omega}\,n}{E_n^{(0)} - E_{n-1}^{(0)}} + \frac{|\epsilon|^2\frac{\hbar}{2m\omega}\,(n+1)}{E_n^{(0)} - E_{n+1}^{(0)}} \\[6pt]
+&= \frac{\epsilon^2\hbar}{2m\omega}\left[\frac{n}{\hbar\omega} + \frac{n+1}{-\hbar\omega}\right] \\[6pt]
+&= \frac{\epsilon^2}{2m\omega^2}\bigl[n - (n+1)\bigr] = -\frac{\epsilon^2}{2m\omega^2}.
+\end{align*}
+
+So to second order:
+\[
+\boxed{E_n \approx \hbar\omega\!\left(n + \frac{1}{2}\right) - \frac{\epsilon^2}{2m\omega^2}}.
+\]
+
+\textbf{Exact solution:} The perturbed Hamiltonian is:
+\[
+H = \frac{p^2}{2m} + \frac{1}{2}m\omega^2 x^2 + \epsilon x = \frac{p^2}{2m} + \frac{1}{2}m\omega^2\!\left(x + \frac{\epsilon}{m\omega^2}\right)^2 - \frac{\epsilon^2}{2m\omega^2}.
+\]
+
+This is a harmonic oscillator shifted by $-\epsilon/(m\omega^2)$ with exact eigenvalues:
+\[
+E_n = \hbar\omega\!\left(n + \frac{1}{2}\right) - \frac{\epsilon^2}{2m\omega^2}.
+\]
+
+The perturbation result is \textbf{exact} to all orders---higher-order corrections vanish. This confirms our calculation. \qed
+
+\end{document}

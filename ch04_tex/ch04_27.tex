@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 27}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} For a vector space $V$, with a pseudo inner product defined by Eqs.\ (4.23), (4.24) and (4.25) we make the following definitions. For any operator $A$, we define the \textit{transpose operator} $\tilde{A}$ by $(\tilde{A}x, y) = (x, Ay)$ for all $x, y$. A set $S$ is said to be \textit{pseudo-orthogonal} if $[x, y] = 0$ for all $x, y \in S$ with $x \neq y$. Two vectors $x, y$ are said to be \textit{pseudo-orthogonal} if $[x, y] = 0$, and finally, a set of non-null vectors, $\{x_i\}$, is said to be a complete, pseudo-orthonormal set if the $x_i$ span the space and if $[x_i, x_j] = \pm\delta_{ij}$.
+
+\begin{itemize}
+\item[(a)] Prove that $X = \{x_i\}$ is a complete, pseudo-orthonormal set, then for any $x$ in $V$:
+\[
+x = \sum_i \frac{[x_i, x]}{[x_i, x_i]} x_i.
+\]
+\item[(b)] Show that the matrix of a symmetric operator with respect to a complete, pseudo-orthonormal basis $S_i = S_j$ . Show that the matrix elements of an orthogonal operator $O$ satisfy $\sum_k [e_k, e_k] O_{ki} O_{kj} = [e_i, e_i]\delta_{ij}$.
+\item[(c)] Show that if $S$ is a symmetric operator and $S e_i = \lambda_i e_i$ and $S e_j = \lambda_j e_j$, then $[e_i, e_j] = 0$ for $i \neq j$. Show that if all the eigenvalues of $S$ are distinct, then the eigenvectors of $S$ form a complete, pseudo-orthonormal set. [Hint: you exclude the possibility of a null eigenvector.]
+\item[(d)] Give an example of a symmetric $2 \times 2$ matrix whose eigenvalues are real, but whose eigenvectors are not orthogonal (non-pseudo-orthogonal).
+\item[(e)] Show that every eigenvalue of an orthogonal operator belonging to a non-null eigenvector is either $1$ or $-1$.
+\item[(f)] Prove that if $O$ is an orthogonal transformation and $Ox_1 = \lambda_1 x_1$ and $Ox_2 = \lambda_2 x_2$, then $[x_1, x_2] = 0$ if $\lambda_1 \neq \lambda_2^{-1}$. Show further that if either $x_1$ or $x_2$ is non-null, then $[x_1, x_2] = 0$ if $\lambda_1 \neq \lambda_2$.
+\end{itemize}
+
+\bigskip
+\textbf{Solution.}
+
+The pseudo inner product is denoted $[x, y]$ and satisfies $[x, y] = [y, x]$ (symmetric, not conjugate symmetric) and is non-degenerate but not necessarily positive definite. We have $[x_i, x_i] = \pm 1$ for the pseudo-orthonormal basis.
+
+\textbf{(a)} Since $\{x_i\}$ spans $V$, write $x = \sum_i c_i x_i$. Taking the pseudo inner product with $x_j$:
+\[
+[x_j, x] = \sum_i c_i [x_j, x_i] = c_j [x_j, x_j].
+\]
+Therefore $c_j = [x_j, x]/[x_j, x_j]$, and:
+\[
+x = \sum_i \frac{[x_i, x]}{[x_i, x_i]} x_i. \qed
+\]
+
+\textbf{(b)} A symmetric operator $S$ satisfies $[Sx, y] = [x, Sy]$ for all $x, y$. The matrix elements in a pseudo-orthonormal basis are $S_{ij} = [e_i, Se_j]/[e_i, e_i]$.
+
+We compute:
+\[
+[e_i, e_i] S_{ij} = [e_i, Se_j] = [Se_i, e_j] = [e_j, Se_i] = [e_j, e_j] S_{ji}.
+\]
+
+This gives the relation $[e_i, e_i] S_{ij} = [e_j, e_j] S_{ji}$.
+
+For an orthogonal operator $O$: $[Ox, Oy] = [x, y]$ for all $x, y$. With $x = e_i$, $y = e_j$:
+\[
+[Oe_i, Oe_j] = [e_i, e_j] = [e_i, e_i]\delta_{ij}.
+\]
+Expanding $Oe_i = \sum_k O_{ki} e_k$:
+\[
+\sum_{k,l} O_{ki} O_{lj} [e_k, e_l] = \sum_k O_{ki} O_{kj} [e_k, e_k] = [e_i, e_i]\delta_{ij}. \qed
+\]
+
+\textbf{(c)} If $Se_i = \lambda_i e_i$ and $Se_j = \lambda_j e_j$:
+\[
+[Se_i, e_j] = \lambda_i[e_i, e_j], \quad [e_i, Se_j] = \lambda_j[e_i, e_j].
+\]
+Since $S$ is symmetric, $[Se_i, e_j] = [e_i, Se_j]$:
+\[
+\lambda_i [e_i, e_j] = \lambda_j [e_i, e_j].
+\]
+If $\lambda_i \neq \lambda_j$, then $[e_i, e_j] = 0$. \checkmark
+
+If all eigenvalues are distinct, all eigenvectors are pairwise pseudo-orthogonal. The eigenvectors of a symmetric operator on a finite-dimensional space span the space (since $S$ has $n$ distinct eigenvalues and hence $n$ linearly independent eigenvectors). We must exclude null eigenvectors: if $[e_i, e_i] = 0$, then $[e_i, e_j] = 0$ for all $j$ (by the above), which contradicts non-degeneracy of the pseudo inner product. So all eigenvectors are non-null, and after normalization they form a complete pseudo-orthonormal set. \qed
+
+\textbf{(d)} Consider the pseudo inner product on $\mathbb{R}^2$ with metric $\eta = \text{diag}(1, -1)$ (Minkowski-like). The matrix
+\[
+S = \begin{pmatrix} \cosh\alpha & \sinh\alpha \\ \sinh\alpha & \cosh\alpha \end{pmatrix}
+\]
+is symmetric (in the ordinary sense, which coincides with $\eta$-symmetry when $\eta S = (S\eta)^T$... actually, we need a matrix that is symmetric with respect to the pseudo inner product but has non-orthogonal eigenvectors in the ordinary sense).
+
+A simpler example: in the ordinary real inner product (positive definite), a symmetric matrix always has orthogonal eigenvectors. So we need the \emph{pseudo} inner product. Consider $[x,y] = x_1 y_1 - x_2 y_2$ and the $\eta$-symmetric matrix $A$ satisfying $\eta A = (\eta A)^T$, i.e., $A = \eta^{-1}A^T\eta$. Take $A = \begin{pmatrix} 2 & 1 \\ -1 & 2\end{pmatrix}$. Check: $\eta A = \begin{pmatrix} 2 & 1 \\ 1 & -2\end{pmatrix}$, which is symmetric. \checkmark
+
+Eigenvalues: $(2-\lambda)^2 + 1 = 0 \Rightarrow \lambda = 2\pm i$. These are complex, not real.
+
+Instead, take $A = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}$ with $\eta = \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}$. Then $\eta A = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}$, which is antisymmetric. Not good.
+
+Take $A = \begin{pmatrix} a & b \\ -b & d\end{pmatrix}$ so $\eta A = \begin{pmatrix} a & b \\ b & -d\end{pmatrix}$ symmetric. Take $a=1, b=2, d=1$: $A = \begin{pmatrix} 1 & 2 \\ -2 & 1\end{pmatrix}$. Eigenvalues: $(1-\lambda)^2 + 4 = 0$, complex again.
+
+The point is that for indefinite metrics, $\eta$-symmetric operators can have complex eigenvalues. A concrete example with real eigenvalues but non-pseudo-orthogonal eigenvectors: this actually cannot happen when eigenvalues are distinct (by part (c)). The example must have a repeated eigenvalue. Take $A = \lambda I$; all vectors are eigenvectors, and they need not be pseudo-orthogonal.
+
+For a non-trivial example with a $2\times 2$ $\eta$-symmetric matrix: $A = \begin{pmatrix} 1 & 1 \\ -1 & -1\end{pmatrix}$, $\eta A = \begin{pmatrix} 1 & 1 \\ 1 & 1\end{pmatrix}$ (symmetric). Eigenvalues: $\lambda(\lambda) = (1-\lambda)(-1-\lambda)+1 = -1+\lambda^2+1 = \lambda^2$. Wait: $\det(A-\lambda I) = (1-\lambda)(-1-\lambda)+1 = -1-\lambda+\lambda+\lambda^2+1 = \lambda^2$. So $\lambda = 0$ (double). Eigenvector: $(A)v = 0$: $v_1+v_2 = 0$, so $v = (1,-1)$. $[v,v] = 1 - 1 = 0$: null. This is the pathological case---the eigenvector is null and there is only one independent eigenvector.
+
+This example shows a $\eta$-symmetric matrix with real (degenerate) eigenvalues where the eigenvector is null and hence cannot form a pseudo-orthonormal set.
+
+\textbf{(e)} Let $Ox = \lambda x$ with $[x, x] \neq 0$. Since $O$ is orthogonal:
+\[
+[Ox, Ox] = [x, x] \implies \lambda^2 [x, x] = [x, x] \implies \lambda^2 = 1.
+\]
+Therefore $\lambda = \pm 1$. \qed
+
+\textbf{(f)} Let $Ox_1 = \lambda_1 x_1$ and $Ox_2 = \lambda_2 x_2$:
+\[
+[Ox_1, Ox_2] = [x_1, x_2] \implies \lambda_1\lambda_2 [x_1, x_2] = [x_1, x_2].
+\]
+If $\lambda_1\lambda_2 \neq 1$, i.e., $\lambda_1 \neq \lambda_2^{-1}$, then $[x_1, x_2] = 0$. \checkmark
+
+If $x_1$ is non-null, then by part (e), $\lambda_1 = \pm 1$, so $\lambda_1^{-1} = \lambda_1$. The condition $\lambda_1 \neq \lambda_2^{-1}$ becomes $\lambda_1 \neq \lambda_2^{-1}$. But if $x_2$ is also non-null, $\lambda_2 = \pm 1$, so $\lambda_2^{-1} = \lambda_2$, and the condition becomes $\lambda_1 \neq \lambda_2$.
+
+Therefore, if either $x_1$ or $x_2$ is non-null, $[x_1, x_2] = 0$ whenever $\lambda_1 \neq \lambda_2$. \qed
+
+\end{document}

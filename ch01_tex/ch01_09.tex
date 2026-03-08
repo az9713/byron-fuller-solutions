@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\grad}{\boldsymbol{\nabla}}
+\newcommand{\curl}{\grad\times}
+\newcommand{\divr}{\grad\cdot}
+
+\begin{document}
+
+\section*{Problem 9}
+
+\textbf{Problem:} A physical system known as a \emph{vector meson} is described by the three vector fields $\vect{E}$, $\vect{H}$, $\vect{A}$ and a scalar field $V$, which satisfy the following equations:
+\begin{align}
+\curl\vect{E} &= -\mu^2\vect{A} \qquad (\mu^2 \text{ is a positive constant}), \label{eq:curlE} \\
+\vect{H} &= \curl\vect{A}, \label{eq:H} \\
+\vect{E} &= -\grad V, \label{eq:E} \\
+\divr\vect{E} &= \mu^2 V. \label{eq:divE}
+\end{align}
+
+\begin{itemize}
+\item[(a)] Show that $\divr\vect{H} = 0$.
+\item[(b)] Show that $V$ satisfies the equation: $\nabla^2 V - \mu^2 V = 0$.
+\item[(c)] When $V$ is time-independent, it satisfies $\nabla^2 V - \mu^2 V = 0$. If this is the case inside a closed surface and if $V$ vanishes on the closed surface, show that $V = 0$ everywhere inside.
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{(a) $\divr\vect{H} = 0$}
+
+From Eq.~\eqref{eq:H}:
+\[
+\divr\vect{H} = \divr(\curl\vect{A}).
+\]
+
+By the vector identity (Eq.~1.84 in Byron \& Fuller): \emph{the divergence of any curl is identically zero}:
+\[
+\divr(\curl\vect{A}) \equiv 0.
+\]
+
+Therefore:
+\[
+\boxed{\divr\vect{H} = 0}. \quad \blacksquare
+\]
+
+\subsection*{(b) $\nabla^2 V - \mu^2 V = 0$}
+
+From Eq.~\eqref{eq:E}, $\vect{E} = -\grad V$. Taking the divergence:
+\[
+\divr\vect{E} = -\nabla^2 V.
+\]
+
+But from Eq.~\eqref{eq:divE}, $\divr\vect{E} = \mu^2 V$. Equating:
+\[
+-\nabla^2 V = \mu^2 V,
+\]
+\[
+\boxed{\nabla^2 V - \mu^2 V = 0}. \quad \blacksquare
+\]
+
+\textit{Remark:} This is the \emph{time-independent Klein--Gordon equation} (or Yukawa equation). Its spherically symmetric solution is $V \propto e^{-\mu r}/r$, the Yukawa potential describing the short-range nuclear force mediated by mesons.
+
+\subsection*{(c) If $V$ satisfies $\nabla^2 V - \mu^2 V = 0$ inside a closed surface $S$, and $V = 0$ on $S$, then $V = 0$ everywhere inside}
+
+Multiply the equation $\nabla^2 V - \mu^2 V = 0$ by $V$ and integrate over the volume $\tau$ enclosed by $S$:
+\[
+\int_\tau V\,\nabla^2 V\;d\tau - \mu^2\int_\tau V^2\;d\tau = 0.
+\]
+
+Apply Green's first identity (from Problem 7) with $\varphi = \psi = V$:
+\[
+\int_\tau V\,\nabla^2 V\;d\tau = \oint_S V\,\grad V\cdot d\boldsymbol{\sigma} - \int_\tau |\grad V|^2\;d\tau.
+\]
+
+Since $V = 0$ on $S$, the surface integral vanishes. Substituting:
+\[
+-\int_\tau |\grad V|^2\;d\tau - \mu^2\int_\tau V^2\;d\tau = 0.
+\]
+
+Therefore:
+\[
+\int_\tau \bigl[|\grad V|^2 + \mu^2 V^2\bigr]\;d\tau = 0.
+\]
+
+The integrand is a sum of two non-negative terms (since $\mu^2 > 0$). A non-negative function integrating to zero must vanish everywhere:
+\[
+|\grad V|^2 = 0 \quad \text{and} \quad V^2 = 0 \quad \text{throughout } \tau.
+\]
+
+Therefore:
+\[
+\boxed{V = 0 \text{ everywhere inside } S}. \quad \blacksquare
+\]
+
+\textit{Note:} This proof relies crucially on $\mu^2 > 0$. For Laplace's equation ($\mu^2 = 0$), we can only conclude $|\grad V|^2 = 0$, hence $V = \text{const}$, and the boundary condition $V|_S = 0$ then gives $V = 0$. But for the Helmholtz equation $\nabla^2 V + k^2 V = 0$ (with the opposite sign), the argument fails---nontrivial solutions with $V = 0$ on the boundary do exist (these are the eigenmodes).
+
+\end{document}

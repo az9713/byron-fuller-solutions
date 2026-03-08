@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 27.} Derive a dispersion relation for $f(z)$ when $|f(z)|$ tends to a constant as $|z| \to \infty$.
+
+\bigskip
+\textbf{Solution.}
+
+If $f(z)$ is analytic in the upper half-plane but $|f(z)| \to C$ (a constant) as $|z| \to \infty$ rather than $f(z) \to 0$, the standard dispersion relation fails because the semicircular contour integral doesn't vanish.
+
+\textbf{Subtracted dispersion relation.} Define:
+\[
+g(z) = \frac{f(z) - f(z_0)}{z - z_0},
+\]
+where $z_0$ is a fixed point (in the upper half-plane or on the real axis). Then $g(z) \to 0$ as $|z| \to \infty$, so the standard dispersion relation applies to $g$.
+
+Applying Cauchy's formula to $g$ and simplifying:
+\[
+f(z) = f(z_0) + \frac{z - z_0}{\pi i}\mathcal{P}\int_{-\infty}^{\infty}\frac{f(x)}{(x-z)(x-z_0)}\,dx.
+\]
+
+For real $z = \alpha$ and real $z_0 = \alpha_0$:
+\[
+f(\alpha) = f(\alpha_0) + \frac{\alpha-\alpha_0}{\pi i}\mathcal{P}\int_{-\infty}^{\infty}\frac{f(x)}{(x-\alpha)(x-\alpha_0)}\,dx.
+\]
+
+Separating into real and imaginary parts ($f = u + iv$):
+\[
+u(\alpha) = u(\alpha_0) + \frac{\alpha-\alpha_0}{\pi}\mathcal{P}\int_{-\infty}^{\infty}\frac{v(x)}{(x-\alpha)(x-\alpha_0)}\,dx,
+\]
+\[
+v(\alpha) = v(\alpha_0) - \frac{\alpha-\alpha_0}{\pi}\mathcal{P}\int_{-\infty}^{\infty}\frac{u(x)}{(x-\alpha)(x-\alpha_0)}\,dx.
+\]
+
+These are the \textbf{once-subtracted dispersion relations}. They converge even when $f(z) \to C$ at infinity, because the extra factor $(x-\alpha_0)$ in the denominator provides additional convergence.
+
+\end{document}

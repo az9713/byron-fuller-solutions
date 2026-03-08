@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 3}
+
+\textbf{Problem:} Show that if $H$ is a real, Hermitian operator (that is, $H = H^*$, $H = H^\dagger$) then the Green's function for the inhomogeneous equation $H\psi(x) = f(x)$ is symmetric, that is, $G(x,x') = G(x',x)$.
+
+[\textit{Hint:} Show that the eigenfunctions of a real, Hermitian operator can always be chosen to be real.]
+
+\bigskip
+\textbf{Solution:}
+
+\textbf{Step 1: Eigenfunctions can be chosen real.}
+
+Since $H$ is Hermitian ($H = H^\dagger$), its eigenvalues $\lambda_n$ are real. Since $H$ is also real ($H = H^*$), if $\phi_n$ is an eigenfunction with eigenvalue $\lambda_n$:
+\[
+H\phi_n = \lambda_n \phi_n,
+\]
+then taking the complex conjugate:
+\[
+H\phi_n^* = \lambda_n \phi_n^*.
+\]
+So $\phi_n^*$ is also an eigenfunction with the same eigenvalue. If the eigenvalue is non-degenerate, then $\phi_n^* = c\,\phi_n$ for some constant $c$ with $|c|=1$, and we can choose $\phi_n$ to be real by multiplying by an appropriate phase. If the eigenvalue is degenerate, we can form real linear combinations $(\phi_n + \phi_n^*)/2$ and $(\phi_n - \phi_n^*)/(2i)$ that span the same eigenspace.
+
+\textbf{Step 2: Green's function is symmetric.}
+
+The Green's function has the eigenfunction expansion (Eq.\ 7.18$'$):
+\[
+G(x,x') = \sum_n \frac{\phi_n(x)\,\phi_n^*(x')}{\lambda_n}.
+\]
+
+Since we have shown the eigenfunctions can be chosen real, $\phi_n^* = \phi_n$, so:
+\[
+G(x,x') = \sum_n \frac{\phi_n(x)\,\phi_n(x')}{\lambda_n}.
+\]
+
+This expression is manifestly symmetric under $x \leftrightarrow x'$:
+\[
+G(x',x) = \sum_n \frac{\phi_n(x')\,\phi_n(x)}{\lambda_n} = G(x,x'). \qquad \blacksquare
+\]
+
+\end{document}

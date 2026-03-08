@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.10}
+
+\textbf{Problem:} Maxwell's equations in free space in Gaussian units are:
+\[
+\text{curl}\,\mathbf{E} = -\frac{1}{c}\frac{\partial\mathbf{H}}{\partial t}, \quad \text{div}\,\mathbf{H} = 0, \quad \text{curl}\,\mathbf{H} = \frac{1}{c}\frac{\partial\mathbf{E}}{\partial t}, \quad \text{div}\,\mathbf{E} = 0.
+\]
+
+At any time $t$ the electric (and magnetic) fields may be Fourier analyzed:
+\[
+\mathbf{E}(\mathbf{r},t) = \frac{1}{(2\pi)^{3/2}}\int \tilde{\mathbf{E}}(\mathbf{k},t)\,e^{i\mathbf{k}\cdot\mathbf{r}}\,d^3k, \quad \text{etc.}
+\]
+
+[Here the Fourier components of $\mathbf{E}(\mathbf{r},t)$ have been written $\tilde{\mathbf{E}}(\mathbf{k},t)$; the argument identifies $\tilde{\mathbf{E}}(\mathbf{k},t)$ as the Fourier component of the field, distinguishing it from the field itself, which has argument $\mathbf{r}$. If you don't like the notation, adopt another.]
+
+\begin{itemize}
+\item[(a)] Prove that the Fourier components of the electric and magnetic fields satisfy the following equations:
+\begin{enumerate}
+\item[i)] $\dot{\tilde{\mathbf{H}}} = -ic\mathbf{k}\times\tilde{\mathbf{E}}$
+\item[ii)] $\mathbf{k}\cdot\tilde{\mathbf{H}} = 0$
+\item[iii)] $\dot{\tilde{\mathbf{E}}} = ic\mathbf{k}\times\tilde{\mathbf{H}}$
+\item[iv)] $\mathbf{k}\cdot\tilde{\mathbf{E}} = 0$
+\end{enumerate}
+
+\item[(b)] Using the results of part(a), prove that the Fourier components of the electric field satisfy the homogeneous wave equation. That is, prove
+\[
+\ddot{\tilde{\mathbf{E}}} + c^2k^2\tilde{\mathbf{E}} = 0.
+\]
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a)}
+
+The key property is that under a Fourier transform, the gradient operator $\nabla$ is replaced by $i\mathbf{k}$:
+\[
+\nabla \times \mathbf{E} \;\longleftrightarrow\; i\mathbf{k}\times\tilde{\mathbf{E}}, \qquad \nabla\cdot\mathbf{E} \;\longleftrightarrow\; i\mathbf{k}\cdot\tilde{\mathbf{E}}.
+\]
+
+The time derivative commutes with the spatial Fourier transform:
+\[
+\frac{\partial\mathbf{E}}{\partial t} \;\longleftrightarrow\; \dot{\tilde{\mathbf{E}}}.
+\]
+
+\textbf{(i)} From $\nabla\times\mathbf{E} = -\frac{1}{c}\frac{\partial\mathbf{H}}{\partial t}$:
+\[
+i\mathbf{k}\times\tilde{\mathbf{E}} = -\frac{1}{c}\dot{\tilde{\mathbf{H}}},
+\]
+\[
+\boxed{\dot{\tilde{\mathbf{H}}} = -ic\,\mathbf{k}\times\tilde{\mathbf{E}}.}
+\]
+
+\textbf{(ii)} From $\nabla\cdot\mathbf{H} = 0$:
+\[
+i\mathbf{k}\cdot\tilde{\mathbf{H}} = 0 \implies \boxed{\mathbf{k}\cdot\tilde{\mathbf{H}} = 0.}
+\]
+
+\textbf{(iii)} From $\nabla\times\mathbf{H} = \frac{1}{c}\frac{\partial\mathbf{E}}{\partial t}$:
+\[
+i\mathbf{k}\times\tilde{\mathbf{H}} = \frac{1}{c}\dot{\tilde{\mathbf{E}}},
+\]
+\[
+\boxed{\dot{\tilde{\mathbf{E}}} = ic\,\mathbf{k}\times\tilde{\mathbf{H}}.}
+\]
+
+\textbf{(iv)} From $\nabla\cdot\mathbf{E} = 0$:
+\[
+\boxed{\mathbf{k}\cdot\tilde{\mathbf{E}} = 0.}
+\]
+
+These equations state that $\tilde{\mathbf{E}}$ and $\tilde{\mathbf{H}}$ are both perpendicular to $\mathbf{k}$ (transversality), and that the time evolution of each field component is determined by the cross product of $\mathbf{k}$ with the other field.
+
+\subsection*{Part (b)}
+
+Differentiating equation (iii) with respect to time:
+\[
+\ddot{\tilde{\mathbf{E}}} = ic\,\mathbf{k}\times\dot{\tilde{\mathbf{H}}}.
+\]
+
+Substituting equation (i):
+\[
+\ddot{\tilde{\mathbf{E}}} = ic\,\mathbf{k}\times\left(-ic\,\mathbf{k}\times\tilde{\mathbf{E}}\right) = c^2\,\mathbf{k}\times(\mathbf{k}\times\tilde{\mathbf{E}}).
+\]
+
+Using the vector identity $\mathbf{k}\times(\mathbf{k}\times\tilde{\mathbf{E}}) = \mathbf{k}(\mathbf{k}\cdot\tilde{\mathbf{E}}) - k^2\tilde{\mathbf{E}}$, and noting from (iv) that $\mathbf{k}\cdot\tilde{\mathbf{E}} = 0$:
+\[
+\ddot{\tilde{\mathbf{E}}} = c^2\left(-k^2\tilde{\mathbf{E}}\right) = -c^2 k^2\tilde{\mathbf{E}}.
+\]
+
+Therefore:
+\[
+\boxed{\ddot{\tilde{\mathbf{E}}} + c^2 k^2\tilde{\mathbf{E}} = 0.}
+\]
+
+This is the equation of a harmonic oscillator with frequency $\omega = ck$, confirming that electromagnetic waves propagate at the speed of light. The Fourier-space formulation is equivalent to Maxwell's equations and is the starting point for the quantum theory of the electromagnetic field.
+
+\end{document}

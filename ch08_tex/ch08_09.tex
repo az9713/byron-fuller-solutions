@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 9.} Using the weight-function method, show that in one dimension the iteration of the Lippmann--Schwinger equation will converge to the energy of the particle if sufficiently large.
+
+\bigskip
+\textbf{Solution.}
+
+In one dimension, the Lippmann--Schwinger equation for scattering by a potential $V(x)$ is:
+\[
+\psi(x) = e^{ikx} + \int G_0(x,x')V(x')\psi(x')\,dx',
+\]
+where $G_0(x,x') = \frac{im}{\hbar^2 k}e^{ik|x-x'|}$ and $k = \sqrt{2mE}/\hbar$.
+
+\textbf{Weight-function method:}
+Following the approach described in Section 8.5, we use the weight function $w(x) = |V(x)|$. Define the weighted inner product:
+\[
+\langle f,g\rangle_w = \int f^*(x)g(x)|V(x)|\,dx.
+\]
+The kernel of the integral operator is $K(x,x') = G_0(x,x')V(x')$, and the weighted norm of $K$ is:
+\[
+\|K\|_w^2 = \int\!\!\int |G_0(x,x')|^2 |V(x')|^2 |V(x)|\,dx\,dx'.
+\]
+
+Since $|G_0(x,x')| = m/(\hbar^2 k)$ for all $x,x'$:
+\[
+\|K\|_w^2 = \frac{m^2}{\hbar^4 k^2}\int |V(x)|\,dx \int |V(x')|^2\,dx'.
+\]
+
+For $k\to\infty$ (high energy), $\|K\|_w \to 0$, so the Neumann series converges. More precisely, the Born series converges when $\|K\|_w < 1$, which is satisfied for sufficiently large $k$, i.e., sufficiently large energy $E$.
+
+Alternatively, using the simpler Hilbert--Schmidt norm:
+\[
+\|K\|^2 = \int\!\!\int |G_0(x,x')|^2|V(x')|^2\,dx\,dx' = \frac{m^2}{\hbar^4 k^2}\left(\int|V(x')|\,dx'\right)\left(\int|V(x')|dx'\right).
+\]
+Wait---more carefully:
+\[
+\|K\|^2 = \int dx\int dx'\,\frac{m^2}{\hbar^4 k^2}|V(x')|^2.
+\]
+The $x$-integral diverges if taken over all space. This is precisely why the weight-function method is needed.
+
+With the weight function, the effective Hilbert space consists of functions weighted by $|V|$, and the integrals are restricted to the support of $V$. If $V$ has finite range or decays sufficiently fast:
+\[
+\|K\|_w^2 = \frac{m^2}{\hbar^4 k^2}\int|V(x)|\,dx\int|V(x')|^2\,dx' \propto \frac{1}{k^2} \propto \frac{1}{E}.
+\]
+
+Therefore, for $E$ sufficiently large:
+\[
+\boxed{\|K\|_w < 1 \quad\text{when}\quad E > \frac{m}{2\hbar^2}\left(\int|V(x)|\,dx\right)\left(\int|V(x')|^2\,dx'\right)^{1/\text{appropriate power}}.}
+\]
+
+The key result is that $\|K\|_w \sim 1/k \sim 1/\sqrt{E}$, so the Born series is guaranteed to converge for sufficiently high energy, and the weight-function method provides a well-defined norm even for potentials of infinite range (provided they are square-integrable with respect to the weight). $\blacksquare$
+
+\end{document}

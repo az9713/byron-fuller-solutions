@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\grad}{\boldsymbol{\nabla}}
+
+\begin{document}
+
+\section*{Problem 6}
+
+\textbf{Problem:} Prove the vector identities:
+\begin{itemize}
+\item[(a)] $\grad(\vect{A}\cdot\vect{B}) = (\vect{A}\cdot\grad)\vect{B} + (\vect{B}\cdot\grad)\vect{A} + \vect{A}\times(\grad\times\vect{B}) + \vect{B}\times(\grad\times\vect{A})$
+\item[(b)] $\grad\cdot(\vect{U}\times\vect{V}) = \vect{V}\cdot(\grad\times\vect{U}) - \vect{U}\cdot(\grad\times\vect{V})$
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{(a) $\grad(\vect{A}\cdot\vect{B})$}
+
+We work in Cartesian coordinates using index notation with the Einstein summation convention. The $i$-th component of $\grad(\vect{A}\cdot\vect{B})$ is:
+\[
+[\grad(\vect{A}\cdot\vect{B})]_i = \partial_i(A_j B_j) = (\partial_i A_j)B_j + A_j(\partial_i B_j).
+\]
+
+We need to show this equals the $i$-th component of the right-hand side. Consider each term:
+
+\textbf{Term 1:} $[(\vect{B}\cdot\grad)\vect{A}]_i = B_j \,\partial_j A_i$.
+
+\textbf{Term 2:} $[(\vect{A}\cdot\grad)\vect{B}]_i = A_j \,\partial_j B_i$.
+
+\textbf{Term 3:} $[\vect{B}\times(\grad\times\vect{A})]_i = \varepsilon_{ijk}\,B_j\,(\grad\times\vect{A})_k = \varepsilon_{ijk}\,B_j\,\varepsilon_{k\ell m}\,\partial_\ell A_m$.
+
+Using the identity $\varepsilon_{ijk}\varepsilon_{k\ell m} = \delta_{i\ell}\delta_{jm} - \delta_{im}\delta_{j\ell}$:
+\[
+[\vect{B}\times(\grad\times\vect{A})]_i = (\delta_{i\ell}\delta_{jm} - \delta_{im}\delta_{j\ell})\,B_j\,\partial_\ell A_m
+= B_j\,\partial_i A_j - B_j\,\partial_j A_i.
+\]
+
+Similarly, \textbf{Term 4:}
+\[
+[\vect{A}\times(\grad\times\vect{B})]_i = A_j\,\partial_i B_j - A_j\,\partial_j B_i.
+\]
+
+Adding all four terms:
+\begin{align}
+&[(\vect{B}\cdot\grad)\vect{A}]_i + [(\vect{A}\cdot\grad)\vect{B}]_i + [\vect{B}\times(\grad\times\vect{A})]_i + [\vect{A}\times(\grad\times\vect{B})]_i \\
+&= B_j\partial_j A_i + A_j\partial_j B_i + (B_j\partial_i A_j - B_j\partial_j A_i) + (A_j\partial_i B_j - A_j\partial_j B_i) \\
+&= B_j\partial_i A_j + A_j\partial_i B_j \\
+&= \partial_i(A_j B_j) = [\grad(\vect{A}\cdot\vect{B})]_i. \quad \blacksquare
+\end{align}
+
+\subsection*{(b) $\grad\cdot(\vect{U}\times\vect{V})$}
+
+In index notation:
+\[
+\grad\cdot(\vect{U}\times\vect{V}) = \partial_i(\vect{U}\times\vect{V})_i = \partial_i(\varepsilon_{ijk}\,U_j V_k) = \varepsilon_{ijk}\bigl[(\partial_i U_j)V_k + U_j(\partial_i V_k)\bigr].
+\]
+
+Consider the first term:
+\[
+\varepsilon_{ijk}(\partial_i U_j)V_k = V_k\,\varepsilon_{kij}\,\partial_i U_j = V_k\,(\grad\times\vect{U})_k = \vect{V}\cdot(\grad\times\vect{U}),
+\]
+where we used the cyclic property $\varepsilon_{ijk} = \varepsilon_{kij}$ and recognized the $k$-th component of the curl.
+
+For the second term:
+\[
+\varepsilon_{ijk}\,U_j(\partial_i V_k) = U_j\,\varepsilon_{jki}\,\partial_i V_k = -U_j\,\varepsilon_{jik}\,\partial_i V_k = -U_j\,(\grad\times\vect{V})_j = -\vect{U}\cdot(\grad\times\vect{V}),
+\]
+where we used $\varepsilon_{ijk} = \varepsilon_{jki}$ (cyclic) and $\varepsilon_{jki} = -\varepsilon_{jik}$ (swap of last two indices).
+
+Therefore:
+\[
+\boxed{\grad\cdot(\vect{U}\times\vect{V}) = \vect{V}\cdot(\grad\times\vect{U}) - \vect{U}\cdot(\grad\times\vect{V})}. \quad \blacksquare
+\]
+
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.13}
+
+\textbf{Problem:} Show that if $r = (x^2 + y^2 + z^2)^{1/2}$, then
+\[
+\nabla^2\left(\frac{1}{r}\right) = -4\pi\delta^3(\mathbf{r}).
+\]
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Step 1: $\nabla^2(1/r) = 0$ for $r \neq 0$}
+
+For $r \neq 0$, by direct computation in spherical coordinates:
+\[
+\nabla^2\left(\frac{1}{r}\right) = \frac{1}{r^2}\frac{d}{dr}\left(r^2\frac{d}{dr}\frac{1}{r}\right) = \frac{1}{r^2}\frac{d}{dr}\left(r^2\cdot\left(-\frac{1}{r^2}\right)\right) = \frac{1}{r^2}\frac{d}{dr}(-1) = 0.
+\]
+
+So $\nabla^2(1/r)$ vanishes everywhere except possibly at $r = 0$, where $1/r$ is singular.
+
+\subsection*{Step 2: Integrate over a sphere containing the origin}
+
+Let $V$ be a sphere of radius $R$ centered at the origin, with surface $S$. By the divergence theorem:
+\[
+\int_V \nabla^2\left(\frac{1}{r}\right)d^3r = \int_V \nabla\cdot\nabla\left(\frac{1}{r}\right)d^3r = \oint_S \nabla\left(\frac{1}{r}\right)\cdot d\mathbf{S}.
+\]
+
+Now $\nabla(1/r) = -\hat{\mathbf{r}}/r^2$, and on the sphere $d\mathbf{S} = \hat{\mathbf{r}}\,R^2\sin\theta\,d\theta\,d\phi$. Therefore:
+\[
+\oint_S \nabla\left(\frac{1}{r}\right)\cdot d\mathbf{S} = \oint_S\left(-\frac{1}{R^2}\right)R^2\sin\theta\,d\theta\,d\phi = -\int_0^{2\pi}d\phi\int_0^{\pi}\sin\theta\,d\theta = -4\pi.
+\]
+
+\subsection*{Step 3: Identify as a delta function}
+
+Since $\nabla^2(1/r) = 0$ for $r \neq 0$ but its volume integral over any region containing the origin gives $-4\pi$, it must be proportional to $\delta^3(\mathbf{r})$:
+\[
+\nabla^2\left(\frac{1}{r}\right) = C\,\delta^3(\mathbf{r}).
+\]
+
+Since $\int_V \delta^3(\mathbf{r})\,d^3r = 1$ for any volume containing the origin:
+\[
+C \cdot 1 = -4\pi \implies C = -4\pi.
+\]
+
+Therefore:
+\[
+\boxed{\nabla^2\left(\frac{1}{r}\right) = -4\pi\,\delta^3(\mathbf{r}).}
+\]
+
+\subsection*{Alternative proof via Fourier transforms}
+
+From Problem 9(b), the Fourier transform of $1/r$ is $\sqrt{2/\pi}\cdot 1/k^2$. The Fourier transform of $\nabla^2(1/r)$ is $-k^2$ times the Fourier transform of $1/r$:
+\[
+\widetilde{\nabla^2(1/r)} = -k^2\cdot\sqrt{\frac{2}{\pi}}\cdot\frac{1}{k^2} = -\sqrt{\frac{2}{\pi}}.
+\]
+
+The Fourier transform of $\delta^3(\mathbf{r})$ is $1/(2\pi)^{3/2}$. Therefore:
+\[
+-\sqrt{\frac{2}{\pi}} = C\cdot\frac{1}{(2\pi)^{3/2}} \implies C = -\sqrt{\frac{2}{\pi}}\cdot(2\pi)^{3/2} = -4\pi.
+\]
+
+This confirms $\nabla^2(1/r) = -4\pi\,\delta^3(\mathbf{r})$.
+
+\end{document}

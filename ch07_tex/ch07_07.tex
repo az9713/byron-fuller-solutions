@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 7}
+
+\textbf{Problem:} Prove that for any linear differential operator of the form
+\[
+f_0(x)\frac{d^n u}{dx^n} + f_1(x)\frac{d^{n-1}u}{dx^{n-1}} + \cdots + f_n(x)\,u = f(x),
+\]
+we have
+\[
+\frac{dW}{dx} = -\frac{f_1}{f_0}\,W,
+\]
+where $W$ is defined by
+\[
+W(x) = \begin{vmatrix} u_1 & u_2 & \cdots & u_n \\ u_1' & u_2' & \cdots & u_n' \\ \vdots & \vdots & \ddots & \vdots \\ u_1^{(n-1)} & u_2^{(n-1)} & \cdots & u_n^{(n-1)} \end{vmatrix},
+\]
+$u_1(x), u_2(x), \ldots, u_n(x)$ are the linearly independent solutions of the equation, and $u^{(m)}$ denotes the $m$th derivative of $u$. Thus $W(x)$ is given by
+\[
+W(x) = C\exp\Bigl(-\int \frac{f_1(x)}{f_0(x)}\,dx\Bigr).
+\]
+
+\bigskip
+\textbf{Solution:}
+
+To differentiate the determinant, we use the rule that the derivative of a determinant is the sum of determinants obtained by differentiating each row separately (keeping all other rows unchanged).
+
+Write $W$ with rows $R_0, R_1, \ldots, R_{n-1}$ where row $R_k$ has entries $(u_1^{(k)}, u_2^{(k)}, \ldots, u_n^{(k)})$.
+
+Differentiating row $R_k$ gives row $(u_1^{(k+1)}, u_2^{(k+1)}, \ldots, u_n^{(k+1)})$.
+
+For $k = 0, 1, \ldots, n-2$: The differentiated row $k$ becomes identical to row $k+1$ of the original determinant. A determinant with two identical rows is zero. Therefore, these terms all vanish.
+
+The only non-vanishing contribution comes from differentiating the last row $R_{n-1}$:
+\[
+W' = \begin{vmatrix} u_1 & u_2 & \cdots & u_n \\ u_1' & u_2' & \cdots & u_n' \\ \vdots & \vdots & \ddots & \vdots \\ u_1^{(n-2)} & u_2^{(n-2)} & \cdots & u_n^{(n-2)} \\ u_1^{(n)} & u_2^{(n)} & \cdots & u_n^{(n)} \end{vmatrix}.
+\]
+
+Since each $u_j$ satisfies the homogeneous equation:
+\[
+f_0\,u_j^{(n)} + f_1\,u_j^{(n-1)} + \cdots + f_n\,u_j = 0,
+\]
+we can write:
+\[
+u_j^{(n)} = -\frac{f_1}{f_0}\,u_j^{(n-1)} - \frac{f_2}{f_0}\,u_j^{(n-2)} - \cdots - \frac{f_n}{f_0}\,u_j.
+\]
+
+Substitute this into the last row of the determinant:
+\[
+W' = \begin{vmatrix} u_1 & \cdots & u_n \\ \vdots & \ddots & \vdots \\ u_1^{(n-2)} & \cdots & u_n^{(n-2)} \\ -\frac{f_1}{f_0}u_1^{(n-1)} - \frac{f_2}{f_0}u_1^{(n-2)} - \cdots & \cdots & -\frac{f_1}{f_0}u_n^{(n-1)} - \frac{f_2}{f_0}u_n^{(n-2)} - \cdots \end{vmatrix}.
+\]
+
+By multilinearity of the determinant in the last row, this splits into a sum of determinants. The term with $-\frac{f_k}{f_0}u_j^{(n-k)}$ in the last row (for $k = 2, 3, \ldots, n$) creates a determinant where the last row is proportional to row $n-k$ (the row containing $u_j^{(n-k)}$). Such a determinant has two proportional rows and therefore vanishes.
+
+The only surviving term is $k = 1$:
+\[
+W' = -\frac{f_1}{f_0}\begin{vmatrix} u_1 & \cdots & u_n \\ u_1' & \cdots & u_n' \\ \vdots & \ddots & \vdots \\ u_1^{(n-1)} & \cdots & u_n^{(n-1)} \end{vmatrix} = -\frac{f_1}{f_0}\,W.
+\]
+
+This is Abel's identity generalized to $n$th-order equations. Integrating:
+\[
+W(x) = C\exp\Bigl(-\int^x \frac{f_1(t)}{f_0(t)}\,dt\Bigr). \qquad \blacksquare
+\]
+
+\end{document}

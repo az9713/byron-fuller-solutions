@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 13}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} \textit{The relativistic law for the sum of velocities.} Let frame $K'$ move with uniform velocity $v$ parallel to $K$ and let $K''$ move with uniform velocity $v'$ relative to $K'$. What is the velocity $v''$ of $K''$ relative to $K$? Prove that $v'' \leq c$ if $v$ and $v' \leq c$. Thus $c$ is an upper limit for the relative velocity of any two frames.
+
+\textit{Suggested method:} In proving closure in Problem 12, one finds that the product of one Lorentz transformation (complex orthogonal transformation through ``angle'' $\theta = \tanh^{-1}\beta$) and another Lorentz transformation (complex orthogonal transformation through ``angle'' $\theta' = \tanh^{-1}\beta'$) is again a Lorentz transformation through $\theta'' = \theta + \theta'$. Now solve for $\beta''$ (that is $v''$) in terms of $v$ and $v'$.
+
+\bigskip
+\textbf{Solution.}
+
+From Problem 12, the composition of two boosts with rapidities $\alpha$ and $\alpha'$ gives a boost with rapidity $\alpha'' = \alpha + \alpha'$.
+
+Since $\alpha = \tanh^{-1}(v/c)$ and $\alpha' = \tanh^{-1}(v'/c)$:
+\[
+\alpha'' = \alpha + \alpha'.
+\]
+
+Using the addition formula for hyperbolic tangent:
+\[
+\beta'' = \tanh(\alpha'') = \tanh(\alpha + \alpha') = \frac{\tanh\alpha + \tanh\alpha'}{1 + \tanh\alpha\tanh\alpha'} = \frac{\beta + \beta'}{1 + \beta\beta'}.
+\]
+
+Since $\beta = v/c$ and $\beta' = v'/c$:
+\[
+\frac{v''}{c} = \frac{v/c + v'/c}{1 + vv'/c^2},
+\]
+hence:
+\[
+\boxed{v'' = \frac{v + v'}{1 + vv'/c^2}}.
+\]
+
+\textbf{Proof that $v'' \leq c$ if $v, v' \leq c$:}
+
+We need to show $v''/c \leq 1$ when $0 \leq v/c \leq 1$ and $0 \leq v'/c \leq 1$. Let $\beta = v/c$ and $\beta' = v'/c$ with $0 \leq \beta, \beta' \leq 1$.
+
+Consider:
+\[
+1 - \beta'' = 1 - \frac{\beta + \beta'}{1 + \beta\beta'} = \frac{1 + \beta\beta' - \beta - \beta'}{1 + \beta\beta'} = \frac{(1-\beta)(1-\beta')}{1 + \beta\beta'}.
+\]
+
+Since $0 \leq \beta, \beta' \leq 1$, we have $(1-\beta) \geq 0$, $(1-\beta') \geq 0$, and $(1+\beta\beta') > 0$. Therefore $1 - \beta'' \geq 0$, which means $\beta'' \leq 1$, i.e., $v'' \leq c$.
+
+Moreover, $\beta'' = 1$ only if $\beta = 1$ or $\beta' = 1$. So $v'' < c$ whenever both $v < c$ and $v' < c$, confirming that $c$ is an absolute speed limit. \qed
+
+\end{document}

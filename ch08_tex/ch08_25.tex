@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 25.} Using Eqs.\ (8.76) and (8.81), show explicitly that
+\[
+\lambda K f_n = h_n \quad\text{and}\quad 2K^*f_n = h_n
+\]
+(i.e., verify the Fredholm alternative for the specific case of finite-rank kernels).
+
+\bigskip
+\textbf{Solution.}
+
+Consider a finite-rank kernel:
+\[
+K(x,y) = \sum_{i=1}^{N}\phi_i(x)\psi_i(y),
+\]
+so $Kf = \sum_i \phi_i\langle\psi_i,f\rangle$ and $K^*g = \sum_i\psi_i\langle\phi_i,g\rangle$.
+
+The Fredholm equations are:
+\[
+(I-\lambda K)f = h \quad\text{and}\quad (I-\bar\lambda K^*)g = h'.
+\]
+
+\textbf{The homogeneous equations:}
+
+$\lambda Kf_n = f_n$: Writing $f_n = \sum_j c_j\phi_j$ (since the eigenfunction must lie in the range of $K$):
+\[
+\lambda\sum_i\phi_i\left(\sum_j c_j\langle\psi_i,\phi_j\rangle\right) = \sum_j c_j\phi_j.
+\]
+Defining $M_{ij} = \langle\psi_i,\phi_j\rangle$, this becomes $\lambda Mc = c$, or $(M-\frac{1}{\lambda}I)c = 0$.
+
+$\bar\lambda K^*g_n = g_n$: Writing $g_n = \sum_j d_j\psi_j$:
+\[
+\bar\lambda\sum_i\psi_i\left(\sum_j d_j\langle\phi_i,\psi_j\rangle\right) = \sum_j d_j\psi_j.
+\]
+This gives $\bar\lambda M^\dagger d = d$, or $(M^\dagger - \frac{1}{\bar\lambda}I)d = 0$.
+
+\textbf{Equal number of solutions:}
+By the rank-nullity theorem for finite matrices:
+\[
+\dim\ker\left(M-\frac{1}{\lambda}I\right) = N - \text{rank}\left(M-\frac{1}{\lambda}I\right).
+\]
+Since $\text{rank}(A) = \text{rank}(A^\dagger)$ for any matrix:
+\[
+\text{rank}\left(M-\frac{1}{\lambda}I\right) = \text{rank}\left(M^\dagger - \frac{1}{\bar\lambda}I\right),
+\]
+and therefore:
+\[
+\dim\ker\left(M-\frac{1}{\lambda}I\right) = \dim\ker\left(M^\dagger-\frac{1}{\bar\lambda}I\right).
+\]
+
+This proves that $\lambda Kf = f$ and $\bar\lambda K^*g = g$ have the same number of linearly independent solutions.
+
+\textbf{The Fredholm alternative:}
+
+The inhomogeneous equation $(I-\lambda K)f = h$ has a solution if and only if $h$ is orthogonal to all solutions of the homogeneous adjoint equation $g - \bar\lambda K^*g = 0$.
+
+\textit{Proof:} In the finite-dimensional subspace, $(I-\lambda K)f = h$ reduces to $(I-\lambda M)c = \tilde{h}$ where $\tilde{h}_i = \langle\psi_i,h\rangle$. This has a solution iff $\tilde{h}$ is orthogonal to $\ker(I-\bar\lambda M^\dagger)$, i.e., iff $\langle d,\tilde{h}\rangle = 0$ for all $d$ with $(I-\bar\lambda M^\dagger)d = 0$. Translating back: $\sum_i \bar{d}_i\langle\psi_i,h\rangle = \langle g_n,h\rangle = 0$ for all solutions $g_n$ of the adjoint equation.
+
+This explicitly verifies the Fredholm alternative for finite-rank kernels. $\blacksquare$
+
+\end{document}

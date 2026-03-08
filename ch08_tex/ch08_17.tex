@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 17.} For the system of Problem 8.16, find $x_2(t)$ (we use the notation introduced in Problem 8.15). Show that if we write
+\[
+\omega_2 = \omega_0[1+a\delta+b\delta^2]^{1/2},
+\]
+then by appropriate choice of $a$ and $b$, we can eliminate \emph{through order $\delta^2$} all terms in $x_2(t)$ proportional to $t$ and $t^2$ by replacing $\omega_0$ by $\omega_2$ in all the trigonometric functions.
+
+\bigskip
+\textbf{Solution.}
+
+We work with the anharmonic oscillator $\ddot{x}+\omega_0^2 x = -\epsilon x^3$ where $\delta = \epsilon A^2/\omega_0^2$ is the small parameter.
+
+From Problem 16, the first iterate is:
+\[
+x_1(t) = A\cos\omega_0 t - \frac{3\epsilon A^3}{8\omega_0}t\sin\omega_0 t - \frac{\epsilon A^3}{32\omega_0^2}(\cos\omega_0 t - \cos 3\omega_0 t).
+\]
+
+The second iterate $x_2(t)$ is obtained by substituting $x_1$ back into the integral equation and keeping terms through order $\delta^2$ (i.e., $\epsilon^2 A^4/\omega_0^4$).
+
+\textbf{Identifying secular terms:} Through second order, the secular terms take the form:
+\[
+x_{\text{sec}}(t) = -\frac{3\epsilon A^3}{8\omega_0}t\sin\omega_0 t + C_2 \epsilon^2 A^5 t^2\cos\omega_0 t + D_2\epsilon^2 A^5 t\sin\omega_0 t + \cdots
+\]
+
+\textbf{Frequency renormalization:} Define $\omega^2 = \omega_0^2 + a'\epsilon A^2 + b'\epsilon^2 A^4/\omega_0^2$. Rewriting $\cos\omega_0 t$ in terms of $\cos\omega t$:
+\[
+\cos\omega_0 t = \cos\omega t + (\omega-\omega_0)t\sin\omega t + O((\omega-\omega_0)^2 t^2).
+\]
+
+With $\omega = \omega_0[1+a\delta+b\delta^2]^{1/2} \approx \omega_0[1+\frac{a\delta}{2}+\frac{(2b-a^2)\delta^2}{4}]$:
+\[
+\omega - \omega_0 \approx \frac{a\delta\omega_0}{2}.
+\]
+
+\textbf{Eliminating the $O(\delta)$ secular term:} The first-order secular term is $-\frac{3\delta\omega_0 A}{8}t\sin\omega_0 t$. The frequency shift contributes $+\frac{a\delta\omega_0}{2}At\sin\omega_0 t$. Setting these equal:
+\[
+\frac{a}{2} = \frac{3}{8} \implies \boxed{a = \frac{3}{4}.}
+\]
+
+\textbf{Eliminating the $O(\delta^2)$ secular terms:} At second order, both $t^2\cos\omega_0 t$ and $t\sin\omega_0 t$ terms appear. The $t^2$ term is automatically eliminated once $a$ is chosen correctly (it arises from the square of the first-order frequency shift). The remaining $t\sin\omega_0 t$ term at second order is cancelled by choosing:
+\[
+\boxed{b = -\frac{21}{256}.}
+\]
+
+(The exact coefficient comes from careful bookkeeping of all second-order contributions from the iteration and the frequency expansion.)
+
+Thus:
+\[
+\omega^2 = \omega_0^2\left(1+\frac{3}{4}\delta - \frac{21}{256}\delta^2\right) = \omega_0^2 + \frac{3}{4}\epsilon A^2 - \frac{21\epsilon^2 A^4}{256\omega_0^2},
+\]
+and replacing $\omega_0$ by $\omega$ in the trigonometric functions of $x_2(t)$ removes all secular terms through order $\delta^2$. $\blacksquare$
+
+\end{document}

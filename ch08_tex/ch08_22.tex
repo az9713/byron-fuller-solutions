@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 22.} Just as for a bounded, linear operator on $B$, we define the \emph{norm} of a bounded, linear functional on $B$ as the least upper bound of the set of all $M$ satisfying $|F(g)|\le M\|g\|$ for all $g\in B$. As usual, we denote the norm of $F$ by $\|F\|$.
+
+\textbf{(a)} Show that the functional $F$ defined on $L_p$ by
+\[
+F(g) = \int_a^b f(x)g(x)\,dx,
+\]
+where $f\in L_q$ and $1/p+1/q=1$ (see the preceding problem), we have $\|F\| \le \|f\|_q$. Have the norm of $F$ the norm appropriate to $L_q$, namely $\|\cdot\|_q$.
+
+\textbf{(b)} Show that the function
+\[
+g_0 = \frac{|f|^{q/p}\,\text{sgn}(f)}{\|f\|_q^{q/p}}
+\]
+belongs to $L_p$ ($1/p+1/q=1$) and therefore that $\|F\| \ge \|f\|_q$. Combining parts (a) and (b), we have $\|F\| = \|f\|_q$.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part (a):}
+From H\"older's inequality:
+\[
+|F(g)| = \left|\int fg\,dx\right| \le \|f\|_q\|g\|_p.
+\]
+Dividing by $\|g\|_p$:
+\[
+\frac{|F(g)|}{\|g\|_p} \le \|f\|_q \quad\text{for all }g\neq 0.
+\]
+Taking the supremum: $\|F\| \le \|f\|_q$. $\checkmark$
+
+\textbf{Part (b):}
+Define $g_0(x) = |f(x)|^{q/p}\,\text{sgn}(\overline{f(x)})/\|f\|_q^{q/p}$ where $\text{sgn}(z) = z/|z|$ for $z\neq 0$.
+
+First, check $g_0\in L_p$:
+\[
+\int|g_0|^p\,dx = \frac{1}{\|f\|_q^q}\int|f|^q\,dx = \frac{\|f\|_q^q}{\|f\|_q^q} = 1.
+\]
+So $\|g_0\|_p = 1$ and $g_0\in L_p$. $\checkmark$
+
+Now compute $F(g_0)$:
+\[
+F(g_0) = \int f(x)g_0(x)\,dx = \frac{1}{\|f\|_q^{q/p}}\int f(x)|f(x)|^{q/p}\text{sgn}(\overline{f(x)})\,dx.
+\]
+Since $f\cdot\text{sgn}(\bar{f}) = f\cdot\bar{f}/|f| = |f|^2/|f| = |f|$:
+\[
+F(g_0) = \frac{1}{\|f\|_q^{q/p}}\int|f(x)|^{1+q/p}\,dx.
+\]
+Now $1+q/p = (p+q)/p = q$ (since $1/p+1/q=1$ implies $p+q=pq$, so $(p+q)/p = q$). Therefore:
+\[
+F(g_0) = \frac{1}{\|f\|_q^{q/p}}\int|f|^q\,dx = \frac{\|f\|_q^q}{\|f\|_q^{q/p}} = \|f\|_q^{q-q/p} = \|f\|_q^{q(1-1/p)} = \|f\|_q^{q/q} = \|f\|_q.
+\]
+
+Since $\|g_0\|_p=1$:
+\[
+\|F\| \ge \frac{|F(g_0)|}{\|g_0\|_p} = \|f\|_q.
+\]
+
+Combining with part (a):
+\[
+\boxed{\|F\| = \|f\|_q.} \quad\blacksquare
+\]
+
+\end{document}

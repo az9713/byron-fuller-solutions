@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.11}
+
+\textbf{Problem:} Show informally that
+\[
+\lim_{N\to\infty}\frac{\sin Nx}{\pi x}
+\]
+is a representation of the Dirac $\delta$-function.
+
+\bigskip
+\textbf{Solution:}
+
+We need to show that $\delta_N(x) = \frac{\sin Nx}{\pi x}$ satisfies the two defining properties of the delta function as $N \to \infty$:
+
+\subsection*{Property 1: $\delta_N(x) \to 0$ for $x \neq 0$}
+
+For any fixed $x \neq 0$, $\sin Nx$ is bounded between $-1$ and $1$, while $\pi x$ is a nonzero constant. Therefore:
+\[
+\left|\frac{\sin Nx}{\pi x}\right| \leq \frac{1}{\pi|x|}.
+\]
+
+Moreover, by the Riemann--Lebesgue lemma, for any fixed $x \neq 0$, $\sin Nx$ oscillates ever more rapidly as $N \to \infty$ and does not converge in the usual sense, but in the distributional sense $\frac{\sin Nx}{\pi x} \to 0$ for $x \neq 0$.
+
+\subsection*{Property 2: $\int_{-\infty}^{\infty}\delta_N(x)\,dx = 1$}
+
+\[
+\int_{-\infty}^{\infty}\frac{\sin Nx}{\pi x}\,dx.
+\]
+
+Substituting $u = Nx$, $du = N\,dx$:
+\[
+\int_{-\infty}^{\infty}\frac{\sin u}{\pi u}\,du = \frac{1}{\pi}\int_{-\infty}^{\infty}\frac{\sin u}{u}\,du = \frac{1}{\pi}\cdot\pi = 1.
+\]
+
+This holds for all $N > 0$, so indeed $\int_{-\infty}^{\infty}\delta_N(x)\,dx = 1$.
+
+\subsection*{Property 3: Test function property}
+
+For any smooth test function $f(x)$:
+\[
+\int_{-\infty}^{\infty}\frac{\sin Nx}{\pi x}f(x)\,dx = \int_{-\infty}^{\infty}\frac{\sin u}{\pi u}f(u/N)\,du.
+\]
+
+As $N \to \infty$, $f(u/N) \to f(0)$ (assuming $f$ is continuous at the origin), and by dominated convergence:
+\[
+\lim_{N\to\infty}\int_{-\infty}^{\infty}\frac{\sin Nx}{\pi x}f(x)\,dx = f(0)\int_{-\infty}^{\infty}\frac{\sin u}{\pi u}\,du = f(0).
+\]
+
+This is precisely the defining property $\int_{-\infty}^{\infty}\delta(x)f(x)\,dx = f(0)$.
+
+\subsection*{Connection to Fourier analysis}
+
+Note that:
+\[
+\frac{\sin Nx}{\pi x} = \frac{1}{2\pi}\int_{-N}^{N}e^{ikx}\,dk,
+\]
+so in the limit $N \to \infty$:
+\[
+\delta(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\,dk,
+\]
+which is the standard Fourier representation of the delta function (the completeness relation for the Fourier transform).
+
+\end{document}

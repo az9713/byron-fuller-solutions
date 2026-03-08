@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\section*{Problem 11}
+
+\textbf{Problem:} A second-rank antisymmetric tensor $F_{\mu\nu}$ is characterized by three independent quantities. Consequently, a vector $H_\mu$ can be associated with such a tensor. Prove that
+\[
+H_\mu = \tfrac{1}{2}\,\varepsilon_{\mu\nu\lambda}\,F_{\nu\lambda}
+\quad \text{if and only if} \quad
+F_{\nu\lambda} = \varepsilon_{\nu\lambda\mu}\,H_\mu.
+\]
+
+\bigskip
+\textbf{Solution:}
+
+We work in three-dimensional Cartesian space with the Einstein summation convention. Recall the key identity (Eq.~1.30):
+\begin{equation}
+\varepsilon_{ijk}\,\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}. \label{eq:epseps}
+\end{equation}
+
+\subsection*{Forward direction: $H_\mu = \tfrac{1}{2}\varepsilon_{\mu\nu\lambda}F_{\nu\lambda}$ $\Longrightarrow$ $F_{\nu\lambda} = \varepsilon_{\nu\lambda\mu}H_\mu$}
+
+Given $H_\mu = \tfrac{1}{2}\varepsilon_{\mu\nu\lambda}F_{\nu\lambda}$, compute $\varepsilon_{\alpha\beta\mu}H_\mu$:
+\begin{align}
+\varepsilon_{\alpha\beta\mu}\,H_\mu &= \tfrac{1}{2}\,\varepsilon_{\alpha\beta\mu}\,\varepsilon_{\mu\nu\lambda}\,F_{\nu\lambda}.
+\end{align}
+
+Using identity~\eqref{eq:epseps} with $\varepsilon_{\mu\alpha\beta}\varepsilon_{\mu\nu\lambda} = \varepsilon_{\alpha\beta\mu}\varepsilon_{\mu\nu\lambda}$ (cyclic permutation):
+\[
+\varepsilon_{\alpha\beta\mu}\,\varepsilon_{\mu\nu\lambda} = \delta_{\alpha\nu}\delta_{\beta\lambda} - \delta_{\alpha\lambda}\delta_{\beta\nu}.
+\]
+
+Therefore:
+\begin{align}
+\varepsilon_{\alpha\beta\mu}\,H_\mu &= \tfrac{1}{2}(\delta_{\alpha\nu}\delta_{\beta\lambda} - \delta_{\alpha\lambda}\delta_{\beta\nu})\,F_{\nu\lambda} \\
+&= \tfrac{1}{2}(F_{\alpha\beta} - F_{\beta\alpha}).
+\end{align}
+
+Since $F$ is antisymmetric, $F_{\beta\alpha} = -F_{\alpha\beta}$, so:
+\[
+\varepsilon_{\alpha\beta\mu}\,H_\mu = \tfrac{1}{2}(F_{\alpha\beta} + F_{\alpha\beta}) = F_{\alpha\beta}. \quad \checkmark
+\]
+
+\subsection*{Reverse direction: $F_{\nu\lambda} = \varepsilon_{\nu\lambda\mu}H_\mu$ $\Longrightarrow$ $H_\mu = \tfrac{1}{2}\varepsilon_{\mu\nu\lambda}F_{\nu\lambda}$}
+
+Given $F_{\nu\lambda} = \varepsilon_{\nu\lambda\mu}H_\mu$, compute $\tfrac{1}{2}\varepsilon_{\alpha\nu\lambda}F_{\nu\lambda}$:
+\begin{align}
+\tfrac{1}{2}\,\varepsilon_{\alpha\nu\lambda}\,F_{\nu\lambda} &= \tfrac{1}{2}\,\varepsilon_{\alpha\nu\lambda}\,\varepsilon_{\nu\lambda\mu}\,H_\mu.
+\end{align}
+
+We need $\varepsilon_{\alpha\nu\lambda}\,\varepsilon_{\nu\lambda\mu}$. Contract identity~\eqref{eq:epseps} by setting $i = \alpha$, $j = \nu$, $k = \lambda$ and summing over $\nu$ and $\lambda$. Using $\varepsilon_{\alpha\nu\lambda}\varepsilon_{\mu\nu\lambda}$ (reordering the second epsilon):
+\[
+\varepsilon_{\alpha\nu\lambda}\,\varepsilon_{\mu\nu\lambda} = \delta_{\alpha\nu}\delta_{\nu\mu}\cdot\delta_{\lambda\lambda} - \ldots
+\]
+
+More directly, using the known contraction:
+\[
+\varepsilon_{\alpha\nu\lambda}\,\varepsilon_{\mu\nu\lambda} = 2\,\delta_{\alpha\mu}.
+\]
+
+(This follows from $\varepsilon_{i j k}\varepsilon_{m j k} = 2\delta_{im}$, obtained by contracting $\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}$ over $n = k$: set $m \to j$, $n \to k$ doesn't work directly. Instead, set $j=n$, i.e., contract the second and fourth indices of identity~\eqref{eq:epseps} over $n$:
+
+Actually, use $\varepsilon_{\alpha\nu\lambda}\varepsilon_{\mu\nu\lambda}$. Rename in identity~\eqref{eq:epseps}: $\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}$. Set $i = \nu$, so we need to rearrange. More simply, note that $\varepsilon_{\alpha\nu\lambda}\varepsilon_{\mu\nu\lambda} = \varepsilon_{\nu\lambda\alpha}\varepsilon_{\nu\lambda\mu}$. Now apply identity with first index summed: $\varepsilon_{\nu\lambda\alpha}\varepsilon_{\nu\lambda\mu} = \varepsilon_{\nu\lambda\alpha}\varepsilon_{\nu\lambda\mu}$. With $i = \nu$, $j = \lambda$, $k = \alpha$, $m = \lambda$, $n = \mu$\ldots)
+
+The cleanest route: from $\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}$, contract over $j = m$:
+\[
+\varepsilon_{ijk}\varepsilon_{ijn} = \delta_{jj}\delta_{kn} - \delta_{jn}\delta_{kj} = 3\delta_{kn} - \delta_{kn} = 2\delta_{kn}.
+\]
+
+So $\varepsilon_{\alpha\nu\lambda}\varepsilon_{\mu\nu\lambda} = 2\delta_{\alpha\mu}$.
+
+Therefore:
+\[
+\tfrac{1}{2}\,\varepsilon_{\alpha\nu\lambda}\,F_{\nu\lambda} = \tfrac{1}{2}\cdot 2\delta_{\alpha\mu}\,H_\mu = H_\alpha. \quad \checkmark
+\]
+
+\bigskip
+Both directions are proven, establishing the ``if and only if.'' \hfill $\blacksquare$
+
+\end{document}

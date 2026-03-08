@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 25}
+
+\textbf{Problem.} \textit{The Dirac matrices.} Assume that for some $n$ there exist four $n \times n$ matrices which satisfy the anticommutation relations $\gamma_\mu \gamma_\nu + \gamma_\nu \gamma_\mu = 2\delta_{\mu\nu}I$, where $\mu, \nu = 1, 2, 3, 4$.
+
+\begin{itemize}
+\item[(a)] Prove that $\det \gamma_\mu = \pm 1$ for each $\mu = 1, 2, 3, \text{ or } 4$.
+\item[(b)] Show that $\operatorname{tr} \gamma_\mu = 0$ for $\mu = 1, 2, 3, 4$.
+\item[(c)] If $\lambda$ is an eigenvalue of any of the $\gamma_\mu$, show that $\lambda = \pm 1$.
+\item[(d)] Show that $n$ must be even.
+\end{itemize}
+
+The final part of this problem consists in showing that there exists no set of four $n \times n$ matrices of order less than 4 which satisfies the above anticommutation relations.
+
+\begin{itemize}
+\item[(e)] Show that there exists no set of four $n \times n$ matrices satisfying the above anticommutation relations.
+\item[(f)] Show that any four $2 \times 2$ matrices cannot satisfy the anticommutation relations.
+\end{itemize}
+\textit{[Hint: The three $2\times 2$ Pauli matrices do satisfy the anticommutation relations, and any $2 \times 2$ matrix can be expanded as a linear combination of the three Pauli matrices and the $2 \times 2$ unit matrix.]}
+
+\textit{(Note: That there exist four nonsingular $4 \times 4$ matrices satisfying these relations is shown in any standard treatment of the Dirac equation. This problem shows that one need not bother looking for matrices of lower than fourth order which obey the anticommutation relations, a point of great theoretical significance.)}
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{(a)} From $\gamma_\mu^2 = I$ (set $\mu = \nu$ in the anticommutation relation):
+\[
+\det(\gamma_\mu^2) = \det(I) \quad \Rightarrow \quad (\det \gamma_\mu)^2 = 1 \quad \Rightarrow \quad \det \gamma_\mu = \pm 1. \quad \checkmark
+\]
+
+\medskip
+\textbf{(b)} For $\mu \neq \nu$: $\gamma_\mu \gamma_\nu + \gamma_\nu \gamma_\mu = 0$, so $\gamma_\mu \gamma_\nu = -\gamma_\nu \gamma_\mu$.
+
+Multiply on the right by $\gamma_\nu$ (using $\gamma_\nu^2 = I$):
+\[
+\gamma_\mu = -\gamma_\nu \gamma_\mu \gamma_\nu.
+\]
+Take the trace:
+\[
+\operatorname{tr}(\gamma_\mu) = -\operatorname{tr}(\gamma_\nu \gamma_\mu \gamma_\nu) = -\operatorname{tr}(\gamma_\mu \gamma_\nu \gamma_\nu) = -\operatorname{tr}(\gamma_\mu),
+\]
+where we used the cyclic property of the trace and $\gamma_\nu^2 = I$. Therefore $2\operatorname{tr}(\gamma_\mu) = 0$, so $\operatorname{tr}(\gamma_\mu) = 0$. $\checkmark$
+
+\medskip
+\textbf{(c)} If $\gamma_\mu x = \lambda x$ with $x \neq 0$, then $\gamma_\mu^2 x = \lambda^2 x$. Since $\gamma_\mu^2 = I$, we get $x = \lambda^2 x$, hence $\lambda^2 = 1$, so $\lambda = \pm 1$. $\checkmark$
+
+\medskip
+\textbf{(d)} From (b), $\operatorname{tr}(\gamma_\mu) = 0$. The trace equals the sum of eigenvalues, and from (c) each eigenvalue is $\pm 1$. If there are $p$ eigenvalues equal to $+1$ and $q$ eigenvalues equal to $-1$ (with $p + q = n$), then:
+\[
+\operatorname{tr}(\gamma_\mu) = p - q = 0 \quad \Rightarrow \quad p = q \quad \Rightarrow \quad n = 2p.
+\]
+Therefore $n$ must be even. $\checkmark$
+
+\medskip
+\textbf{(e) and (f): No four $2 \times 2$ Dirac matrices exist.}
+
+Any $2 \times 2$ matrix can be written as $M = aI + b\sigma_x + c\sigma_y + d\sigma_z$, where $\sigma_x, \sigma_y, \sigma_z$ are the Pauli matrices and $I$ is the identity. These four matrices form a basis for the space of $2 \times 2$ matrices.
+
+From part (b), $\operatorname{tr}(\gamma_\mu) = 0$, so the coefficient $a = 0$ for each $\gamma_\mu$ (since $\operatorname{tr}(\sigma_i) = 0$ and $\operatorname{tr}(I) = 2$). Thus each $\gamma_\mu$ must be a linear combination of $\sigma_x, \sigma_y, \sigma_z$ only---a three-dimensional space. But we need four linearly independent traceless matrices $\gamma_1, \gamma_2, \gamma_3, \gamma_4$ (they must be linearly independent because the anticommutation relations and $\gamma_\mu^2 = I$ require it). Since only three linearly independent traceless $2 \times 2$ matrices exist, four anticommuting $2 \times 2$ matrices satisfying the Dirac relations cannot exist.
+
+More explicitly: the three Pauli matrices already satisfy $\sigma_i \sigma_j + \sigma_j \sigma_i = 2\delta_{ij}I$. Any fourth $2\times 2$ traceless matrix $\gamma_4 = \alpha\sigma_x + \beta\sigma_y + \gamma\sigma_z$ would need to anticommute with all three Pauli matrices. But $\gamma_4 \sigma_x + \sigma_x \gamma_4 = 2\alpha I \neq 0$ unless $\alpha = 0$, and similarly $\beta = 0$ and $\gamma = 0$, giving $\gamma_4 = 0$, which is not acceptable.
+
+Therefore the minimum dimension for the Dirac matrices is $n = 4$. \hfill $\blacksquare$
+
+\end{document}

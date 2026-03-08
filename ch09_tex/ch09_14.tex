@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 14}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.}
+
+(a) Expand the determinant
+\[
+\Delta_n = \begin{vmatrix} k(x,y) & k(x,x_1) & \cdots & k(x,x_n) \\ k(x_1,y) & k(x_1,x_1) & \cdots & k(x_1,x_n) \\ \vdots & \vdots & \ddots & \vdots \\ k(x_n,y) & k(x_n,x_1) & \cdots & k(x_n,x_n) \end{vmatrix}
+\]
+by minors about its first row to show that
+\[
+\int_a^b \cdots \int_a^b \Delta_n\,dx_1\cdots dx_n = k(x,y)\int\cdots\int \Delta_{n-1}'\,dx_1\cdots dx_n - \text{other terms},
+\]
+and therefore establish a recursion relation for $N(x,y;\lambda)$.
+
+(b) By expanding $\Delta_n$ about the first column, show a similar result.
+
+\bigskip
+\textbf{Solution.}
+
+\subsection*{(a) Expansion along the first row}
+
+Expanding $\Delta_n$ along its first row:
+\[
+\Delta_n = k(x,y)\,M_{00} - k(x,x_1)\,M_{01} + k(x,x_2)\,M_{02} - \cdots + (-1)^n k(x,x_n)\,M_{0n},
+\]
+where $M_{0j}$ is the minor obtained by deleting the first row and the $(j+1)$th column.
+
+Note that $M_{00}$ is the $n \times n$ determinant:
+\[
+M_{00} = \begin{vmatrix} k(x_1,x_1) & \cdots & k(x_1,x_n) \\ \vdots & \ddots & \vdots \\ k(x_n,x_1) & \cdots & k(x_n,x_n) \end{vmatrix},
+\]
+which is precisely the determinant appearing in $D(\lambda)$.
+
+Integrating over $x_1, \ldots, x_n$:
+\[
+\int \cdots \int \Delta_n\,dx_1\cdots dx_n = k(x,y)\int\cdots\int M_{00}\,dx_1\cdots dx_n + \sum_{j=1}^n (-1)^j \int\cdots\int k(x,x_j)\,M_{0j}\,dx_1\cdots dx_n.
+\]
+
+The first integral $\int\cdots\int M_{00}\,dx_1\cdots dx_n$ is exactly the $n$th coefficient in $D(\lambda)$ (up to factorial factors).
+
+For the remaining terms, by relabeling integration variables (since the $x_i$ are dummy variables), each term $\int\cdots\int k(x,x_j)\,M_{0j}\,dx_1\cdots dx_n$ gives the same value. After accounting for signs and the relabeling, all $n$ terms contribute equally, giving a factor of $n$ times a single such integral.
+
+The net result is the recursion:
+\[
+\int \cdots \int \Delta_n\,dx_1\cdots dx_n = k(x,y)\cdot D_n - n\int k(x,t)\left[\int\cdots\int \Delta_{n-1}'(t,y)\,dx_2\cdots dx_n\right]dt,
+\]
+where $D_n = \int\cdots\int M_{00}\,dx_1\cdots dx_n$ and $\Delta_{n-1}'(t,y)$ is the $(n-1)$-variable version of the determinant with $t$ replacing the role of $x_1$.
+
+Multiplying by $(-\lambda)^n/n!$ and summing, this gives:
+\[
+\boxed{N(x,y;\lambda) = k(x,y)\,D(\lambda) + \lambda \int_a^b k(x,t)\,N(t,y;\lambda)\,dt}.
+\]
+
+\subsection*{(b) Expansion along the first column}
+
+Similarly, expanding $\Delta_n$ along its first column:
+\[
+\Delta_n = k(x,y)\,M_{00} - k(x_1,y)\,M_{10} + k(x_2,y)\,M_{20} - \cdots
+\]
+
+By the same argument (relabeling dummy integration variables), integrating over $x_1, \ldots, x_n$ yields:
+\[
+\int \cdots \int \Delta_n\,dx_1\cdots dx_n = k(x,y)\cdot D_n - n\int \left[\int\cdots\int \Delta_{n-1}'(x,t)\,dx_2\cdots dx_n\right]k(t,y)\,dt.
+\]
+
+Summing the series gives:
+\[
+\boxed{N(x,y;\lambda) = k(x,y)\,D(\lambda) + \lambda \int_a^b N(x,t;\lambda)\,k(t,y)\,dt}.
+\]
+
+This is the companion equation to the one derived in part~(a), with the kernel appearing on the other side of $N$. \hfill $\blacksquare$
+
+\end{document}

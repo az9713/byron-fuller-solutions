@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\section*{Problem 12}
+
+\textbf{Problem:} A second-rank antisymmetric tensor $F_{\mu\nu}$ is characterized by three independent quantities. Consequently, a vector $H_\mu$ can be associated with such a tensor. Prove that $H_\mu = \frac{1}{2}\varepsilon_{\mu\alpha\beta}F_{\alpha\beta}$ if and only if $F_{\alpha\beta} = \varepsilon_{\alpha\beta\mu}H_\mu$.
+
+\textit{(Note: This problem and Problem 11 are stated equivalently; the solution from Problem 11 applies. Here we verify the relationship explicitly with components.)}
+
+\bigskip
+\textbf{Solution:}
+
+The general proof was given in Problem 11. Here we verify the correspondence component by component.
+
+\subsection*{Explicit verification}
+
+An antisymmetric $3\times 3$ tensor $F_{\mu\nu}$ ($F_{\mu\nu} = -F_{\nu\mu}$) has three independent components. Following the book's convention (Eq.~1.96), we write:
+\[
+F_{\mu\nu} = \begin{pmatrix} 0 & F_{12} & F_{13} \\ -F_{12} & 0 & F_{23} \\ -F_{13} & -F_{23} & 0 \end{pmatrix}.
+\]
+
+The associated vector $H_\mu = \frac{1}{2}\varepsilon_{\mu\nu\lambda}F_{\nu\lambda}$ gives:
+\begin{align}
+H_1 &= \tfrac{1}{2}\varepsilon_{1\nu\lambda}F_{\nu\lambda} = \tfrac{1}{2}(\varepsilon_{123}F_{23} + \varepsilon_{132}F_{32}) = \tfrac{1}{2}(F_{23} - F_{32}) = F_{23}, \\
+H_2 &= \tfrac{1}{2}\varepsilon_{2\nu\lambda}F_{\nu\lambda} = \tfrac{1}{2}(\varepsilon_{213}F_{13} + \varepsilon_{231}F_{31}) = \tfrac{1}{2}(-F_{13} + F_{13}) \nonumber \\
+    &= \tfrac{1}{2}(\varepsilon_{231}F_{31} + \varepsilon_{213}F_{13}) = \tfrac{1}{2}(F_{31} + (-1)F_{13}) = \tfrac{1}{2}(-F_{13} - F_{13}) \nonumber \\
+    &\quad\text{Wait, let us be more careful:} \nonumber \\
+H_2 &= \tfrac{1}{2}\sum_{\nu,\lambda}\varepsilon_{2\nu\lambda}F_{\nu\lambda}. \nonumber
+\end{align}
+
+The nonzero terms of $\varepsilon_{2\nu\lambda}$ are: $\varepsilon_{213} = -1$ and $\varepsilon_{231} = +1$. So:
+\begin{align}
+H_2 &= \tfrac{1}{2}[\varepsilon_{213}F_{13} + \varepsilon_{231}F_{31}] = \tfrac{1}{2}[(-1)F_{13} + (1)(-F_{13})] = \tfrac{1}{2}(-2F_{13}) = -F_{13} = F_{31}.
+\end{align}
+
+Similarly:
+\begin{align}
+H_3 &= \tfrac{1}{2}[\varepsilon_{312}F_{12} + \varepsilon_{321}F_{21}] = \tfrac{1}{2}[(1)F_{12} + (-1)(-F_{12})] = F_{12}.
+\end{align}
+
+Summary:
+\[
+\boxed{H_1 = F_{23}, \qquad H_2 = F_{31}, \qquad H_3 = F_{12}}.
+\]
+
+\subsection*{Reverse check: $F_{\alpha\beta} = \varepsilon_{\alpha\beta\mu}H_\mu$}
+
+Compute:
+\begin{align}
+F_{12} &= \varepsilon_{12\mu}H_\mu = \varepsilon_{123}H_3 = H_3 = F_{12}. \quad \checkmark \\
+F_{23} &= \varepsilon_{23\mu}H_\mu = \varepsilon_{231}H_1 = H_1 = F_{23}. \quad \checkmark \\
+F_{31} &= \varepsilon_{31\mu}H_\mu = \varepsilon_{312}H_2 = H_2 = F_{31}. \quad \checkmark
+\end{align}
+
+And for the antisymmetric partners:
+\begin{align}
+F_{21} &= \varepsilon_{21\mu}H_\mu = \varepsilon_{213}H_3 = -H_3 = -F_{12}. \quad \checkmark
+\end{align}
+
+The correspondence is verified in both directions. \hfill $\blacksquare$
+
+\end{document}

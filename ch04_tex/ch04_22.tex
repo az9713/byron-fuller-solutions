@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 22}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Find the first few corrections in perturbation theory to the lowest eigenvalue and corresponding eigenvector for the coupled harmonic-oscillator problem discussed in Section 4.12.
+
+\bigskip
+\textbf{Solution.}
+
+From Section 4.12, the unperturbed Hamiltonian is a sum of two independent harmonic oscillators:
+\[
+A_0 = \hbar\omega_0(a_x^\dagger a_x + a_y^\dagger a_y + 1),
+\]
+with the perturbation $\epsilon A_1 = \epsilon\, m\omega_0^2\, xy$ (the coupling term).
+
+Using $x = \sqrt{\frac{\hbar}{2m\omega_0}}(a_x + a_x^\dagger)$ and $y = \sqrt{\frac{\hbar}{2m\omega_0}}(a_y + a_y^\dagger)$:
+\[
+\epsilon A_1 = \epsilon\frac{\hbar}{2m\omega_0}\cdot m\omega_0^2 (a_x+a_x^\dagger)(a_y+a_y^\dagger) = \frac{\epsilon\hbar\omega_0}{2}(a_x+a_x^\dagger)(a_y+a_y^\dagger).
+\]
+
+The ground state is $|0,0\rangle$ with $E_0^{(0)} = \hbar\omega_0$.
+
+\textbf{First-order energy correction:}
+\[
+E_0^{(1)} = \langle 0,0|\epsilon A_1|0,0\rangle = \frac{\epsilon\hbar\omega_0}{2}\langle 0,0|(a_x+a_x^\dagger)(a_y+a_y^\dagger)|0,0\rangle.
+\]
+Expanding: only the term $\langle 0,0|a_x a_y|0,0\rangle$ or similar could contribute, but:
+\[
+\langle 0,0|(a_x+a_x^\dagger)(a_y+a_y^\dagger)|0,0\rangle = \langle 0|a_x+a_x^\dagger|0\rangle_x\langle 0|a_y+a_y^\dagger|0\rangle_y = 0\cdot 0 = 0.
+\]
+So $E_0^{(1)} = 0$.
+
+\textbf{Second-order energy correction:}
+\[
+E_0^{(2)} = \sum_{(n_x,n_y)\neq(0,0)} \frac{|\langle n_x,n_y|\epsilon A_1|0,0\rangle|^2}{E_0^{(0)} - E_{n_x,n_y}^{(0)}}.
+\]
+
+The perturbation connects $|0,0\rangle$ only to $|1,1\rangle$ (via $a_x^\dagger a_y^\dagger$):
+\[
+\epsilon A_1|0,0\rangle = \frac{\epsilon\hbar\omega_0}{2}(a_x+a_x^\dagger)(a_y+a_y^\dagger)|0,0\rangle = \frac{\epsilon\hbar\omega_0}{2}a_x^\dagger a_y^\dagger|0,0\rangle = \frac{\epsilon\hbar\omega_0}{2}|1,1\rangle.
+\]
+
+So the only contributing state is $|1,1\rangle$ with $E_{1,1}^{(0)} = 3\hbar\omega_0$:
+\[
+E_0^{(2)} = \frac{\left(\frac{\epsilon\hbar\omega_0}{2}\right)^2}{\hbar\omega_0 - 3\hbar\omega_0} = \frac{\epsilon^2\hbar^2\omega_0^2/4}{-2\hbar\omega_0} = -\frac{\epsilon^2\hbar\omega_0}{8}.
+\]
+
+So the ground state energy to second order is:
+\[
+\boxed{E_0 \approx \hbar\omega_0 - \frac{\epsilon^2\hbar\omega_0}{8}}.
+\]
+
+\textbf{First-order eigenvector correction:}
+\[
+|0,0\rangle^{(1)} = \sum_{(n_x,n_y)\neq(0,0)} \frac{\langle n_x,n_y|\epsilon A_1|0,0\rangle}{E_0^{(0)} - E_{n_x,n_y}^{(0)}}|n_x,n_y\rangle = \frac{\epsilon\hbar\omega_0/2}{-2\hbar\omega_0}|1,1\rangle = -\frac{\epsilon}{4}|1,1\rangle.
+\]
+
+\textbf{Check with exact solution:} The exact eigenvalues of the coupled system are $\hbar\omega_\pm(n_\pm + \frac{1}{2})$ with $\omega_\pm = \omega_0\sqrt{1\pm\epsilon}$. The exact ground state energy is:
+\[
+E_0 = \frac{\hbar}{2}(\omega_+ + \omega_-) = \frac{\hbar\omega_0}{2}\left(\sqrt{1+\epsilon} + \sqrt{1-\epsilon}\right) \approx \hbar\omega_0\left(1 - \frac{\epsilon^2}{8} + \cdots\right),
+\]
+confirming our perturbation theory result. \qed
+
+\end{document}

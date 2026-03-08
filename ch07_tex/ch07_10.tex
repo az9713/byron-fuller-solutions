@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 10}
+
+\textbf{Problem:} Schr\"odinger's equation in one dimension is
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x) = E\psi(x).
+\]
+Using the methods discussed in Section 7.4, derive a Lippmann--Schwinger integral equation for $\psi(x)$,
+\begin{itemize}
+\item[a)] for the case $E < 0$,
+\item[b)] for the case $E \ge 0$.
+\end{itemize}
+In case (b) you will find separate equations for $\psi_1(x)$ and $\psi_2(x)$ corresponding to different types of boundary conditions at infinity. Discuss the meaning of $\psi_1(x)$ and $\psi_2(x)$.
+
+Solve Problem 10 by the method of Section 7.3. What is the appropriate statement of boundary conditions to specify the Green's function completely in this case?
+
+\bigskip
+\textbf{Solution:}
+
+Rewrite Schr\"odinger's equation as:
+\[
+\frac{d^2\psi}{dx^2} + k^2\psi = \frac{2m}{\hbar^2}V(x)\psi(x),
+\]
+where $k^2 = 2mE/\hbar^2$.
+
+The Green's function satisfies:
+\[
+\frac{d^2G}{dx^2} + k^2 G = \delta(x - x').
+\]
+
+\subsection*{(a) Case $E < 0$: $k^2 < 0$}
+
+Let $\kappa^2 = -k^2 = 2m|E|/\hbar^2 > 0$, so $\kappa > 0$. The equation becomes:
+\[
+\frac{d^2G}{dx^2} - \kappa^2 G = \delta(x-x').
+\]
+
+The two independent solutions of the homogeneous equation are $e^{\kappa x}$ and $e^{-\kappa x}$. For the Green's function on $(-\infty,\infty)$, we require $G \to 0$ as $|x| \to \infty$:
+\[
+G(x,x') = \begin{cases} A\,e^{-\kappa x}, & x > x', \\ B\,e^{\kappa x}, & x < x'. \end{cases}
+\]
+
+Continuity at $x = x'$: $Ae^{-\kappa x'} = Be^{\kappa x'}$.
+
+Jump in derivative: $-A\kappa e^{-\kappa x'} - B\kappa e^{\kappa x'} = 1$.
+
+Solving: $A = -\frac{1}{2\kappa}e^{\kappa x'}$, $B = -\frac{1}{2\kappa}e^{-\kappa x'}$.
+
+\[
+\boxed{G(x,x') = -\frac{1}{2\kappa}e^{-\kappa|x-x'|}.}
+\]
+
+The Lippmann--Schwinger equation is:
+\[
+\psi(x) = \psi_0(x) + \int_{-\infty}^{\infty} G(x,x')\frac{2m}{\hbar^2}V(x')\psi(x')\,dx',
+\]
+where $\psi_0$ is a solution of the free equation. For $E < 0$, the only normalizable free solution is $\psi_0 = 0$, so:
+\[
+\psi(x) = -\frac{m}{\hbar^2\kappa}\int_{-\infty}^{\infty} e^{-\kappa|x-x'|}V(x')\psi(x')\,dx'.
+\]
+
+\subsection*{(b) Case $E \ge 0$: $k^2 > 0$}
+
+Now $k > 0$ is real. The homogeneous solutions are $e^{\pm ikx}$. There is no unique Green's function without specifying boundary conditions. Two choices are:
+
+\textbf{Outgoing-wave (retarded) Green's function:}
+\[
+G_+(x,x') = -\frac{1}{2ik}e^{ik|x-x'|}.
+\]
+This gives outgoing waves at $|x| \to \infty$.
+
+\textbf{Incoming-wave (advanced) Green's function:}
+\[
+G_-(x,x') = \frac{1}{2ik}e^{-ik|x-x'|}.
+\]
+
+The corresponding Lippmann--Schwinger equations are:
+\[
+\psi_{\pm}(x) = e^{ikx} + \frac{2m}{\hbar^2}\int_{-\infty}^{\infty}G_{\pm}(x,x')V(x')\psi_{\pm}(x')\,dx'.
+\]
+
+Here $\psi_0 = e^{ikx}$ represents an incoming plane wave from the left.
+
+\textbf{Physical interpretation:} $\psi_+$ describes scattering with outgoing scattered waves (the physical scattering solution), while $\psi_-$ describes scattering with incoming scattered waves (time-reversed scattering).
+
+\subsection*{Method of Section 7.3}
+
+By the eigenfunction expansion method, the Green's function is:
+\[
+G(x,x') = \int_{-\infty}^{\infty}\frac{e^{ip(x-x')/\hbar}}{k^2 - p^2/\hbar^2}\,\frac{dp}{2\pi\hbar}.
+\]
+
+The poles at $p = \pm\hbar k$ require a prescription for the contour. For the retarded Green's function, we use $k \to k + i\epsilon$, pushing the poles off the real axis. This uniquely specifies the boundary conditions (outgoing waves) and gives $G_+$ after contour integration. For the advanced Green's function, $k \to k - i\epsilon$. For $E < 0$, the poles are on the imaginary axis and no prescription is needed. $\blacksquare$
+
+\end{document}

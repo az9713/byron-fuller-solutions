@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 12.} Making use of the definition $\phi(x) = e^{ikx}\psi(x)$ in the one-dimensional Lippmann--Schwinger equation, show that $\phi(x)$ satisfies the integral equation
+\[
+\phi(x) = 1 - \frac{i}{2k}\int_{-\infty}^{\infty} e^{-2ik(x'-x)\theta(x'-x)}V(x')\phi(x')\,dx'
+\]
+where $\theta$ is the Heaviside step function (here the convention $\theta(0) = 1/2$ applies).
+
+\textbf{(a)} [Not explicitly separate in original.]
+
+\textbf{(b)} Make some plausible arguments to suggest that the last term on the right-hand side of the above equation is negligible if $E$ is large (i.e., if the energy of the incident particle is large).
+
+\textbf{(c)} Neglecting this term, show that the resulting $\phi(x)$, which we will call $\phi_0(x)$, satisfies the differential equation
+\[
+\phi_0' = \frac{i}{2k}V(x)\phi_0(x),
+\]
+with the boundary condition $\phi_0(-\infty) = 1$. Hence show that
+\[
+\phi_0(x) = \exp\left[\frac{i}{2k}\int_{-\infty}^{x}V(x')\,dx'\right].
+\]
+
+\bigskip
+\textbf{Solution.}
+
+The one-dimensional Lippmann--Schwinger equation is:
+\[
+\psi(x) = e^{ikx} + \frac{im}{\hbar^2 k}\int_{-\infty}^{\infty} e^{ik|x-x'|}V(x')\psi(x')\,dx'.
+\]
+
+\textbf{Deriving the equation for $\phi$:}
+
+Define $\psi(x) = e^{ikx}\phi(x)$, so $\phi(x) = e^{-ikx}\psi(x)$. Substituting:
+\[
+e^{ikx}\phi(x) = e^{ikx} + \frac{im}{\hbar^2 k}\int e^{ik|x-x'|}V(x')e^{ikx'}\phi(x')\,dx'.
+\]
+Dividing by $e^{ikx}$:
+\[
+\phi(x) = 1 + \frac{im}{\hbar^2 k}\int e^{ik|x-x'|-ikx+ikx'}V(x')\phi(x')\,dx'.
+\]
+
+Now consider $|x-x'|$:
+\begin{itemize}
+\item If $x'>x$: $|x-x'| = x'-x$, so the exponent becomes $ik(x'-x)-ikx+ikx' = 2ik(x'-x)$.
+\item If $x'<x$: $|x-x'| = x-x'$, so the exponent becomes $ik(x-x')-ikx+ikx' = 0$.
+\end{itemize}
+
+Therefore (setting $m/\hbar^2 = 1$ for simplicity in natural units):
+\[
+\phi(x) = 1 + \frac{i}{2k}\int_{-\infty}^{x} V(x')\phi(x')\,dx' + \frac{i}{2k}\int_{x}^{\infty} e^{2ik(x'-x)}V(x')\phi(x')\,dx'.
+\]
+
+\textbf{Part (b): High-energy limit.}
+For large $k$ (high energy), the factor $e^{2ik(x'-x)}$ in the second integral oscillates rapidly as a function of $x'$. By the Riemann--Lebesgue lemma, such rapidly oscillating integrals tend to zero:
+\[
+\int_x^\infty e^{2ik(x'-x)}V(x')\phi(x')\,dx' \to 0 \quad\text{as }k\to\infty,
+\]
+provided $V\phi$ is integrable. Thus at high energies, this term is negligible.
+
+\textbf{Part (c): The eikonal approximation.}
+Dropping the oscillating term:
+\[
+\phi_0(x) = 1 + \frac{i}{2k}\int_{-\infty}^{x}V(x')\phi_0(x')\,dx'.
+\]
+Differentiating with respect to $x$:
+\[
+\boxed{\phi_0'(x) = \frac{i}{2k}V(x)\phi_0(x).}
+\]
+This is a first-order ODE with boundary condition $\phi_0(-\infty) = 1$. The solution is:
+\[
+\boxed{\phi_0(x) = \exp\left[\frac{i}{2k}\int_{-\infty}^{x}V(x')\,dx'\right].}
+\]
+
+This is the \textbf{eikonal approximation}. It shows that at high energies, the wave function accumulates a phase proportional to the integral of the potential along the path, which is the quantum-mechanical analog of the classical eikonal. $\blacksquare$
+
+\end{document}

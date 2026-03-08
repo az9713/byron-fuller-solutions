@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.14}
+
+\textbf{Problem:} Prove Parseval's equation (5.11) in Hilbert space by applying Bessel's completeness relation (5.10) to the function $f + g$ and then subtracting the corresponding equations for $f$ and $g$.
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Setup}
+
+Let $\{u_n\}$ be a complete orthonormal set in Hilbert space. Bessel's completeness relation (Eq.\ 5.10) states that for any function $f$ in Hilbert space:
+\[
+\|f\|^2 = (f, f) = \sum_n |c_n|^2, \quad \text{where } c_n = (u_n, f). \tag{5.10}
+\]
+
+Parseval's equation (Eq.\ 5.11) states:
+\[
+(f, g) = \sum_n (f, u_n)(u_n, g) = \sum_n c_n^* d_n, \tag{5.11}
+\]
+where $c_n = (u_n, f)$ and $d_n = (u_n, g)$.
+
+\subsection*{Proof}
+
+Apply Eq.\ (5.10) to $f + g$:
+\[
+\|f + g\|^2 = \sum_n |(u_n, f+g)|^2 = \sum_n |c_n + d_n|^2. \tag{1}
+\]
+
+Expand both sides. The left side:
+\[
+\|f+g\|^2 = (f+g, f+g) = \|f\|^2 + (f,g) + (g,f) + \|g\|^2.
+\]
+
+The right side:
+\[
+\sum_n |c_n + d_n|^2 = \sum_n (c_n^* + d_n^*)(c_n + d_n) = \sum_n |c_n|^2 + \sum_n c_n^* d_n + \sum_n d_n^* c_n + \sum_n |d_n|^2.
+\]
+
+Subtracting $\|f\|^2 = \sum_n |c_n|^2$ and $\|g\|^2 = \sum_n |d_n|^2$ from both sides of (1):
+\[
+(f,g) + (g,f) = \sum_n c_n^* d_n + \sum_n d_n^* c_n. \tag{2}
+\]
+
+Now apply the same procedure to $f + ig$:
+\[
+\|f + ig\|^2 = \sum_n |c_n + id_n|^2.
+\]
+
+Left side:
+\[
+\|f+ig\|^2 = \|f\|^2 + i(f,g) - i(g,f) + \|g\|^2.
+\]
+
+Right side:
+\[
+\sum_n |c_n + id_n|^2 = \sum_n |c_n|^2 + i\sum_n c_n^* d_n - i\sum_n d_n^* c_n + \sum_n |d_n|^2.
+\]
+
+Subtracting $\|f\|^2$ and $\|g\|^2$:
+\[
+i(f,g) - i(g,f) = i\sum_n c_n^* d_n - i\sum_n d_n^* c_n. \tag{3}
+\]
+
+Dividing (3) by $i$:
+\[
+(f,g) - (g,f) = \sum_n c_n^* d_n - \sum_n d_n^* c_n. \tag{4}
+\]
+
+Adding equations (2) and (4):
+\[
+2(f,g) = 2\sum_n c_n^* d_n,
+\]
+so:
+\[
+\boxed{(f,g) = \sum_n c_n^* d_n = \sum_n (u_n,f)^*(u_n,g) = \sum_n (f,u_n)(u_n,g).}
+\]
+
+This is Parseval's equation, which expresses the inner product in terms of expansion coefficients. It is the infinite-dimensional generalization of the statement that the inner product of two vectors equals the sum of the products of their components in any orthonormal basis.
+
+\end{document}

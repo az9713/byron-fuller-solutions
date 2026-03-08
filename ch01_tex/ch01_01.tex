@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\section*{Problem 1}
+
+\textbf{Problem:} Prove by vector methods that the diagonals of a rhombus are orthogonal.
+
+\bigskip
+\textbf{Solution:}
+
+A rhombus is a parallelogram with all four sides of equal length. Let the two adjacent sides of the rhombus be represented by vectors $\vect{a}$ and $\vect{b}$, where $|\vect{a}| = |\vect{b}|$ since all sides are equal.
+
+The two diagonals of the rhombus are:
+\begin{align}
+\vect{d}_1 &= \vect{a} + \vect{b} \quad \text{(one diagonal)}, \\
+\vect{d}_2 &= \vect{a} - \vect{b} \quad \text{(the other diagonal)}.
+\end{align}
+
+To show the diagonals are orthogonal, we compute their scalar (dot) product:
+\begin{align}
+\vect{d}_1 \cdot \vect{d}_2 &= (\vect{a} + \vect{b}) \cdot (\vect{a} - \vect{b}).
+\end{align}
+
+Expanding this using the distributive property of the dot product:
+\begin{align}
+\vect{d}_1 \cdot \vect{d}_2 &= \vect{a} \cdot \vect{a} - \vect{a} \cdot \vect{b} + \vect{b} \cdot \vect{a} - \vect{b} \cdot \vect{b} \\
+&= |\vect{a}|^2 - |\vect{b}|^2.
+\end{align}
+
+Since the rhombus has all sides equal, $|\vect{a}| = |\vect{b}|$, so:
+\begin{equation}
+\vect{d}_1 \cdot \vect{d}_2 = |\vect{a}|^2 - |\vect{a}|^2 = 0.
+\end{equation}
+
+Since $\vect{d}_1 \cdot \vect{d}_2 = 0$, the diagonals are perpendicular. \hfill $\blacksquare$
+
+\end{document}

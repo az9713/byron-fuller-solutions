@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 15}
+\end{center}
+
+\noindent\textbf{Problem.} Show that the most general $2 \times 2$ unitary matrix whose eigenvalues are 1 and $-1$ can be written as
+\[
+U = \begin{pmatrix} \cos\theta & \sin\theta\, e^{i\phi} \\ \sin\theta\, e^{-i\phi} & -\cos\theta \end{pmatrix}.
+\]
+
+\bigskip
+\noindent\textbf{Solution.}
+
+A $2\times 2$ unitary matrix $U$ with eigenvalues $1$ and $-1$ satisfies $U^\dagger U = I$ and $U^2 = I$ (since the eigenvalues squared are both 1). Also $\det U = 1 \cdot (-1) = -1$ and $\operatorname{Tr} U = 1 + (-1) = 0$.
+
+Write:
+\[
+U = \begin{pmatrix} a & b \\ c & d \end{pmatrix}.
+\]
+
+\noindent\textbf{Constraints:}
+
+(1) $\operatorname{Tr} U = 0$: $a + d = 0$, so $d = -a$.
+
+(2) $\det U = -1$: $-a^2 - bc = -1$, so $a^2 + bc = 1$.
+
+(3) Unitarity $U^\dagger U = I$:
+\begin{align*}
+|a|^2 + |c|^2 &= 1, \\
+|b|^2 + |a|^2 &= 1, \\
+\bar{a}b + \bar{c}d &= 0 \implies \bar{a}b - \bar{c}a = 0 \implies a(\bar{a}b/a - \bar{c}) = 0.
+\end{align*}
+
+From the first two: $|c|^2 = |b|^2$, so $|c| = |b|$.
+
+Since $U$ is unitary, $a$ is real up to a phase. Let us parametrize: set $a = \cos\theta$ (we can take $a$ real since an overall phase can be absorbed, and $|a|^2 \leq 1$ from unitarity). Then $d = -\cos\theta$ and $|b|^2 = 1 - \cos^2\theta = \sin^2\theta$, so $b = \sin\theta\, e^{i\phi}$ for some real $\phi$.
+
+From the off-diagonal unitarity condition $\bar{a}b + \bar{c}d = 0$:
+\[
+\cos\theta \cdot \sin\theta\, e^{i\phi} + \bar{c}(-\cos\theta) = 0.
+\]
+
+If $\cos\theta \neq 0$:
+\[
+\bar{c} = \sin\theta\, e^{i\phi} \implies c = \sin\theta\, e^{-i\phi}.
+\]
+
+If $\cos\theta = 0$: then $a = d = 0$, $|b| = 1$, and the off-diagonal condition $\bar{a}b + \bar{c}d = 0$ is automatically satisfied. From $bc = 1$ (since $a^2 + bc = 1$), $c = 1/b = e^{-i\phi}$, and $|c| = 1 = \sin(\pi/2)$, so the formula still holds.
+
+Therefore the most general form is:
+\[
+\boxed{U = \begin{pmatrix} \cos\theta & \sin\theta\, e^{i\phi} \\ \sin\theta\, e^{-i\phi} & -\cos\theta \end{pmatrix}.}
+\]
+
+One can verify: $U^\dagger U = I$, $\det U = -\cos^2\theta - \sin^2\theta = -1$, $\operatorname{Tr} U = 0$, and the eigenvalues of $U$ are $\pm 1$ (since the characteristic equation is $\lambda^2 - 1 = 0$).
+
+\end{document}

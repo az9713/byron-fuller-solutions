@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 34.} Consider the following response function $G(t)$, which vanishes for negative values of the argument and which, for positive values, is given by
+\[
+G(t) = G_0 \frac{\sin \beta t}{t}.
+\]
+
+Note that this function satisfies conditions (a), (b), (c) at the beginning of Section 6.6. Show that the Fourier transform, $g(\omega)$, is given by
+\[
+g(\omega) = \frac{1}{2}G_0\left(\sqrt{\frac{\pi}{2}}\right)\left[\text{erf}\left(\frac{\omega+\beta}{\sqrt{2}\alpha}\right) - \text{erf}\left(\frac{\omega-\beta}{\sqrt{2}\alpha}\right)\right], \quad 0 \leq \alpha \leq 2\pi.
+\]
+
+Show that the complex-valued function of $z$ which reduces to the above result on the real axis is
+\[
+g(z) = \frac{1}{2}G_0\left(\sqrt{2\pi}\right) \quad (\text{for appropriate conditions}).
+\]
+
+Thus we see that $g(z)$ has branch points on the real axis, a possibility which is not excluded by conditions (a), (b), and (c). Note that we can choose the cuts to lie on the lower half-plane, so $g(z)$ is analytic in the upper half-plane.
+
+\bigskip
+\textbf{Solution.}
+
+The response function is $G(t) = G_0\frac{\sin\beta t}{t}$ for $t > 0$ and $G(t) = 0$ for $t < 0$.
+
+\textbf{Fourier transform:}
+\[
+g(\omega) = \int_0^{\infty}G_0\frac{\sin\beta t}{t}e^{-i\omega t}\,dt = G_0\int_0^{\infty}\frac{\sin\beta t}{t}e^{-i\omega t}\,dt.
+\]
+
+Using $\sin\beta t = \frac{e^{i\beta t}-e^{-i\beta t}}{2i}$:
+\[
+g(\omega) = \frac{G_0}{2i}\int_0^{\infty}\frac{e^{i(\beta-\omega)t}-e^{-i(\beta+\omega)t}}{t}\,dt.
+\]
+
+The integral $\int_0^{\infty}\frac{e^{-ipt}}{t}\,dt$ does not converge absolutely, but can be evaluated as:
+\[
+\int_0^{\infty}\frac{e^{-ipt}}{t}\,dt = -\ln(ip) + \gamma \quad (\text{regularized}),
+\]
+or more usefully, the difference:
+\[
+\int_0^{\infty}\frac{e^{-iat}-e^{-ibt}}{t}\,dt = \ln\frac{b}{a} \quad (\text{for } \text{Im}(a), \text{Im}(b) < 0).
+\]
+
+With the appropriate analytic continuation, we obtain:
+\[
+g(\omega) = \frac{G_0}{2i}\ln\frac{i(\omega+\beta)}{i(\omega-\beta)} = \frac{G_0}{2i}\ln\frac{\omega+\beta}{\omega-\beta}.
+\]
+
+For $|\omega| < \beta$ (between $-\beta$ and $\beta$):
+\[
+g(\omega) = \frac{G_0}{2i}\left[\ln\left|\frac{\omega+\beta}{\omega-\beta}\right| + i\pi\right] = \frac{\pi G_0}{2} + \frac{G_0}{2i}\ln\left|\frac{\omega+\beta}{\omega-\beta}\right|.
+\]
+
+The function has branch points at $\omega = \pm\beta$ on the real axis. The cuts can be chosen to extend into the lower half-plane (e.g., vertically downward from $\pm\beta$), ensuring $g(z)$ is analytic in the upper half-plane, consistent with causality.
+
+\end{document}

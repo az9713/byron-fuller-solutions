@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 18}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[a)] Using the results of the previous problem (or any other method), find in terms of a Green's function the solution to the heat equation for a one-dimensional rod whose ends at $x = -L/2$ and $x = L/2$ are kept at temperatures $T_1$ and $T_2$ respectively.
+\item[b)] Find an expression for the Green's function of part (a) in the limit $L \to \infty$, that is, for the infinite line. Compare this expression with the result found in Section 7.7 for periodic boundary conditions.
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a)}
+
+The heat equation on $[-L/2, L/2]$:
+\[
+\frac{\partial T}{\partial t} = k\frac{\partial^2 T}{\partial x^2}, \quad T(-L/2,t) = T_1,\quad T(L/2,t) = T_2.
+\]
+
+The steady-state solution satisfying these BCs is:
+\[
+T_s(x) = \frac{T_1 + T_2}{2} + \frac{T_2 - T_1}{L}\,x.
+\]
+
+Let $u(x,t) = T(x,t) - T_s(x)$. Then $u$ satisfies the heat equation with homogeneous Dirichlet BCs:
+\[
+u(-L/2,t) = 0, \quad u(L/2,t) = 0.
+\]
+
+The eigenfunctions on $[-L/2, L/2]$ with these BCs are:
+\[
+\phi_n(x) = \sqrt{\frac{2}{L}}\sin\frac{n\pi(x + L/2)}{L}, \quad n = 1,2,3,\ldots
+\]
+with eigenvalues $\lambda_n = n^2\pi^2/L^2$.
+
+The Green's function is:
+\[
+G(x,t;x',0) = \frac{2}{L}\sum_{n=1}^{\infty}\sin\frac{n\pi(x+L/2)}{L}\sin\frac{n\pi(x'+L/2)}{L}\,e^{-n^2\pi^2 kt/L^2}.
+\]
+
+The solution is:
+\[
+T(x,t) = T_s(x) + \int_{-L/2}^{L/2}G(x,t;x',0)\bigl[T(x',0) - T_s(x')\bigr]\,dx'.
+\]
+
+\subsection*{Part (b): Infinite line}
+
+As $L \to \infty$, let $p = n\pi/L$, so $\Delta p = \pi/L$ and the sum becomes an integral over $p$ from $0$ to $\infty$:
+\[
+G(x,t;x',0) \to \frac{2}{\pi}\int_0^{\infty}\sin\bigl[p(x+L/2)\bigr]\sin\bigl[p(x'+L/2)\bigr]\,e^{-p^2 kt}\,dp.
+\]
+
+In the $L\to\infty$ limit, the phase $pL/2$ oscillates rapidly. Using $2\sin A\sin B = \cos(A-B) - \cos(A+B)$, the $\cos(A+B)$ term oscillates and averages to zero, leaving:
+\[
+G(x,t;x',0) = \frac{1}{\pi}\int_0^{\infty}\cos\bigl[p(x-x')\bigr]\,e^{-p^2 kt}\,dp = \frac{1}{\sqrt{4\pi kt}}\,e^{-(x-x')^2/(4kt)}.
+\]
+
+This is the \textbf{free-space heat kernel}:
+\[
+\boxed{G(x,t;x',0) = \frac{1}{\sqrt{4\pi kt}}\,\exp\!\Bigl(-\frac{(x-x')^2}{4kt}\Bigr).}
+\]
+
+\textbf{Comparison with Section 7.7:} In Section 7.7, the heat kernel is derived using the Fourier transform method on the infinite line, yielding the same Gaussian kernel. The eigenfunction expansion with periodic BCs on a box of size $L$ also reduces to this in the $L \to \infty$ limit, as the discrete Fourier modes become continuous. The two methods agree, confirming the consistency of the Green's function approach. $\blacksquare$
+
+\end{document}

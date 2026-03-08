@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.7}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[(a)] Show that the energy transferred to a spring by a time-dependent force $F(t)$ defined by (Fig.\ 5.6):
+\[
+F(t) = F_0(2t/\tau + 1/2), \quad |t| \leq \tau, \quad \text{is} \quad \Delta E = \frac{1}{2}F_0^2k^{-1}\left(\frac{\sin\omega\tau}{\omega\tau}\right)^2.
+\]
+\emph{Hint:} Take derivatives of $F(t)$ until you reach a function whose Fourier transform is known.
+
+\item[(b)] Show that the energy transfer in the adiabatic and sudden limits agree with those determined for the probability integral force function (Example 3, Section 5.7).
+
+\item[(c)] For certain finite values of $\omega\tau$ there will be no energy transfer to the spring. Determine these values and explain their origin physically.
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a)}
+
+The energy transferred to a harmonic oscillator of spring constant $k$ and natural frequency $\omega = \sqrt{k/m}$ by a force $F(t)$ is given by (Eq.\ 5.6 of the text):
+\[
+\Delta E = \frac{|\tilde{F}(\omega)|^2}{2m},
+\]
+where $\tilde{F}(\omega)$ is the Fourier transform of $F(t)$.
+
+The force function is a linear ramp:
+\[
+F(t) = \begin{cases} 0 & t < -\tau, \\ F_0\left(\frac{t}{2\tau} + \frac{1}{2}\right) & -\tau \leq t \leq \tau, \\ F_0 & t > \tau. \end{cases}
+\]
+
+Taking the first derivative:
+\[
+F'(t) = \begin{cases} F_0/(2\tau) & -\tau < t < \tau, \\ 0 & |t| > \tau. \end{cases}
+\]
+with step discontinuities: a jump of $+F_0/2$ at $t=-\tau$ (not relevant for derivative) --- actually, let us be more careful. We have:
+\[
+F'(t) = \frac{F_0}{2}\delta(t+\tau) + \frac{F_0}{2\tau}[\Theta(t+\tau)-\Theta(t-\tau)] + \frac{F_0}{2}\delta(t-\tau),
+\]
+but it is simpler to use the second derivative approach.
+
+Taking the second derivative:
+\[
+F''(t) = \frac{F_0}{2}\delta(t+\tau) - \frac{F_0}{2}\delta(t-\tau) + \frac{F_0}{2\tau}[\delta(t+\tau) - \delta(t-\tau)].
+\]
+
+Actually, let us use a cleaner approach. Define $F(t)$ as the ramp from $0$ to $F_0$ over $[-\tau, \tau]$. The Fourier transform of the energy formula gives:
+\[
+\tilde{F}(\omega) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(t)e^{i\omega t}\,dt.
+\]
+
+Since $F(t)$ is not square-integrable (it approaches $F_0$ for $t > \tau$), we work with the impulse. The key quantity is:
+\[
+\Delta E = \frac{1}{2m}\left|\int_{-\infty}^{\infty}F(t)e^{i\omega t}\,dt\right|^2.
+\]
+
+For the ramp force, using the derivative method: if $F'(t) = \frac{F_0}{2\tau}$ for $|t|<\tau$ and zero otherwise (this is a rectangular pulse), then:
+\[
+\widetilde{F'}(\omega) = \frac{F_0}{2\tau}\int_{-\tau}^{\tau}e^{i\omega t}\,dt = \frac{F_0}{2\tau}\cdot\frac{2\sin\omega\tau}{\omega} = \frac{F_0\sin\omega\tau}{\omega\tau}.
+\]
+
+Since $\widetilde{F'}(\omega) = -i\omega\tilde{F}(\omega)$ (up to the static part), we get:
+\[
+|\tilde{F}(\omega)|^2 = \frac{|\widetilde{F'}(\omega)|^2}{\omega^2} = \frac{F_0^2\sin^2\omega\tau}{\omega^4\tau^2}.
+\]
+
+The energy transferred is:
+\[
+\Delta E = \frac{|\tilde{F}(\omega)|^2}{2m} = \frac{F_0^2\sin^2\omega\tau}{2m\omega^4\tau^2}.
+\]
+
+Using $k = m\omega^2$:
+\[
+\boxed{\Delta E = \frac{F_0^2}{2k}\left(\frac{\sin\omega\tau}{\omega\tau}\right)^2 = \frac{1}{2}F_0^2 k^{-1}\left(\frac{\sin\omega\tau}{\omega\tau}\right)^2.}
+\]
+
+\subsection*{Part (b)}
+
+\textbf{Adiabatic limit} ($\omega\tau \to \infty$, i.e., slow turn-on):
+\[
+\Delta E \to \frac{F_0^2}{2k}\cdot 0 = 0.
+\]
+No energy is transferred---the system adjusts quasi-statically, consistent with the adiabatic theorem.
+
+\textbf{Sudden limit} ($\omega\tau \to 0$, i.e., instantaneous turn-on):
+\[
+\frac{\sin\omega\tau}{\omega\tau} \to 1, \qquad \Delta E \to \frac{F_0^2}{2k}.
+\]
+This is the maximum energy transfer, equal to the potential energy stored in the spring under static deflection $F_0/k$, which matches the sudden limit result from the probability integral force function.
+
+\subsection*{Part (c)}
+
+The energy transfer vanishes when $\sin\omega\tau = 0$ (with $\omega\tau \neq 0$), i.e., when:
+\[
+\boxed{\omega\tau = n\pi, \qquad n = 1, 2, 3, \ldots}
+\]
+
+\textbf{Physical explanation:} The condition $\omega\tau = n\pi$ means $\tau = nT/2$ where $T = 2\pi/\omega$ is the natural period of the oscillator. During the ramp-up time $2\tau$, the oscillator completes exactly $n$ full half-cycles. The energy delivered during the first half of the ramp is exactly canceled by the energy removed during the second half, resulting in zero net energy transfer. This is a resonance-avoidance condition.
+
+\end{document}

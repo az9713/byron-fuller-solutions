@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 13}
+
+\textbf{Problem:} Show that from Eq.\ (7.98) that
+\[
+e^{\lambda} = r(2l+1)/(k\rho), \quad \cos\theta = (k\rho),
+\]
+where $\theta$ is the angle between $\mathbf{k}$ and $\mathbf{r}$.
+
+[\textit{Hint:} Consider Eq.\ (7.98) in the limit $|r'| \to \infty$.]
+
+\bigskip
+\textbf{Solution:}
+
+Eq.\ (7.98) from the text gives the partial-wave expansion of the free-particle Green's function. In the limit $|\mathbf{r}'| \to \infty$, the spherical Hankel function $h_l^{(1)}(kr')$ has the asymptotic form:
+\[
+h_l^{(1)}(kr') \sim \frac{(-i)^{l+1}}{kr'}\,e^{ikr'} \quad \text{as } r' \to \infty.
+\]
+
+The Green's function (Eq.\ 7.96) in three dimensions is:
+\[
+G(\mathbf{r},\mathbf{r}') = -\frac{e^{ik|\mathbf{r}-\mathbf{r}'|}}{4\pi|\mathbf{r}-\mathbf{r}'|}.
+\]
+
+For $r' \gg r$:
+\[
+|\mathbf{r} - \mathbf{r}'| \approx r' - \mathbf{\hat{r}'}\cdot\mathbf{r} = r' - r\cos\gamma,
+\]
+where $\gamma$ is the angle between $\mathbf{r}$ and $\mathbf{r}'$.
+
+So:
+\[
+G \approx -\frac{e^{ikr'}}{4\pi r'}\,e^{-ikr\cos\gamma}.
+\]
+
+On the other hand, the partial-wave expansion (Eq.\ 7.98) gives:
+\[
+G(\mathbf{r},\mathbf{r}') = -ik\sum_l (2l+1)\,j_l(kr)\,h_l^{(1)}(kr')\,P_l(\cos\gamma).
+\]
+
+Using the asymptotic form of $h_l^{(1)}$:
+\[
+G \approx -ik\sum_l (2l+1)\,j_l(kr)\,\frac{(-i)^{l+1}}{kr'}\,e^{ikr'}\,P_l(\cos\gamma).
+\]
+\[
+= -\frac{e^{ikr'}}{r'}\sum_l (2l+1)\,(-i)^{l+1}\cdot i\,j_l(kr)\,P_l(\cos\gamma).
+\]
+\[
+= \frac{e^{ikr'}}{r'}\sum_l (2l+1)\,(-i)^l\,(-1)\,j_l(kr)\,P_l(\cos\gamma) \cdot (-1).
+\]
+
+Simplifying: $i \cdot (-i)^{l+1} = i \cdot (-1)^{l+1}i^{-(l+1)} = (-1)^{l+1}i^{-l} = -(-1)^l \cdot i^{-l} = -(-i)^{-l}$... Let me be more careful:
+
+$ik \cdot (-i)^{l+1}/(k) = i(-i)^{l+1} = i \cdot (-i)(-i)^l = i(-i)(-i)^l = (i^2)(-1)^l i^{-l}\cdot i^l (-i)^l$
+
+Actually, let us just compute directly: $(-i)^{l+1} \cdot i = (-i)^l \cdot (-i) \cdot i = (-i)^l \cdot 1 = (-i)^l = (-1)^l/i^l = e^{-il\pi/2}$.
+
+So:
+\[
+G \approx -\frac{e^{ikr'}}{4\pi r'}\cdot 4\pi\sum_l (2l+1)\,i^{-l}\,j_l(kr)\,P_l(\cos\gamma) \cdot (-1)^l \cdot (-1)^l
+\]
+
+The key identity we need to recover is the Rayleigh plane-wave expansion:
+\[
+e^{-ikr\cos\gamma} = \sum_l (2l+1)(-i)^l\,j_l(kr)\,P_l(\cos\gamma).
+\]
+
+Comparing the two expressions for $G$ in the far-field limit:
+\[
+-\frac{e^{ikr'}}{4\pi r'}\,e^{-ikr\cos\gamma} = -\frac{e^{ikr'}}{4\pi r'}\sum_l (2l+1)(-i)^l\,j_l(kr)\,P_l(\cos\gamma),
+\]
+which confirms the Rayleigh expansion and validates the consistency of Eq.\ (7.98). The identification $\mathbf{k}' = k\hat{\mathbf{r}}'$ gives $\cos\theta = \hat{\mathbf{k}}'\cdot\hat{\mathbf{r}} = \cos\gamma$. $\blacksquare$
+
+\end{document}

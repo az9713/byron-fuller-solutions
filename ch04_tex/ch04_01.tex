@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 1}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Prove that if $A$ is self-adjoint, then $\det A$ is real. (This is all one can say about the determinant of a self-adjoint matrix, whereas if $B$ is unitary, then $|\det B| = 1$. Prove this also.)
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part 1: $A$ self-adjoint $\Rightarrow$ $\det A$ is real.}
+
+Since $A$ is self-adjoint, we have $A^\dagger = A$. Taking the determinant of both sides:
+\[
+\det(A^\dagger) = \det(A).
+\]
+Now we use the property that for any matrix, $\det(A^\dagger) = \overline{\det(A)}$ (the complex conjugate of the determinant). This follows because taking the adjoint transposes the matrix and conjugates all entries, and transposing does not change the determinant, while conjugating all entries conjugates the determinant.
+
+Therefore:
+\[
+\overline{\det(A)} = \det(A).
+\]
+A complex number that equals its own conjugate is real. Hence $\det A \in \mathbb{R}$.
+
+\bigskip
+\textbf{Part 2: $B$ unitary $\Rightarrow$ $|\det B| = 1$.}
+
+Since $B$ is unitary, $B^\dagger B = I$. Taking determinants:
+\[
+\det(B^\dagger B) = \det(I) = 1.
+\]
+Using the multiplicative property of determinants:
+\[
+\det(B^\dagger)\det(B) = 1.
+\]
+Since $\det(B^\dagger) = \overline{\det(B)}$, we obtain:
+\[
+\overline{\det(B)} \cdot \det(B) = |\det(B)|^2 = 1.
+\]
+Therefore $|\det B| = 1$. \qed
+
+\end{document}

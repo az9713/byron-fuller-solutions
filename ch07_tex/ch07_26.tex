@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 26}
+
+\textbf{Problem:} Note that Eq.\ (7.129a) does not make sense if $t' > t$. Show that the function
+\[
+G(\mathbf{r},\mathbf{r}',t,t') = \sum_n \phi_n(\mathbf{r})\phi_n^*(\mathbf{r}')\,e^{-i\lambda_n(t-t')/\hbar}
+\]
+is not an acceptable Green's function. Show that if one derives $G(\mathbf{r},\mathbf{r}',t,t')$ for the case of the diffusion (or heat) equation by using the Fourier transform method, one obtains only
+\[
+G(\mathbf{r},\mathbf{r}',t,t') = \theta(t-t')\cdot G_{\mathrm{free}}(\mathbf{r},\mathbf{r}',t-t'),
+\]
+where $G_{\mathrm{free}}$ is given by the heat kernel Eq.\ (7.139).
+
+\bigskip
+\textbf{Solution:}
+
+\textbf{Why the naive expansion fails:}
+
+The expansion $G = \sum_n \phi_n\phi_n^*e^{-i\lambda_n(t-t')/\hbar}$ formally satisfies:
+\[
+\Bigl(H_0 - i\hbar\frac{\partial}{\partial t}\Bigr)G = \sum_n (\lambda_n - \lambda_n)\phi_n\phi_n^*e^{-i\lambda_n(t-t')/\hbar} = 0 \quad \text{for } t \neq t'.
+\]
+
+At $t = t'$, the completeness relation gives $G|_{t=t'} = \sum_n\phi_n\phi_n^* = \delta^3(\mathbf{r}-\mathbf{r}')$.
+
+However, this $G$ is defined for \textit{all} $t$ and does not enforce causality. For the Schr\"odinger equation, both $G_{\mathrm{ret}}$ (propagating forward) and $G_{\mathrm{adv}}$ (propagating backward) are legitimate --- the naive expansion gives neither.
+
+For the diffusion equation $\partial u/\partial t = k\nabla^2 u$, the eigenvalues are $\lambda_n = -k\mu_n$ where $\mu_n > 0$ are eigenvalues of $-\nabla^2$. The factor $e^{-\lambda_n(t-t')} = e^{k\mu_n(t-t')}$ \textit{diverges} for $t < t'$, so the expansion makes no sense for backward propagation. This shows it is not an acceptable Green's function.
+
+\textbf{Fourier transform derivation:}
+
+For the diffusion equation, take the Fourier transform in time:
+\[
+(-i\omega - k\nabla^2)\tilde{G}(\mathbf{r},\mathbf{r}',\omega) = \delta^3(\mathbf{r}-\mathbf{r}').
+\]
+
+Expanding in eigenfunctions of $\nabla^2$:
+\[
+\tilde{G} = \sum_n \frac{\phi_n(\mathbf{r})\phi_n^*(\mathbf{r}')}{-i\omega + k\mu_n}.
+\]
+
+Inverting the Fourier transform:
+\[
+G(\mathbf{r},\mathbf{r}',t-t') = \sum_n \phi_n\phi_n^*\int_{-\infty}^{\infty}\frac{e^{-i\omega(t-t')}}{-i\omega + k\mu_n}\,\frac{d\omega}{2\pi}.
+\]
+
+The pole is at $\omega = -ik\mu_n$ (in the lower half-plane since $k\mu_n > 0$). For $t > t'$, close in the lower half-plane, picking up the pole:
+\[
+\int\frac{e^{-i\omega\tau}}{-i\omega + k\mu_n}\,\frac{d\omega}{2\pi} = e^{-k\mu_n\tau}, \quad \tau = t - t' > 0.
+\]
+
+For $t < t'$, close in the upper half-plane --- no poles are enclosed, giving zero.
+
+Therefore:
+\[
+G(\mathbf{r},\mathbf{r}',t,t') = \theta(t-t')\sum_n \phi_n(\mathbf{r})\phi_n^*(\mathbf{r}')\,e^{-k\mu_n(t-t')},
+\]
+which is exactly $\theta(t-t')$ times the heat kernel. The Fourier method \textit{automatically} produces the retarded (causal) Green's function. $\blacksquare$
+
+\end{document}

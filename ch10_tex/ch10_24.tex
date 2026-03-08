@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 24}
+\end{center}
+
+\noindent\textbf{Problem.} If in the previous problem we had used a different (but unitarily equivalent) two-dimensional representation of $S_3$, we would have found different values for $E_{12}$, $E_{13}$, and $E_{23}$. Would the eigenvalues of the matrix of Problem 10.23 be different? Why?
+
+\bigskip
+\noindent\textbf{Solution.}
+
+\textbf{No}, the eigenvalues would \textbf{not} be different.
+
+The reason is fundamental to representation theory and linear algebra:
+
+\begin{enumerate}
+\item \textbf{Unitary equivalence preserves eigenvalues.} If two representations are related by a unitary similarity transformation $D'(g) = U D(g) U^\dagger$, then the matrix of the perturbation $A_1$ in the new basis is related to the old one by the same similarity transformation:
+\[
+M' = U M U^\dagger.
+\]
+Since similarity transformations preserve eigenvalues (they preserve the characteristic polynomial), the eigenvalues of $M'$ are identical to those of $M$.
+
+\item \textbf{Physical observables are basis-independent.} The eigenvalues of the perturbation matrix represent physically measurable energy corrections. These cannot depend on the choice of basis (i.e., the particular unitarily equivalent representation used). Only the \textit{eigenvectors} (the specific linear combinations of basis functions) would change---not the eigenvalues.
+
+\item \textbf{What does change:} The matrix elements $E_{12}$, $E_{13}$, and $E_{23}$ (i.e., the individual entries of the perturbation matrix) can indeed be different in the new basis, since they depend on the specific form of the representation matrices. However, these are intermediate quantities. The eigenvalues---which are what we ultimately need to determine the energy level splittings---remain invariant.
+\end{enumerate}
+
+In summary, changing to a unitarily equivalent representation amounts to a change of basis within each irreducible subspace. The matrix looks different, but its spectrum is unchanged. This is a manifestation of the general principle that the physically meaningful results of group-theoretic analysis (energy splittings, selection rules, etc.) are independent of the particular choice of basis within equivalent representations.
+
+\end{document}

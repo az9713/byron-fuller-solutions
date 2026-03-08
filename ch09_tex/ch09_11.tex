@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 11}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} By using Simpson's rule, write a matrix expression to solve approximately
+\[
+g(x) = f(x) + \lambda \int_a^b k(x,t)\,f(t)\,dt.
+\]
+Show that with $2n+1$ equally spaced points, the integral equation reduces to $(I + \lambda MD)f = g$, where $D$ is a diagonal weight matrix. Show how to treat the homogeneous problem and how to convert a symmetric kernel problem into a real symmetric matrix eigenvalue problem.
+
+\bigskip
+\textbf{Solution.}
+
+\subsection*{(a) Simpson's rule discretization}
+
+Simpson's rule approximates an integral over $[a,b]$ using $2n+1$ equally spaced points $x_1 = a, x_2, \ldots, x_{2n+1} = b$ with spacing $h = (b-a)/(2n)$:
+\[
+\int_a^b F(t)\,dt \approx \frac{h}{3}\bigl[F(x_1) + 4F(x_2) + 2F(x_3) + 4F(x_4) + \cdots + 4F(x_{2n}) + F(x_{2n+1})\bigr].
+\]
+
+The weights are: $w_1 = w_{2n+1} = h/3$, $w_{2j} = 4h/3$ for $j = 1, \ldots, n$, and $w_{2j+1} = 2h/3$ for $j = 1, \ldots, n-1$.
+
+Define the diagonal matrix $D$ with $D_{ii} = w_i$. Evaluating the integral equation at the grid points:
+\[
+g(x_i) = f(x_i) + \lambda \sum_{j=1}^{2n+1} k(x_i, x_j)\,f(x_j)\,w_j.
+\]
+
+In matrix form with $\mathbf{f} = (f(x_1), \ldots, f(x_{2n+1}))^T$, $\mathbf{g} = (g(x_1), \ldots, g(x_{2n+1}))^T$, and $M_{ij} = k(x_i, x_j)$:
+\[
+\boxed{\mathbf{g} = (I + \lambda M D)\,\mathbf{f}},
+\]
+or equivalently $\mathbf{f} = (I + \lambda MD)^{-1}\mathbf{g}$, provided the inverse exists.
+
+\subsection*{(b) Homogeneous eigenvalue problem}
+
+Setting $g \equiv 0$, the homogeneous equation $\lambda \int k(x,t)\phi(t)\,dt = \phi(x)$ becomes:
+\[
+\lambda MD\,\boldsymbol{\phi} = -\boldsymbol{\phi}, \quad \text{i.e.,} \quad MD\,\boldsymbol{\phi} = -\frac{1}{\lambda}\,\boldsymbol{\phi}.
+\]
+
+This is a standard matrix eigenvalue problem: find the eigenvalues of $MD$. The eigenvalues of $A$ are then $\lambda_n = -1/\mu_n$ where $\mu_n$ are the eigenvalues of $MD$.
+
+Alternatively, multiplying by $D^{1/2}$ from the left and inserting $I = D^{-1/2}D^{1/2}$:
+\[
+D^{1/2}MD^{1/2}(D^{1/2}\boldsymbol{\phi}) = \mu\,(D^{1/2}\boldsymbol{\phi}).
+\]
+
+\subsection*{(c) Symmetric kernel $\to$ real symmetric matrix}
+
+If $k(s,t)$ is real and symmetric ($k(s,t) = k(t,s)$), then $M$ is a real symmetric matrix ($M_{ij} = M_{ji}$). However, $MD$ is not symmetric in general since $D$ is diagonal but not proportional to $I$.
+
+To obtain a symmetric eigenvalue problem, define $D^{1/2}$ (the diagonal matrix of square roots of weights, all positive) and let $\tilde{M} = D^{1/2}MD^{1/2}$. Then $\tilde{M}$ is real symmetric:
+\[
+\tilde{M}_{ij} = \sqrt{w_i}\,k(x_i, x_j)\,\sqrt{w_j} = \sqrt{w_j}\,k(x_j, x_i)\,\sqrt{w_i} = \tilde{M}_{ji}.
+\]
+
+The eigenvalue problem becomes:
+\[
+\tilde{M}\,\tilde{\boldsymbol{\phi}} = \mu\,\tilde{\boldsymbol{\phi}}, \quad \text{where } \tilde{\boldsymbol{\phi}} = D^{1/2}\boldsymbol{\phi}.
+\]
+
+This is a standard \emph{real symmetric} matrix eigenvalue problem, which can be solved by well-known numerical methods (Jacobi, QR, etc.). The original eigenvectors are recovered via $\boldsymbol{\phi} = D^{-1/2}\tilde{\boldsymbol{\phi}}$. \hfill $\blacksquare$
+
+\end{document}

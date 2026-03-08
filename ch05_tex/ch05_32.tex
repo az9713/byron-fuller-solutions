@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.32}
+
+\textbf{Problem:} Let $A$ be a self-adjoint operator on a Hilbert space $H$. Assume that the spectrum of $A$ consists of a finite set of points, $\{\lambda_i,\; i = 1, 2, \ldots, N\}$, plus the positive real line. Show that the lowest (i.e., most negative) eigenvalue of $A$, $\lambda_1$, is nondegenerate, then $\lambda_1 = \min_{\|\phi\|=1}(\phi, A\phi)$.
+
+[Hint: Note that any vector $\phi$ in $H$ can be written as
+\[
+\phi = c_1\phi_1 + c_2\phi_2 + \cdots + c_N\phi_N + \tilde{\phi},
+\]
+where $\phi_i$ are the eigenvectors of $A$, and $\tilde{\phi}$ is a vector orthogonal to all the $\phi_i$ ($i = 1, 2, \ldots$). Then show that
+\[
+(\phi, A\phi) = \sum_{i=1}^{N}|c_i|^2\lambda_i + (\tilde{\phi}, A\tilde{\phi}),
+\]
+where $(\tilde{\phi}, A\tilde{\phi}) \geq 0$ since the continuous spectrum is on the positive real line.]
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Decomposition}
+
+Let $\phi \in H$ with $\|\phi\| = 1$. Using the spectral decomposition, write:
+\[
+\phi = \sum_{i=1}^{N}c_i\phi_i + \tilde{\phi},
+\]
+where $\phi_i$ are the normalized eigenvectors ($A\phi_i = \lambda_i\phi_i$) and $\tilde{\phi}$ lies in the continuous spectrum subspace, orthogonal to all $\phi_i$.
+
+The normalization condition gives:
+\[
+\|\phi\|^2 = \sum_{i=1}^{N}|c_i|^2 + \|\tilde{\phi}\|^2 = 1. \tag{$*$}
+\]
+
+\subsection*{Expectation value}
+
+\begin{align}
+(\phi, A\phi) &= \left(\sum_i c_i\phi_i + \tilde{\phi},\; A\left(\sum_j c_j\phi_j + \tilde{\phi}\right)\right) \\
+&= \left(\sum_i c_i\phi_i + \tilde{\phi},\; \sum_j c_j\lambda_j\phi_j + A\tilde{\phi}\right) \\
+&= \sum_{i,j}c_i^*c_j\lambda_j(\phi_i,\phi_j) + \sum_i c_i^*(\phi_i, A\tilde{\phi}) + (\tilde{\phi}, \sum_j c_j\lambda_j\phi_j) + (\tilde{\phi}, A\tilde{\phi}).
+\end{align}
+
+Since $\phi_i$ are orthonormal: $(\phi_i, \phi_j) = \delta_{ij}$. Since $\tilde{\phi}$ is orthogonal to all eigenvectors: $(\phi_i, A\tilde{\phi}) = (A\phi_i, \tilde{\phi})^* = \lambda_i(\phi_i, \tilde{\phi})^* = 0$, and similarly $(\tilde{\phi}, \phi_j) = 0$.
+
+Therefore:
+\[
+(\phi, A\phi) = \sum_{i=1}^{N}|c_i|^2\lambda_i + (\tilde{\phi}, A\tilde{\phi}). \tag{1}
+\]
+
+\subsection*{Bound from the continuous spectrum}
+
+Since $\tilde{\phi}$ lies in the continuous spectrum subspace (the positive real line), by the spectral theorem:
+\[
+(\tilde{\phi}, A\tilde{\phi}) = \int_0^{\infty}\lambda\,d\|E_\lambda\tilde{\phi}\|^2 \geq 0. \tag{2}
+\]
+
+\subsection*{Lower bound}
+
+From (1) and (2), using $\lambda_1 \leq \lambda_i$ for all $i$ and $(\tilde{\phi}, A\tilde{\phi}) \geq 0$:
+\[
+(\phi, A\phi) \geq \lambda_1\sum_{i=1}^{N}|c_i|^2 + 0 \geq \lambda_1\sum_{i=1}^{N}|c_i|^2 \geq \lambda_1,
+\]
+where the last inequality uses $\sum|c_i|^2 \leq 1$ and $\lambda_1 < 0$ (so $\lambda_1\sum|c_i|^2 \geq \lambda_1\cdot 1 = \lambda_1$).
+
+More carefully: since $(\tilde{\phi}, A\tilde{\phi}) \geq 0 \geq \lambda_1\|\tilde{\phi}\|^2$ (because $\lambda_1 < 0$):
+\[
+(\phi, A\phi) \geq \lambda_1\sum_i|c_i|^2 + \lambda_1\|\tilde{\phi}\|^2 = \lambda_1(\sum_i|c_i|^2 + \|\tilde{\phi}\|^2) = \lambda_1.
+\]
+
+\subsection*{The minimum is achieved}
+
+Setting $\phi = \phi_1$ (so $c_1 = 1$, all other $c_i = 0$, $\tilde{\phi} = 0$):
+\[
+(\phi_1, A\phi_1) = \lambda_1.
+\]
+
+Therefore:
+\[
+\boxed{\lambda_1 = \min_{\|\phi\|=1}(\phi, A\phi).}
+\]
+
+This is the \textbf{variational principle} (Rayleigh--Ritz), which is the foundation of variational methods in quantum mechanics.
+
+\end{document}

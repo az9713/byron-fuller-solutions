@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.1}
+
+\textbf{Problem:} Prove that $\displaystyle\int_a^b f(x)\,\delta(x)\,dx = 0$ for $a \neq 0$ in two ways.
+
+\bigskip
+\textbf{Solution:}
+
+We need to show that $\int_a^b f(x)\,\delta(x)\,dx = 0$ when $0 \notin [a,b]$, i.e., when $a$ and $b$ are both positive or both negative (or more precisely, when the origin is not in the interval of integration).
+
+\subsection*{Method 1: Using the defining property of the delta function}
+
+The Dirac delta function is defined by its action on test functions:
+\[
+\int_{-\infty}^{\infty} f(x)\,\delta(x)\,dx = f(0).
+\]
+More generally, for any interval $[a,b]$:
+\[
+\int_a^b f(x)\,\delta(x)\,dx = \begin{cases} f(0) & \text{if } a < 0 < b, \\ 0 & \text{if } 0 \notin [a,b]. \end{cases}
+\]
+
+If $a \neq 0$ and the interval $[a,b]$ does not contain the origin (for example, $0 < a < b$ or $a < b < 0$), then the delta function is zero throughout the entire interval of integration. Since $\delta(x) = 0$ for all $x \neq 0$, and $x = 0$ is not in $[a,b]$, we have
+\[
+\int_a^b f(x)\,\delta(x)\,dx = 0.
+\]
+
+\subsection*{Method 2: Using the delta function as a limit of a sequence}
+
+Consider the delta function as the limit of the sequence of functions:
+\[
+\delta_n(x) = \begin{cases} n/2 & \text{if } |x| < 1/n, \\ 0 & \text{if } |x| \geq 1/n. \end{cases}
+\]
+
+For an interval $[a,b]$ with $0 \notin [a,b]$, there exists a minimum distance $d = \min(|a|, |b|) > 0$ from the origin to the interval. For all $n > 1/d$, the support of $\delta_n(x)$, namely $(-1/n, 1/n)$, does not intersect $[a,b]$. Therefore $\delta_n(x) = 0$ for all $x \in [a,b]$ when $n > 1/d$, and
+\[
+\int_a^b f(x)\,\delta_n(x)\,dx = 0 \quad \text{for all } n > 1/d.
+\]
+
+Taking the limit:
+\[
+\int_a^b f(x)\,\delta(x)\,dx = \lim_{n \to \infty} \int_a^b f(x)\,\delta_n(x)\,dx = 0.
+\]
+
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 4.} Solve the equations
+
+\textbf{(a)} $f(x) = x + \lambda\int_0^1 e^{-(x+y)}f(y)\,dy$
+
+\textbf{(b)} $f(x) = 1 + 2\int_0^x f(y)\,dy$
+
+by iteration. For what values of $\lambda$ will the iterations converge?
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part (a):}
+The kernel is $k(x,y) = e^{-(x+y)} = e^{-x}e^{-y}$, which is separable (rank one). The integral equation is:
+\[
+f(x) = x + \lambda e^{-x}\int_0^1 e^{-y}f(y)\,dy.
+\]
+Let $c = \int_0^1 e^{-y}f(y)\,dy$. Then $f(x) = x + \lambda c\, e^{-x}$. Substituting back:
+\[
+c = \int_0^1 e^{-y}[y + \lambda c\, e^{-y}]\,dy = \int_0^1 y e^{-y}\,dy + \lambda c\int_0^1 e^{-2y}\,dy.
+\]
+
+Computing the integrals:
+\[
+\int_0^1 ye^{-y}\,dy = [-ye^{-y}]_0^1 + \int_0^1 e^{-y}\,dy = -e^{-1} + (1-e^{-1}) = 1-2e^{-1},
+\]
+\[
+\int_0^1 e^{-2y}\,dy = \frac{1-e^{-2}}{2}.
+\]
+Therefore:
+\[
+c = 1-2e^{-1} + \lambda c\cdot\frac{1-e^{-2}}{2}.
+\]
+Solving for $c$:
+\[
+c\left[1-\frac{\lambda(1-e^{-2})}{2}\right] = 1-2e^{-1},
+\]
+\[
+c = \frac{1-2e^{-1}}{1-\frac{\lambda(1-e^{-2})}{2}} = \frac{2(1-2e^{-1})}{2-\lambda(1-e^{-2})}.
+\]
+The solution is:
+\[
+\boxed{f(x) = x + \frac{2\lambda(1-2e^{-1})}{2-\lambda(1-e^{-2})}\,e^{-x}.}
+\]
+
+The solution exists provided $\lambda \ne \frac{2}{1-e^{-2}}$.
+
+\textbf{Iteration convergence:} The Neumann series converges when $|\lambda|\|K\| < 1$. Since the kernel is rank one:
+\[
+\|K\|^2 \le \int_0^1\int_0^1 e^{-2(x+y)}\,dx\,dy = \left(\frac{1-e^{-2}}{2}\right)^2.
+\]
+So $\|K\| \le \frac{1-e^{-2}}{2} \approx 0.4323$. The iterations converge when $|\lambda| < \frac{2}{1-e^{-2}} \approx 2.313$.
+
+\bigskip
+\textbf{Part (b):}
+This is a Volterra equation: $f(x) = 1 + 2\int_0^x f(y)\,dy$.
+
+Iterate starting from $f_0(x) = 1$:
+\begin{align*}
+f_1(x) &= 1 + 2\int_0^x 1\,dy = 1 + 2x, \\
+f_2(x) &= 1 + 2\int_0^x(1+2y)\,dy = 1 + 2x + 2x^2, \\
+f_3(x) &= 1 + 2\int_0^x(1+2y+2y^2)\,dy = 1 + 2x + 2x^2 + \frac{4x^3}{3}.
+\end{align*}
+The pattern gives:
+\[
+f_n(x) = \sum_{k=0}^{n} \frac{(2x)^k}{k!}.
+\]
+As $n\to\infty$, this converges to:
+\[
+\boxed{f(x) = e^{2x}.}
+\]
+
+\textit{Verification:} $f(x) = e^{2x}$ gives $1+2\int_0^x e^{2y}\,dy = 1+[e^{2y}]_0^x = 1+e^{2x}-1 = e^{2x}$. $\checkmark$
+
+Since this is a Volterra equation (upper limit is $x$, not a fixed constant), the Neumann series \emph{always} converges for all values of $\lambda$ (here $\lambda=2$). The iterated kernels produce terms of order $x^n/n!$ which ensure convergence. $\blacksquare$
+
+\end{document}

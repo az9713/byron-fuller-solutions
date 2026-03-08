@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 28}
+
+\textbf{Problem.} Show that the operator
+\[
+T = e^{aD}
+\]
+where $D = d/dx$, acts as a translation operator on the space of polynomials in the variable $x$ of degree $\le n$. That is,
+\[
+F_a(x) = F_a(x-1) = (1 - e^{-D})F_a(x),
+\]
+or, symbolically,
+\[
+F_a(x) = \left(\frac{x}{1 - e^{-D}}\right)^a.
+\]
+
+Now $F_a(x) = F_a(x) - F_a(x-1) = (1 - e^{-D})F_a(x)$. Since $F_a(x) = x^a/a!$, we can write $e^{-D}F_a(x) = F_a(x-1)$, or
+\[
+\frac{x^a}{a!} = \left(\frac{D}{1-e^{-D}}\right) \cdot \frac{(x-1)^a - x^a}{\text{etc.}}
+\]
+
+A general expression for $\sum A^n$ can be derived using this formula. For example, a general expression for $\sum_{k=0}^{N} k^n$ can be derived for any integers $n > 0$ and $N > 0$.
+
+\bigskip
+\textbf{Solution.}
+
+We use the translation operator identity from Problem 26: $e^{aD}f(x) = f(x+a)$.
+
+\medskip
+\textbf{Finite differences and the operator $D$:}
+
+The forward difference operator $\Delta$ is defined by $\Delta f(x) = f(x+1) - f(x)$. In operator notation:
+\[
+\Delta = e^D - 1.
+\]
+
+Similarly, the backward difference is $\nabla f(x) = f(x) - f(x-1) = (1 - e^{-D})f(x)$.
+
+\medskip
+\textbf{Summation via the inverse of $\Delta$:}
+
+If we want to compute $\sum_{k=0}^{N} f(k)$, we need the ``anti-difference'' operator $\Delta^{-1}$. Formally:
+\[
+\Delta^{-1} = \frac{1}{e^D - 1}.
+\]
+
+Now, $e^D - 1 = D + \frac{D^2}{2!} + \frac{D^3}{3!} + \cdots = D\left(1 + \frac{D}{2!} + \frac{D^2}{3!} + \cdots\right)$, so:
+\[
+\frac{1}{e^D - 1} = \frac{1}{D} \cdot \frac{1}{1 + D/2 + D^2/6 + \cdots}.
+\]
+
+We can expand this using the Bernoulli numbers $B_n$:
+\[
+\frac{D}{e^D - 1} = \sum_{n=0}^{\infty} B_n \frac{D^n}{n!},
+\]
+where $B_0 = 1$, $B_1 = -1/2$, $B_2 = 1/6$, $B_3 = 0$, $B_4 = -1/30$, etc.
+
+\medskip
+\textbf{Application to power sums:} Let $F_a(x) = x^a$. Then:
+\[
+\sum_{k=0}^{N} k^a = \Delta^{-1} F_a(x)\Big|_0^{N+1} = \frac{1}{e^D - 1} x^a \Big|_0^{N+1}.
+\]
+
+Using the Bernoulli number expansion:
+\[
+\sum_{k=1}^{N} k^a = \frac{1}{a+1}\sum_{j=0}^{a} \binom{a+1}{j} B_j\, N^{a+1-j}.
+\]
+
+For example:
+\begin{itemize}
+    \item $a = 1$: $\sum_{k=1}^N k = \frac{N(N+1)}{2}$.
+    \item $a = 2$: $\sum_{k=1}^N k^2 = \frac{N(N+1)(2N+1)}{6}$.
+    \item $a = 3$: $\sum_{k=1}^N k^3 = \frac{N^2(N+1)^2}{4}$.
+\end{itemize}
+
+These classical formulas all follow from the operator method. \hfill $\blacksquare$
+
+\end{document}

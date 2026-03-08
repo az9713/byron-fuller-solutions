@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 11}
+\end{center}
+
+\noindent\textbf{Problem.} Show that the set $P_a = \{1, x, x^2, \ldots, x^{n-1}\}$ transforms into itself under the action of the translation group in one dimension. Denoting a translation through a distance $a$ by $T_a$ (that is, $T_a x = x - a$), find the $n$-dimensional representation of the group of all one-dimensional translations which is provided by the set of functions $P_a$. Is this representation equivalent to a unitary representation? Show explicitly for the case of the three-dimensional representation that $T_a T_b = T_{a+b}$.
+
+\bigskip
+\noindent\textbf{Solution.}
+
+The translation operator $T_a$ acts on functions by $T_a f(x) = f(x - a)$. Consider the basis $\{1, x, x^2, \ldots, x^{n-1}\}$.
+
+\medskip
+\noindent\textbf{Action on basis functions:}
+
+Using the binomial theorem:
+\[
+T_a(x^k) = (x-a)^k = \sum_{j=0}^{k} \binom{k}{j} x^j (-a)^{k-j}.
+\]
+
+This shows that $T_a(x^k)$ is a polynomial of degree $k$, expressible as a linear combination of $\{1, x, \ldots, x^k\}$. Hence the set $P_a = \{1, x, x^2, \ldots, x^{n-1}\}$ transforms into itself under all translations---the representation space is closed.
+
+\medskip
+\noindent\textbf{The $n$-dimensional representation matrix:}
+
+The matrix $D(T_a)$ has entries $D_{jk}(T_a)$ defined by:
+\[
+T_a(x^k) = \sum_{j=0}^{n-1} D_{jk}(T_a)\, x^j.
+\]
+
+From the binomial expansion (using $0$-indexed rows and columns):
+\[
+D_{jk}(T_a) = \binom{k}{j}(-a)^{k-j} \quad \text{for } j \leq k, \qquad D_{jk} = 0 \quad \text{for } j > k.
+\]
+
+This is an upper-triangular matrix (when rows correspond to lower powers).
+
+\medskip
+\noindent\textbf{Three-dimensional case} ($n = 3$, basis $\{1, x, x^2\}$):
+
+\begin{align*}
+T_a(1) &= 1, \\
+T_a(x) &= x - a = (-a)\cdot 1 + 1\cdot x, \\
+T_a(x^2) &= (x-a)^2 = a^2 \cdot 1 + (-2a)\cdot x + 1\cdot x^2.
+\end{align*}
+
+So the representation matrix is:
+\[
+D(T_a) = \begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1 \end{pmatrix}.
+\]
+
+\noindent\textbf{Verifying $T_a T_b = T_{a+b}$:}
+
+\begin{align*}
+D(T_a)\,D(T_b) &= \begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1 \end{pmatrix}
+\begin{pmatrix} 1 & -b & b^2 \\ 0 & 1 & -2b \\ 0 & 0 & 1 \end{pmatrix} \\[6pt]
+&= \begin{pmatrix} 1 & -a-b & a^2 + 2ab + b^2 \\ 0 & 1 & -2a - 2b \\ 0 & 0 & 1 \end{pmatrix} \\[6pt]
+&= \begin{pmatrix} 1 & -(a+b) & (a+b)^2 \\ 0 & 1 & -2(a+b) \\ 0 & 0 & 1 \end{pmatrix} = D(T_{a+b}). \quad \checkmark
+\end{align*}
+
+\medskip
+\noindent\textbf{Is this representation equivalent to a unitary representation?}
+
+No. The representation matrices are upper-triangular with all diagonal entries equal to 1. For a unitary matrix, we would need $D^\dagger D = I$. But $D(T_a)$ is not unitary for $a \neq 0$ (the off-diagonal entries are nonzero while the matrix is triangular). Moreover, the translation group is non-compact and abelian, so its finite-dimensional faithful representations cannot be made unitary. This can also be seen from the fact that if $D(T_a)$ were unitarily equivalent to a unitary matrix for all $a$, then the eigenvalues would have to lie on the unit circle, but the only eigenvalue here is 1 (with multiplicity $n$), which would force $D = I$ for a diagonalizable unitary matrix---a contradiction for $a \neq 0$.
+
+Therefore, this representation is \textbf{not} equivalent to a unitary representation.
+
+\end{document}

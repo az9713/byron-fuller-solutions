@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 15}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.}
+
+(a) Using Problem~9.14(a), show $N(x,y;\lambda) = k(x,y)D(\lambda) + \lambda\int k(x,t)N(t,y;\lambda)\,dt$ and similarly from 9.14(b).
+
+(b) Define $R(x,y;\lambda) = N(x,y;\lambda)/D(\lambda)$. Show that $(I - \lambda K)(I + \lambda R) = I$ and $(I + \lambda R)(I - \lambda K) = I$, identifying $R$ as the resolvent of $K$.
+
+\bigskip
+\textbf{Solution.}
+
+\subsection*{(a) The two fundamental equations}
+
+From Problem~9.14(a), expanding $\Delta_n$ along the first row and summing the series, we established:
+\[
+N(x,y;\lambda) = k(x,y)\,D(\lambda) + \lambda\int_a^b k(x,t)\,N(t,y;\lambda)\,dt. \tag{I}
+\]
+
+From Problem~9.14(b), expanding along the first column:
+\[
+N(x,y;\lambda) = k(x,y)\,D(\lambda) + \lambda\int_a^b N(x,t;\lambda)\,k(t,y)\,dt. \tag{II}
+\]
+
+\subsection*{(b) Resolvent identification}
+
+Define $R(x,y;\lambda) = N(x,y;\lambda)/D(\lambda)$, assuming $D(\lambda) \neq 0$.
+
+Dividing equation~(I) by $D(\lambda)$:
+\[
+R(x,y;\lambda) = k(x,y) + \lambda\int k(x,t)\,R(t,y;\lambda)\,dt.
+\]
+
+In operator notation, $R = K + \lambda KR$, i.e., $R - \lambda KR = K$, so:
+\[
+(I - \lambda K)R = K \quad \Longrightarrow \quad R = (I - \lambda K)^{-1}K.
+\]
+
+Now check: $(I - \lambda K)(I + \lambda R) = I - \lambda K + \lambda R - \lambda^2 KR$. Using $R = K + \lambda KR$:
+\begin{align}
+\lambda R &= \lambda K + \lambda^2 KR, \\
+\lambda R - \lambda^2 KR &= \lambda K.
+\end{align}
+Therefore:
+\[
+(I - \lambda K)(I + \lambda R) = I - \lambda K + \lambda K = I. \quad \checkmark
+\]
+
+Similarly, dividing equation~(II) by $D(\lambda)$:
+\[
+R(x,y;\lambda) = k(x,y) + \lambda\int R(x,t;\lambda)\,k(t,y)\,dt,
+\]
+i.e., $R = K + \lambda RK$, so $(I + \lambda R)(I - \lambda K) = I + \lambda R - \lambda K - \lambda^2 RK$. Using $\lambda R = \lambda K + \lambda^2 RK$:
+\[
+(I + \lambda R)(I - \lambda K) = I + \lambda K + \lambda^2 RK - \lambda K - \lambda^2 RK = I. \quad \checkmark
+\]
+
+Therefore $I + \lambda R(\lambda)$ is the two-sided inverse of $I - \lambda K$, and $R(\lambda)$ is the \textbf{resolvent} of $K$.
+
+The integral equation $f = g + \lambda Kf$ can thus be solved as:
+\[
+f = (I - \lambda K)^{-1}g = g + \lambda R(\lambda)g = g + \lambda\int_a^b R(x,y;\lambda)\,g(y)\,dy,
+\]
+valid for all $\lambda$ such that $D(\lambda) \neq 0$ (i.e., $\lambda$ is not a singular value of $K$). \hfill $\blacksquare$
+
+\end{document}

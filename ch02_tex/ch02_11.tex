@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 2, Problem 11}
+
+\subsection*{Problem Statement}
+The Lagrangian density $\mathscr{L}$ which generates a given set of Euler--Lagrange equations is not unique. Prove this result by showing that adding a divergence to $\mathscr{L}$ does not alter the Euler--Lagrange equations. That is, let
+\[
+  \mathscr{L}' = \mathscr{L} + \sum_{k=1}^{n} \frac{\partial \Lambda_k}{\partial x_k},
+\]
+where
+\[
+  \mathscr{L}' = \mathscr{L}'\!\left(x_k, \psi_j, \frac{\partial\psi_j}{\partial x_k}\right), \quad \Lambda_k = \Lambda_k\!\left(x_k, \psi_j\right),
+\]
+$j = 1,\ldots,m$ indexes the dependent field variables, and $k = 1,\ldots,n$ indexes the independent variables.
+
+Now prove that
+\[
+  \frac{\partial\mathscr{L}'}{\partial\psi_j} - \sum_k \frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}'}{\partial(\partial\psi_j/\partial x_k)} = \frac{\partial\mathscr{L}}{\partial\psi_j} - \sum_k \frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi_j/\partial x_k)},
+\]
+where we define
+\[
+  \frac{\partial\Lambda_k}{\partial x_k} = \frac{\partial\Lambda_k}{\partial x_k}\bigg|_{\text{explicit}} + \sum_j \frac{\partial\Lambda_k}{\partial\psi_j}\frac{\partial\psi_j}{\partial x_k}.
+\]
+
+\subsection*{Solution}
+
+We need to show that the divergence term $\sum_k \partial\Lambda_k/\partial x_k$ does not contribute to the Euler--Lagrange equations.
+
+Since $\Lambda_k = \Lambda_k(x_k, \psi_j)$ (depending only on the coordinates and fields, not on field derivatives), the total divergence is:
+\[
+  \Phi \equiv \sum_{k=1}^{n}\frac{\partial\Lambda_k}{\partial x_k}
+  = \sum_k\left[\frac{\partial\Lambda_k}{\partial x_k}\bigg|_{\text{expl}} + \sum_j \frac{\partial\Lambda_k}{\partial\psi_j}\frac{\partial\psi_j}{\partial x_k}\right].
+\]
+
+We compute the Euler--Lagrange expression for $\Phi$ with respect to $\psi_j$:
+\[
+  E_j(\Phi) \equiv \frac{\partial\Phi}{\partial\psi_j} - \sum_k \frac{\partial}{\partial x_k}\frac{\partial\Phi}{\partial(\partial\psi_j/\partial x_k)}.
+\]
+
+\medskip
+\noindent\textbf{Step 1:} Compute $\dfrac{\partial\Phi}{\partial(\partial\psi_j/\partial x_k)}$.
+
+Since $\Phi = \sum_k\left[\frac{\partial\Lambda_k}{\partial x_k}\big|_{\text{expl}} + \sum_\ell \frac{\partial\Lambda_k}{\partial\psi_\ell}\frac{\partial\psi_\ell}{\partial x_k}\right]$, and $\Lambda_k$ does not depend on field derivatives, the only dependence on $\partial\psi_j/\partial x_k$ comes from the second sum. Thus (note the index $k$ in $\Lambda_k$ matches with $x_k$, so for a fixed $k$):
+\[
+  \frac{\partial\Phi}{\partial(\partial\psi_j/\partial x_k)} = \frac{\partial\Lambda_k}{\partial\psi_j}.
+\]
+
+\medskip
+\noindent\textbf{Step 2:} Compute $\dfrac{\partial\Phi}{\partial\psi_j}$.
+
+\[
+  \frac{\partial\Phi}{\partial\psi_j} = \sum_k \left[\frac{\partial^2\Lambda_k}{\partial\psi_j\partial x_k}\bigg|_{\text{expl}} + \sum_\ell \frac{\partial^2\Lambda_k}{\partial\psi_j\partial\psi_\ell}\frac{\partial\psi_\ell}{\partial x_k}\right].
+\]
+
+\medskip
+\noindent\textbf{Step 3:} Compute $\displaystyle\sum_k \frac{\partial}{\partial x_k}\frac{\partial\Phi}{\partial(\partial\psi_j/\partial x_k)} = \sum_k \frac{\partial}{\partial x_k}\frac{\partial\Lambda_k}{\partial\psi_j}$.
+
+Expanding the total derivative:
+\[
+  \sum_k \frac{\partial}{\partial x_k}\frac{\partial\Lambda_k}{\partial\psi_j}
+  = \sum_k\left[\frac{\partial^2\Lambda_k}{\partial x_k\partial\psi_j}\bigg|_{\text{expl}} + \sum_\ell\frac{\partial^2\Lambda_k}{\partial\psi_\ell\partial\psi_j}\frac{\partial\psi_\ell}{\partial x_k}\right].
+\]
+
+\medskip
+\noindent\textbf{Step 4:} Subtract:
+\[
+  E_j(\Phi) = \frac{\partial\Phi}{\partial\psi_j} - \sum_k\frac{\partial}{\partial x_k}\frac{\partial\Lambda_k}{\partial\psi_j}.
+\]
+
+By comparing Steps 2 and 3, we see they are identical (assuming sufficient smoothness so that mixed partial derivatives commute):
+\[
+  E_j(\Phi) = \sum_k\left[\frac{\partial^2\Lambda_k}{\partial\psi_j\partial x_k} + \sum_\ell\frac{\partial^2\Lambda_k}{\partial\psi_j\partial\psi_\ell}\frac{\partial\psi_\ell}{\partial x_k}\right]
+  - \sum_k\left[\frac{\partial^2\Lambda_k}{\partial x_k\partial\psi_j} + \sum_\ell\frac{\partial^2\Lambda_k}{\partial\psi_\ell\partial\psi_j}\frac{\partial\psi_\ell}{\partial x_k}\right] = 0.
+\]
+
+Therefore:
+\[
+  \frac{\partial\mathscr{L}'}{\partial\psi_j} - \sum_k\frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}'}{\partial(\partial\psi_j/\partial x_k)}
+  = \frac{\partial\mathscr{L}}{\partial\psi_j} - \sum_k\frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi_j/\partial x_k)} + E_j(\Phi)
+  = \frac{\partial\mathscr{L}}{\partial\psi_j} - \sum_k\frac{\partial}{\partial x_k}\frac{\partial\mathscr{L}}{\partial(\partial\psi_j/\partial x_k)}.
+\]
+
+This proves that adding a divergence to the Lagrangian density does not change the Euler--Lagrange equations.
+
+\medskip
+\noindent\textbf{Physical interpretation:} This result can also be understood from the action principle. Adding $\sum_k \partial\Lambda_k/\partial x_k$ to $\mathscr{L}$ adds to the action a term $\int \sum_k \partial\Lambda_k/\partial x_k\,d^n x$, which by the divergence theorem equals a surface integral $\oint \Lambda_k\,dS_k$ over the boundary. Since the field values are fixed on the boundary (as boundary conditions), this surface integral is a constant under variations, and hence does not affect the extremum condition.
+
+\end{document}

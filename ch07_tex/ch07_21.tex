@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 21}
+
+\textbf{Problem:} Determine the Green's function, $G(x,y;x',y')$, for the homogeneous heat equation for the entire $xy$-plane (i.e., the two-dimensional Green's function for an infinite plane).
+
+Assume that at $t = 0$ the temperature is a constant $T_0$ inside a square of side $2a$, centered at the origin, and zero outside this square. Determine the temperature distribution throughout the plane for all later times $t$ in terms of the error function:
+\[
+\mathrm{erf}(a) = \frac{2}{\sqrt{\pi}}\int_0^a e^{-s^2}\,ds.
+\]
+
+\bigskip
+\textbf{Solution:}
+
+\textbf{Two-dimensional heat kernel:} The heat equation is $\partial T/\partial t = k\nabla^2 T$. The Green's function on the infinite plane is the product of two one-dimensional kernels:
+\[
+\boxed{G(x,y,t;x',y',0) = \frac{1}{4\pi kt}\exp\!\Bigl(-\frac{(x-x')^2 + (y-y')^2}{4kt}\Bigr).}
+\]
+
+\textbf{Temperature evolution:} The solution is:
+\[
+T(x,y,t) = \int\!\!\!\int_{\mathbb{R}^2} G(x,y,t;x',y',0)\,T(x',y',0)\,dx'\,dy'.
+\]
+
+With $T(x',y',0) = T_0$ for $|x'| < a$ and $|y'| < a$, zero otherwise:
+\[
+T(x,y,t) = \frac{T_0}{4\pi kt}\int_{-a}^{a}\int_{-a}^{a}\exp\!\Bigl(-\frac{(x-x')^2+(y-y')^2}{4kt}\Bigr)\,dx'\,dy'.
+\]
+
+The double integral factors:
+\[
+T(x,y,t) = \frac{T_0}{4\pi kt}\Bigl[\int_{-a}^{a}e^{-(x-x')^2/(4kt)}\,dx'\Bigr]\Bigl[\int_{-a}^{a}e^{-(y-y')^2/(4kt)}\,dy'\Bigr].
+\]
+
+For the $x'$-integral, substitute $s = (x'-x)/\sqrt{4kt}$:
+\[
+\int_{-a}^{a}e^{-(x-x')^2/(4kt)}\,dx' = \sqrt{4kt}\int_{(-a-x)/\sqrt{4kt}}^{(a-x)/\sqrt{4kt}}e^{-s^2}\,ds.
+\]
+
+Using $\int_\alpha^\beta e^{-s^2}\,ds = \frac{\sqrt{\pi}}{2}\bigl[\mathrm{erf}(\beta) - \mathrm{erf}(\alpha)\bigr]$ (extending $\mathrm{erf}$ to negative arguments via $\mathrm{erf}(-x) = -\mathrm{erf}(x)$):
+
+\[
+\int_{-a}^{a}e^{-(x-x')^2/(4kt)}\,dx' = \sqrt{\pi kt}\Bigl[\mathrm{erf}\!\Bigl(\frac{a-x}{\sqrt{4kt}}\Bigr) + \mathrm{erf}\!\Bigl(\frac{a+x}{\sqrt{4kt}}\Bigr)\Bigr].
+\]
+
+Similarly for the $y'$-integral. Therefore:
+\[
+\boxed{T(x,y,t) = \frac{T_0}{4}\Bigl[\mathrm{erf}\!\Bigl(\frac{a-x}{\sqrt{4kt}}\Bigr) + \mathrm{erf}\!\Bigl(\frac{a+x}{\sqrt{4kt}}\Bigr)\Bigr]\Bigl[\mathrm{erf}\!\Bigl(\frac{a-y}{\sqrt{4kt}}\Bigr) + \mathrm{erf}\!\Bigl(\frac{a+y}{\sqrt{4kt}}\Bigr)\Bigr].}
+\]
+
+\textbf{Check:} At $t=0$, $\mathrm{erf}(\infty) = 1$ and $\mathrm{erf}(-\infty)=-1$. For $|x|<a$: both arguments are $+\infty$, giving $1+1=2$; similarly for $y$. So $T = T_0(2)(2)/4 = T_0$. For $|x|>a$: one argument is $+\infty$ and the other $-\infty$, giving $1-1=0$. $\checkmark$ $\blacksquare$
+
+\end{document}

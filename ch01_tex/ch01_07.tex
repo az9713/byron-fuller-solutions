@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\grad}{\boldsymbol{\nabla}}
+
+\begin{document}
+
+\section*{Problem 7}
+
+\textbf{Problem:} Prove Green's theorem, that is,
+\[
+\int_\tau (\varphi\,\nabla^2\psi - \psi\,\nabla^2\varphi)\,d\tau = \oint_\sigma (\varphi\,\grad\psi - \psi\,\grad\varphi)\cdot d\boldsymbol{\sigma}.
+\]
+
+\textit{Hint:} Apply Gauss's divergence theorem to the vectors $\vect{A} = \varphi\,\grad\psi$ and $\vect{B} = \psi\,\grad\varphi$.
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Step 1: Apply the divergence theorem to $\vect{A} = \varphi\,\grad\psi$}
+
+Gauss's divergence theorem (Eq.~1.57 in Byron \& Fuller) states:
+\[
+\int_\tau \grad\cdot\vect{A}\;d\tau = \oint_\sigma \vect{A}\cdot d\boldsymbol{\sigma}.
+\]
+
+Compute $\grad\cdot(\varphi\,\grad\psi)$. Using the product rule for divergence:
+\[
+\grad\cdot(\varphi\,\grad\psi) = (\grad\varphi)\cdot(\grad\psi) + \varphi\,\nabla^2\psi.
+\]
+
+Applying the divergence theorem:
+\begin{equation}
+\int_\tau \bigl[(\grad\varphi)\cdot(\grad\psi) + \varphi\,\nabla^2\psi\bigr]\,d\tau = \oint_\sigma \varphi\,\grad\psi \cdot d\boldsymbol{\sigma}. \label{eq:green1}
+\end{equation}
+
+This is known as \textbf{Green's first identity}.
+
+\subsection*{Step 2: Apply the divergence theorem to $\vect{B} = \psi\,\grad\varphi$}
+
+By the same calculation with $\varphi$ and $\psi$ interchanged:
+\begin{equation}
+\int_\tau \bigl[(\grad\psi)\cdot(\grad\varphi) + \psi\,\nabla^2\varphi\bigr]\,d\tau = \oint_\sigma \psi\,\grad\varphi \cdot d\boldsymbol{\sigma}. \label{eq:green1b}
+\end{equation}
+
+\subsection*{Step 3: Subtract}
+
+Subtract Eq.~\eqref{eq:green1b} from Eq.~\eqref{eq:green1}. The $(\grad\varphi)\cdot(\grad\psi)$ terms cancel (since the dot product is commutative):
+\[
+\int_\tau \bigl[\varphi\,\nabla^2\psi - \psi\,\nabla^2\varphi\bigr]\,d\tau = \oint_\sigma \bigl[\varphi\,\grad\psi - \psi\,\grad\varphi\bigr]\cdot d\boldsymbol{\sigma}.
+\]
+
+This is \textbf{Green's theorem} (also called Green's second identity). \hfill $\blacksquare$
+
+\end{document}

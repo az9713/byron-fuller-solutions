@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 11.} Show that if $f^l(E)$ changes sign as $E$ varies, then the appropriate modification of $d\sigma/d\Omega$ in the weight-function method is to write $d\sigma = |f^l(E)|^2\,d\Omega$. Obtain an estimate on the norm of the Lippmann--Schwinger integral operator using the weight function.
+
+\bigskip
+\textbf{Solution.}
+
+In the partial-wave expansion of the scattering amplitude, each partial wave contributes:
+\[
+f^l(E) = \frac{1}{k}\sum_l (2l+1)T_l(E)P_l(\cos\theta),
+\]
+where $T_l$ is the $T$-matrix element for angular momentum $l$.
+
+When the Born approximation is used, $f^l(E)$ can change sign as $E$ varies (unlike the exact partial-wave amplitude which satisfies unitarity). In the weight-function method, the scattering cross section involves:
+\[
+\frac{d\sigma}{d\Omega} = |f(\theta)|^2.
+\]
+
+If $f^l(E)$ changes sign, we cannot simply use $f^l$ as a weight function since it becomes negative. Instead, we use $|f^l(E)|^2$ directly:
+\[
+d\sigma = |f^l(E)|^2\,d\Omega.
+\]
+
+For the weight-function estimate of the norm, we use $w(r) = |V(r)|$ and the weighted Hilbert--Schmidt norm:
+\[
+\|K\|_w^2 = \int_0^\infty\!\!\int_0^\infty \left|\frac{\sin(kr_<)}{k}\frac{e^{ikr_>}}{1}\right|^2|V(r)|^2\,|V(r')|\,dr\,dr'.
+\]
+
+The key estimate is that the free Green's function satisfies $|G_0^l(r,r')| \le r_</k$ for $s$-waves, giving:
+\[
+\|K\|_w^2 \le \frac{1}{k^2}\int_0^\infty r^2|V(r)||V(r)|dr\int_0^\infty|V(r')|dr'.
+\]
+
+When $f^l$ changes sign, the Born approximation passes through zero at some energy, indicating a Ramsauer--Townsend minimum. The weight-function method still provides a valid upper bound on the norm, ensuring convergence of the Born series when $\|K\|_w < 1$, i.e., at sufficiently high energies. The modification $d\sigma = |f^l|^2\,d\Omega$ simply ensures that the cross section remains positive definite regardless of the sign of the amplitude. $\blacksquare$
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 3}
+
+\textbf{Problem.} In the vector space of real $n$-tuples, prove that the $n$ vectors
+\begin{align*}
+\mathbf{a}_1 &= (1, 0, 0, \ldots, 0, 0), \\
+\mathbf{a}_2 &= (1, 1, 0, \ldots, 0, 0), \\
+\mathbf{a}_3 &= (1, 1, 1, \ldots, 0, 0), \\
+&\;\;\vdots \\
+\mathbf{a}_n &= (1, 1, 1, \ldots, 1, 1),
+\end{align*}
+are linearly independent.
+
+\bigskip
+\textbf{Solution.}
+
+Suppose there exist scalars $c_1, c_2, \ldots, c_n$ such that
+\[
+c_1 \mathbf{a}_1 + c_2 \mathbf{a}_2 + \cdots + c_n \mathbf{a}_n = \mathbf{0}.
+\]
+We must show that $c_1 = c_2 = \cdots = c_n = 0$.
+
+The vector $\mathbf{a}_k$ has components: the first $k$ components are 1 and the remaining $n-k$ components are 0. Writing out the equation component by component:
+
+\textbf{Component $j$ (for $j = 1, 2, \ldots, n$):}
+
+The $j$th component of $\mathbf{a}_k$ is 1 if $k \ge j$ and 0 if $k < j$. Therefore the $j$th component of the linear combination is:
+\[
+\sum_{k=j}^{n} c_k = 0, \quad j = 1, 2, \ldots, n.
+\]
+
+This gives the system:
+\begin{align*}
+j = n: &\quad c_n = 0, \\
+j = n-1: &\quad c_{n-1} + c_n = 0, \\
+j = n-2: &\quad c_{n-2} + c_{n-1} + c_n = 0, \\
+&\quad \vdots \\
+j = 1: &\quad c_1 + c_2 + \cdots + c_n = 0.
+\end{align*}
+
+From the first equation, $c_n = 0$. Substituting into the second, $c_{n-1} = 0$. Continuing this back-substitution, we find $c_{n-2} = 0, \ldots, c_1 = 0$.
+
+Since the only solution is the trivial one $c_1 = c_2 = \cdots = c_n = 0$, the vectors $\mathbf{a}_1, \mathbf{a}_2, \ldots, \mathbf{a}_n$ are linearly independent. \hfill $\blacksquare$
+
+\end{document}

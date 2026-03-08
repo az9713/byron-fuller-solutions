@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 8.} Using the result of Problem 7.10, show that if we have a potential $V(x)$ in one dimension which vanishes outside the interval $(-a,2L)$, then, if we denote the wave function in the region $[-a,-a/2]$ by $\psi(x)$, the wave function in the region $[-a/2,a/2]$ by $\psi(x)$, and the wave function in $[a/2,a]$ by $\psi(x)$, then, calling $E = \hbar^2 k^2/2m$ where $E>0$ is the energy of the particle and $m$ is its mass:
+\[
+\psi(x) = e^{ikx} + \int_{-a}^{a} G(x,x')V(x')\psi(x')\,dx'
+\]
+where $G$ is the free-particle Green's function. Thus we see that in order to determine the wave function in the region where the potential doesn't act, we need only know the wave function in the region where the potential does act.
+
+Show that the $n$th term in the iteration of this equation is less than $(mVa/\hbar k)^n$ in magnitude; so the iteration will converge if $mVa/(\hbar^2 k) < 1$. Since $\Delta k = mV/(2\pi\hbar^2)$...
+
+\bigskip
+\textbf{Solution.}
+
+Consider one-dimensional scattering with a potential $V(x)$ that vanishes outside $[-a,a]$. The Lippmann--Schwinger equation is:
+\[
+\psi(x) = e^{ikx} + \int_{-a}^{a} G_0(x,x')V(x')\psi(x')\,dx',
+\]
+where $G_0(x,x') = \frac{im}{k\hbar^2}e^{ik|x-x'|}$ is the one-dimensional free-particle outgoing Green's function (from Problem 7.10), and $k = \sqrt{2mE}/\hbar$.
+
+\textbf{Convergence of the Born series:}
+
+The $n$-th iterate of the Born series is:
+\[
+\psi^{(n)}(x) = \int\cdots\int \prod_{j=1}^n G_0(x_{j-1},x_j)V(x_j)\,dx_j \cdot e^{ikx_n},
+\]
+where $x_0 = x$. We estimate:
+\[
+|G_0(x,x')| = \frac{m}{\hbar^2 k}|e^{ik|x-x'|}| = \frac{m}{\hbar^2 k}.
+\]
+Assuming $|V(x')|\le V_0$ (maximum value of potential) over the interval of length $2a$:
+\[
+|\psi^{(n)}| \le \left(\frac{m}{\hbar^2 k}\right)^n V_0^n (2a)^n = \left(\frac{2mV_0 a}{\hbar^2 k}\right)^n.
+\]
+
+Therefore the $n$-th Born term is bounded by:
+\[
+\left(\frac{mV_0 a}{\hbar^2 k}\right)^n
+\]
+(absorbing numerical factors), and the Born series converges when:
+\[
+\boxed{\frac{mV_0 a}{\hbar^2 k} < 1.}
+\]
+
+This means convergence is guaranteed when the kinetic energy is large enough relative to the potential strength times the range, i.e., for sufficiently high-energy scattering. Note that this is only a sufficient condition; the Born series may converge even when this criterion is not strictly satisfied.
+
+Since outside the potential region $V(x)=0$, the integral only extends over $[-a,a]$. Thus to find $\psi(x)$ for $|x|>a$, we only need to know $\psi$ in the region where $V\ne 0$. The wave function outside is completely determined by the integral over the potential region. $\blacksquare$
+
+\end{document}

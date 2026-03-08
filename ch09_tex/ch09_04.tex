@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 4}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Prove that if $\{\lambda_n\}$ and $\{x_n(t)\}$ are respectively the eigenvalues and eigenvectors of the Hermitian integral operator $A$, with square-integrable kernel $a(t,t')$, then
+\[
+\int \!\!\int |a(t,t')|^2\,dt\,dt' \ge \sum_n \frac{1}{\lambda_n^2}.
+\]
+
+\bigskip
+\textbf{Solution.}
+
+The eigenvalue equation for $A$ is $Ax_n = \frac{1}{\lambda_n}\,x_n$ (using the convention of Byron \& Fuller where $\lambda_n$ appears in the denominator), or equivalently $\lambda_n A x_n = x_n$. In the integral operator convention used in this chapter, the eigenvalue equation is:
+\[
+\int a(t,t')\,x_n(t')\,dt' = \frac{1}{\lambda_n}\,x_n(t).
+\]
+
+The Hilbert--Schmidt norm (also called the Frobenius norm for the kernel) is:
+\[
+\|A\|_{\text{HS}}^2 = \int\!\!\int |a(t,t')|^2\,dt\,dt'.
+\]
+
+We expand the kernel in terms of the complete orthonormal eigenvectors. By the completeness relation for $A$, any $f \in H$ can be written as $f = \sum_n (x_n, f)\,x_n + f_0$, where $f_0$ lies in the null space of $A$. The bilinear expansion of the kernel (Eq.~9.14 in the text) gives:
+\[
+a(t,t') = \sum_n \frac{1}{\lambda_n}\,x_n(t)\,x_n^*(t'),
+\]
+where the sum is over all nonzero eigenvalues.
+
+Computing the Hilbert--Schmidt norm using this expansion:
+\[
+\int\!\!\int |a(t,t')|^2\,dt\,dt' = \sum_{n,m} \frac{1}{\lambda_n \lambda_m^*} \int x_n(t)\,x_m^*(t)\,dt \int x_n^*(t')\,x_m(t')\,dt'.
+\]
+
+Using orthonormality, $\int x_n(t)\,x_m^*(t)\,dt = \delta_{nm}$, so:
+\[
+\int\!\!\int |a(t,t')|^2\,dt\,dt' = \sum_n \frac{1}{|\lambda_n|^2} = \sum_n \frac{1}{\lambda_n^2},
+\]
+where the last equality holds because $A$ is Hermitian, so all $\lambda_n$ are real.
+
+If the bilinear expansion is exact (complete kernel), this is an equality. However, if the kernel has components that are not captured by the eigenvector expansion (which can happen if the sum converges only in the $L_2$ sense and the kernel is not a Mercer kernel), then the expansion may only account for part of the norm. In general, by Bessel's inequality applied to the Hilbert--Schmidt space of kernels:
+\[
+\boxed{\int\!\!\int |a(t,t')|^2\,dt\,dt' \ge \sum_n \frac{1}{\lambda_n^2}}.
+\]
+
+Equality holds when the eigenvector expansion of the kernel is complete in $L_2([a,b]^2)$, which is the case for all completely continuous Hermitian operators (Theorem~9.4 and the corollary on the bilinear expansion, Eq.~9.14/9.15). \hfill $\blacksquare$
+
+\end{document}

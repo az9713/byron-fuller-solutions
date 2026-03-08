@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 24.} Show that by defining addition and scalar multiplication in the obvious way, we can construct a Banach space out of the set of all bounded, linear operators on $B$. This proof can be patterned directly on the proof given in the previous problem (for bounded linear functionals). Again, the completeness of the underlying space $B$ is the key ingredient in the proof.
+
+\bigskip
+\textbf{Solution.}
+
+Let $\mathcal{B}(B)$ denote the set of all bounded linear operators on the Banach space $B$.
+
+\textbf{Vector space structure:}
+Define for $A,C\in\mathcal{B}(B)$, $\alpha\in\mathbb{C}$, and $f\in B$:
+\begin{itemize}
+\item $(A+C)f = Af+Cf$,
+\item $(\alpha A)f = \alpha(Af)$.
+\end{itemize}
+
+$A+C$ is linear: $(A+C)(\alpha f+\beta g) = A(\alpha f+\beta g)+C(\alpha f+\beta g) = \alpha(A+C)f+\beta(A+C)g$.
+
+$A+C$ is bounded: $\|(A+C)f\|\le\|Af\|+\|Cf\|\le(\|A\|+\|C\|)\|f\|$, so $\|A+C\|\le\|A\|+\|C\|$.
+
+Similarly $\alpha A$ is bounded with $\|\alpha A\| = |\alpha|\|A\|$. The zero operator is the additive identity. All vector space axioms are readily verified. $\checkmark$
+
+\textbf{Norm properties:}
+The operator norm $\|A\| = \sup_{\|f\|=1}\|Af\|$ satisfies:
+\begin{enumerate}
+\item $\|A\|\ge 0$; $\|A\|=0$ iff $Af=0$ for all $f$, i.e., $A=0$.
+\item $\|\alpha A\| = |\alpha|\|A\|$.
+\item $\|A+C\|\le\|A\|+\|C\|$ (triangle inequality, shown above). $\checkmark$
+\end{enumerate}
+
+\textbf{Completeness:}
+Let $\{A_n\}$ be a Cauchy sequence in $\mathcal{B}(B)$: $\|A_n-A_m\|\to 0$.
+
+\emph{Step 1:} For each $f\in B$, $\{A_nf\}$ is Cauchy in $B$:
+\[
+\|A_nf-A_mf\| = \|(A_n-A_m)f\|\le\|A_n-A_m\|\|f\|\to 0.
+\]
+Since $B$ is complete, $A_nf$ converges. Define $Af = \lim_{n\to\infty}A_nf$.
+
+\emph{Step 2:} $A$ is linear:
+\[
+A(\alpha f+\beta g) = \lim A_n(\alpha f+\beta g) = \alpha\lim A_nf+\beta\lim A_ng = \alpha Af+\beta Ag.
+\]
+
+\emph{Step 3:} $A$ is bounded: $\{A_n\}$ is Cauchy hence $\{\|A_n\|\}$ is bounded by some $M$. Then $\|Af\| = \lim\|A_nf\|\le M\|f\|$.
+
+\emph{Step 4:} $A_n\to A$ in operator norm: For $\varepsilon>0$, take $N$ such that $\|A_n-A_m\|<\varepsilon$ for $n,m>N$. For $\|f\|=1$:
+\[
+\|A_nf-A_mf\|<\varepsilon.
+\]
+Letting $m\to\infty$: $\|A_nf-Af\|\le\varepsilon$ for all $\|f\|=1$. Hence $\|A_n-A\|\le\varepsilon$ for $n>N$.
+
+Therefore $\mathcal{B}(B)$ is a Banach space. The proof is exactly parallel to Problem 23, with the completeness of $B$ playing the essential role in Step 1. $\blacksquare$
+
+\end{document}

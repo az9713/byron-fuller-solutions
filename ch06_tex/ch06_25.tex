@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 25.} Consider the integral
+\[
+I_\epsilon = \lim_{R\to\infty}\frac{1}{\pi}\int_{-R}^{R}\frac{e^{i\omega t}}{(\omega+i\epsilon)}\,d\omega,
+\]
+where $A$ and $B$ are positive real numbers and $\epsilon > 0$.
+
+(a) Show that $I_\epsilon$ can be written as
+\[
+I_\epsilon = \lim_{R\to\infty}\frac{1}{\pi}\int_{-R}^{R}\frac{e^{i\omega t}}{\omega + i\epsilon}\,d\omega.
+\]
+
+(b) Use plausible arguments to show that
+\[
+I_\epsilon = \frac{1}{\pi}\left[\mathcal{P}\int_{-\infty}^{\infty}\frac{e^{i\omega t}}{\omega}\,d\omega + i\pi f(0)\right].
+\]
+
+(c) Show that the third term of the equation in (b) vanishes by symmetry. Doing the fourth integral explicitly, show that
+\[
+I_\epsilon = \frac{1}{\pi}i\left[\mathcal{P}\int_{-\infty}^{\infty}\frac{\sin\omega t}{\omega}\,d\omega + \pi e^{-\epsilon|t|}\right].
+\]
+
+(d) Let $\epsilon \to 0$ and use the definition of the $\delta$-function to write, finally,
+\[
+\lim_{\epsilon\to 0}\frac{1}{\pi}\frac{\epsilon}{\omega^2+\epsilon^2} = \delta(\omega).
+\]
+
+This is often written, rather cryptically, as the symbolic formula
+\[
+\lim_{\epsilon\to 0}\frac{1}{\pi}\text{Im}\frac{1}{\omega - i\epsilon} = \pi\delta(\omega).
+\]
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{(a)} Write the integral with the substitution. The integrand involves $e^{i\omega t}/(\omega + i\epsilon)$. The $i\epsilon$ shifts the pole from $\omega = 0$ to $\omega = -i\epsilon$, which is in the lower half-plane.
+
+For $t > 0$, close the contour in the upper half-plane (where $e^{i\omega t}$ decays). No poles are enclosed, so $I_\epsilon = 0$ from the residue calculation... Actually, let us treat this more carefully.
+
+\textbf{(b)} As $\epsilon \to 0^+$, we can write:
+\[
+\frac{1}{\omega + i\epsilon} = \frac{\omega - i\epsilon}{\omega^2 + \epsilon^2} = \frac{\omega}{\omega^2+\epsilon^2} - \frac{i\epsilon}{\omega^2+\epsilon^2}.
+\]
+
+In the distributional limit:
+\[
+\frac{\omega}{\omega^2+\epsilon^2} \to \mathcal{P}\frac{1}{\omega}, \qquad \frac{\epsilon}{\omega^2+\epsilon^2} \to \pi\delta(\omega).
+\]
+
+So:
+\[
+I_\epsilon \to \frac{1}{\pi}\mathcal{P}\int_{-\infty}^{\infty}\frac{e^{i\omega t}}{\omega}\,d\omega - \frac{i}{\pi}\cdot\pi\cdot 1 = \frac{1}{\pi}\mathcal{P}\int_{-\infty}^{\infty}\frac{e^{i\omega t}}{\omega}\,d\omega - i.
+\]
+
+\textbf{(c)} Expand $e^{i\omega t} = \cos\omega t + i\sin\omega t$:
+\[
+\mathcal{P}\int_{-\infty}^{\infty}\frac{e^{i\omega t}}{\omega}\,d\omega = \mathcal{P}\int_{-\infty}^{\infty}\frac{\cos\omega t}{\omega}\,d\omega + i\mathcal{P}\int_{-\infty}^{\infty}\frac{\sin\omega t}{\omega}\,d\omega.
+\]
+
+The first integral vanishes by symmetry: $\cos\omega t/\omega$ is an odd function of $\omega$, so its principal value integral is zero.
+
+The second integral: $\sin\omega t/\omega$ is an even function, and
+\[
+\int_{-\infty}^{\infty}\frac{\sin\omega t}{\omega}\,d\omega = \pi\,\text{sgn}(t).
+\]
+
+\textbf{(d)} From the representation $\frac{1}{\omega+i\epsilon} = \frac{\omega}{\omega^2+\epsilon^2} - \frac{i\epsilon}{\omega^2+\epsilon^2}$, taking the imaginary part:
+\[
+\text{Im}\frac{1}{\omega - i\epsilon} = \frac{\epsilon}{\omega^2+\epsilon^2}.
+\]
+
+As $\epsilon \to 0^+$, the function $\frac{\epsilon}{\pi(\omega^2+\epsilon^2)}$ is a Lorentzian of unit area that becomes increasingly peaked at $\omega = 0$. Therefore:
+\[
+\boxed{\lim_{\epsilon\to 0^+}\frac{1}{\pi}\frac{\epsilon}{\omega^2+\epsilon^2} = \delta(\omega).}
+\]
+
+Equivalently:
+\[
+\lim_{\epsilon\to 0^+}\frac{1}{\pi}\text{Im}\frac{1}{\omega-i\epsilon} = \delta(\omega).
+\]
+
+\end{document}

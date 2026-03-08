@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 16.} Obtain an integral equation equivalent to the differential equation for the anharmonic oscillator whose motion is governed by
+\[
+\ddot{x}(t) + \omega^2 x(t) = -\epsilon x(t)^3,
+\]
+by making use of the Green's function for the operator $d^2/dt^2 + \omega^2$. Assume $x(0)=A$, $x'(0)=0$.
+
+\textbf{(a)} $x_0(t) = A\cos\omega t$.
+
+\textbf{(b)} Iterate this equation once to obtain the first correction to the lowest-order solution, $x_0(t) = A\cos\omega t$.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part (a): Setting up the integral equation.}
+
+The retarded Green's function for $d^2/dt^2 + \omega^2$ is:
+\[
+G(t,t') = \frac{1}{\omega}\sin[\omega(t-t')]\,\theta(t-t').
+\]
+The equation $\ddot{x}+\omega^2 x = -\epsilon x^3$ with $x(0)=A$, $\dot{x}(0)=0$ can be written as an integral equation:
+\[
+x(t) = A\cos\omega t - \frac{\epsilon}{\omega}\int_0^t \sin[\omega(t-t')]\,[x(t')]^3\,dt'.
+\]
+
+The zeroth approximation is:
+\[
+\boxed{x_0(t) = A\cos\omega t.}
+\]
+
+\textbf{Part (b): First iteration.}
+
+Substitute $x_0$ into the integral:
+\[
+x_1(t) = A\cos\omega t - \frac{\epsilon}{\omega}\int_0^t\sin[\omega(t-t')]A^3\cos^3(\omega t')\,dt'.
+\]
+
+Using $\cos^3\theta = \frac{3}{4}\cos\theta + \frac{1}{4}\cos 3\theta$:
+\[
+x_1(t) = A\cos\omega t - \frac{\epsilon A^3}{\omega}\int_0^t\sin[\omega(t-t')]\left[\frac{3}{4}\cos\omega t'+\frac{1}{4}\cos 3\omega t'\right]dt'.
+\]
+
+\textbf{First integral} ($\cos\omega t'$ term):
+\[
+I_1 = \int_0^t\sin[\omega(t-t')]\cos\omega t'\,dt' = \frac{1}{2}\int_0^t[\sin\omega t + \sin(\omega t-2\omega t')]\,dt'.
+\]
+\[
+= \frac{t}{2}\sin\omega t + \frac{1}{4\omega}[\cos(\omega t-2\omega t')]_0^t = \frac{t}{2}\sin\omega t + \frac{1}{4\omega}[\cos(-\omega t)-\cos\omega t] = \frac{t}{2}\sin\omega t.
+\]
+
+\textbf{Second integral} ($\cos 3\omega t'$ term):
+\[
+I_2 = \int_0^t\sin[\omega(t-t')]\cos 3\omega t'\,dt'.
+\]
+Using product-to-sum:
+\[
+I_2 = \frac{1}{2}\int_0^t[\sin(\omega t+2\omega t')+\sin(\omega t-4\omega t')]\,dt'.
+\]
+\[
+= \frac{1}{2}\left[-\frac{\cos(\omega t+2\omega t')}{2\omega}+\frac{\cos(\omega t-4\omega t')}{4\omega}\right]_0^t
+\]
+\[
+= \frac{1}{4\omega}[-\cos 3\omega t+\cos\omega t] + \frac{1}{8\omega}[\cos(-3\omega t)-\cos\omega t]
+\]
+\[
+= \frac{1}{4\omega}(\cos\omega t-\cos 3\omega t) + \frac{1}{8\omega}(\cos 3\omega t-\cos\omega t) = \frac{1}{8\omega}(\cos\omega t-\cos 3\omega t).
+\]
+
+Combining:
+\[
+x_1(t) = A\cos\omega t - \frac{\epsilon A^3}{\omega}\left[\frac{3}{4}\cdot\frac{t}{2}\sin\omega t + \frac{1}{4}\cdot\frac{1}{8\omega}(\cos\omega t-\cos 3\omega t)\right].
+\]
+\[
+\boxed{x_1(t) = A\cos\omega t - \frac{3\epsilon A^3}{8\omega}t\sin\omega t - \frac{\epsilon A^3}{32\omega^2}(\cos\omega t-\cos 3\omega t).}
+\]
+
+The term $\propto t\sin\omega t$ is the secular term, signaling that for large $t$ the perturbation breaks down. This is cured by the frequency renormalization $\omega^2\to\omega_0^2+\frac{3}{4}\epsilon A^2$ as discussed in Problem 14. $\blacksquare$
+
+\end{document}

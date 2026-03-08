@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\section*{Problem 14}
+
+\textbf{Problem:} Show that the trace of the electromagnetic energy-momentum tensor $T_{\mu\nu}$ is zero, where
+\[
+T_{\mu\nu} = \frac{1}{4\pi}\!\left(F_{\mu\lambda}F_{\nu\lambda} - \tfrac{1}{4}\,\delta_{\mu\nu}\,F_{\lambda\sigma}F_{\lambda\sigma}\right),
+\]
+and $F_{\mu\nu}$ is the electromagnetic field tensor of Problem 13.
+
+\bigskip
+\textbf{Solution:}
+
+The trace of $T_{\mu\nu}$ is obtained by contracting $\mu$ with $\nu$ (setting $\mu = \nu$ and summing):
+\begin{align}
+T_{\mu\mu} &= \frac{1}{4\pi}\!\left(F_{\mu\lambda}F_{\mu\lambda} - \tfrac{1}{4}\,\delta_{\mu\mu}\,F_{\lambda\sigma}F_{\lambda\sigma}\right).
+\end{align}
+
+Now evaluate each piece:
+
+\textbf{First term:} $F_{\mu\lambda}F_{\mu\lambda}$ is a sum over both $\mu$ and $\lambda$---this is just $F_{\lambda\sigma}F_{\lambda\sigma}$ (with dummy indices renamed):
+\[
+F_{\mu\lambda}F_{\mu\lambda} = F_{\lambda\sigma}F_{\lambda\sigma}.
+\]
+
+\textbf{Second term:} $\delta_{\mu\mu}$ is the trace of the identity matrix in four dimensions:
+\[
+\delta_{\mu\mu} = 4.
+\]
+
+Substituting:
+\begin{align}
+T_{\mu\mu} &= \frac{1}{4\pi}\!\left(F_{\lambda\sigma}F_{\lambda\sigma} - \tfrac{1}{4}\cdot 4 \cdot F_{\lambda\sigma}F_{\lambda\sigma}\right) \\
+&= \frac{1}{4\pi}\!\left(F_{\lambda\sigma}F_{\lambda\sigma} - F_{\lambda\sigma}F_{\lambda\sigma}\right) \\
+&= \boxed{0}.
+\end{align}
+
+The trace of the electromagnetic energy-momentum tensor vanishes. \hfill $\blacksquare$
+
+\bigskip
+\textit{Physical significance:} The vanishing trace $T_{\mu\mu} = 0$ is a consequence of the conformal invariance of the electromagnetic field in four dimensions. In terms of the physical fields $\vect{E}$ and $\vect{B}$, one can verify that:
+\[
+T_{\mu\mu} \propto |\vect{E}|^2 - |\vect{B}|^2 - (|\vect{E}|^2 - |\vect{B}|^2) = 0.
+\]
+
+More specifically, the diagonal components are:
+\begin{align}
+T_{44} &= \frac{1}{8\pi}(|\vect{E}|^2 + |\vect{B}|^2) \quad \text{(energy density)}, \\
+T_{ii} &= \text{(Maxwell stress tensor components)},
+\end{align}
+and their sum (the trace in 4D) vanishes identically. This reflects the fact that the photon is massless---a massive field would have $T_{\mu\mu} \neq 0$.
+
+\end{document}

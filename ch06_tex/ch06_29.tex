@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 29.} Find the order of the pole at the origin, the residue there, and the integral around a small path $C$ enclosing the origin, but no other singularities, for each of the following functions:
+\begin{itemize}
+\item[(a)] $\cot z$
+\item[(b)] $\csc^2 z \log(1-z)$
+\item[(c)] $\displaystyle\frac{\sin z - \tan z}{z}$
+\end{itemize}
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{(a) $\cot z = \cos z/\sin z$:}
+
+At $z = 0$: $\sin z = z - z^3/6 + \cdots$ has a simple zero, and $\cos 0 = 1 \neq 0$.
+
+So $\cot z$ has a \textbf{simple pole} (order 1) at $z = 0$.
+
+Residue:
+\[
+\text{Res}_{z=0}\cot z = \lim_{z\to 0}z\cot z = \lim_{z\to 0}\frac{z\cos z}{\sin z} = 1.
+\]
+
+Integral: $\oint_C \cot z\,dz = 2\pi i \cdot 1 = \boxed{2\pi i}$.
+
+\textbf{(b) $\csc^2 z\log(1-z)$:}
+
+Near $z = 0$: $\csc^2 z = 1/\sin^2 z$. Since $\sin z = z - z^3/6 + \cdots$, we have $\sin^2 z = z^2 - z^4/3 + \cdots$, so $\csc^2 z$ has a pole of order 2 at $z=0$.
+
+Also $\log(1-z) = -z - z^2/2 - z^3/3 - \cdots$, which has a zero of order 1 at $z = 0$.
+
+The product $\csc^2 z \cdot \log(1-z)$ has a pole of order $2 - 1 = 1$ (\textbf{simple pole}).
+
+To find the residue, expand:
+\[
+\frac{\log(1-z)}{\sin^2 z} = \frac{-z - z^2/2 - z^3/3 - \cdots}{z^2(1-z^2/3+\cdots)^2} \cdot \frac{1}{(1-z^2/3+\cdots)^{-2}}
+\]
+
+More carefully:
+\[
+\frac{1}{\sin^2 z} = \frac{1}{z^2}\cdot\frac{1}{(1-z^2/6+\cdots)^2} = \frac{1}{z^2}\left(1 + \frac{z^2}{3}+\cdots\right).
+\]
+
+\[
+\frac{\log(1-z)}{\sin^2 z} = \frac{1}{z^2}\left(1+\frac{z^2}{3}+\cdots\right)\left(-z-\frac{z^2}{2}-\frac{z^3}{3}-\cdots\right)
+\]
+\[
+= \frac{1}{z^2}\left(-z - \frac{z^2}{2} - \frac{z^3}{3} - \frac{z^3}{3} + \cdots\right) = -\frac{1}{z} - \frac{1}{2} - \frac{2z}{3} + \cdots
+\]
+
+Residue $= -1$.
+
+Integral: $\oint_C \csc^2 z\log(1-z)\,dz = 2\pi i(-1) = \boxed{-2\pi i}$.
+
+\textbf{(c) $\displaystyle\frac{\sin z - \tan z}{z}$:}
+
+Expand near $z = 0$:
+\[
+\sin z = z - \frac{z^3}{6} + \frac{z^5}{120} - \cdots
+\]
+\[
+\tan z = z + \frac{z^3}{3} + \frac{2z^5}{15} + \cdots
+\]
+\[
+\sin z - \tan z = -\frac{z^3}{2} - \frac{z^5}{8} - \cdots
+\]
+\[
+\frac{\sin z - \tan z}{z} = -\frac{z^2}{2} - \frac{z^4}{8} - \cdots
+\]
+
+This is analytic at $z = 0$ (no pole!). The function has a \textbf{removable singularity} at the origin.
+
+Order of pole: none (order 0). Residue $= 0$.
+
+Integral: $\oint_C \frac{\sin z - \tan z}{z}\,dz = \boxed{0}$.
+
+\end{document}

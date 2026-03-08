@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.4}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[(a)] Show that the $2\pi$ periodic Fourier series representation of the square wave (step function)
+\[
+f(x) = \begin{cases} -1 & -\pi < x < 0 \\ +1 & 0 < x < \pi \end{cases}
+\]
+is $f(x) = \frac{4}{\pi}\sum_{n=0}^{\infty} \frac{1}{2n+1}\sin(2n+1)x$.
+
+Compare this result with the expansion of the same function in Legendre polynomials---see Jackson, \emph{Classical Electrodynamics}, pp.\ 58--59.
+
+\item[(b)] Derive from the Fourier series obtained in (a) a simple infinite series expression for $\pi$; preferably one with rapid convergence.
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a)}
+
+The function $f(x)$ is odd: $f(-x) = -f(x)$. Therefore all cosine (even) Fourier coefficients vanish, and we have:
+\[
+f(x) = \sum_{n=1}^{\infty} b_n \sin nx,
+\]
+where
+\[
+b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\,dx = \frac{2}{\pi}\int_0^{\pi} f(x)\sin nx\,dx = \frac{2}{\pi}\int_0^{\pi}\sin nx\,dx.
+\]
+
+Evaluating:
+\[
+b_n = \frac{2}{\pi}\left[-\frac{\cos nx}{n}\right]_0^{\pi} = \frac{2}{n\pi}\left(1 - \cos n\pi\right) = \frac{2}{n\pi}\left(1 - (-1)^n\right).
+\]
+
+For even $n$: $b_n = 0$. For odd $n = 2m+1$: $b_n = \frac{4}{(2m+1)\pi}$.
+
+Therefore:
+\[
+\boxed{f(x) = \frac{4}{\pi}\sum_{m=0}^{\infty} \frac{\sin(2m+1)x}{2m+1} = \frac{4}{\pi}\left(\sin x + \frac{\sin 3x}{3} + \frac{\sin 5x}{5} + \cdots\right).}
+\]
+
+The partial sums $S_N(x) = \frac{4}{\pi}\sum_{m=0}^{N}\frac{1}{2m+1}\sin(2m+1)x$ converge to $f(x)$ for all $x$ except at the discontinuities, where they converge to $\frac{1}{2}[f(x^+)+f(x^-)] = 0$. Near the discontinuities, one observes the Gibbs phenomenon---the partial sums overshoot by about 18\%.
+
+\subsection*{Part (b)}
+
+Setting $x = \pi/2$ in the Fourier series, where $f(\pi/2) = 1$:
+\[
+1 = \frac{4}{\pi}\sum_{m=0}^{\infty} \frac{\sin\left[(2m+1)\frac{\pi}{2}\right]}{2m+1} = \frac{4}{\pi}\sum_{m=0}^{\infty} \frac{(-1)^m}{2m+1}.
+\]
+
+Since $\sin\left(\frac{(2m+1)\pi}{2}\right) = (-1)^m$, we obtain:
+\[
+1 = \frac{4}{\pi}\left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots\right).
+\]
+
+Therefore:
+\[
+\boxed{\frac{\pi}{4} = \sum_{m=0}^{\infty}\frac{(-1)^m}{2m+1} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots}
+\]
+
+This is the \textbf{Leibniz formula} for $\pi/4$. While elegant, it converges slowly. For more rapid convergence, we can use Parseval's theorem:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi}|f(x)|^2\,dx = \sum_{n=1}^{\infty} b_n^2.
+\]
+
+The left side equals $\frac{1}{\pi}\cdot 2\pi = 2$. The right side gives:
+\[
+2 = \frac{16}{\pi^2}\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2}.
+\]
+
+Therefore:
+\[
+\boxed{\frac{\pi^2}{8} = \sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} = 1 + \frac{1}{9} + \frac{1}{25} + \frac{1}{49} + \cdots}
+\]
+
+This series converges much more rapidly than the Leibniz series.
+
+\end{document}

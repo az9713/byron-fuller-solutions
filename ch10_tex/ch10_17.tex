@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 17}
+\end{center}
+
+\noindent\textbf{Problem.} Using the three-dimensional representation of the rotation group, given, for example, by Eq.~(1.25), find the matrices for a three-dimensional representation of the symmetry group, $\mathscr{O}$, of the cube. We saw in Section 10.8 that there were two three-dimensional representations of $\mathscr{O}$. Give a simple prescription for finding the matrices belonging to the second three-dimensional representation (i.e., the one not given by the rotation group).
+
+\bigskip
+\noindent\textbf{Solution.}
+
+The rotation group of the cube, $\mathscr{O}$, has 24 elements. Using the three-dimensional representation given by $3\times 3$ orthogonal rotation matrices acting on $(x, y, z)$:
+
+\medskip
+\noindent\textbf{The 24 rotation matrices:}
+
+We organize by class (using the character table from Section 10.8):
+
+\textbf{Class 1}: Identity (1 element)
+\[
+D(e) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}.
+\]
+
+\textbf{Class 2}: Six $90^\circ$ rotations about coordinate axes (6 elements).
+
+About $z$-axis by $\pm 90^\circ$:
+\[
+R_z(90^\circ) = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad
+R_z(-90^\circ) = \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}.
+\]
+Similarly for $x$ and $y$ axes (4 more matrices by cyclic permutation of coordinates).
+
+\textbf{Class 3}: Three $180^\circ$ rotations about coordinate axes (3 elements).
+\[
+R_z(180^\circ) = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{pmatrix},
+\]
+and similarly $R_x(180^\circ)$, $R_y(180^\circ)$.
+
+\textbf{Class 4}: Eight $120^\circ$ rotations about body diagonals (8 elements).
+
+For the diagonal $(1,1,1)$, rotation by $120^\circ$ cyclically permutes $x \to y \to z \to x$:
+\[
+R_{111}(120^\circ) = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \quad
+R_{111}(240^\circ) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}.
+\]
+Similarly for the other three diagonals $(1,1,-1)$, $(1,-1,1)$, $(-1,1,1)$, giving 6 more matrices.
+
+\textbf{Class 5}: Six $180^\circ$ rotations about face-diagonal axes (6 elements).
+
+About the axis bisecting the $x$ and $y$ axes:
+\[
+R_{xy}(180^\circ) = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix},
+\]
+and similarly for the other five face-diagonal axes.
+
+\medskip
+\noindent\textbf{Characters of this representation:}
+
+\[
+\begin{array}{c|ccccc}
+\text{Class} & 1 & 2 & 3 & 4 & 5 \\
+g_i & 1 & 6 & 3 & 8 & 6 \\
+\hline
+\chi & 3 & 1 & -1 & 0 & -1
+\end{array}
+\]
+
+This matches one of the two 3D irreducible representations from the character table (10.91).
+
+\medskip
+\noindent\textbf{Finding the second 3D representation:}
+
+The second three-dimensional representation can be obtained by a simple prescription: \textbf{multiply each rotation matrix by the determinant of the corresponding permutation character}, or more directly, multiply by the characters of the one-dimensional ``alternating'' representation.
+
+Specifically, from the character table of $\mathscr{O}$, the second 3D irreducible representation has characters:
+\[
+\chi' = (3, -1, -1, 0, 1).
+\]
+
+The relationship between the two is: $\chi'_i = \chi^{(\Gamma_2)}_i \cdot \chi_i$, where $\Gamma_2$ is the nontrivial 1D representation with characters $(1, -1, 1, 1, -1)$.
+
+Therefore, the matrices $D'(g)$ of the second 3D representation are obtained from the first by:
+\[
+\boxed{D'(g) = \chi^{(\Gamma_2)}(g) \cdot D(g),}
+\]
+i.e., multiply each matrix by $+1$ or $-1$ according to the alternating representation. This means the $90^\circ$ rotations and $180^\circ$ face-diagonal rotations get a sign flip, while the identity, $180^\circ$ coordinate-axis rotations, and $120^\circ$ diagonal rotations are unchanged.
+
+\end{document}

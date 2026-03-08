@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 5}
+
+\textbf{Problem.} Prove that if the set of $n$ vectors $\{x_i\}$ is a basis for a vector space $V$, then the set $\{c_i x_i\}$ is also a basis for $V$, where the $c_i$ are arbitrary nonzero scalars. Interpret this geometrically.
+
+\bigskip
+\textbf{Solution.}
+
+Since $\{x_1, x_2, \ldots, x_n\}$ is a basis for $V$, it is a linearly independent set that spans $V$.
+
+\medskip
+\textbf{Linear independence of $\{c_i x_i\}$:} Suppose
+\[
+\alpha_1 (c_1 x_1) + \alpha_2 (c_2 x_2) + \cdots + \alpha_n (c_n x_n) = 0.
+\]
+This can be rewritten as
+\[
+(\alpha_1 c_1) x_1 + (\alpha_2 c_2) x_2 + \cdots + (\alpha_n c_n) x_n = 0.
+\]
+Since $\{x_i\}$ is linearly independent, we must have $\alpha_i c_i = 0$ for all $i$. Since each $c_i \neq 0$, it follows that $\alpha_i = 0$ for all $i$. Hence $\{c_i x_i\}$ is linearly independent.
+
+\medskip
+\textbf{Spanning:} Let $v \in V$ be arbitrary. Since $\{x_i\}$ is a basis, there exist scalars $\beta_1, \ldots, \beta_n$ such that
+\[
+v = \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n.
+\]
+Since each $c_i \neq 0$, we can write $x_i = \frac{1}{c_i}(c_i x_i)$, so
+\[
+v = \frac{\beta_1}{c_1}(c_1 x_1) + \frac{\beta_2}{c_2}(c_2 x_2) + \cdots + \frac{\beta_n}{c_n}(c_n x_n).
+\]
+Therefore every vector in $V$ can be expressed as a linear combination of $\{c_i x_i\}$, so this set spans $V$.
+
+\medskip
+Since $\{c_i x_i\}$ is both linearly independent and spans $V$, it is a basis for $V$.
+
+\medskip
+\textbf{Geometric interpretation:} Multiplying each basis vector by a nonzero scalar amounts to rescaling the coordinate axes. The axes still point in the same directions but have different ``unit lengths.'' This is equivalent to a change of scale along each coordinate axis, which does not affect the ability to describe any point in the space. \hfill $\blacksquare$
+
+\end{document}

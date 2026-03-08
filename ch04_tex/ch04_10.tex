@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 4, Problem 10}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Under what circumstances can you prove that $AB$ and $BA$ have the same eigenvalues? If they do have the same eigenvalues, what is the relation between the corresponding eigenvectors?
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Claim:} If at least one of $A$ or $B$ is invertible, then $AB$ and $BA$ have the same eigenvalues.
+
+\textbf{Proof (Case: $A$ invertible):}
+If $A$ is invertible, then $BA = A^{-1}(AB)A$, so $BA$ and $AB$ are related by a similarity transformation and therefore have the same eigenvalues.
+
+Similarly, if $B$ is invertible, $AB = B^{-1}(BA)B$.
+
+\textbf{General case (neither need be invertible):}
+In fact, $AB$ and $BA$ always have the same \emph{nonzero} eigenvalues, even when neither is invertible. Here is the proof:
+
+Suppose $ABx = \lambda x$ with $\lambda \neq 0$ and $x \neq 0$. Let $y = Bx$. Then $y \neq 0$ (if $y = 0$, then $ABx = A(0) = 0 = \lambda x$ with $\lambda \neq 0$ implies $x = 0$, contradiction). Now:
+\[
+BA y = BA(Bx) = B(ABx) = B(\lambda x) = \lambda Bx = \lambda y.
+\]
+So $y = Bx$ is an eigenvector of $BA$ with the same eigenvalue $\lambda$.
+
+\textbf{Relation between eigenvectors:} If $x$ is an eigenvector of $AB$ with nonzero eigenvalue $\lambda$, then $y = Bx$ is an eigenvector of $BA$ with the same eigenvalue $\lambda$. Conversely, if $y$ is an eigenvector of $BA$ with nonzero eigenvalue $\lambda$, then $Ay$ is an eigenvector of $AB$ with eigenvalue $\lambda$.
+
+\textbf{Remark on zero eigenvalues:} $AB$ and $BA$ may differ in the multiplicity of the eigenvalue 0, or one may have 0 as an eigenvalue while the other does not (when $A$ and $B$ are not square or have different sizes). For square matrices of the same size, one can show using the characteristic polynomial that $AB$ and $BA$ have identical eigenvalues including multiplicities:
+\[
+\det(\lambda I - AB) = \det(\lambda I - BA).
+\]
+This follows from the identity (for $\lambda \neq 0$):
+\[
+\det(\lambda I - AB) = \lambda^n \det\!\left(I - \frac{1}{\lambda}AB\right) = \lambda^n \det\!\left(I - \frac{1}{\lambda}BA\right) = \det(\lambda I - BA),
+\]
+where we used the fact that $\det(I - XY) = \det(I - YX)$ for square matrices $X, Y$. Since the characteristic polynomials agree for all $\lambda \neq 0$ and are polynomials, they agree everywhere. \qed
+
+\end{document}

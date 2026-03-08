@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 21}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Obtain the function $\tilde{D}(\lambda)$ (defined in Problem~20) through order $\lambda^2$ for the kernel of the integral equation Eq.~(9.102) if $V(r) = g^2 e^{-\mu r}/r$. The variables $x$, $t$ and $u$ defined in Section~8.3 will be useful. Assuming $q_1$ to be real, what is the difference between these two cases?
+
+\bigskip
+\textbf{Solution.}
+
+The scattering integral equation (Eq.~9.102) has the form $f = g + \lambda Kf$ where the kernel $k(x,t)$ is related to the potential $V(r) = g^2 e^{-\mu r}/r$ (a Yukawa potential).
+
+Following the notation of Section~8.3, we use dimensionless variables. The kernel of the $s$-wave scattering equation is:
+\[
+k(r,r') = -\frac{2m}{\hbar^2}\,r_<\,V(r_>)\,r_> = -\frac{2mg^2}{\hbar^2}\,r_<\,e^{-\mu r_>},
+\]
+where $r_< = \min(r,r')$ and $r_> = \max(r,r')$.
+
+In the dimensionless variables $x = q_1 r$, $t = q_1 r'$ (where $q_1$ is the wave number), the kernel becomes:
+\[
+k(x,t) = -\frac{p_1}{q_1}\,x_<\,e^{-p_1 x_>/q_1},
+\]
+where $p_1 = \mu/(2q_1)$ (approximately) captures the ratio of the potential range to the wavelength.
+
+\subsection*{Modified Fredholm determinant through $O(\lambda^2)$}
+
+From Problem~9.20, the modified Fredholm determinant sets diagonal entries to zero:
+\[
+\tilde{D}(\lambda) = 1 + \frac{\lambda^2}{2}\tilde{d}_2 + O(\lambda^3),
+\]
+where the first-order term vanishes ($\tilde{d}_1 = \int k(x,x)\text{ [set to 0]} = 0$).
+
+The second-order coefficient is:
+\[
+\tilde{d}_2 = -\int_0^\infty\!\!\int_0^\infty |k(x,t)|^2\,dx\,dt = -\|K\|_{\text{HS}}^2,
+\]
+since the diagonal terms $k(x_i,x_i) = 0$ in $\tilde{\Delta}_2$ and the $2\times 2$ determinant becomes $0 \cdot 0 - k(x_1,x_2)k(x_2,x_1) = -k(x_1,x_2)k(x_2,x_1)$.
+
+For the Yukawa kernel:
+\[
+\|K\|_{\text{HS}}^2 = \int_0^\infty\!\!\int_0^\infty |k(x,t)|^2\,dx\,dt.
+\]
+
+This integral is very similar to the norm calculation done in Section~8.3. For the Yukawa potential, the result is (using $u = \mu/q_1$):
+\[
+\|K\|_{\text{HS}}^2 = \left(\frac{mV_0}{\hbar^2 q_1}\right)^2 \cdot F(u),
+\]
+where $F(u)$ is a dimensionless function computed from the double integral.
+
+Therefore through order $\lambda^2$:
+\[
+\boxed{\tilde{D}(\lambda) = 1 - \frac{\lambda^2}{2}\|K\|_{\text{HS}}^2 + O(\lambda^3)}.
+\]
+
+\textbf{Difference when $q_1$ is real vs.\ complex:} When $q_1$ is real (physical scattering), the kernel $k(x,t)$ is real, so $k(x_1,x_2)k(x_2,x_1) = |k(x_1,x_2)|^2 \ge 0$, and $\tilde{d}_2 < 0$, meaning $\tilde{D}(\lambda) < 1$ for small $\lambda$. The norm integral converges because of the exponential damping $e^{-\mu r}$.
+
+If $q_1$ were complex (as in bound-state problems), the kernel would be complex, the norm integral might not converge as readily, and the phase structure of $\tilde{D}(\lambda)$ would be more intricate. The key difference is that for real $q_1$, the kernel is manifestly real and the Hilbert--Schmidt norm is straightforward to evaluate, while for complex $q_1$ additional care with convergence is needed. \hfill $\blacksquare$
+
+\end{document}

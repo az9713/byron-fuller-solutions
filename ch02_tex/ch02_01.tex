@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 2, Problem 1}
+
+\subsection*{Problem Statement}
+\textit{The shortest line (polar coordinates).} Find the shortest distance between two points using polar coordinates, i.e., using them as a line element:
+\[
+  d\ell^2 = dr^2 + r^2\,d\theta^2.
+\]
+
+\subsection*{Solution}
+
+In polar coordinates, the arc length element is
+\[
+  d\ell = \sqrt{dr^2 + r^2\,d\theta^2}.
+\]
+We choose $\theta$ as the independent variable, so that $r = r(\theta)$ and
+\[
+  d\ell = \sqrt{r'^2 + r^2}\,d\theta,
+\]
+where $r' = dr/d\theta$. The total length between two points is
+\[
+  L = \int_{\theta_1}^{\theta_2} \sqrt{r'^2 + r^2}\,d\theta.
+\]
+The integrand is $f(r, r') = \sqrt{r'^2 + r^2}$, which does not depend explicitly on $\theta$. By the first integral (Eq.~2.4 of the text), we have
+\[
+  r'\,\frac{\partial f}{\partial r'} - f = \text{const}.
+\]
+We compute:
+\[
+  \frac{\partial f}{\partial r'} = \frac{r'}{\sqrt{r'^2 + r^2}}.
+\]
+Therefore,
+\[
+  \frac{r'^2}{\sqrt{r'^2 + r^2}} - \sqrt{r'^2 + r^2} = -C,
+\]
+where $C$ is a positive constant. Simplifying:
+\[
+  \frac{r'^2 - r'^2 - r^2}{\sqrt{r'^2 + r^2}} = -C
+  \quad \Longrightarrow \quad
+  \frac{r^2}{\sqrt{r'^2 + r^2}} = C.
+\]
+Squaring both sides:
+\[
+  r^4 = C^2(r'^2 + r^2)
+  \quad \Longrightarrow \quad
+  r'^2 = \frac{r^4 - C^2 r^2}{C^2} = \frac{r^2(r^2 - C^2)}{C^2}.
+\]
+Taking the square root and separating variables:
+\[
+  \frac{dr}{r\sqrt{r^2 - C^2}} = \frac{d\theta}{C}.
+\]
+We substitute $r = C\sec\phi$, so $dr = C\sec\phi\tan\phi\,d\phi$ and $\sqrt{r^2-C^2} = C\tan\phi$:
+\[
+  \frac{C\sec\phi\tan\phi\,d\phi}{C\sec\phi \cdot C\tan\phi} = \frac{d\theta}{C}
+  \quad \Longrightarrow \quad
+  \frac{d\phi}{C} = \frac{d\theta}{C}
+  \quad \Longrightarrow \quad
+  \phi = \theta - \alpha,
+\]
+where $\alpha$ is a constant of integration. Since $r = C\sec\phi$:
+\[
+  r = \frac{C}{\cos(\theta - \alpha)}
+  \quad \Longrightarrow \quad
+  r\cos(\theta - \alpha) = C.
+\]
+Expanding:
+\[
+  r\cos\theta\cos\alpha + r\sin\theta\sin\alpha = C.
+\]
+Using $x = r\cos\theta$ and $y = r\sin\theta$:
+\[
+  x\cos\alpha + y\sin\alpha = C,
+\]
+which is the equation of a straight line in Cartesian coordinates.
+
+Thus, the shortest distance between two points in polar coordinates is indeed a straight line, as expected.
+
+\end{document}

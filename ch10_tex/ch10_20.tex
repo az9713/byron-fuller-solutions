@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 20}
+\end{center}
+
+\noindent\textbf{Problem.} Consider a linear operator, $A_0$, with rotational symmetry. Suppose that a small perturbation having the symmetry of a regular tetrahedron is applied. Using the results of Problem 10.18 and of Section 10.8, find how the four states of $A_0$ with the lowest degeneracies (onefold, threefold, fivefold, and sevenfold) break up when this perturbation is applied.
+
+\bigskip
+\noindent\textbf{Solution.}
+
+The rotationally invariant operator $A_0$ has eigenstates classified by angular momentum $l$, with degeneracy $2l+1$. The four lowest degeneracies are:
+\begin{itemize}
+\item $l = 0$: 1-fold (s state)
+\item $l = 1$: 3-fold (p state)
+\item $l = 2$: 5-fold (d state)
+\item $l = 3$: 7-fold (f state)
+\end{itemize}
+
+The perturbation has the symmetry of the regular tetrahedron, whose rotation group is $A_4$ (Problem 18) with character table:
+\[
+\begin{array}{c|cccc}
+A_4 & \{e\} & \{C_3\} & \{C_3^2\} & \{C_2\} \\
+& 1 & 4 & 4 & 3 \\
+\hline
+\Gamma_1 & 1 & 1 & 1 & 1 \\
+\Gamma_2 & 1 & \omega & \omega^2 & 1 \\
+\Gamma_3 & 1 & \omega^2 & \omega & 1 \\
+\Gamma_4 & 3 & 0 & 0 & -1
+\end{array}
+\]
+
+The characters of the rotation group representation $D^{(l)}$ for a rotation by angle $\Phi$ are given by Eq.~(10.89):
+\[
+\chi^{(l)}(\Phi) = \frac{\sin(l + \tfrac{1}{2})\Phi}{\sin(\Phi/2)}.
+\]
+
+For the classes of $A_4$:
+\begin{itemize}
+\item $\mathcal{C}_1$: $\Phi = 0$, $\chi^{(l)} = 2l+1$
+\item $\mathcal{C}_2$: $\Phi = 2\pi/3$, $\chi^{(l)} = \frac{\sin(2l+1)\pi/3}{\sin(\pi/3)}$
+\item $\mathcal{C}_3$: $\Phi = 4\pi/3$, $\chi^{(l)} = \frac{\sin(2l+1)2\pi/3}{\sin(2\pi/3)}$
+\item $\mathcal{C}_4$: $\Phi = \pi$, $\chi^{(l)} = \frac{\sin(2l+1)\pi/2}{\sin(\pi/2)} = \sin(2l+1)\pi/2 = (-1)^l$
+\end{itemize}
+
+Computing for each $l$:
+
+\noindent\textbf{$l = 0$ (1-fold):} $\chi = (1, 1, 1, 1) \to \Gamma_1$. No splitting.
+
+\noindent\textbf{$l = 1$ (3-fold):}
+\begin{align*}
+\chi^{(1)}(0) &= 3, \\
+\chi^{(1)}(2\pi/3) &= \frac{\sin \pi}{\sin(\pi/3)} = 0, \\
+\chi^{(1)}(4\pi/3) &= \frac{\sin 2\pi}{\sin(2\pi/3)} = 0, \\
+\chi^{(1)}(\pi) &= (-1)^1 = -1.
+\end{align*}
+So $\chi = (3, 0, 0, -1) = \chi(\Gamma_4)$. The 3-fold level remains \textbf{unsplit} (it belongs to the irreducible representation $\Gamma_4$).
+
+\noindent\textbf{$l = 2$ (5-fold):}
+\begin{align*}
+\chi^{(2)}(0) &= 5, \\
+\chi^{(2)}(2\pi/3) &= \frac{\sin(5\pi/3)}{\sin(\pi/3)} = \frac{-\sqrt{3}/2}{\sqrt{3}/2} = -1, \\
+\chi^{(2)}(4\pi/3) &= \frac{\sin(10\pi/3)}{\sin(2\pi/3)} = \frac{-\sqrt{3}/2}{\sqrt{3}/2} = -1, \\
+\chi^{(2)}(\pi) &= (-1)^2 = 1.
+\end{align*}
+$\chi = (5, -1, -1, 1)$.
+
+Decomposing: $a_\nu = \frac{1}{12}\sum_i g_i \chi_i^{(\nu)*}\chi_i$.
+\begin{align*}
+a_1 &= \frac{1}{12}[1\cdot 5 + 4\cdot(-1) + 4\cdot(-1) + 3\cdot 1] = \frac{0}{12} = 0, \\
+a_2 &= \frac{1}{12}[5 + 4\omega^2(-1) + 4\omega(-1) + 3] = \frac{1}{12}[8 + 4(-1)(\omega^2 + \omega)] = \frac{1}{12}[8 + 4] = 1, \\
+a_3 &= 1 \quad (\text{by complex conjugation of } a_2), \\
+a_4 &= \frac{1}{12}[1\cdot 3\cdot 5 + 4\cdot 0\cdot(-1) + 4\cdot 0\cdot(-1) + 3\cdot(-1)\cdot 1] = \frac{12}{12} = 1.
+\end{align*}
+
+So: $D^{(2)} \to \Gamma_2 + \Gamma_3 + \Gamma_4$. The 5-fold level splits into a \textbf{3-fold level} ($\Gamma_4$) and \textbf{two 1-fold levels} ($\Gamma_2, \Gamma_3$). Since $\Gamma_2$ and $\Gamma_3$ are complex conjugates, if the Hamiltonian is Hermitian, these two levels have the same energy, giving effectively a \textbf{2-fold + 3-fold} splitting.
+
+\noindent\textbf{$l = 3$ (7-fold):}
+\begin{align*}
+\chi^{(3)}(0) &= 7, \\
+\chi^{(3)}(2\pi/3) &= \frac{\sin(7\pi/3)}{\sin(\pi/3)} = \frac{\sin(\pi/3)}{\sin(\pi/3)} = 1, \\
+\chi^{(3)}(4\pi/3) &= \frac{\sin(14\pi/3)}{\sin(2\pi/3)} = \frac{\sin(2\pi/3)}{\sin(2\pi/3)} = 1, \\
+\chi^{(3)}(\pi) &= (-1)^3 = -1.
+\end{align*}
+$\chi = (7, 1, 1, -1)$.
+
+Decomposing:
+\begin{align*}
+a_1 &= \frac{1}{12}[7 + 4 + 4 - 3] = 1, \\
+a_2 &= \frac{1}{12}[7 + 4\omega^2 + 4\omega - 3] = \frac{1}{12}[4 + 4(\omega + \omega^2)] = \frac{1}{12}[4 - 4] = 0, \\
+a_3 &= 0, \\
+a_4 &= \frac{1}{12}[21 + 0 + 0 + 3] = 2.
+\end{align*}
+
+So: $D^{(3)} \to \Gamma_1 + 2\Gamma_4$. The 7-fold level splits into a \textbf{1-fold level} ($\Gamma_1$) and \textbf{two 3-fold levels} (both $\Gamma_4$): $1 + 3 + 3 = 7$.
+
+\end{document}

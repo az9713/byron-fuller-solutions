@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 3}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.} Show that if $\{\lambda_n\}$ and $\{x_n(t)\}$ are respectively the eigenvalues and eigenvectors of a completely continuous Hermitian integral operator, then the sum
+\[
+S_N(t) = \sum_{n=1}^{N} (x_n, f)\,x_n(t)
+\]
+converges in the sense of mean convergence.
+
+\bigskip
+\textbf{Solution.}
+
+By the completeness theorem (Theorem~9.4), the eigenvectors $\{x_n\}$ of a completely continuous Hermitian operator $A$ form a complete orthonormal set in the Hilbert space $H$. For any $f \in H$, the Fourier coefficients are $c_n = (x_n, f)$.
+
+We need to show that the partial sums $S_N = \sum_{n=1}^{N} c_n\,x_n$ converge in the $L_2$ norm (mean convergence).
+
+Consider the difference for $M > N$:
+\[
+\|S_M - S_N\|^2 = \left\|\sum_{n=N+1}^{M} c_n\,x_n\right\|^2 = \sum_{n=N+1}^{M} |c_n|^2,
+\]
+where we used the orthonormality of $\{x_n\}$.
+
+By Bessel's inequality, we know that
+\[
+\sum_{n=1}^{\infty} |c_n|^2 \le \|f\|^2 < \infty.
+\]
+
+Since the series $\sum |c_n|^2$ converges, its tail $\sum_{n=N+1}^{M} |c_n|^2 \to 0$ as $N, M \to \infty$. This means $\{S_N\}$ is a Cauchy sequence in the Hilbert space $H$.
+
+Since $H$ is complete (it is a Hilbert space), every Cauchy sequence converges. Therefore $S_N$ converges in the norm of $H$, i.e., in the sense of mean convergence:
+\[
+\left\|f - \sum_{n=1}^{N} (x_n, f)\,x_n\right\|^2 = \|f\|^2 - \sum_{n=1}^{N} |c_n|^2 \to 0 \quad \text{as } N \to \infty.
+\]
+
+The last equality uses the completeness relation (Parseval's equality), which holds because $\{x_n\}$ is a complete orthonormal set:
+\[
+\|f\|^2 = \sum_{n=1}^{\infty} |(x_n, f)|^2.
+\]
+
+Therefore $S_N \to f$ in the mean. \hfill $\blacksquare$
+
+\end{document}

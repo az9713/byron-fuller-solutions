@@ -1,0 +1,7 @@
+.ignore/
+pages/
+*.png
+*.log
+*.aux
+*.synctex.gz
+session_transcript.html

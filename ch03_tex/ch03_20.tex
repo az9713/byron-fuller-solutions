@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 20}
+
+\textbf{Problem.} Show that by adding and subtracting rows (multiples of rows) systematically, any determinant can be reduced to evaluating a determinant of the type shown in Fig.\ 3.4, where there are terms on the diagonal and below the diagonal, and only zeros above the diagonal. Clearly, this same process can be applied to the columns to leave us with the trivial problem of evaluating the determinant of a diagonal matrix. However, the evaluation is already trivial after the first step.
+
+\bigskip
+\textbf{Solution.}
+
+We describe the procedure of Gaussian elimination applied to the determinant.
+
+\textbf{Step 1: Reduce to lower-triangular form.}
+
+Consider an $n \times n$ determinant $\det(A)$. We use elementary row operations of the type ``replace row $i$ by row $i$ minus a multiple of row $j$'' (for $j < i$ or $j > i$). Such operations do not change the value of the determinant.
+
+\medskip
+\textit{Column 1:} If $a_{11} \neq 0$, subtract $\frac{a_{k1}}{a_{11}} \times (\text{row }1)$ from row $k$ for $k = 2, 3, \ldots, n$. Actually, to get zeros \emph{above} the diagonal, we work from the bottom up. But the standard approach to get an upper-triangular form (zeros below diagonal) is symmetric.
+
+For a lower-triangular form (zeros above diagonal), we can equivalently work with columns. Start from the last column:
+
+\textit{Column $n$:} If $a_{nn} \neq 0$, for each $k = 1, 2, \ldots, n-1$, replace column $k$ by column $k$ minus $\frac{a_{kn}}{a_{nn}} \times$ column $n$. This makes all entries above $a_{nn}$ in row...
+
+Let us use the cleaner standard argument. We use row operations to create zeros above the diagonal, proceeding from the rightmost column to the left:
+
+\begin{enumerate}
+\item Start with column $n$. Use row $n$ to eliminate all entries above the diagonal in column $n$: for $i = 1, \ldots, n-1$, replace row $i$ by $\text{row}_i - \frac{a_{in}}{a_{nn}}\,\text{row}_n$ (assuming $a_{nn}\neq 0$; if $a_{nn}=0$, swap rows first, which at most changes the sign of the determinant).
+
+\item Move to column $n-1$. Use row $n-1$ to eliminate entries in positions $(1, n-1), (2, n-1), \ldots, (n-2, n-1)$.
+
+\item Continue until column 2, eliminating the entry $(1,2)$ using row 2.
+\end{enumerate}
+
+After this process, the matrix is lower-triangular: $a_{ij} = 0$ for $j > i$. The determinant of a triangular matrix is simply the product of its diagonal entries:
+\[
+\det(A) = \pm\, a'_{11}\, a'_{22}\, \cdots\, a'_{nn},
+\]
+where the primes denote the modified entries after row operations, and the $\pm$ accounts for any row swaps performed.
+
+\medskip
+\textbf{Why evaluation is trivial after the first step:} Once the matrix is in lower-triangular form, the determinant is the product of the diagonal elements. No further column operations are needed (though one could also reduce to diagonal form as stated). \hfill $\blacksquare$
+
+\end{document}

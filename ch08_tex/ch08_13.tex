@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 8, Problem 13.} Consider the differential equation
+\[
+x''(t) + \omega_0^2 x(t) = 0
+\]
+for a damped harmonic oscillator.
+
+\textbf{(a)} Show that if $x(0) = a_0$ and $x'(0) = 0$, then $x(t)$ satisfies the integral equation
+\[
+x(t) = a_0\cos\omega_0 t - \frac{1}{2\omega_0}\int_0^t\sin\omega_0(t-s)\left[-\gamma\,x'(s)\right]ds
+\]
+(where we are really considering $x''+\gamma x' + \omega_0^2 x = 0$).
+
+\textbf{(b)} Iterate this equation a few times and show that your results agree with the exact result expanded to the appropriate order.
+
+\textbf{(c)} Show that $x(t)$ as given by Eq.\ (8.45) satisfies the requirement that energy be conserved through order $\epsilon$ where $\epsilon = \gamma/\omega_0 \ll 1$. That is, show that
+\[
+\frac{d}{dt}\left[\frac{1}{2}\dot{x}^2 + \frac{1}{2}\omega_0^2 x^2\right] = -\gamma \dot{x}^2 + O(\epsilon^2),
+\]
+where $(\dot{})$ denotes terms of order $\epsilon^2$ and higher.
+
+\bigskip
+\textbf{Solution.}
+
+The damped harmonic oscillator equation is:
+\[
+x'' + \gamma x' + \omega_0^2 x = 0.
+\]
+We rewrite this as:
+\[
+x'' + \omega_0^2 x = -\gamma x'.
+\]
+
+\textbf{Part (a):}
+The Green's function for the operator $d^2/dt^2 + \omega_0^2$ with causal boundary conditions is:
+\[
+G(t,s) = \frac{1}{\omega_0}\sin[\omega_0(t-s)]\,\theta(t-s).
+\]
+The homogeneous solution satisfying $x(0)=a_0$, $x'(0)=0$ is $x_h(t) = a_0\cos\omega_0 t$. Using the Green's function:
+\[
+x(t) = a_0\cos\omega_0 t + \int_0^t \frac{1}{\omega_0}\sin[\omega_0(t-s)](-\gamma x'(s))\,ds.
+\]
+This gives:
+\[
+\boxed{x(t) = a_0\cos\omega_0 t - \frac{\gamma}{\omega_0}\int_0^t \sin[\omega_0(t-s)]\,x'(s)\,ds.}
+\]
+
+\textbf{Part (b): Iteration.}
+
+\emph{Zeroth order:} $x_0(t) = a_0\cos\omega_0 t$, so $x_0'(t) = -a_0\omega_0\sin\omega_0 t$.
+
+\emph{First iteration:}
+\begin{align*}
+x_1(t) &= a_0\cos\omega_0 t + \frac{\gamma a_0\omega_0}{\omega_0}\int_0^t \sin[\omega_0(t-s)]\sin(\omega_0 s)\,ds \\
+&= a_0\cos\omega_0 t + \gamma a_0\int_0^t \sin[\omega_0(t-s)]\sin(\omega_0 s)\,ds.
+\end{align*}
+Using $\sin A\sin B = \frac{1}{2}[\cos(A-B)-\cos(A+B)]$:
+\[
+\int_0^t \sin[\omega_0(t-s)]\sin(\omega_0 s)\,ds = \frac{1}{2}\int_0^t[\cos(\omega_0 t - 2\omega_0 s)-\cos(\omega_0 t)]\,ds.
+\]
+\[
+= \frac{1}{2}\left[-\frac{\sin(\omega_0 t-2\omega_0 s)}{2\omega_0}\right]_0^t - \frac{t}{2}\cos\omega_0 t
+\]
+\[
+= \frac{1}{4\omega_0}[\sin\omega_0 t + \sin\omega_0 t] - \frac{t}{2}\cos\omega_0 t = \frac{\sin\omega_0 t}{2\omega_0} - \frac{t}{2}\cos\omega_0 t.
+\]
+So:
+\[
+x_1(t) = a_0\cos\omega_0 t + \gamma a_0\left[\frac{\sin\omega_0 t}{2\omega_0}-\frac{t}{2}\cos\omega_0 t\right].
+\]
+
+\emph{Comparison with exact solution:} The exact solution is $x(t) = a_0 e^{-\gamma t/2}\cos(\omega't)$ where $\omega' = \sqrt{\omega_0^2-\gamma^2/4}$. Expanding to first order in $\gamma$:
+\[
+x(t) \approx a_0(1-\gamma t/2)\cos\omega_0 t + O(\gamma^2) = a_0\cos\omega_0 t - \frac{\gamma a_0 t}{2}\cos\omega_0 t + \cdots
+\]
+The $\frac{\gamma\sin\omega_0 t}{2\omega_0}$ term is from the frequency shift $\omega'\approx\omega_0$, appearing at $O(\gamma^2)$ in the energy. The iteration agrees to first order. $\checkmark$
+
+\textbf{Part (c):}
+The energy is $\mathcal{E} = \frac{1}{2}\dot{x}^2 + \frac{1}{2}\omega_0^2 x^2$. From the equation of motion:
+\[
+\frac{d\mathcal{E}}{dt} = \dot{x}\ddot{x} + \omega_0^2 x\dot{x} = \dot{x}(\ddot{x}+\omega_0^2 x) = \dot{x}(-\gamma\dot{x}) = -\gamma\dot{x}^2.
+\]
+This is exact. Using the zeroth-order approximation $\dot{x}_0 = -a_0\omega_0\sin\omega_0 t$:
+\[
+\frac{d\mathcal{E}}{dt} = -\gamma a_0^2\omega_0^2\sin^2\omega_0 t + O(\gamma^2).
+\]
+The energy dissipation is correctly captured through order $\epsilon = \gamma/\omega_0$, with corrections of order $\epsilon^2$. $\blacksquare$
+
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 4}
+
+\textbf{Problem:} Show that the Green's function of Eq.\ (7.33) satisfies Eq.\ (7.36).
+
+\bigskip
+\textbf{Solution:}
+
+From the text, Eq.\ (7.33) gives the Green's function for the operator $\mathcal{L} = -d^2/dx^2$ on the interval $[a,b]$ satisfying appropriate boundary conditions as:
+\[
+G(x,x') = \frac{2}{L}\sum_{n=1}^{\infty} \frac{\sin(n\pi x/L)\,\sin(n\pi x'/L)}{(n\pi/L)^2},
+\]
+where $L = b - a$ and we work on $[0,L]$ for simplicity. This is the eigenfunction expansion of the Green's function with eigenfunctions $\phi_n(x) = \sqrt{2/L}\sin(n\pi x/L)$ and eigenvalues $\lambda_n = (n\pi/L)^2$.
+
+Eq.\ (7.36) states:
+\[
+G(x,x') = \frac{(x_< )(L - x_>)}{L},
+\]
+where $x_< = \min(x,x')$ and $x_> = \max(x,x')$. This is the closed-form expression for the same Green's function.
+
+To verify, we must show the Fourier series equals the closed form. The function $f(x) = (x_<)(L-x_>)/L$ for fixed $x'$ is:
+\[
+f(x) = \begin{cases} x(L-x')/L, & 0 \le x \le x', \\ x'(L-x)/L, & x' \le x \le L. \end{cases}
+\]
+
+This function vanishes at $x=0$ and $x=L$, so expand in the sine series:
+\[
+f(x) = \sum_{n=1}^{\infty} b_n \sin\frac{n\pi x}{L},
+\]
+where
+\[
+b_n = \frac{2}{L}\int_0^L f(x)\sin\frac{n\pi x}{L}\,dx.
+\]
+
+Split the integral:
+\begin{align}
+b_n &= \frac{2}{L}\Biggl[\frac{L-x'}{L}\int_0^{x'} x\sin\frac{n\pi x}{L}\,dx + \frac{x'}{L}\int_{x'}^L (L-x)\sin\frac{n\pi x}{L}\,dx\Biggr].
+\end{align}
+
+Using integration by parts, $\int_0^{x'} x\sin(n\pi x/L)\,dx$:
+\[
+= \Bigl[-\frac{xL}{n\pi}\cos\frac{n\pi x}{L}\Bigr]_0^{x'} + \frac{L}{n\pi}\int_0^{x'}\cos\frac{n\pi x}{L}\,dx = -\frac{x'L}{n\pi}\cos\frac{n\pi x'}{L} + \frac{L^2}{n^2\pi^2}\sin\frac{n\pi x'}{L}.
+\]
+
+Similarly, $\int_{x'}^L (L-x)\sin(n\pi x/L)\,dx$:
+\[
+= \Bigl[-\frac{(L-x)L}{n\pi}\cos\frac{n\pi x}{L}\Bigr]_{x'}^L - \frac{L}{n\pi}\int_{x'}^L \cos\frac{n\pi x}{L}\,dx
+\]
+\[
+= \frac{(L-x')L}{n\pi}\cos\frac{n\pi x'}{L} + \frac{L^2}{n^2\pi^2}\sin\frac{n\pi x'}{L} - \frac{L^2}{n^2\pi^2}\sin(n\pi).
+\]
+
+Since $\sin(n\pi) = 0$, combining:
+\begin{align}
+b_n &= \frac{2}{L}\Biggl[\frac{L-x'}{L}\Bigl(-\frac{x'L}{n\pi}\cos\frac{n\pi x'}{L} + \frac{L^2}{n^2\pi^2}\sin\frac{n\pi x'}{L}\Bigr) \\
+&\qquad + \frac{x'}{L}\Bigl(\frac{(L-x')L}{n\pi}\cos\frac{n\pi x'}{L} + \frac{L^2}{n^2\pi^2}\sin\frac{n\pi x'}{L}\Bigr)\Biggr].
+\end{align}
+
+The cosine terms cancel:
+\[
+\frac{(L-x')(-x'L)}{Ln\pi} + \frac{x'(L-x')L}{Ln\pi} = \frac{(L-x')x'L(-1+1)}{Ln\pi} = 0.
+\]
+
+The sine terms combine:
+\[
+b_n = \frac{2}{L}\cdot\frac{L^2}{n^2\pi^2}\sin\frac{n\pi x'}{L}\Bigl[\frac{L-x'}{L} + \frac{x'}{L}\Bigr] = \frac{2L}{n^2\pi^2}\sin\frac{n\pi x'}{L}.
+\]
+
+Therefore:
+\[
+G(x,x') = \sum_{n=1}^{\infty}\frac{2L}{n^2\pi^2}\sin\frac{n\pi x'}{L}\sin\frac{n\pi x}{L} \cdot \frac{1}{L} = \frac{2}{L}\sum_{n=1}^{\infty}\frac{\sin(n\pi x/L)\sin(n\pi x'/L)}{(n\pi/L)^2},
+\]
+which matches Eq.\ (7.33). Thus the eigenfunction expansion (7.33) and the closed form (7.36) agree. $\blacksquare$
+
+\end{document}

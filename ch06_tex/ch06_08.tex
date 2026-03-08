@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 8.} Using the results of Problem 6.6, show that $\log z$, $z^{1/n}$, and $z^{1/3}$ are analytic everywhere on their appropriate Riemann sheets except at 0.
+
+\bigskip
+\textbf{Solution.}
+
+From Problem 6 (the polar form of the Cauchy--Riemann equations):
+\[
+\frac{\partial u}{\partial r} = \frac{1}{r}\frac{\partial v}{\partial \theta}, \qquad \frac{\partial v}{\partial r} = -\frac{1}{r}\frac{\partial u}{\partial \theta}.
+\]
+
+\textbf{(i) $\log z$:} On a given Riemann sheet, $\log z = \ln r + i\theta$ where $\theta$ ranges over an interval of length $2\pi$. So $u = \ln r$ and $v = \theta$. Check:
+\[
+\frac{\partial u}{\partial r} = \frac{1}{r}, \qquad \frac{1}{r}\frac{\partial v}{\partial \theta} = \frac{1}{r}. \quad \checkmark
+\]
+\[
+\frac{\partial v}{\partial r} = 0, \qquad -\frac{1}{r}\frac{\partial u}{\partial \theta} = 0. \quad \checkmark
+\]
+
+The derivative is $f'(z) = u_r + iv_r$ times $e^{-i\theta}/1$... more precisely, $f'(z) = e^{-i\theta}(u_r + iv_r) = e^{-i\theta}\cdot(1/r + i\cdot 0) = 1/(re^{i\theta}) = 1/z$.
+
+This is defined for all $r > 0$, i.e., for all $z \neq 0$.
+
+\textbf{(ii) $z^{1/n}$:} On sheet $k$, $z^{1/n} = r^{1/n}e^{i(\theta+2k\pi)/n}$. So:
+\[
+u = r^{1/n}\cos\!\frac{\theta+2k\pi}{n}, \qquad v = r^{1/n}\sin\!\frac{\theta+2k\pi}{n}.
+\]
+
+Let $\phi = (\theta + 2k\pi)/n$. Then:
+\[
+\frac{\partial u}{\partial r} = \frac{1}{n}r^{1/n-1}\cos\phi, \qquad \frac{1}{r}\frac{\partial v}{\partial \theta} = \frac{1}{r}\cdot r^{1/n}\cdot\frac{1}{n}\cos\phi = \frac{1}{n}r^{1/n-1}\cos\phi. \quad\checkmark
+\]
+\[
+\frac{\partial v}{\partial r} = \frac{1}{n}r^{1/n-1}\sin\phi, \qquad -\frac{1}{r}\frac{\partial u}{\partial \theta} = -\frac{1}{r}\cdot r^{1/n}\cdot\left(-\frac{1}{n}\sin\phi\right) = \frac{1}{n}r^{1/n-1}\sin\phi. \quad\checkmark
+\]
+
+The Cauchy--Riemann equations are satisfied for all $r > 0$. The derivative is:
+\[
+f'(z) = e^{-i\theta}(u_r + iv_r) = e^{-i\theta}\frac{1}{n}r^{1/n-1}e^{i\phi} = \frac{1}{n}r^{1/n-1}e^{i(\phi-\theta)}.
+\]
+Since $\phi - \theta = (\theta+2k\pi)/n - \theta = \theta(1/n-1) + 2k\pi/n$, this simplifies to $\frac{1}{n}z^{1/n-1}$.
+
+This exists and is finite for all $r > 0$, i.e., $z \neq 0$. At $z = 0$ the derivative does not exist (for $n > 1$, the function is not differentiable at the branch point).
+
+The case $z^{1/3}$ follows identically with $n = 3$.
+
+Therefore, $\log z$, $z^{1/n}$, and $z^{1/3}$ are analytic on their respective Riemann sheets for all $z \neq 0$.
+
+\end{document}

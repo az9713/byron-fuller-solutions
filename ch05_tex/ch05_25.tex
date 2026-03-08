@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.25}
+
+\textbf{Problem:} Let us define $E(\lambda)$, an operator-valued function, as in Section 5.11. Denote by $A$ and $\phi_\nu$ ($\nu = 1, 2, \ldots, N$) the nondegenerate eigenvalues and corresponding eigenvectors of an Hermitian operator $A$, and call $P_\nu$ the projection operator associated with $A$. Then define:
+\[
+E(\lambda) = \begin{cases} 0 & \text{for } \lambda < \lambda_1, \\ \sum_{\nu=1}^{k} P_\nu & \text{for } \lambda_k \leq \lambda < \lambda_{k+1}, \quad \nu = 1, 2, \ldots, N-1, \\ I & \text{for } \lambda \geq \lambda_N. \end{cases}
+\]
+
+Show that:
+\begin{itemize}
+\item[(a)] $E(\lambda)E(\mu) = E(\min(\lambda, \mu))$, where $\lambda_{\min} = \min(\lambda_1, \lambda_2)$.
+\item[(b)] $E(\lambda)^2 = E(\lambda)$ (i.e., $E(\lambda)$ is a projection).
+\item[(c)] If $\lambda \geq \lambda_N$, $E(\lambda) = I$ (the identity).
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a): $E(\lambda)E(\mu) = E(\min(\lambda,\mu))$}
+
+Without loss of generality, assume $\lambda \leq \mu$. Then $\min(\lambda,\mu) = \lambda$.
+
+If $\lambda_k \leq \lambda < \lambda_{k+1}$ and $\lambda_j \leq \mu < \lambda_{j+1}$, then $k \leq j$ (since $\lambda \leq \mu$), and:
+\[
+E(\lambda) = \sum_{\nu=1}^{k}P_\nu, \qquad E(\mu) = \sum_{\nu=1}^{j}P_\nu.
+\]
+
+Since the projection operators are orthogonal ($P_\nu P_\mu = \delta_{\nu\mu}P_\nu$):
+\[
+E(\lambda)E(\mu) = \left(\sum_{\nu=1}^{k}P_\nu\right)\left(\sum_{\sigma=1}^{j}P_\sigma\right) = \sum_{\nu=1}^{k}\sum_{\sigma=1}^{j}P_\nu P_\sigma = \sum_{\nu=1}^{k}P_\nu = E(\lambda) = E(\min(\lambda,\mu)).
+\]
+
+\[
+\boxed{E(\lambda)E(\mu) = E(\min(\lambda,\mu)).}
+\]
+
+\subsection*{Part (b): $E(\lambda)^2 = E(\lambda)$}
+
+This is a special case of part (a) with $\mu = \lambda$:
+\[
+E(\lambda)^2 = E(\lambda)E(\lambda) = E(\min(\lambda,\lambda)) = E(\lambda).
+\]
+
+Alternatively, directly:
+\[
+E(\lambda)^2 = \left(\sum_{\nu=1}^{k}P_\nu\right)^2 = \sum_{\nu=1}^{k}\sum_{\sigma=1}^{k}P_\nu P_\sigma = \sum_{\nu=1}^{k}P_\nu^2 = \sum_{\nu=1}^{k}P_\nu = E(\lambda).
+\]
+
+\[
+\boxed{E(\lambda)^2 = E(\lambda).}
+\]
+
+So $E(\lambda)$ is indeed a projection operator for each value of $\lambda$.
+
+\subsection*{Part (c): $E(\lambda) = I$ for $\lambda \geq \lambda_N$}
+
+For $\lambda \geq \lambda_N$, by definition:
+\[
+E(\lambda) = \sum_{\nu=1}^{N}P_\nu.
+\]
+
+Since $\{P_\nu\}$ are the projection operators for the complete set of eigenvectors, the completeness relation (resolution of the identity) gives:
+\[
+\sum_{\nu=1}^{N}P_\nu = I.
+\]
+
+\[
+\boxed{E(\lambda) = I \text{ for } \lambda \geq \lambda_N.}
+\]
+
+This follows from the spectral theorem: the identity operator is the sum of all projection operators onto the eigenspaces.
+
+\end{document}

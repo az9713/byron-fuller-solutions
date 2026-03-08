@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 24}
+
+\textbf{Problem:} Use Green's theorem to obtain Eq.\ (7.117) from Eq.\ (7.116).
+
+\bigskip
+\textbf{Solution:}
+
+Eq.\ (7.116) gives the Green's function for the Helmholtz equation:
+\[
+(\nabla^2 + k^2)G(\mathbf{r},\mathbf{r}') = \delta^3(\mathbf{r}-\mathbf{r}').
+\]
+
+Eq.\ (7.117) is the integral representation of the solution to $(\nabla^2+k^2)\psi = 0$ in a region $\mathcal{V}$:
+\[
+\psi(\mathbf{r}) = \oint_S \Bigl[G(\mathbf{r},\mathbf{r}')\frac{\partial\psi}{\partial n'} - \psi(\mathbf{r}')\frac{\partial G}{\partial n'}\Bigr]\,dS'.
+\]
+
+\textbf{Derivation using Green's theorem:}
+
+Green's second identity states:
+\[
+\int_\mathcal{V}\bigl(\psi\nabla'^2 G - G\nabla'^2\psi\bigr)\,d^3r' = \oint_S\Bigl(\psi\frac{\partial G}{\partial n'} - G\frac{\partial\psi}{\partial n'}\Bigr)\,dS'.
+\]
+
+Now use:
+\begin{itemize}
+\item $\nabla'^2 G + k^2 G = \delta^3(\mathbf{r}'-\mathbf{r})$, so $\nabla'^2 G = \delta^3(\mathbf{r}'-\mathbf{r}) - k^2 G$.
+\item $\nabla'^2\psi + k^2\psi = 0$ (homogeneous Helmholtz), so $\nabla'^2\psi = -k^2\psi$.
+\end{itemize}
+
+Substitute into the left side:
+\begin{align}
+\text{LHS} &= \int_\mathcal{V}\bigl[\psi(\delta^3(\mathbf{r}'-\mathbf{r}) - k^2 G) - G(-k^2\psi)\bigr]\,d^3r' \\
+&= \int_\mathcal{V}\psi\,\delta^3(\mathbf{r}'-\mathbf{r})\,d^3r' - k^2\int_\mathcal{V}\psi G\,d^3r' + k^2\int_\mathcal{V}G\psi\,d^3r' \\
+&= \psi(\mathbf{r}).
+\end{align}
+
+The $k^2$ terms cancel. Therefore:
+\[
+\psi(\mathbf{r}) = \oint_S\Bigl(\psi\frac{\partial G}{\partial n'} - G\frac{\partial\psi}{\partial n'}\Bigr)\,dS'.
+\]
+
+Rearranging with the conventional sign:
+\[
+\psi(\mathbf{r}) = \oint_S\Bigl[G\frac{\partial\psi}{\partial n'} - \psi\frac{\partial G}{\partial n'}\Bigr]\,dS',
+\]
+depending on the sign convention for the outward normal. With the outward normal pointing \textit{out} of $\mathcal{V}$, the standard convention gives:
+\[
+\boxed{\psi(\mathbf{r}) = -\oint_S\Bigl[G(\mathbf{r},\mathbf{r}')\frac{\partial\psi}{\partial n'} - \psi(\mathbf{r}')\frac{\partial G(\mathbf{r},\mathbf{r}')}{\partial n'}\Bigr]\,dS'.}
+\]
+
+This is Eq.\ (7.117). The sign depends on the convention for the normal direction. $\blacksquare$
+
+\end{document}

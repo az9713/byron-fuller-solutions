@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 16}
+
+\textbf{Problem:} Consider a thin ring of radius $R$. Initially, at $t = 0$, there is a temperature distribution $T(R,\theta)$ around the ring, where $\theta$ is the appropriate angular coordinate. Using the Green's function method, find the temperature at later times. Explain any decisions you make concerning boundary conditions. Suppose that the ring is initially heated in a very small region around $\theta = \theta_0$, so that the form $T(R,\theta) = T_0\delta(\theta - \theta_0)$ is a reasonable boundary condition. Find the temperature at later times $t > 0$. What is the value of the uniform temperature which the ring finally attains? How is the rate of approach to equilibrium affected by increasing the radius of the ring?
+
+\bigskip
+\textbf{Solution:}
+
+The heat equation on a ring of radius $R$ (parametrized by angle $\theta \in [0,2\pi)$) is:
+\[
+\frac{\partial T}{\partial t} = \frac{k}{R^2}\frac{\partial^2 T}{\partial\theta^2},
+\]
+where $k$ is the thermal diffusivity.
+
+\textbf{Boundary conditions:} Since the ring is a closed curve, we require \textbf{periodic boundary conditions}: $T(\theta + 2\pi, t) = T(\theta, t)$.
+
+\textbf{Eigenfunction expansion:} The eigenfunctions of $d^2/d\theta^2$ with periodic BCs are $e^{in\theta}/\sqrt{2\pi}$ for $n = 0, \pm 1, \pm 2, \ldots$, with eigenvalues $-n^2$.
+
+The Green's function (heat kernel on the ring) is:
+\[
+G(\theta,t;\theta',0) = \frac{1}{2\pi}\sum_{n=-\infty}^{\infty} e^{in(\theta-\theta')}\,e^{-n^2 kt/R^2}.
+\]
+
+The solution is:
+\[
+T(\theta,t) = \int_0^{2\pi} G(\theta,t;\theta',0)\,T(\theta',0)\,R\,d\theta'.
+\]
+
+Wait --- since we parametrize by $\theta$ (not arc length), the integration measure is $d\theta'$ and:
+\[
+T(\theta,t) = \int_0^{2\pi} G(\theta,t;\theta',0)\,T(R,\theta')\,d\theta'.
+\]
+
+\textbf{For the delta-function initial condition} $T(R,\theta') = T_0\,\delta(\theta'-\theta_0)$:
+\[
+T(\theta,t) = T_0\,G(\theta,t;\theta_0,0) = \frac{T_0}{2\pi}\sum_{n=-\infty}^{\infty}e^{in(\theta-\theta_0)}\,e^{-n^2 kt/R^2}.
+\]
+
+Using $e^{in\alpha} + e^{-in\alpha} = 2\cos(n\alpha)$:
+\[
+\boxed{T(\theta,t) = \frac{T_0}{2\pi}\Bigl[1 + 2\sum_{n=1}^{\infty}\cos\bigl[n(\theta-\theta_0)\bigr]\,e^{-n^2 kt/R^2}\Bigr].}
+\]
+
+\textbf{Equilibrium temperature:} As $t \to \infty$, all exponentials vanish except $n = 0$:
+\[
+T_{\text{eq}} = \frac{T_0}{2\pi}.
+\]
+This makes sense: the total heat $\int_0^{2\pi}T\,R\,d\theta = T_0 R$ is conserved, and at equilibrium $T_\text{eq}\cdot 2\pi R = T_0 R$, giving $T_\text{eq} = T_0/(2\pi)$.
+
+\textbf{Effect of ring radius:} The rate of approach to equilibrium is governed by the slowest-decaying mode ($n = 1$), with time constant:
+\[
+\tau = \frac{R^2}{k}.
+\]
+Increasing $R$ increases $\tau$ quadratically --- the heat must diffuse over a longer distance, so equilibrium is reached more slowly. $\blacksquare$
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 23}
+
+\textbf{Problem.} Show that if $A^{-1}$ and $B^{-1}$ exist, then $(AB)^{-1} = B^{-1}A^{-1}$.
+
+If $A$ and $B$ are similar, prove that $A^n$ and $B^n$ are similar.
+
+\bigskip
+\textbf{Solution.}
+
+\textbf{Part 1:} $(AB)^{-1} = B^{-1}A^{-1}$.
+
+We verify that $B^{-1}A^{-1}$ is the inverse of $AB$ by checking both products:
+\[
+(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I.
+\]
+\[
+(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I.
+\]
+Since both products yield $I$, we have $(AB)^{-1} = B^{-1}A^{-1}$. \hfill $\checkmark$
+
+\bigskip
+\textbf{Part 2:} If $A$ and $B$ are similar, then $A^n$ and $B^n$ are similar.
+
+Since $A$ and $B$ are similar, there exists an invertible matrix $P$ such that $B = P^{-1}AP$. Then:
+\[
+B^n = (P^{-1}AP)^n = (P^{-1}AP)(P^{-1}AP)\cdots(P^{-1}AP).
+\]
+The intermediate factors telescope: $P(P^{-1}) = I$, so
+\[
+B^n = P^{-1}A^n P.
+\]
+This shows $A^n$ and $B^n$ are related by the same similarity transformation $P$, hence they are similar. \hfill $\blacksquare$
+
+\end{document}

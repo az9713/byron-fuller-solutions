@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\textbf{Chapter 6, Problem 15.} Find all the singularities of $\tan z$.
+
+\bigskip
+\textbf{Solution.}
+
+We have $\tan z = \frac{\sin z}{\cos z}$. The singularities occur where $\cos z = 0$.
+
+The zeros of $\cos z$:
+\[
+\cos z = 0 \quad \Rightarrow \quad z = \frac{\pi}{2} + n\pi = \frac{(2n+1)\pi}{2}, \qquad n = 0, \pm 1, \pm 2, \ldots
+\]
+
+At each such point, $\sin z = \sin\left(\frac{(2n+1)\pi}{2}\right) = (-1)^n \neq 0$, so the numerator is nonzero while the denominator has a simple zero.
+
+\textbf{Classification:} Near $z_n = (2n+1)\pi/2$, expand $\cos z$:
+\[
+\cos z = -\sin(z - z_n)\cdot(\text{sign}) \approx -(z-z_n)\cdot(\text{const}),
+\]
+so $\cos z$ has a simple zero at each $z_n$. Since $\sin z_n \neq 0$, $\tan z$ has a \textbf{simple pole} at each $z_n$.
+
+The residue at $z_n$:
+\[
+\text{Res}_{z=z_n}\tan z = \frac{\sin z_n}{(\cos z)'|_{z=z_n}} = \frac{\sin z_n}{-\sin z_n} = -1.
+\]
+
+\textbf{Summary:} $\tan z$ has simple poles at $z = (2n+1)\pi/2$ for all integers $n$, each with residue $-1$. These are the only singularities (there is no singularity at infinity that is isolated, as the poles accumulate there).
+
+\end{document}

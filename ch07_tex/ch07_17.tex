@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 17}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[a)] Consider a one-dimensional rod of length $L$. Let one end, at $x = 0$, be held at zero temperature and the other end, at $x = L$, be held at temperature $T_L$. If the initial temperature distribution is $T(x,0)$, show that the temperature at subsequent times $t$ is given by
+\[
+T(x,t) = T_x(L) + \int_0^L G(x,t;x',0)\,T(x',0)\,dx',
+\]
+where
+\[
+T_x(L) = T_L - T_L(x)
+\]
+and
+\[
+G(x,t;x',0) = \frac{2}{L}\sum_{n=1}^{\infty}\sin\frac{n\pi x}{L}\sin\frac{n\pi x'}{L}\,e^{-n^2\pi^2 kt/L^2}.
+\]
+\end{itemize}
+
+[\textit{Hint:} Note that $T(x,t) = T_L x/L$ also satisfies the heat equation. What are the boundary conditions satisfied by $T(x,t)$?]
+
+\textbf{b)} Using the result of part (a), find the Green's function which will enable one to solve the equation
+\[
+\nabla^2 T = \frac{1}{k}\frac{\partial T}{\partial t}
+\]
+on the infinite half-line $[0,\infty)$ when $T(x,0)$ is given some prescribed functional value.
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a)}
+
+The heat equation is:
+\[
+\frac{\partial T}{\partial t} = k\frac{\partial^2 T}{\partial x^2}, \quad T(0,t) = 0,\quad T(L,t) = T_L.
+\]
+
+The boundary conditions are inhomogeneous. We make a substitution to get homogeneous BCs. Let:
+\[
+T(x,t) = \frac{T_L x}{L} + u(x,t),
+\]
+where $T_L x/L$ is the steady-state solution. Then $u$ satisfies:
+\[
+\frac{\partial u}{\partial t} = k\frac{\partial^2 u}{\partial x^2}, \quad u(0,t) = 0,\quad u(L,t) = 0,
+\]
+with initial condition:
+\[
+u(x,0) = T(x,0) - \frac{T_L x}{L}.
+\]
+
+The eigenfunctions for $d^2/dx^2$ with Dirichlet BCs on $[0,L]$ are $\phi_n(x) = \sqrt{2/L}\sin(n\pi x/L)$ with eigenvalues $-n^2\pi^2/L^2$.
+
+The Green's function (heat kernel) for the Dirichlet problem on $[0,L]$ is:
+\[
+G(x,t;x',0) = \frac{2}{L}\sum_{n=1}^{\infty}\sin\frac{n\pi x}{L}\sin\frac{n\pi x'}{L}\,e^{-n^2\pi^2 kt/L^2}.
+\]
+
+Therefore:
+\[
+u(x,t) = \int_0^L G(x,t;x',0)\,u(x',0)\,dx' = \int_0^L G(x,t;x',0)\Bigl[T(x',0) - \frac{T_L x'}{L}\Bigr]\,dx'.
+\]
+
+And the full solution is:
+\[
+T(x,t) = \frac{T_L x}{L} + \int_0^L G(x,t;x',0)\Bigl[T(x',0) - \frac{T_L x'}{L}\Bigr]\,dx'. \qquad \checkmark
+\]
+
+\subsection*{Part (b): Infinite half-line}
+
+For the half-line $[0,\infty)$ with $T(0,t) = 0$, we take $L \to \infty$. The discrete sum becomes an integral. The eigenvalues become continuous: $n\pi/L \to p$ and $1/L \to dp/\pi$:
+\[
+G(x,t;x',0) = \frac{2}{\pi}\int_0^{\infty}\sin(px)\sin(px')\,e^{-p^2 kt}\,dp.
+\]
+
+Using $2\sin(px)\sin(px') = \cos[p(x-x')] - \cos[p(x+x')]$ and the Gaussian integral
+\[
+\int_0^{\infty}\cos(pa)\,e^{-p^2 kt}\,dp = \frac{1}{2}\sqrt{\frac{\pi}{kt}}\,e^{-a^2/(4kt)},
+\]
+we get:
+\[
+\boxed{G(x,t;x',0) = \frac{1}{\sqrt{4\pi kt}}\Bigl[e^{-(x-x')^2/(4kt)} - e^{-(x+x')^2/(4kt)}\Bigr].}
+\]
+
+The first term is the free-space heat kernel; the second is the ``image'' term that enforces $G(0,t;x',0) = 0$ (the Dirichlet condition at $x=0$). $\blacksquare$
+
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.15}
+
+\textbf{Problem:} The parity operator $P$ plays a fundamental role in many areas of physics. Show that the Gegenbauer polynomials are eigenfunctions of $P$; that is, if the leading power of $x$ in $G(x)$ is even, then $G(x)$ contains only even powers; and if odd, it contains only odd powers. One way to do this is to assume the contrary. Write $G(x) = g(x) + g'(x)$, where $g(x)$ contains only even powers of $x$ and $g'(x)$ contains only odd powers, and conclude that $\{x = L_x + p(x)\}$, where $L_x$ is the Sturm--Liouville operator which has the Gegenbauer polynomials as eigenfunctions. Then $g(x)$ and $g'(x)$ are linearly independent because they belong to different eigenvalues of $P$; solutions of the Gegenbauer equation, and they are both polynomial solutions. From this conclude that $g'(x) = 0$. [Hint: we know that for the Gegenbauer polynomials $\ell$, $G_\ell(x)$ contains only even powers of $x$ and $\ell$ has parity $(-1)^\ell$.] Thus $G_\ell(x)$ contains only even powers of $x$ when $\ell$ is even and odd powers when $\ell$ is odd.
+
+\bigskip
+\textbf{Solution:}
+
+The parity operator $P$ acts on functions by:
+\[
+Pf(x) = f(-x).
+\]
+
+The Gegenbauer polynomials $C_n^\lambda(x)$ (which include the Legendre polynomials as a special case with $\lambda = 1/2$) satisfy a second-order ODE of the Sturm--Liouville type:
+\[
+(1-x^2)y'' - (2\lambda+1)xy' + n(n+2\lambda)y = 0.
+\]
+
+\subsection*{Step 1: The parity operator commutes with the Gegenbauer equation}
+
+Under the substitution $x \to -x$, the differential equation becomes:
+\[
+(1-x^2)y''(-x) - (2\lambda+1)(-x)(-y'(-x)) + n(n+2\lambda)y(-x) = 0,
+\]
+which simplifies to the same equation for $y(-x)$. Therefore if $y(x)$ is a solution, so is $y(-x)$, meaning $P$ commutes with the Sturm--Liouville operator $L$.
+
+\subsection*{Step 2: Eigenfunctions of $P$}
+
+Since $P^2 = I$ (applying parity twice returns to the original), the eigenvalues of $P$ are $\pm 1$. Functions with eigenvalue $+1$ are even: $f(-x) = f(x)$. Functions with eigenvalue $-1$ are odd: $f(-x) = -f(x)$.
+
+\subsection*{Step 3: Gegenbauer polynomials have definite parity}
+
+Suppose $G_n(x)$ is a Gegenbauer polynomial of degree $n$. Write:
+\[
+G_n(x) = g_e(x) + g_o(x),
+\]
+where $g_e(x)$ contains only even powers and $g_o(x)$ contains only odd powers.
+
+Since $L$ commutes with $P$, and $G_n$ satisfies $LG_n = \lambda_n G_n$:
+\[
+L[g_e(x)] + L[g_o(x)] = \lambda_n g_e(x) + \lambda_n g_o(x).
+\]
+
+Applying $P$: $Pg_e = g_e$ and $Pg_o = -g_o$. Since $[L, P] = 0$:
+\[
+L[g_e(x)] = \lambda_n g_e(x), \qquad L[g_o(x)] = \lambda_n g_o(x).
+\]
+
+So both $g_e$ and $g_o$ are solutions of the same Gegenbauer equation with eigenvalue $\lambda_n$.
+
+\subsection*{Step 4: Uniqueness argument}
+
+The Gegenbauer equation is a second-order ODE, so it has two linearly independent solutions. However, only one solution is polynomial (the other, $Q_n^\lambda(x)$, is not a polynomial and diverges at $x = \pm 1$).
+
+Since both $g_e(x)$ and $g_o(x)$ are polynomial solutions of the same equation, they must be proportional to the unique polynomial solution $G_n(x)$. But $g_e$ is even and $g_o$ is odd, and they cannot be proportional to each other (unless one is zero). Since $G_n$ has degree $n$:
+\begin{itemize}
+\item If $n$ is even, the leading power is even, so $g_e$ has degree $n$ and is a valid polynomial solution, but $g_o$ would have degree $\leq n-1$ and be a polynomial solution of lower degree---which would make it proportional to a Gegenbauer polynomial of lower degree with a different eigenvalue. This contradicts $Lg_o = \lambda_n g_o$ (since eigenvalues are distinct). Therefore $g_o = 0$.
+\item If $n$ is odd, by the same argument, $g_e = 0$.
+\end{itemize}
+
+\subsection*{Conclusion}
+
+\[
+\boxed{PG_n(x) = G_n(-x) = (-1)^n G_n(x).}
+\]
+
+The Gegenbauer polynomials are eigenfunctions of the parity operator with eigenvalue $(-1)^n$: they contain only even powers of $x$ when $n$ is even and only odd powers when $n$ is odd.
+
+\end{document}

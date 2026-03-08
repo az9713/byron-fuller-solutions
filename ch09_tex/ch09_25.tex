@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 25}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.}
+
+(a) Obtain Eqs.~(9.98) through (9.101) using the methods employed in Section~9.3 to discuss the homogeneous problem.
+
+(b) Derive an equation which ``solves'' the integral equation $f = g + Kf$ in the spirit of Riemann integration (see Eq.~(9.50)).
+
+(c) [Computational problem -- solve numerically for attractive potential.]
+
+\bigskip
+\textbf{Solution.}
+
+\subsection*{(a) Numerical discretization of the integral equation}
+
+The integral equation is:
+\[
+f(x) = g(x) + \lambda\int_a^b k(x,t)\,f(t)\,dt. \tag{9.98}
+\]
+
+Following the finite-rank method of Section~9.3, we discretize by dividing $[a,b]$ into $N$ subintervals of width $h = (b-a)/N$, with midpoints $x_j = a + (j - \tfrac{1}{2})h$ for $j = 1, \ldots, N$.
+
+Approximating the integral by a Riemann sum:
+\[
+\int_a^b k(x,t)\,f(t)\,dt \approx h\sum_{j=1}^N k(x, x_j)\,f(x_j). \tag{9.99}
+\]
+
+Evaluating at the grid points $x = x_i$:
+\[
+f(x_i) = g(x_i) + \lambda h\sum_{j=1}^N k(x_i, x_j)\,f(x_j), \quad i = 1, \ldots, N. \tag{9.100}
+\]
+
+In matrix form, with $\mathbf{f} = (f(x_1), \ldots, f(x_N))^T$, $\mathbf{g} = (g(x_1), \ldots, g(x_N))^T$, and $K_{ij} = k(x_i, x_j)$:
+\[
+\mathbf{f} = \mathbf{g} + \lambda h\,K\,\mathbf{f}, \tag{9.101}
+\]
+or equivalently $(I - \lambda h K)\mathbf{f} = \mathbf{g}$. The solution is $\mathbf{f} = (I - \lambda h K)^{-1}\mathbf{g}$, which is a matrix inversion problem.
+
+For the homogeneous equation ($\mathbf{g} = 0$): $\lambda h K\boldsymbol{\phi} = \boldsymbol{\phi}$, or $K\boldsymbol{\phi} = (1/\lambda h)\boldsymbol{\phi}$---a standard matrix eigenvalue problem.
+
+\subsection*{(b) Riemann-sum resolvent}
+
+In the spirit of Eq.~(9.50) and Riemann integration, the solution can be written as:
+\[
+f(x) = g(x) + \lambda\int_a^b R(x,y;\lambda)\,g(y)\,dy,
+\]
+where $R$ is the resolvent. In the discrete approximation:
+\[
+\mathbf{f} = (I - \lambda h K)^{-1}\mathbf{g} = \left[I + \lambda h K(I - \lambda h K)^{-1}\right]\mathbf{g} = \mathbf{g} + \lambda h\,R_N\,\mathbf{g},
+\]
+where $R_N = K(I - \lambda h K)^{-1}$ is the discrete resolvent matrix.
+
+In terms of the eigendecomposition $K = \sum_n \mu_n\,\mathbf{v}_n\mathbf{v}_n^T$ (for symmetric $K$):
+\[
+R_N = \sum_n \frac{\mu_n}{1 - \lambda h \mu_n}\,\mathbf{v}_n\mathbf{v}_n^T.
+\]
+
+The continuous resolvent is then approximated by:
+\[
+R(x_i, x_j; \lambda) \approx (R_N)_{ij}/h.
+\]
+
+As $N \to \infty$ (and $h \to 0$), this approaches the true resolvent of the integral equation.
+
+\subsection*{(c) Numerical implementation (outline)}
+
+For the attractive Yukawa potential ($mV_0/p^2\hbar^2 = -1.4$), one would:
+\begin{enumerate}
+\item Discretize $[0, r_{\max}]$ into $N$ points (choosing $r_{\max}$ large enough that $V(r_{\max}) \approx 0$).
+\item Construct the $N \times N$ kernel matrix from Eqs.~(9.112)--(9.113).
+\item Solve $(I - \lambda h K)\mathbf{f} = \mathbf{g}$ by matrix inversion.
+\item Extract $F_0(p_1)$ and $\delta_0(p_1)$ for a range of momenta $p_1$.
+\end{enumerate}
+
+The attractive potential supports an $s$-wave bound state, which manifests as:
+\begin{itemize}
+\item $\delta_0(0) = \pi$ (by Levinson's theorem, one bound state adds $\pi$ to $\delta_0(0)$).
+\item A dramatic change in the behavior of $\delta_0(p_1)$ compared to the repulsive case.
+\item The scattering amplitude shows enhanced low-energy scattering.
+\end{itemize}
+
+\hfill $\blacksquare$
+
+\end{document}

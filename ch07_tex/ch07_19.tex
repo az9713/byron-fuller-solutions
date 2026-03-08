@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 7, Problem 19}
+
+\textbf{Problem:}
+\begin{itemize}
+\item[a)] Using the result of part (a) of Problem 17, find the Green's function for the one-dimensional heat equation on the infinite half-line $[0,\infty)$ with $T(0,t) = 0$ (Dirichlet), and use it to express the solution.
+\item[b)] Find an expression for the Green's function of part (a) in the limit $L \to \infty$, that is, for the infinite line. Compare this expression with the result found in Section 7.7 for periodic boundary conditions.
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Part (a): Half-line Dirichlet Green's function}
+
+From Problem 17(b), the Green's function for the heat equation on $[0,\infty)$ with $T(0,t)=0$ is:
+\[
+G(x,t;x',0) = \frac{1}{\sqrt{4\pi kt}}\Bigl[\exp\!\Bigl(-\frac{(x-x')^2}{4kt}\Bigr) - \exp\!\Bigl(-\frac{(x+x')^2}{4kt}\Bigr)\Bigr].
+\]
+
+This is obtained from the free-space kernel by the method of images: the image charge at $-x'$ with opposite sign enforces $G(0,t;x',0)=0$.
+
+The solution for initial condition $T(x,0) = f(x)$ with $T(0,t) = 0$ is:
+\[
+T(x,t) = \int_0^{\infty} G(x,t;x',0)\,f(x')\,dx'.
+\]
+
+\subsection*{Part (b): Neumann boundary condition}
+
+If instead we require the Neumann condition $\partial T/\partial x\big|_{x=0} = 0$ (insulated end), the image has the \textit{same} sign:
+\[
+G_N(x,t;x',0) = \frac{1}{\sqrt{4\pi kt}}\Bigl[\exp\!\Bigl(-\frac{(x-x')^2}{4kt}\Bigr) + \exp\!\Bigl(-\frac{(x+x')^2}{4kt}\Bigr)\Bigr].
+\]
+
+One can verify $\partial G_N/\partial x|_{x=0} = 0$:
+\[
+\frac{\partial G_N}{\partial x}\bigg|_{x=0} = \frac{1}{\sqrt{4\pi kt}}\Bigl[\frac{x'}{2kt}e^{-x'^2/(4kt)} - \frac{x'}{2kt}e^{-x'^2/(4kt)}\Bigr] = 0. \quad \checkmark
+\]
+
+Both results are consistent with the infinite-line kernel found in Section 7.7 when the domain is extended to the full real line (in which case the image term is unnecessary). $\blacksquare$
+
+\end{document}

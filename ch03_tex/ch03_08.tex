@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Chapter 3, Problem 8}
+
+\textbf{Problem.} Prove that if the matrix $A$ is idempotent and is not the unit matrix, then $A$ is singular.
+
+\bigskip
+\textbf{Solution.}
+
+A matrix $A$ is idempotent if $A^2 = A$.
+
+Suppose for contradiction that $A$ is invertible. Then multiplying both sides of $A^2 = A$ on the left by $A^{-1}$:
+\[
+A^{-1} A^2 = A^{-1} A \quad \Longrightarrow \quad A = I.
+\]
+
+But we are told $A \neq I$. This is a contradiction. Therefore $A$ must be singular (non-invertible).
+
+\medskip
+\textit{Alternative proof using determinants:} From $A^2 = A$, taking determinants:
+\[
+\det(A^2) = \det(A) \quad \Longrightarrow \quad (\det A)^2 = \det A \quad \Longrightarrow \quad \det A\,(\det A - 1) = 0.
+\]
+So either $\det A = 0$ or $\det A = 1$. If $\det A = 1$, then $A$ is invertible, and by the argument above, $A = I$. Since $A \neq I$, we must have $\det A = 0$, so $A$ is singular. \hfill $\blacksquare$
+
+\end{document}

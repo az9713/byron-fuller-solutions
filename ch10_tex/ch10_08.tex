@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 10, Problem 8}
+\end{center}
+
+\noindent\textbf{Problem.} Let $G$ and $G'$ be two groups. Show that in a homomorphism of $G$ onto $G'$ the elements of $G$ which are mapped into the identity of $G'$ form an invariant subgroup, $H$, of $G$.
+
+\bigskip
+\noindent\textbf{Solution.}
+
+Let $\phi: G \to G'$ be a surjective homomorphism, and let $e'$ be the identity element of $G'$. Define
+\[
+H = \ker(\phi) = \{g \in G : \phi(g) = e'\}.
+\]
+
+We must show that $H$ is (1) a subgroup of $G$ and (2) invariant (normal).
+
+\medskip
+\noindent\textbf{(1) $H$ is a subgroup:}
+
+\textit{Non-empty:} $\phi(e) = e'$ (since for any $g \in G$, $\phi(e)\phi(g) = \phi(eg) = \phi(g)$, so $\phi(e) = e'$). Thus $e \in H$.
+
+\textit{Closure:} If $a, b \in H$, then $\phi(ab) = \phi(a)\phi(b) = e' \cdot e' = e'$, so $ab \in H$.
+
+\textit{Inverses:} If $a \in H$, then $\phi(a^{-1}) = [\phi(a)]^{-1} = (e')^{-1} = e'$, so $a^{-1} \in H$.
+
+Therefore $H$ is a subgroup.
+
+\medskip
+\noindent\textbf{(2) $H$ is invariant (normal):}
+
+We must show $gHg^{-1} \subseteq H$ for all $g \in G$. Let $g \in G$ and $h \in H$. Then:
+\[
+\phi(ghg^{-1}) = \phi(g)\,\phi(h)\,\phi(g^{-1}) = \phi(g) \cdot e' \cdot [\phi(g)]^{-1} = \phi(g)[\phi(g)]^{-1} = e'.
+\]
+
+Therefore $ghg^{-1} \in H$ for all $g \in G$ and $h \in H$, which means $gHg^{-1} \subseteq H$.
+
+Since this holds for all $g$, replacing $g$ by $g^{-1}$ gives $g^{-1}Hg \subseteq H$, hence $H \subseteq gHg^{-1}$. Therefore $gHg^{-1} = H$, and $H$ is an invariant (normal) subgroup of $G$. $\square$
+
+\medskip
+\noindent\textit{Remark:} The subgroup $H = \ker(\phi)$ is called the \textbf{kernel} of the homomorphism. The fact that the kernel of any group homomorphism is a normal subgroup is a fundamental result in group theory.
+
+\end{document}

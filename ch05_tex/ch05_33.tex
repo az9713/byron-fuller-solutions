@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Problem 5.33}
+
+\textbf{Problem:} Consider the quantum-mechanical observables $L_x$, $L_y$, and $L_z$, which are represented as matrices as follows:
+\[
+L_x = \frac{\hbar}{\sqrt{2}}\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}, \quad
+L_y = \frac{\hbar}{\sqrt{2}}\begin{pmatrix} 0 & -i & 0 \\ i & 0 & -i \\ 0 & i & 0 \end{pmatrix}, \quad
+L_z = \hbar\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix}.
+\]
+
+The Hamiltonian for this system has the form $H = H_0 + \omega L_z$, where $H_0$ commutes with $L_x$, $L_y$, and $L_z$.
+
+\begin{itemize}
+\item[(a)] Suppose that at $t = 0$ we have prepared the system in an eigenstate of $L_x$ namely, the state belonging to the eigenvalue $m = +1$ of $L_x$. If we measure $L_z$ at the later time $t = T$, what is the probability that we will find the value $+1\hbar$? The value $0$? The value $-1\hbar$?
+
+\item[(b)] Suppose that instead of measuring $L_z$ at time $t = T$, we measure $L_x$. What are the possible values of $L_x$ which we can find? What is the probability of finding each of these values?
+
+\item[(c)] Suppose that at $t = T$ we measure $L_z$ and find with certainty the value $-1$. After a time $t$ has elapsed (i.e., at $t = T+t$), we measure $L_x$. What is the probability of finding the various allowed values of $L_x$?
+
+\item[(d)] Suppose that at $t = T$ we measure $L_z$ and find with certainty the value $-1$. What are the possible values of $L_z$ which we can find? What is the probability of finding the various allowed values of $L_z$?
+\end{itemize}
+
+\bigskip
+\textbf{Solution:}
+
+\subsection*{Preliminary: Eigenstates of $L_x$}
+
+The eigenvalue equation $L_x|\psi\rangle = m\hbar|\psi\rangle$ with the given matrix:
+\[
+\frac{\hbar}{\sqrt{2}}\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}\begin{pmatrix} a \\ b \\ c \end{pmatrix} = m\hbar\begin{pmatrix} a \\ b \\ c \end{pmatrix}.
+\]
+
+This gives: $b = m\sqrt{2}\,a$, $a + c = m\sqrt{2}\,b$, $b = m\sqrt{2}\,c$.
+
+From the first and third equations: $a = c$. From the second: $2a = m\sqrt{2}\cdot m\sqrt{2}\,a = 2m^2 a$, so $m^2 = 1$, giving $m = \pm 1, 0$.
+
+For $m = +1$: $b = \sqrt{2}a$, $c = a$. Normalized: $|L_x = +1\rangle = \frac{1}{2}\begin{pmatrix}1 \\ \sqrt{2} \\ 1\end{pmatrix}$.
+
+For $m = 0$: $b = 0$, $c = -a$. Normalized: $|L_x = 0\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ 0 \\ -1\end{pmatrix}$.
+
+For $m = -1$: $b = -\sqrt{2}a$, $c = a$. Normalized: $|L_x = -1\rangle = \frac{1}{2}\begin{pmatrix}1 \\ -\sqrt{2} \\ 1\end{pmatrix}$.
+
+The eigenstates of $L_z$ are the standard basis:
+\[
+|+1\rangle_z = \begin{pmatrix}1\\0\\0\end{pmatrix}, \quad |0\rangle_z = \begin{pmatrix}0\\1\\0\end{pmatrix}, \quad |-1\rangle_z = \begin{pmatrix}0\\0\\1\end{pmatrix}.
+\]
+
+\subsection*{Time evolution}
+
+The Hamiltonian is $H = H_0 + \omega L_z$. Since $H_0$ commutes with $L_z$, in the $L_z$ basis the time evolution is:
+\[
+U(t) = e^{-iHt/\hbar} = e^{-iH_0t/\hbar}\begin{pmatrix} e^{-i\omega t} & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & e^{i\omega t}\end{pmatrix}.
+\]
+
+The factor $e^{-iH_0t/\hbar}$ is an overall phase (since $H_0$ commutes with everything) and doesn't affect probabilities.
+
+\subsection*{Part (a)}
+
+At $t = 0$, the state is $|L_x = +1\rangle = \frac{1}{2}(1, \sqrt{2}, 1)^T$. At time $T$:
+\[
+|\psi(T)\rangle = \frac{1}{2}\begin{pmatrix} e^{-i\omega T} \\ \sqrt{2} \\ e^{i\omega T}\end{pmatrix}.
+\]
+
+Probabilities of $L_z$ measurements:
+\begin{align}
+P(L_z = +\hbar) &= |{}_z\langle+1|\psi(T)\rangle|^2 = \left|\frac{e^{-i\omega T}}{2}\right|^2 = \frac{1}{4}, \\
+P(L_z = 0) &= |{}_z\langle 0|\psi(T)\rangle|^2 = \left|\frac{\sqrt{2}}{2}\right|^2 = \frac{1}{2}, \\
+P(L_z = -\hbar) &= |{}_z\langle-1|\psi(T)\rangle|^2 = \left|\frac{e^{i\omega T}}{2}\right|^2 = \frac{1}{4}.
+\end{align}
+
+\[
+\boxed{P(+\hbar) = \frac{1}{4}, \quad P(0) = \frac{1}{2}, \quad P(-\hbar) = \frac{1}{4}.}
+\]
+
+These probabilities are independent of $T$---this is because $L_z$ commutes with $H$.
+
+\subsection*{Part (b)}
+
+We measure $L_x$ at time $T$. The state is $|\psi(T)\rangle = \frac{1}{2}(e^{-i\omega T}, \sqrt{2}, e^{i\omega T})^T$.
+
+Overlap with $L_x$ eigenstates:
+\begin{align}
+\langle L_x = +1|\psi(T)\rangle &= \frac{1}{4}(e^{-i\omega T} + 2 + e^{i\omega T}) = \frac{1}{4}(2 + 2\cos\omega T) = \frac{1+\cos\omega T}{2} = \cos^2\frac{\omega T}{2}.
+\end{align}
+
+\begin{align}
+\langle L_x = 0|\psi(T)\rangle &= \frac{1}{2\sqrt{2}}(e^{-i\omega T} - e^{i\omega T}) = \frac{-i\sin\omega T}{\sqrt{2}}.
+\end{align}
+
+\begin{align}
+\langle L_x = -1|\psi(T)\rangle &= \frac{1}{4}(e^{-i\omega T} - 2 + e^{i\omega T}) = \frac{2\cos\omega T - 2}{4} = \frac{\cos\omega T - 1}{2} = -\sin^2\frac{\omega T}{2}.
+\end{align}
+
+Probabilities:
+\[
+\boxed{P(L_x = +\hbar) = \cos^4\frac{\omega T}{2}, \quad P(L_x = 0) = \frac{\sin^2\omega T}{2}, \quad P(L_x = -\hbar) = \sin^4\frac{\omega T}{2}.}
+\]
+
+Check: $\cos^4(\omega T/2) + \frac{1}{2}\sin^2\omega T + \sin^4(\omega T/2) = \cos^4\theta + 2\sin^2\theta\cos^2\theta + \sin^4\theta = (\cos^2\theta + \sin^2\theta)^2 = 1$. $\checkmark$
+
+\subsection*{Part (c)}
+
+At $t = T$, measuring $L_z$ gives $-\hbar$, collapsing the state to $|-1\rangle_z = (0,0,1)^T$. After additional time $t$:
+\[
+|\psi(T+t)\rangle = e^{i\omega t}\begin{pmatrix}0\\0\\1\end{pmatrix} = \begin{pmatrix}0\\0\\e^{i\omega t}\end{pmatrix}.
+\]
+
+The overall phase doesn't affect probabilities:
+\begin{align}
+P(L_x = +\hbar) &= |\langle L_x=+1|{-1}\rangle_z|^2 = \left|\frac{1}{2}\right|^2 = \frac{1}{4}, \\
+P(L_x = 0) &= |\langle L_x=0|{-1}\rangle_z|^2 = \left|-\frac{1}{\sqrt{2}}\right|^2 = \frac{1}{2}, \\
+P(L_x = -\hbar) &= |\langle L_x=-1|{-1}\rangle_z|^2 = \left|\frac{1}{2}\right|^2 = \frac{1}{4}.
+\end{align}
+
+\[
+\boxed{P(L_x = +\hbar) = \frac{1}{4}, \quad P(L_x = 0) = \frac{1}{2}, \quad P(L_x = -\hbar) = \frac{1}{4}.}
+\]
+
+These are time-independent because $|-1\rangle_z$ is an eigenstate of $H$.
+
+\subsection*{Part (d)}
+
+After measuring $L_z = -\hbar$ at time $T$, the state is $|-1\rangle_z$. Since this is an eigenstate of $L_z$ (and also of $H$), a subsequent measurement of $L_z$ will always yield $-\hbar$:
+\[
+\boxed{P(L_z = -\hbar) = 1, \quad P(L_z = 0) = 0, \quad P(L_z = +\hbar) = 0.}
+\]
+
+\end{document}

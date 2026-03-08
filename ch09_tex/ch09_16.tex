@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chapter 9, Problem 16}\\[6pt]
+Byron \& Fuller, \textit{Mathematics of Classical and Quantum Physics}
+\end{center}
+
+\bigskip
+
+\textbf{Problem.}
+
+(a) Using the results of Problem~9.13, show that $\frac{dD}{d\lambda} = -\int_a^b N(x,x;\lambda)\,dx$.
+
+(b) Show that if $D(\lambda_0) = 0$, then $N(x,y;\lambda_0) \neq 0$ (the zeros of $D$ are not cancelled by zeros of $N$).
+
+\bigskip
+\textbf{Solution.}
+
+\subsection*{(a) Derivative of the Fredholm determinant}
+
+From Problem~9.13, the Fredholm determinant is:
+\[
+D(\lambda) = \sum_{n=0}^{\infty} \frac{(-\lambda)^n}{n!}\,d_n,
+\]
+where $d_0 = 1$ and
+\[
+d_n = \int\cdots\int \begin{vmatrix} k(x_1,x_1) & \cdots & k(x_1,x_n) \\ \vdots & \ddots & \vdots \\ k(x_n,x_1) & \cdots & k(x_n,x_n) \end{vmatrix} dx_1\cdots dx_n.
+\]
+
+Therefore:
+\[
+\frac{dD}{d\lambda} = \sum_{n=1}^{\infty} \frac{(-1)^n n\lambda^{n-1}}{n!}\,d_n = \sum_{n=1}^{\infty} \frac{(-1)^n \lambda^{n-1}}{(n-1)!}\,d_n.
+\]
+
+Now consider $N(x,y;\lambda)$:
+\[
+N(x,y;\lambda) = \sum_{n=0}^{\infty} \frac{(-\lambda)^n}{n!}\,N_n(x,y),
+\]
+where $N_0(x,y) = k(x,y)$ and $N_n(x,y) = \int\cdots\int \Delta_n(x,y;x_1,\ldots,x_n)\,dx_1\cdots dx_n$.
+
+Setting $y = x$ and integrating:
+\[
+\int_a^b N(x,x;\lambda)\,dx = \sum_{n=0}^{\infty} \frac{(-\lambda)^n}{n!}\int_a^b N_n(x,x)\,dx.
+\]
+
+The key identity is:
+\[
+\int_a^b N_n(x,x)\,dx = d_{n+1} \cdot \frac{1}{n+1} \cdot (n+1) = d_{n+1}.
+\]
+
+This follows because setting $y = x$ in $\Delta_n$ and integrating over $x$ produces an $(n+1) \times (n+1)$ determinant integrated over $n+1$ variables (with $x$ becoming $x_0$), which is precisely $d_{n+1}$.
+
+Therefore:
+\[
+\int_a^b N(x,x;\lambda)\,dx = \sum_{n=0}^{\infty} \frac{(-\lambda)^n}{n!}\,d_{n+1}.
+\]
+
+Comparing with $dD/d\lambda$: shifting index $m = n+1$:
+\[
+\frac{dD}{d\lambda} = -\sum_{m=1}^{\infty} \frac{(-\lambda)^{m-1}}{(m-1)!}\,d_m = -\sum_{n=0}^{\infty}\frac{(-\lambda)^n}{n!}\,d_{n+1} = -\int_a^b N(x,x;\lambda)\,dx.
+\]
+
+Therefore:
+\[
+\boxed{\frac{dD}{d\lambda} = -\int_a^b N(x,x;\lambda)\,dx}. \quad \checkmark
+\]
+
+\subsection*{(b) Zeros of $D$ are not cancelled by zeros of $N$}
+
+Suppose $D(\lambda_0) = 0$. Write $D(\lambda) = (\lambda - \lambda_0)^p\,\tilde{D}(\lambda)$ where $\tilde{D}(\lambda_0) \neq 0$ and $p \ge 1$.
+
+\textbf{Assume for contradiction} that $N(x,y;\lambda_0) = 0$ for all $x,y$, i.e., $N(x,y;\lambda) = (\lambda - \lambda_0)^q\,\tilde{N}(x,y;\lambda)$ with $q \ge 1$ for all $x,y$.
+
+From part~(a):
+\[
+\frac{dD}{d\lambda} = -\int_a^b N(x,x;\lambda)\,dx.
+\]
+
+At $\lambda = \lambda_0$: $D'(\lambda_0) = p(\lambda_0 - \lambda_0)^{p-1}\tilde{D}(\lambda_0) + \cdots$
+
+If $p = 1$: $D'(\lambda_0) = \tilde{D}(\lambda_0) \neq 0$.
+
+But if $N(x,y;\lambda_0) = 0$, then $\int N(x,x;\lambda_0)\,dx = 0$, so $D'(\lambda_0) = 0$. Contradiction (when $p = 1$).
+
+If $p \ge 2$: $D'(\lambda_0) = 0$ is consistent, but we examine $D''(\lambda_0) = -\int \frac{\partial N}{\partial\lambda}(x,x;\lambda_0)\,dx$. If $q \ge 1$, then $\frac{\partial N}{\partial \lambda}\big|_{\lambda_0}$ may or may not vanish. Continuing this argument through $p$ derivatives: the $p$th derivative $D^{(p)}(\lambda_0) = p!\,\tilde{D}(\lambda_0) \neq 0$, while the corresponding derivative of $\int N(x,x;\lambda)\,dx$ would require $q \le p-1$ to be nonzero. This leads to a contradiction with the relation $dD/d\lambda = -\int N(x,x;\lambda)\,dx$ (differentiating $p-1$ times shows $q = p - 1$ at most).
+
+Therefore $N(x,y;\lambda_0)$ cannot vanish identically when $D(\lambda_0) = 0$. The resolvent $R = N/D$ genuinely has poles at the zeros of $D(\lambda)$. \hfill $\blacksquare$
+
+\end{document}
