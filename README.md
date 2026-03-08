@@ -32,8 +32,6 @@ ch{CC}/{CC}_{PP}.pdf
 
 where `CC` is the two-digit chapter number and `PP` is the two-digit problem number. For example, `ch06/ch06_39.pdf` is the solution to Chapter 6, Problem 39.
 
-LaTeX source files are in the corresponding `ch{CC}_tex/` directories.
-
 ## How These Were Generated
 
 All solutions were produced by [Claude Code](https://claude.ai/claude-code) (Anthropic's CLI agent, powered by Claude Opus 4.6) in a single multi-session run. The workflow:
@@ -46,20 +44,6 @@ All solutions were produced by [Claude Code](https://claude.ai/claude-code) (Ant
 Chapters were solved in parallel using Claude Code's agent team feature — 9 sub-agents worked on Chapters 2–10 simultaneously while Chapter 1 was solved sequentially to establish the template. One agent (Chapter 9) failed and was recovered manually.
 
 See [`WORKFLOW_DOCUMENTATION.md`](WORKFLOW_DOCUMENTATION.md) for the full technical writeup.
-
-## Building from Source
-
-To recompile any solution from its `.tex` source:
-
-```bash
-# Install tectonic (one-time)
-# macOS: brew install tectonic
-# Windows: scoop install tectonic
-# Linux: see https://tectonic-typesetting.github.io/
-
-# Compile a single solution
-tectonic ch01_tex/ch01_01.tex
-```
 
 ## Disclaimer
 

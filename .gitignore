@@ -1,6 +1,8 @@
 .ignore/
 pages/
+*_tex/
 *.png
+*.tex
 *.log
 *.aux
 *.synctex.gz
