@@ -1,0 +1,120 @@
+Chapter 8, Problem 18. Solve the equations
+(a) f (x) = x + 2
+∫ 1
+0 e−(x+y)f (y) dy
+(b) f (x) = x + λ
+2
+∫ π
+0 cos(x + y)f (y) dy
+Solution.
+Part (a): The kernel k(x, y) = 2 e−(x+y) = 2e−xe−y is separable (rank 1). Let
+c =
+∫ 1
+0
+e−yf (y) dy.
+Then f (x) = x + 2c e−x. Substituting:
+c =
+∫ 1
+0
+e−y[y + 2c e−y] dy =
+∫ 1
+0
+ye−y dy + 2c
+∫ 1
+0
+e−2y dy.
+We computed before:
+∫ 1
+0 ye−y dy = 1 − 2e−1 and
+∫ 1
+0 e−2y dy = 1−e−2
+2 .
+So:
+c = (1 − 2e−1) + c(1 − e−2) = ⇒ c[1 − (1 − e−2)] = 1 − 2e−1,
+c · e−2 = 1 − 2e−1 =⇒ c = 1 − 2e−1
+e−2 = e2 − 2e.
+Therefore:
+f (x) = x + 2(e2 − 2e)e−x.
+Part (b): Expand cos(x + y) = cos x cos y − sin x sin y. So the kernel is separable with
+rank 2:
+k(x, y) = λ
+2 [cos x cos y − sin x sin y].
+Let:
+a =
+∫ π
+0
+cos y f (y) dy, b =
+∫ π
+0
+sin y f (y) dy.
+Then:
+f (x) = x + λ
+2 [a cos x − b sin x].
+Computing a:
+a =
+∫ π
+0
+cos y
+[
+y + λ
+2 (a cos y − b sin y)
+]
+dy.
+∫ π
+0
+y cos y dy = [y sin y + cos y]π
+0 = (0 − 1) − (0 + 1) = −2.
+∫ π
+0
+cos2 y dy = π
+2 ,
+∫ π
+0
+cos y sin y dy = 0.
+So a = −2 + λaπ
+4 , giving a(1 − λπ
+4 ) = −2:
+a = −2
+1 − λπ/4 = −8
+4 − λπ .
+1
+
+Computing b:
+b =
+∫ π
+0
+sin y
+[
+y + λ
+2 (a cos y − b sin y)
+]
+dy.
+∫ π
+0
+y sin y dy = [−y cos y + sin y]π
+0 = π.
+∫ π
+0
+sin y cos y dy = 0,
+∫ π
+0
+sin2 y dy = π
+2 .
+So b = π − λbπ
+4 , giving b(1 + λπ
+4 ) = π:
+b = π
+1 + λπ/4 = 4π
+4 + λπ .
+Therefore:
+f (x) = x + λ
+2
+[ −8
+4 − λπ cos x − 4π
+4 + λπ sin x
+]
+= x − 4λ
+4 − λπ cos x − 2λπ
+4 + λπ sin x.
+The solution exists provided λ ̸= ±4/π. ■
+2

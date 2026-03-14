@@ -1,0 +1,39 @@
+Chapter 6, Problem 39. Show that:
+(a) Γ(x + 1) = xΓ(x) for x > 0
+(b) Γ(n + 1) = n!, where n is a positive integer.
+Solution.
+The Gamma function is defined by:
+Γ(x) =
+∫ ∞
+0
+tx−1e−t dt, x > 0.
+(a) Integrate by parts with u = tx and dv = e−t dt:
+Γ(x + 1) =
+∫ ∞
+0
+txe−t dt =
+[
+−txe−t]∞
+0 +
+∫ ∞
+0
+xtx−1e−t dt.
+The boundary term: as t → ∞ , txe−t → 0 (exponential beats polynomial). At t = 0 :
+0x · 1 = 0 (for x > 0). So the boundary term vanishes.
+Γ(x + 1) = x
+∫ ∞
+0
+tx−1e−t dt = x Γ(x).
+(b) From part (a), applying the recursion repeatedly:
+Γ(n + 1) = n Γ(n) = n(n − 1)Γ(n − 1) = · · · = n(n − 1)(n − 2) · · · 2 · 1 · Γ(1).
+Evaluate Γ(1):
+Γ(1) =
+∫ ∞
+0
+t0e−t dt =
+∫ ∞
+0
+e−t dt = 1.
+Therefore:
+Γ(n + 1) = n! · 1 = n!.
+1

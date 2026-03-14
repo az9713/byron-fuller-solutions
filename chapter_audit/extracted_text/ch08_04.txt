@@ -1,0 +1,110 @@
+Chapter 8, Problem 4. Solve the equations
+(a) f (x) = x + λ
+∫ 1
+0 e−(x+y)f (y) dy
+(b) f (x) = 1 + 2
+∫ x
+0 f (y) dy
+by iteration. For what values of λ will the iterations converge?
+Solution.
+Part (a): The kernel is k(x, y) = e−(x+y) = e−xe−y, which is separable (rank one). The
+integral equation is:
+f (x) = x + λe−x
+∫ 1
+0
+e−yf (y) dy.
+Let c =
+∫ 1
+0 e−yf (y) dy. Then f (x) = x + λc e−x. Substituting back:
+c =
+∫ 1
+0
+e−y[y + λc e−y] dy =
+∫ 1
+0
+ye−y dy + λc
+∫ 1
+0
+e−2y dy.
+Computing the integrals:
+∫ 1
+0
+ye−y dy = [−ye−y]1
+0 +
+∫ 1
+0
+e−y dy = −e−1 + (1 − e−1) = 1 − 2e−1,
+∫ 1
+0
+e−2y dy = 1 − e−2
+2 .
+Therefore:
+c = 1 − 2e−1 + λc · 1 − e−2
+2 .
+Solving for c:
+c
+[
+1 − λ(1 − e−2)
+2
+]
+= 1 − 2e−1,
+c = 1 − 2e−1
+1 − λ(1−e−2)
+2
+= 2(1 − 2e−1)
+2 − λ(1 − e−2) .
+The solution is:
+f (x) = x + 2λ(1 − 2e−1)
+2 − λ(1 − e−2) e−x.
+The solution exists provided λ ̸= 2
+1−e−2 .
+Iteration convergence: The Neumann series converges when |λ|∥K∥ < 1. Since the
+kernel is rank one:
+∥K∥2 ≤
+∫ 1
+0
+∫ 1
+0
+e−2(x+y) dx dy =
+( 1 − e−2
+2
+) 2
+.
+So ∥K∥ ≤ 1−e−2
+2 ≈ 0.4323. The iterations converge when |λ| < 2
+1−e−2 ≈ 2.313.
+Part (b): This is a Volterra equation: f (x) = 1 + 2
+∫ x
+0 f (y) dy.
+1
+
+Iterate starting from f0(x) = 1 :
+f1(x) = 1 + 2
+∫ x
+0
+1 dy = 1 + 2 x,
+f2(x) = 1 + 2
+∫ x
+0
+(1 + 2y) dy = 1 + 2 x + 2x2,
+f3(x) = 1 + 2
+∫ x
+0
+(1 + 2y + 2y2) dy = 1 + 2 x + 2x2 + 4x3
+3 .
+The pattern gives:
+fn(x) =
+n∑
+k=0
+(2x)k
+k! .
+As n → ∞, this converges to:
+f (x) = e2x.
+Verification: f (x) = e2x gives 1 + 2
+∫ x
+0 e2y dy = 1 + [ e2y]x
+0 = 1 + e2x − 1 = e2x. ✓
+Since this is a Volterra equation (upper limit is x, not a fixed constant), the Neumann
+series always converges for all values of λ (here λ = 2). The iterated kernels produce terms
+of order xn/n! which ensure convergence. ■
+2

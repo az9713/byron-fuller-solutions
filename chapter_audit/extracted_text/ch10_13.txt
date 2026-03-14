@@ -1,0 +1,87 @@
+Chapter 10, Problem 13
+Problem. Show that if Ci is a class containing S1, S2, . . . , Sg and C −1
+i is the collection of
+elements consisting of S−1
+1 , S−1
+2 , . . . , S−1
+g , then C −1
+i is also a class. Show that for a general
+irreducible representation, i.e., one which is not necessarily unitary,
+∑
+g
+g|χ(ν)
+i |2 = gδνν , a ν = 1
+g
+∑
+g
+giχ(ν)∗
+i χi,
+where aν is the number of times the νth irreducible representation occurs in the representa-
+tion (not necessarily irreducible) whose characters are χi.
+Solution.
+Part 1: C −1
+i is a class.
+Let Ci = {S1, S2, . . . , Sg} be a conjugacy class. We need to show C −1
+i = {S−1
+1 , S−1
+2 , . . . , S−1
+g }
+is also a conjugacy class.
+First, C −1
+i is contained in a single conjugacy class: if Sj ∈ Ci, then for any T ∈ G:
+T S−1
+j T −1 = (T S−1
+j T −1) = ( T −1)−1S−1
+j (T −1).
+But also, since Sj and Sk are conjugate (both in Ci), there exists U with Sk = U SjU −1.
+Then:
+S−1
+k = (U SjU −1)−1 = U S−1
+j U −1.
+So S−1
+k is conjugate to S−1
+j . This means all elements of C −1
+i are mutually conjugate.
+Now suppose T is conjugate to S−1
+1 , i.e., T = U S−1
+1 U −1 for some U . Then T −1 =
+U S1U −1 ∈ Ci, so T −1 = Sk for some k, hence T = S−1
+k ∈ C −1
+i . Therefore C −1
+i contains
+exactly all elements conjugate to any of its members, so it is a complete conjugacy class. □
+Part 2: Orthogonality for general (not necessarily unitary) irreducible represen-
+tations.
+For a finite group, every representation is equivalent to a unitary representation via a
+similarity transformation S: if D is any representation, there exists an invertible S such that
+D′(g) = SD(g)S−1 is unitary for all g.
+The characters are invariant under similarity transformations:
+χ(ν)(g) = Tr D(ν)(g) = Tr D′(ν)(g).
+For unitary representations, we have the standard orthogonality relation (Eq. 10.49 in
+the text): ∑
+i
+giχ(µ)∗
+i χ(ν)
+i = g δµν,
+where the sum is over classes, gi is the number of elements in class i, and g = |G|.
+Since the characters of the general irreducible representation are the same as those of the
+equivalent unitary representation, the orthogonality relation holds unchanged:
+∑
+i
+giχ(µ)∗
+i χ(ν)
+i = g δµν.
+1
+
+Similarly, for the decomposition of an arbitrary representation with character χ into
+irreducible representations, the number of times the νth irreducible representation appears
+is:
+aν = 1
+g
+∑
+i
+giχ(ν)∗
+i χi.
+This follows because characters depend only on the equivalence class of a representation,
+and every representation of a finite group is equivalent to a unitary one. □
+2

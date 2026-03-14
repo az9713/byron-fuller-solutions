@@ -1,0 +1,92 @@
+Chapter 7, Problem 18
+Problem:
+a) Using the results of the previous problem (or any other method), find in terms of a
+Green’s function the solution to the heat equation for a one-dimensional rod whose
+ends at x = −L/2 and x = L/2 are kept at temperatures T1 and T2 respectively.
+b) Find an expression for the Green’s function of part (a) in the limit L → ∞ , that is,
+for the infinite line. Compare this expression with the result found in Section 7.7 for
+periodic boundary conditions.
+Solution:
+Part (a)
+The heat equation on [−L/2, L/2]:
+∂T
+∂t = k ∂2T
+∂x2 , T (−L/2, t) = T1, T (L/2, t) = T2.
+The steady-state solution satisfying these BCs is:
+Ts(x) = T1 + T2
+2 + T2 − T1
+L x.
+Let u(x, t) = T (x, t) − Ts(x). Then u satisfies the heat equation with homogeneous
+Dirichlet BCs:
+u(−L/2, t) = 0 , u (L/2, t) = 0 .
+The eigenfunctions on [−L/2, L/2] with these BCs are:
+ϕn(x) =
+√
+2
+L sin nπ(x + L/2)
+L , n = 1, 2, 3, . . .
+with eigenvalues λn = n2π2/L2.
+The Green’s function is:
+G(x, t; x′, 0) = 2
+L
+∞∑
+n=1
+sin nπ(x + L/2)
+L sin nπ(x′ + L/2)
+L e−n2π2kt/L2
+.
+The solution is:
+T (x, t) = Ts(x) +
+∫ L/2
+−L/2
+G(x, t; x′, 0)
+[
+T (x′, 0) − Ts(x′)
+]
+dx′.
+1
+
+Part (b): Infinite line
+As L → ∞ , let p = nπ/L, so ∆p = π/L and the sum becomes an integral over p from 0 to
+∞:
+G(x, t; x′, 0) → 2
+π
+∫ ∞
+0
+sin
+[
+p(x + L/2)
+]
+sin
+[
+p(x′ + L/2)
+]
+e−p2kt dp.
+In the L → ∞ limit, the phase pL/2 oscillates rapidly. Using 2 sin A sin B = cos( A −
+B) − cos(A + B), the cos(A + B) term oscillates and averages to zero, leaving:
+G(x, t; x′, 0) = 1
+π
+∫ ∞
+0
+cos
+[
+p(x − x′)
+]
+e−p2kt dp = 1√
+4πkt
+e−(x−x′)2/(4kt).
+This is the free-space heat kernel :
+G(x, t; x′, 0) = 1√
+4πkt
+exp
+(
+− (x − x′)2
+4kt
+)
+.
+Comparison with Section 7.7: In Section 7.7, the heat kernel is derived using the
+Fourier transform method on the infinite line, yielding the same Gaussian kernel. The
+eigenfunction expansion with periodic BCs on a box of size L also reduces to this in the
+L → ∞ limit, as the discrete Fourier modes become continuous. The two methods agree,
+confirming the consistency of the Green’s function approach. ■
+2

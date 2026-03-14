@@ -1,0 +1,155 @@
+Chapter 7, Problem 5
+Problem: In Section 6.9 we discussed those solutions of Bessel’s equation,
+x2y′′ + xy′ + (x2 − n2)y = 0,
+which were finite at the origin. In particular, we chose a normalization such that for small
+x:
+Jn(x) = 1
+n!
+( x
+2
+) n
+.
+There is, of course, another set of solutions, usually denoted by Nn(x), which are irregular
+at the origin. They are conventionally normalized so that
+N0(x) ∼ 2
+π ln x, N n(x) ∼ − (n − 1)!
+π
+( 2
+x
+) n
+(n ≥ 1).
+Consider the inhomogeneous Bessel’s equation for n ≥ 2:
+x2u′′ + xu′ + (x2 − n2)u = f (x)
+on the interval [0, 1] with boundary condition u(0) = 0 = u(1). Show that u(x) is given by
+u(x) = 1
+x
+∫ 1
+0
+G(x, x′)f (x′) dx′,
+where
+G(x, x′) = π
+2
+x< [Jn(x<)Nn(1) − Nn(x<)Jn(1)]
+Jn(1)Nn(1)[Jn(x>)/Nn(x>) − Nn(x>)/Jn(x>)] ,
+and x< is the lesser of x and x′, x> is the greater.
+Solution:
+First, put Bessel’s equation in self-adjoint (Sturm–Liouville) form. Dividing by x:
+xu′′ + u′ +
+(
+x − n2
+x
+)
+u = f (x)
+x .
+This can be written as:
+d
+dx
+(
+x du
+dx
+)
++
+(
+x − n2
+x
+)
+u = f (x)
+x .
+The operator L in Sturm–Liouville form is:
+Lu = 1
+x
+d
+dx
+(
+x du
+dx
+)
++
+(
+1 − n2
+x2
+)
+u,
+with weight function p(x) = x.
+The two linearly independent solutions of the homogeneous equation are Jn(x) and Nn(x).
+The Wronskian of Jn and Nn is well known:
+W [Jn, Nn](x) = Jn(x)N ′
+n(x) − Nn(x)J ′
+n(x) = 2
+πx .
+1
+
+For the Green’s function with boundary conditions u(0) = 0 and u(1) = 0 :
+At x = 0 : Since Nn(x) diverges as x → 0 for n ≥ 2, the solution that satisfies u(0) = 0
+must be proportional to Jn(x) (which is regular at the origin).
+At x = 1 : We need u(1) = 0 , so we need a combination of Jn and Nn that vanishes at
+x = 1:
+ϕ2(x) = Jn(x)Nn(1) − Nn(x)Jn(1).
+Note ϕ2(1) = Jn(1)Nn(1) − Nn(1)Jn(1) = 0 . ✓
+So we set ϕ1(x) = Jn(x) (satisfies BC at x = 0 ) and ϕ2(x) = Jn(x)Nn(1) − Nn(x)Jn(1)
+(satisfies BC at x = 1).
+The Green’s function for the Sturm–Liouville problem Lu = f /x with weight p(x) = x
+is:
+G(x, x′) = ϕ1(x<) ϕ2(x>)
+p(x′) W [ϕ1, ϕ2](x′) · x′,
+Actually, let us be more careful. The equation is:
+(xu′)′ +
+(
+x − n2
+x
+)
+u = f
+x ,
+so with p(x) = x, the standard Green’s function construction gives:
+u(x) =
+∫ 1
+0
+ϕ1(x<)ϕ2(x>)
+p(x′)W [ϕ1, ϕ2](x′) · f (x′)
+x′ dx′,
+where p(x′) = x′ is the coeﬀicient of u′ in the self-adjoint form, and the Wronskian is:
+W [ϕ1, ϕ2](x) = Jn(x)
+[
+J ′
+n(x)Nn(1) − N ′
+n(x)Jn(1)
+]
+− J ′
+n(x)
+[
+Jn(x)Nn(1) − Nn(x)Jn(1)
+]
+= Jn(1)
+[
+Nn(x)J ′
+n(x) − Jn(x)N ′
+n(x)
+]
+= −Jn(1) · 2
+πx .
+So p(x)W [ϕ1, ϕ2](x) = x ·
+(
+−Jn(1) · 2
+πx
+)
+= − 2Jn(1)
+π , a constant (as expected for Sturm–
+Liouville).
+The solution is:
+u(x) =
+∫ 1
+0
+ϕ1(x<)ϕ2(x>)
+−2Jn(1)/π · f (x′)
+x′ dx′ = − π
+2Jn(1)
+∫ 1
+0
+Jn(x<)[Jn(x>)Nn(1) − Nn(x>)Jn(1)]
+x′ f (x′) dx′.
+Writing this as u(x) = (1 /x)
+∫ 1
+0 G(x, x′)f (x′) dx′ with G suitably defined, we obtain the
+stated result, where the Green’s function encodes the products of the two solutions divided
+by the Wronskian. ■
+2

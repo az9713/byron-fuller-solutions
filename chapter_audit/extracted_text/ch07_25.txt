@@ -1,0 +1,98 @@
+Chapter 7, Problem 25
+Problem:
+a) Show that the function
+Gt(r, t; r′, t′) = −G(r, t; r′, t′) θ(t′ − t)
+is a Green’s function for Eq. (7.131), where Gt satisfies Eqs. (7.134) and (7.135).
+This means that we can write a time-dependent Schrödinger integral equation as:
+ψ(r, t) = ψ0(r, t) − i
+ℏ
+∫ t
+−∞
+dt′
+∫
+Gt(r, t; r′, t′)V (r′, t′)ψ(r′, t′) d3r′,
+in the notation of Eq. (7.137). Show that U is a static potential which is “turned off”
+at remote future times, that is, V → V0e−ϵ|t|, then we obtain in the limit t → 0 the
+Lippmann–Schwinger equation with an incoming spherical wave boundary condition
+solution.
+b) Note that Eq. (7.129a) does not make sense if t′ > t (assuming, as will usually be the
+case, that λn → +∞ as n → ∞ and t and t′ are real). This is also reflected in the
+discussion following Eq. (7.128), where we are tacitly assuming that t = 0 from “the
+positive side of zero” (see Section 5.3). Thus the Green’s function
+G(r, t; r′, t′) =
+∑
+n
+ϕn(r)ϕ∗
+n(r′) e−iλn(t−t′)
+obtained in the previous problem, although it formally seems to satisfy
+(
+H + i∂
+∂t
+)
+G = δ3(r − r′)δ(t − t′),
+is not an acceptable Green’s function. Show that it does give Gt(r, t; r′, t′) for the case
+of the diffusion (or heat) equation by using the Fourier transform method, one obtains
+only
+G(r, t; r′, t′) = θ(t − t′) Gret(r, t; r′, t′),
+where Gt is given by Eq. (7.139).
+Solution:
+Part (a)
+The time-dependent Schrödinger equation is:
+iℏ ∂ψ
+∂t = (H0 + V )ψ.
+1
+
+The retarded Green’s function satisfies:
+(
+iℏ ∂
+∂t − H0
+)
+Gret(r, t; r′, t′) = δ3(r − r′)δ(t − t′),
+with the causal boundary condition Gret = 0 for t < t ′.
+The advanced Green’s function Gt = −G θ(t′ − t) satisfies Gt = 0 for t > t ′. To verify it
+satisfies the adjoint equation:
+(
+iℏ ∂
+∂t − H0
+)
+Gt =
+(
+iℏ ∂
+∂t − H0
+) [
+−G θ(t′ − t)
+]
+.
+Using ∂θ(t′ − t)/∂t = −δ(t − t′) and the fact that G satisfies the Schrödinger equation
+for t ̸= t′:
+= −
+[
+δ3(r − r′)δ(t − t′)
+]
+θ(t′ − t) + iℏ G δ(t − t′) − (H0G)(−θ(t′ − t)).
+At t = t′, G(r, t; r′, t) = δ3(r − r′) (the initial condition). So:
+= −δ3(r − r′)δ(t − t′).
+For the Lippmann–Schwinger connection: with V → V0e−ϵ|t| and using Gt (the advanced
+Green’s function), the integral equation in the t → ∞ limit picks up the incoming-wave
+boundary condition, which is the time-reversed version of the outgoing-wave condition ob-
+tained with the retarded Green’s function.
+Part (b)
+The eigenfunction expansion G = ∑
+n ϕn(r)ϕ∗
+n(r′)e−iλn(t−t′) converges only for t > t ′ (when
+eigenvalues correspond to λn > 0, giving exponential damping in the diffusion case). For
+t < t ′, the series diverges.
+Using the Fourier transform in time, the retarded Green’s function for the diffusion
+equation (∂t − k∇2)G = δ is obtained by closing the contour in the lower half-plane (for
+t > t ′):
+Gret(r, t; r′, t′) = θ(t − t′) 1
+[4πk(t − t′)]d/2 exp
+(
+− |r − r′|2
+4k(t − t′)
+)
+,
+which automatically includes the θ(t−t′) factor from causality. The Fourier method naturally
+produces only the retarded Green’s function because the diffusion equation is first-order in
+time and dissipative. ■
+2

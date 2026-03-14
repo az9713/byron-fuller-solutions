@@ -1,0 +1,72 @@
+Chapter 9, Problem 21
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Obtain the function ˜D(λ) (defined in Problem 20) through order λ2 for the
+kernel of the integral equation Eq. (9.102) if V (r) = g2e−µr/r. The variables x, t and u
+defined in Section 8.3 will be useful. Assuming q1 to be real, what is the difference between
+these two cases?
+Solution.
+The scattering integral equation (Eq. 9.102) has the form f = g + λKf where the kernel
+k(x, t) is related to the potential V (r) = g2e−µr/r (a Yukawa potential).
+Following the notation of Section 8.3, we use dimensionless variables. The kernel of the
+s-wave scattering equation is:
+k(r, r′) = − 2m
+ℏ2 r< V (r>) r> = − 2mg2
+ℏ2 r< e−µr>,
+where r< = min(r, r′) and r> = max(r, r′).
+In the dimensionless variables x = q1r, t = q1r′ (where q1 is the wave number), the kernel
+becomes:
+k(x, t) = − p1
+q1
+x< e−p1x>/q1,
+where p1 = µ/(2q1) (approximately) captures the ratio of the potential range to the wave-
+length.
+Modified Fredholm determinant through O(λ2)
+From Problem 9.20, the modified Fredholm determinant sets diagonal entries to zero:
+˜D(λ) = 1 + λ2
+2
+˜d2 + O(λ3),
+where the first-order term vanishes ( ˜d1 =
+∫
+k(x, x) [set to 0] = 0).
+The second-order coeﬀicient is:
+˜d2 = −
+∫ ∞
+0
+∫ ∞
+0
+|k(x, t)|2 dx dt = −∥K∥2
+HS,
+since the diagonal terms k(xi, xi) = 0 in ˜∆2 and the 2 × 2 determinant becomes 0 · 0 −
+k(x1, x2)k(x2, x1) = −k(x1, x2)k(x2, x1).
+For the Yukawa kernel:
+∥K∥2
+HS =
+∫ ∞
+0
+∫ ∞
+0
+|k(x, t)|2 dx dt.
+This integral is very similar to the norm calculation done in Section 8.3. For the Yukawa
+potential, the result is (using u = µ/q1):
+∥K∥2
+HS =
+( mV0
+ℏ2q1
+) 2
+· F (u),
+1
+
+where F (u) is a dimensionless function computed from the double integral.
+Therefore through order λ2:
+˜D(λ) = 1 − λ2
+2 ∥K∥2
+HS + O(λ3) .
+Difference when q1 is real vs. complex: When q1 is real (physical scattering), the
+kernel k(x, t) is real, so k(x1, x2)k(x2, x1) = |k(x1, x2)|2 ≥ 0, and ˜d2 < 0, meaning ˜D(λ) < 1
+for small λ. The norm integral converges because of the exponential damping e−µr.
+If q1 were complex (as in bound-state problems), the kernel would be complex, the norm
+integral might not converge as readily, and the phase structure of ˜D(λ) would be more
+intricate. The key difference is that for real q1, the kernel is manifestly real and the Hilbert–
+Schmidt norm is straightforward to evaluate, while for complex q1 additional care with
+convergence is needed. ■
+2

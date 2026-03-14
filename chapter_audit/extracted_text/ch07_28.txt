@@ -1,0 +1,85 @@
+Chapter 7, Problem 28
+Problem: Using the Fourier transform method (in four dimensions) obtain the Green’s
+functions for the wave equation. Show that one obtains GA of Eq. (7.163) or GR (of the
+previous problem) depending on how one chooses to avoid a singularity which arises in the
+Fourier transform method (see a similar discussion in Section 7.4, Eq. (7.43) et seq.).
+Solution:
+The wave equation Green’s function satisfies:
+(
+∇2 − 1
+v2
+∂2
+∂t2
+)
+G = δ3(r − r′)δ(t − t′).
+Take the four-dimensional Fourier transform. Let R = r − r′ and τ = t − t′:
+˜G(k, ω) =
+∫
+G(R, τ) e−ik·R+iωτ d3R dτ.
+The equation becomes:
+(−k2 + ω2/v2) ˜G = 1,
+so:
+˜G(k, ω) = 1
+ω2/v2 − k2 = v2
+ω2 − v2k2 .
+Inverting:
+G(R, τ) =
+∫ d3k
+(2π)3
+∫ dω
+2π
+v2 eik·R−iωτ
+ω2 − v2k2 .
+The ω-integral has poles at ω = ±vk on the real axis. The choice of contour determines
+the Green’s function:
+Retarded: Push both poles below the real axis ( ω → ω + iϵ, i.e., ω = ±vk − iϵ). For
+τ > 0, close in the lower half-plane, picking up both poles:
+∫ e−iωτ
+ω2 − v2k2
+dω
+2π =
+∫ e−iωτ
+(ω − vk)(ω + vk)
+dω
+2π = − sin(vkτ )
+vk θ(τ ).
+For τ < 0, close in the upper half-plane — no poles, giving zero.
+Advanced: Push both poles above the real axis ( ω = ±vk + iϵ). This gives the same
+result but with θ(−τ ) instead.
+Continuing with the retarded case:
+GR(R, τ) = −θ(τ )
+∫ d3k
+(2π)3
+v sin(vkτ )
+k eik·R.
+Performing the angular integration ( k · R = kR cos α):
+∫ d3k
+(2π)3
+sin(vkτ )
+k eik·R = 1
+2π2R
+∫ ∞
+0
+sin(vkτ ) sin(kR) dk.
+1
+
+Using sin A sin B = 1
+2 [cos(A − B) − cos(A + B)] and
+∫ ∞
+0 cos(ax) dk = πδ(a):
+= 1
+4πR
+[
+δ(vτ − R) − δ(vτ + R)
+]
+.
+Since τ > 0 and R > 0, the second delta never contributes, so:
+GR = −θ(τ ) · v
+4πR δ(vτ − R) = − δ(τ − R/v)
+4πR .
+This is the retarded Green’s function. Similarly, the advanced prescription gives:
+GA = − δ(τ + R/v)
+4πR ,
+confirming Eq. (7.163). The ambiguity in the Fourier method corresponds exactly to the
+physical choice of boundary conditions (outgoing vs. incoming waves). ■
+2

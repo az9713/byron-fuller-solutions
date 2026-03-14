@@ -1,0 +1,64 @@
+Chapter 6, Problem 33. Consider the problem of evaluating the integral of z1/n from
+A to D along the circular path C1 shown in Fig. 6.24. We take the cut to lie along the ray
+θ = 0 and define z1/n = r1/neiθ/n for 0 < θ < 2π. Compare this with the value obtained
+by integrating z1/n from A to D along the “keyhole” path ABCD . Do the results agree?
+Should they agree? Why?
+Solution.
+Path C1 (circular arc): The path goes from A to D along a circle of radius a centered
+at the origin (say counterclockwise in the upper half-plane). We parametrize: z = aeiθ with
+θ going from some initial angle to final angle.
+If A is at θ = 0 + (just above the cut) and D is at θ = 2π− (just below the cut), then:
+I1 =
+∫
+C1
+z1/n dz =
+∫ 2π
+0
+(aeiθ)1/n · iaeiθ dθ = ia1+1/n
+∫ 2π
+0
+eiθ(1+1/n) dθ.
+= ia1+1/n
+[ eiθ(1+1/n)
+i(1 + 1/n)
+]2π
+0
+= a1+1/n
+1 + 1/n
+(
+e2πi(1+1/n) − 1
+)
+.
+= na(n+1)/n
+n + 1
+(
+e2πi(n+1)/n − 1
+)
+.
+Keyhole path ABCD : This path goes from A (just above the cut at the outer radius)
+inward along the cut to B (near origin), around a small circle from B to C, then outward
+along the bottom of the cut from C to D.
+On the top of the cut ( θ = 0 +): z1/n = r1/n. On the bottom ( θ = 2π−): z1/n = r1/ne2πi/n.
+The small circle contribution vanishes as its radius → 0 (since |z1/n| = r1/n → 0).
+The keyhole integral:
+I2 =
+∫ 0
+a
+r1/n dr +
+∫ a
+0
+r1/ne2πi/n dr = (e2πi/n − 1)
+∫ a
+0
+r1/n dr = (e2πi/n − 1) na(n+1)/n
+n + 1 .
+Comparison: In general, I1 ̸= I2 because e2πi(n+1)/n − 1 ̸= e2πi/n − 1 in general.
+Should they agree? No, they should not agree in general. The two paths are not
+homotopic in the cut plane. The circular path C1 encloses the origin (the branch point),
+while the keyhole path does not (it runs along the cut). On the cut plane (a simply-connected
+domain), different paths between the same endpoints give the same integral only if they are
+homotopic. The circular path cannot be continuously deformed into the keyhole path without
+crossing the branch cut.
+However, the two results are related: their difference equals the integral around a closed
+contour encircling the branch point.
+1

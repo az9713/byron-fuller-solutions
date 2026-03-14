@@ -1,0 +1,51 @@
+Chapter 9, Problem 15
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Using Problem 9.14(a), show N (x, y; λ) = k(x, y)D(λ) + λ
+∫
+k(x, t)N (t, y; λ) dt and
+similarly from 9.14(b).
+(b) Define R(x, y; λ) = N (x, y; λ)/D(λ). Show that (I − λK)(I + λR) = I and (I +
+λR)(I − λK) = I, identifying R as the resolvent of K.
+Solution.
+(a) The two fundamental equations
+From Problem 9.14(a), expanding ∆n along the first row and summing the series, we estab-
+lished:
+N (x, y; λ) = k(x, y) D(λ) + λ
+∫ b
+a
+k(x, t) N (t, y; λ) dt. (I)
+From Problem 9.14(b), expanding along the first column:
+N (x, y; λ) = k(x, y) D(λ) + λ
+∫ b
+a
+N (x, t; λ) k(t, y) dt. (II)
+(b) Resolvent identification
+Define R(x, y; λ) = N (x, y; λ)/D(λ), assuming D(λ) ̸= 0.
+Dividing equation (I) by D(λ):
+R(x, y; λ) = k(x, y) + λ
+∫
+k(x, t) R(t, y; λ) dt.
+In operator notation, R = K + λKR, i.e., R − λKR = K, so:
+(I − λK)R = K =⇒ R = (I − λK)−1K.
+Now check: (I − λK)(I + λR) = I − λK + λR − λ2KR. Using R = K + λKR:
+λR = λK + λ2KR, (1)
+λR − λ2KR = λK. (2)
+Therefore:
+(I − λK)(I + λR) = I − λK + λK = I. ✓
+Similarly, dividing equation (II) by D(λ):
+R(x, y; λ) = k(x, y) + λ
+∫
+R(x, t; λ) k(t, y) dt,
+1
+
+i.e., R = K + λRK, so (I + λR)(I − λK) = I + λR − λK − λ2RK. Using λR = λK + λ2RK:
+(I + λR)(I − λK) = I + λK + λ2RK − λK − λ2RK = I. ✓
+Therefore I + λR(λ) is the two-sided inverse of I − λK, and R(λ) is the resolvent of K.
+The integral equation f = g + λKf can thus be solved as:
+f = (I − λK)−1g = g + λR(λ)g = g + λ
+∫ b
+a
+R(x, y; λ) g(y) dy,
+valid for all λ such that D(λ) ̸= 0 (i.e., λ is not a singular value of K). ■
+2

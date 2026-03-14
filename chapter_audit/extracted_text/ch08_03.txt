@@ -1,0 +1,104 @@
+Chapter 8, Problem 3. Minkowski’s Inequality.
+(a) Show that |f (x) + g(x)|p ≤ |f (x) + g(x)|p−1|f (x)| + |f (x) + g(x)|p−1|g(x)|, and hence
+that if f and g belong to Lp (the space of p-integrable functions), then so does f + g. Thus
+Lp is indeed a vector space.
+(b) Show that for p > 1,
+∫ b
+a
+|f + g|p dx ≤
+∫ b
+a
+|f + g|p−1|f | dx +
+∫ b
+a
+|f + g|p−1|g| dx,
+and that |f + g|p−1 belongs to Lq if f and g belong to Lp, where 1/p + 1/q = 1.
+(c) Apply Hölder’s inequality (see Problem 8.2) to each of the two integrals on the
+right-hand side of the inequality in part (b), and hence show that
+[∫ b
+a
+|f + g|p dx
+]1/p
+≤
+[∫ b
+a
+|f |p dx
+]1/p
++
+[∫ b
+a
+|g|p dx
+]1/p
+.
+This is Minkowski’s inequality.
+Solution.
+Part (a): By the triangle inequality,
+|f (x) + g(x)| ≤ | f (x)| + |g(x)|.
+Multiplying both sides by |f (x) + g(x)|p−1 ≥ 0:
+|f + g|p ≤ |f + g|p−1|f | + |f + g|p−1|g|.
+Now if f, g ∈ Lp, then |f |p and |g|p are integrable. Since |f + g| ≤ | f | + |g|:
+|f + g|p ≤ (|f | + |g|)p ≤ 2p max(|f |p, |g|p) ≤ 2p(|f |p + |g|p).
+Integrating shows
+∫
+|f + g|p dx < ∞, so f + g ∈ Lp. Hence Lp is closed under addition and
+is a vector space. ✓
+Part (b): Integrating the inequality from part (a):
+∫ b
+a
+|f + g|p dx ≤
+∫ b
+a
+|f + g|p−1|f | dx +
+∫ b
+a
+|f + g|p−1|g| dx.
+Now, since 1/p + 1/q = 1 implies q = p/(p − 1), we have (p − 1)q = p. Thus
+∫ b
+a
+(
+|f + g|p−1) q
+dx =
+∫ b
+a
+|f + g|p dx < ∞,
+since f + g ∈ Lp by part (a). Therefore |f + g|p−1 ∈ Lq. ✓
+Part (c): Apply Hölder’s inequality to each integral on the right:
+∫
+|f + g|p−1|f | dx ≤
+[∫
+|f |p dx
+]1/p [∫
+|f + g|(p−1)q dx
+]1/q
+= ∥f ∥p
+[∫
+|f + g|p dx
+]1/q
+,
+1
+
+and similarly ∫
+|f + g|p−1|g| dx ≤ ∥g∥p
+[∫
+|f + g|p dx
+]1/q
+.
+Combining: ∫
+|f + g|p dx ≤ (∥f ∥p + ∥g∥p)
+[∫
+|f + g|p dx
+]1/q
+.
+Dividing both sides by
+[∫
+|f + g|p dx
+]1/q
+(assuming it is nonzero; if zero, the result is trivial):
+[∫
+|f + g|p dx
+]1−1/q
+≤ ∥f ∥p + ∥g∥p.
+Since 1 − 1/q = 1/p:
+∥f + g∥p ≤ ∥f ∥p + ∥g∥p.
+This is Minkowski’s inequality, confirming that ∥ · ∥p defines a norm on Lp. ■
+2

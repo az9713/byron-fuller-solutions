@@ -1,0 +1,97 @@
+Chapter 7, Problem 27
+Problem:
+a) Show that the function
+G0(r, r′, t, t′) = − 1
+4π|r − r′| δ
+(
+t − t′ − |r − r′|/v
+)
+is indeed a Green’s function for the operator
+O = ∇2 − 1
+v2
+∂2
+∂t2 ,
+if G0 satisfies Eqs. (7.152) and (7.157).
+b) For the case of the wave equation, find an expression for G(r, r′, t, t′) analogous to the
+one for G given in Eq. (7.158).
+c) Find a solution to ϕ(r, t) = ϕ0(r, t) in terms of G0. Interpret the solution by analogy
+with Eq. (7.164).
+d) Show that 4πG0 is Lorentz-invariant scalar, where
+s2 = |r − r′|2 − v2(t − t′)2 = (x − x′)2 + (y − y′)2 + (z − z′)2 − v2(t − t′)2
+is the Lorentz-invariant interval.
+Solution:
+Part (a)
+We need to show (∇2 − v−2∂2
+t )G0 = δ3(r − r′)δ(t − t′).
+Write R = |r − r′| and τ = t − t′. Then:
+G0 = − 1
+4πR δ(τ − R/v).
+For the Laplacian, note that ∇2[
+f (R)/R
+]
+= f ′′(R)/R − 4πf (0)δ3(r − r′) for a spherically
+symmetric function.
+More carefully, define u = RG0 = − 1
+4π δ(τ − R/v). The wave equation in terms of u
+(using the standard radial identity ∇2(u/R) = u′′/R + delta terms):
+( ∂2
+∂R2 − 1
+v2
+∂2
+∂τ 2
+)
+u =
+( ∂2
+∂R2 − 1
+v2
+∂2
+∂τ 2
+) [
+− 1
+4π δ(τ − R/v)
+]
+.
+Since δ(τ − R/v) is a function of τ − R/v, it satisfies the one-dimensional wave equation:
+∂2
+∂R2 δ(τ − R/v) = 1
+v2 δ′′(τ − R/v) = 1
+v2
+∂2
+∂τ 2 δ(τ − R/v).
+So for R ̸= 0 , the wave equation is satisfied. At R = 0 , we get the delta function
+contribution from ∇2(1/R) = −4πδ 3(r − r′):
+(∇2 − v−2∂2
+t )G0 = δ3(r − r′)δ(τ ). ✓
+1
+
+Part (b)
+For the wave equation, the retarded Green’s function analogous to Eq. (7.158) is:
+GR(r, r′, t, t′) = − δ(t − t′ − |r − r′|/v)
+4π|r − r′| ,
+and the advanced Green’s function is:
+GA(r, r′, t, t′) = − δ(t − t′ + |r − r′|/v)
+4π|r − r′| .
+Part (c)
+The solution using the retarded Green’s function is:
+ϕ(r, t) = ϕ0(r, t) +
+∫
+d3r′
+∫
+dt′ GR(r, r′, t, t′) f (r′, t′),
+where f is the source. Performing the t′ integration:
+ϕ(r, t) = ϕ0(r, t) −
+∫ f (r′, [t])
+4π|r − r′| d3r′,
+where [t] = t − |r − r′|/v is the retarded time . This is the retarded potential solution: the
+field at (r, t) depends on sources at earlier times, accounting for the finite propagation speed
+v.
+Part (d)
+The Lorentz-invariant interval is s2 = R2 − v2τ 2. We can write:
+4πG0 = δ(τ − R/v)
+R = 2v δ(R2 − v2τ 2)
+R · R = 2v δ(s2) θ(τ ),
+using δ(τ −R/v) = R·2v δ(R2−v2τ 2) θ(τ ) (since δ(f (x)) = δ(x−x0)/|f ′(x0)| and R > 0, τ > 0
+on the light cone).
+Since s2 is Lorentz-invariant and θ(τ ) is invariant for time-like or light-like separations,
+4πG0 is a Lorentz scalar. ■
+2

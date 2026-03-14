@@ -1,0 +1,59 @@
+Chapter 9, Problem 11
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. By using Simpson’s rule, write a matrix expression to solve approximately
+g(x) = f (x) + λ
+∫ b
+a
+k(x, t) f (t) dt.
+Show that with 2n + 1 equally spaced points, the integral equation reduces to (I + λM D)f =
+g, where D is a diagonal weight matrix. Show how to treat the homogeneous problem and
+how to convert a symmetric kernel problem into a real symmetric matrix eigenvalue problem.
+Solution.
+(a) Simpson’s rule discretization
+Simpson’s rule approximates an integral over [a, b] using 2n + 1 equally spaced points x1 =
+a, x2, . . . , x2n+1 = b with spacing h = (b − a)/(2n):
+∫ b
+a
+F (t) dt ≈ h
+3
+[
+F (x1) + 4F (x2) + 2F (x3) + 4F (x4) + · · · + 4F (x2n) + F (x2n+1)
+]
+.
+The weights are: w1 = w2n+1 = h/3, w2j = 4 h/3 for j = 1 , . . . , n, and w2j+1 = 2 h/3 for
+j = 1, . . . , n− 1.
+Define the diagonal matrix D with Dii = wi. Evaluating the integral equation at the
+grid points:
+g(xi) = f (xi) + λ
+2n+1∑
+j=1
+k(xi, xj) f (xj) wj.
+In matrix form with f = ( f (x1), . . . , f(x2n+1))T , g = ( g(x1), . . . , g(x2n+1))T , and Mij =
+k(xi, xj):
+g = (I + λM D) f ,
+or equivalently f = (I + λM D)−1g, provided the inverse exists.
+(b) Homogeneous eigenvalue problem
+Setting g ≡ 0, the homogeneous equation λ
+∫
+k(x, t)ϕ(t) dt = ϕ(x) becomes:
+λM Dϕ = −ϕ, i.e., M Dϕ = − 1
+λ ϕ.
+This is a standard matrix eigenvalue problem: find the eigenvalues of M D. The eigen-
+values of A are then λn = −1/µn where µn are the eigenvalues of M D.
+Alternatively, multiplying by D1/2 from the left and inserting I = D−1/2D1/2:
+D1/2M D1/2(D1/2ϕ) = µ (D1/2ϕ).
+1
+
+(c) Symmetric kernel → real symmetric matrix
+If k(s, t) is real and symmetric ( k(s, t) = k(t, s)), then M is a real symmetric matrix ( Mij =
+Mji). However, M D is not symmetric in general since D is diagonal but not proportional to
+I.
+To obtain a symmetric eigenvalue problem, define D1/2 (the diagonal matrix of square
+roots of weights, all positive) and let ˜M = D1/2M D1/2. Then ˜M is real symmetric:
+˜Mij = √wi k(xi, xj) √wj = √wj k(xj, xi) √wi = ˜Mji.
+The eigenvalue problem becomes:
+˜M ˜ϕ = µ ˜ϕ, where ˜ϕ = D1/2ϕ.
+This is a standard real symmetric matrix eigenvalue problem, which can be solved by
+well-known numerical methods (Jacobi, QR, etc.). The original eigenvectors are recovered
+via ϕ = D−1/2 ˜ϕ. ■
+2

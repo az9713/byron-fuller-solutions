@@ -1,0 +1,121 @@
+Chapter 9, Problem 14
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Expand the determinant
+∆n =
+
+k(x, y) k(x, x1) · · · k(x, xn)
+k(x1, y) k(x1, x1) · · · k(x1, xn)
+... ... . . . ...
+k(xn, y) k(xn, x1) · · · k(xn, xn)
+
+by minors about its first row to show that
+Z b
+a
+· · ·
+Z b
+a
+∆n dx1 · · · dxn = k(x, y)
+Z
+· · ·
+Z
+∆′
+n−1 dx1 · · · dxn − other terms ,
+and therefore establish a recursion relation for N (x, y; λ).
+(b) By expanding ∆n about the first column, show a similar result.
+Solution.
+(a) Expansion along the first row
+Expanding ∆n along its first row:
+∆n = k(x, y) M00 − k(x, x1) M01 + k(x, x2) M02 − · · · + (−1)nk(x, xn) M0n,
+where M0j is the minor obtained by deleting the first row and the (j + 1)th column.
+Note that M00 is the n × n determinant:
+M00 =
+
+k(x1, x1) · · · k(x1, xn)
+... . . . ...
+k(xn, x1) · · · k(xn, xn)
+
+,
+which is precisely the determinant appearing in D(λ).
+Integrating over x1, . . . , xn:
+Z
+· · ·
+Z
+∆n dx1 · · · dxn = k(x, y)
+Z
+· · ·
+Z
+M00 dx1 · · · dxn+
+nX
+j=1
+(−1)j
+Z
+· · ·
+Z
+k(x, xj) M0j dx1 · · · dxn.
+The first integral
+R
+· · ·
+R
+M00 dx1 · · · dxn is exactly the nth coeﬀicient in D(λ) (up to
+factorial factors).
+For the remaining terms, by relabeling integration variables (since the xi are dummy
+variables), each term
+R
+· · ·
+R
+k(x, xj) M0j dx1 · · · dxn gives the same value. After accounting
+1
+
+for signs and the relabeling, all n terms contribute equally, giving a factor of n times a single
+such integral.
+The net result is the recursion:
+Z
+· · ·
+Z
+∆n dx1 · · · dxn = k(x, y) · Dn − n
+Z
+k(x, t)
+Z
+· · ·
+Z
+∆′
+n−1(t, y) dx2 · · · dxn
+
+dt,
+where Dn =
+R
+· · ·
+R
+M00 dx1 · · · dxn and ∆′
+n−1(t, y) is the (n − 1)-variable version of the
+determinant with t replacing the role of x1.
+Multiplying by (−λ)n/n! and summing, this gives:
+N (x, y; λ) = k(x, y) D(λ) + λ
+Z b
+a
+k(x, t) N (t, y; λ) dt .
+(b) Expansion along the first column
+Similarly, expanding ∆n along its first column:
+∆n = k(x, y) M00 − k(x1, y) M10 + k(x2, y) M20 − · · ·
+By the same argument (relabeling dummy integration variables), integrating over x1, . . . , xn
+yields:
+Z
+· · ·
+Z
+∆n dx1 · · · dxn = k(x, y) · Dn − n
+Z Z
+· · ·
+Z
+∆′
+n−1(x, t) dx2 · · · dxn
+
+k(t, y) dt.
+Summing the series gives:
+N (x, y; λ) = k(x, y) D(λ) + λ
+Z b
+a
+N (x, t; λ) k(t, y) dt .
+This is the companion equation to the one derived in part (a), with the kernel appearing
+on the other side of N . ■
+2

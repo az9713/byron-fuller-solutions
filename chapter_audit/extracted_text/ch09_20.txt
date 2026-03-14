@@ -1,0 +1,67 @@
+Chapter 9, Problem 20
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Extend the Fredholm method to square-integrable kernels by noting that:
+(a) We can always modify k(x, s) so that ˜k(x, a) = 0 on the diagonal without changing
+solutions.
+(b) Define a modified Fredholm determinant ˜D(λ) by replacing diagonal entries k(xi, xi)
+with zero.
+Solution.
+(a) Modifying the kernel on the diagonal
+The diﬀiculty with extending the Fredholm method to square-integrable (but not continuous)
+kernels is that terms like
+R
+k(x, x) dx may not exist—the diagonal {(x, x)} is a set of measure
+zero in [a, b]2, and modifying a function on a set of measure zero does not change its L2
+properties.
+By Problem 9.2, modifying k(x, t) on a set of measure zero does not change the integral
+operator K. The diagonal {(x, t) : x = t} is a one-dimensional curve in [a, b]2 and has
+two-dimensional Lebesgue measure zero. Therefore, we can define:
+˜k(x, t) =
+(
+k(x, t) if x ̸= t,
+0 if x = t,
+and the integral operator with kernel ˜k is identical to K on L2[a, b].
+All solutions of f = g + λKf are unchanged (as L2 functions), so there is no loss in
+assuming k(x, x) = 0 .
+(b) Modified Fredholm determinant
+With ˜k(x, x) = 0 , define the modified Fredholm determinant by:
+˜D(λ) =
+∞X
+n=0
+(−λ)n
+n!
+˜dn,
+where ˜dn is the same integral as dn but with the determinant ˜∆n obtained by replacing each
+diagonal entry k(xi, xi) by zero:
+˜∆n =
+
+0 k(x1, x2) · · · k(x1, xn)
+k(x2, x1) 0 · · · k(x2, xn)
+... ... . . . ...
+k(xn, x1) k(xn, x2) · · · 0
+
+.
+1
+
+The crucial point is that ˜∆n involves only off-diagonal values of k, so the integrals
+˜dn =
+R
+· · ·
+R ˜∆n dx1 · · · dxn are well-defined for any L2 kernel. Hadamard’s inequality still
+applies:
+| ˜∆n|2 ≤
+nY
+i=1
+X
+j̸=i
+|k(xi, xj)|2,
+and the convergence proof of Problem 9.13 carries through with the L2 norm ∥k∥2
+L2 =RR
+|k(x, t)|2 dx dt replacing the supremum norm.
+Similarly, the modified numerator ˜N (x, y; λ) is defined with zeros on the diagonal in
+the appropriate places. The resolvent ˜R = ˜N / ˜D satisfies the same equations as before
+(Problems 9.14–9.16), and provides the solution to f = g + λKf for all λ where ˜D(λ) ̸= 0.
+This extension, due essentially to Carleman, allows the Fredholm theory to handle all
+square-integrable kernels, including Green’s function kernels of the form G(x, t)/w(t) which
+may have singularities on the diagonal. ■
+2

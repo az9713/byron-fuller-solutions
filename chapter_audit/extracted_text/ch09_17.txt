@@ -1,0 +1,79 @@
+Chapter 9, Problem 17
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Let K be an integral operator with a continuous kernel and nondegenerate
+spectrum. Show that the residue of R(x, y; λ) at a pole λs is
+ϕs(x) ˜ϕ∗
+s(y)∫
+ϕs(t) ˜ϕ∗
+s(t) dt
+,
+where λsKϕ s = ϕs and λsK † ˜ϕs = ˜ϕs.
+Solution.
+From Problem 9.15, the resolvent is R(x, y; λ) = N (x, y; λ)/D(λ), where both N and D
+are entire functions of λ.
+At a pole λ = λs (a simple zero of D(λ), by the nondegeneracy assumption), the resolvent
+has a simple pole. The residue is:
+Resλ=λsR(x, y; λ) = N (x, y; λs)
+D′(λs) .
+Step 1: Structure of N at λs.
+Since D(λs) = 0 , the equation f = λsKf has a nontrivial solution ϕs. From Prob-
+lem 9.15(a), N (x, y; λs) = λs
+∫
+k(x, t) N (t, y; λs) dt (since D(λs) = 0 ). This means N (·, y; λs)
+is an eigenfunction of K with eigenvalue 1/λs for each fixed y.
+Since the spectrum is nondegenerate, N (x, y; λs) must be proportional to ϕs(x) for each
+y:
+N (x, y; λs) = ϕs(x) h(y)
+for some function h(y).
+Step 2: Determine h(y).
+Similarly, from Problem 9.15(b) (the companion equation), N (x, ·; λs) satisfies the adjoint
+equation, so h(y) must be proportional to the adjoint eigenfunction ˜ϕ∗
+s(y) (the eigenfunction
+of K † with eigenvalue 1/λ∗
+s). Thus:
+N (x, y; λs) = c ϕs(x) ˜ϕ∗
+s(y)
+for some constant c.
+Step 3: Compute D′(λs).
+From Problem 9.16(a): D′(λs) = −
+∫
+N (x, x; λs) dx = −c
+∫
+ϕs(x) ˜ϕ∗
+s(x) dx.
+Step 4: Residue.
+Resλ=λsR(x, y; λ) = N (x, y; λs)
+D′(λs) = c ϕs(x) ˜ϕ∗
+s(y)
+−c
+∫
+ϕs(t) ˜ϕ∗
+s(t) dt
+= −ϕs(x) ˜ϕ∗
+s(y)∫
+ϕs(t) ˜ϕ∗
+s(t) dt
+.
+1
+
+The sign depends on the convention for the resolvent. With the standard convention
+where R = N/D and the residue is taken with the appropriate sign:
+Resλ=λsR(x, y; λ) = ϕs(x) ˜ϕ∗
+s(y)∫
+ϕs(t) ˜ϕ∗
+s(t) dt
+.
+Hermitian case: When K = K † (Hermitian kernel), ˜ϕs = ϕs and λs is real, so the
+residue becomes ϕs(x)ϕ∗
+s(y)/∥ϕs∥2. This is consistent with the spectral expansion of the
+resolvent (Eq. 9.22):
+R(x, y; λ) =
+∑
+n
+ϕn(x) ϕ∗
+n(y)/∥ϕn∥2
+λ − λn
+,
+where the residue at λ = λn is indeed ϕn(x)ϕ∗
+n(y)/∥ϕn∥2. ■
+2

@@ -1,0 +1,66 @@
+Chapter 8, Problem 8. Using the result of Problem 7.10, show that if we have a
+potential V (x) in one dimension which vanishes outside the interval (−a, 2L), then, if we
+denote the wave function in the region [−a, −a/2] by ψ(x), the wave function in the region
+[−a/2, a/2] by ψ(x), and the wave function in [a/2, a] by ψ(x), then, calling E = ℏ2k2/2m
+where E > 0 is the energy of the particle and m is its mass:
+ψ(x) = eikx +
+∫ a
+−a
+G(x, x′)V (x′)ψ(x′) dx′
+where G is the free-particle Green’s function. Thus we see that in order to determine the
+wave function in the region where the potential doesn’t act, we need only know the wave
+function in the region where the potential does act.
+Show that the nth term in the iteration of this equation is less than (mV a/ℏk)n in
+magnitude; so the iteration will converge if mV a/(ℏ2k) < 1. Since ∆k = mV /(2πℏ2)...
+Solution.
+Consider one-dimensional scattering with a potential V (x) that vanishes outside [−a, a].
+The Lippmann–Schwinger equation is:
+ψ(x) = eikx +
+∫ a
+−a
+G0(x, x′)V (x′)ψ(x′) dx′,
+where G0(x, x′) = im
+kℏ2 eik|x−x′| is the one-dimensional free-particle outgoing Green’s function
+(from Problem 7.10), and k =
+√
+2mE/ℏ.
+Convergence of the Born series:
+The n-th iterate of the Born series is:
+ψ(n)(x) =
+∫
+· · ·
+∫ n∏
+j=1
+G0(xj−1, xj)V (xj) dxj · eikxn,
+where x0 = x. We estimate:
+|G0(x, x′)| = m
+ℏ2k |eik|x−x′|| = m
+ℏ2k .
+Assuming |V (x′)| ≤ V0 (maximum value of potential) over the interval of length 2a:
+|ψ(n)| ≤
+( m
+ℏ2k
+) n
+V n
+0 (2a)n =
+( 2mV0a
+ℏ2k
+) n
+.
+Therefore the n-th Born term is bounded by:
+( mV0a
+ℏ2k
+) n
+(absorbing numerical factors), and the Born series converges when:
+mV0a
+ℏ2k < 1.
+1
+
+This means convergence is guaranteed when the kinetic energy is large enough relative
+to the potential strength times the range, i.e., for suﬀiciently high-energy scattering. Note
+that this is only a suﬀicient condition; the Born series may converge even when this criterion
+is not strictly satisfied.
+Since outside the potential region V (x) = 0 , the integral only extends over [−a, a]. Thus
+to find ψ(x) for |x| > a , we only need to know ψ in the region where V ̸= 0 . The wave
+function outside is completely determined by the integral over the potential region. ■
+2

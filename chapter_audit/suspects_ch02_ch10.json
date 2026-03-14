@@ -1,0 +1,254 @@
+[
+  {
+    "file": "ch02\\ch02_07.pdf",
+    "flags": [
+      {
+        "type": "artifact_let_us_be_careful",
+        "detail": "let us be more careful"
+      }
+    ]
+  },
+  {
+    "file": "ch03\\ch03_14.pdf",
+    "flags": [
+      {
+        "type": "very_short_solution",
+        "detail": "473"
+      }
+    ]
+  },
+  {
+    "file": "ch03\\ch03_27.pdf",
+    "flags": [
+      {
+        "type": "very_short_solution",
+        "detail": "496"
+      }
+    ]
+  },
+  {
+    "file": "ch04\\ch04_03.pdf",
+    "flags": [
+      {
+        "type": "artifact_cannot",
+        "detail": "i cannot"
+      }
+    ]
+  },
+  {
+    "file": "ch05\\ch05_07.pdf",
+    "flags": [
+      {
+        "type": "artifact_let_us_be_careful",
+        "detail": "let us be more careful"
+      }
+    ]
+  },
+  {
+    "file": "ch06\\ch06_08.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=6,file=8"
+      }
+    ]
+  },
+  {
+    "file": "ch07\\ch07_05.pdf",
+    "flags": [
+      {
+        "type": "artifact_let_us_be_careful",
+        "detail": "let us be more careful"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_03.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=2,file=3"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_07.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=10,file=7"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_08.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=10,file=8"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_10.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=61,file=10"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_17.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=16,file=17"
+      }
+    ]
+  },
+  {
+    "file": "ch08\\ch08_21.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=2,file=21"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_07.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=6,file=7"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_08.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=6,file=8"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_15.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=14,file=15"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_16.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=13,file=16"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_17.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=15,file=17"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_19.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=13,file=19"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_20.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=2,file=20"
+      }
+    ]
+  },
+  {
+    "file": "ch09\\ch09_21.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=20,file=21"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_12.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=1,file=12"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_14.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=2,file=14"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_16.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=3,file=16"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_18.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=4,file=18"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_19.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=16,file=19"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_20.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=18,file=20"
+      }
+    ]
+  },
+  {
+    "file": "ch10\\ch10_24.pdf",
+    "flags": [
+      {
+        "type": "problem_number_mismatch",
+        "detail": "header=23,file=24"
+      }
+    ]
+  }
+]

@@ -1,0 +1,117 @@
+Chapter 7, Problem 21
+Problem: Determine the Green’s function, G(x, y; x′, y′), for the homogeneous heat equation
+for the entire xy-plane (i.e., the two-dimensional Green’s function for an infinite plane).
+Assume that at t = 0 the temperature is a constant T0 inside a square of side 2a,
+centered at the origin, and zero outside this square. Determine the temperature distribution
+throughout the plane for all later times t in terms of the error function:
+erf(a) = 2√π
+∫ a
+0
+e−s2
+ds.
+Solution:
+Two-dimensional heat kernel: The heat equation is ∂T /∂t = k∇2T . The Green’s
+function on the infinite plane is the product of two one-dimensional kernels:
+G(x, y, t; x′, y′, 0) = 1
+4πkt exp
+(
+− (x − x′)2 + (y − y′)2
+4kt
+)
+.
+Temperature evolution: The solution is:
+T (x, y, t) =
+∫ ∫
+R2
+G(x, y, t; x′, y′, 0) T (x′, y′, 0) dx′ dy′.
+With T (x′, y′, 0) = T0 for |x′| < a and |y′| < a, zero otherwise:
+T (x, y, t) = T0
+4πkt
+∫ a
+−a
+∫ a
+−a
+exp
+(
+− (x − x′)2 + (y − y′)2
+4kt
+)
+dx′ dy′.
+The double integral factors:
+T (x, y, t) = T0
+4πkt
+[∫ a
+−a
+e−(x−x′)2/(4kt) dx′
+][∫ a
+−a
+e−(y−y′)2/(4kt) dy′
+]
+.
+For the x′-integral, substitute s = (x′ − x)/
+√
+4kt:
+∫ a
+−a
+e−(x−x′)2/(4kt) dx′ =
+√
+4kt
+∫ (a−x)/
+√
+4kt
+(−a−x)/
+√
+4kt
+e−s2
+ds.
+Using
+∫ β
+α e−s2
+ds =
+√π
+2
+[
+erf(β)−erf(α)
+]
+(extending erf to negative arguments via erf(−x) =
+−erf(x)):
+∫ a
+−a
+e−(x−x′)2/(4kt) dx′ =
+√
+πkt
+[
+erf
+( a − x√
+4kt
+)
++ erf
+( a + x√
+4kt
+)]
+.
+Similarly for the y′-integral. Therefore:
+T (x, y, t) = T0
+4
+[
+erf
+( a − x√
+4kt
+)
++ erf
+( a + x√
+4kt
+)][
+erf
+( a − y√
+4kt
+)
++ erf
+( a + y√
+4kt
+)]
+.
+Check: At t = 0 , erf(∞) = 1 and erf(−∞) = −1. For |x| < a : both arguments are
++∞, giving 1 + 1 = 2 ; similarly for y. So T = T0(2)(2)/4 = T0. For |x| > a : one argument
+is +∞ and the other −∞, giving 1 − 1 = 0 . ✓ ■
+1

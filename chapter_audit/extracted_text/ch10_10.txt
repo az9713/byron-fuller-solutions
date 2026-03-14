@@ -1,0 +1,166 @@
+Chapter 10, Problem 10
+Problem.
+a) By direct calculation, show that
+∇2 = ∂2
+∂x2 + ∂2
+∂y 2 + ∂2
+∂z 2
+is invariant under rotation through the Euler angles α, β and γ. To refresh your
+memory about Euler angles, see Section 1.4. [Hint: Note that the most general rotation
+is built up from three simpler rotations.]
+b) Determine how the three components of the quantum mechanical angular momentum
+[see Eqs. (5.86)] transform under the group of rotations about the z-axis.
+Solution.
+Part (a):
+A general rotation specified by Euler angles (α, β, γ) is built up from three successive
+rotations:
+1. Rotation by α about the z-axis
+2. Rotation by β about the new y′-axis (or the line of nodes)
+3. Rotation by γ about the new z′′-axis
+It suﬀices to show ∇2 is invariant under each of these. By symmetry it is enough to show
+invariance under a rotation about one axis, say the z-axis by angle θ.
+Under rotation about the z-axis by angle θ:
+x′ = x cos θ + y sin θ, y ′ = −x sin θ + y cos θ, z ′ = z.
+By the chain rule:
+∂
+∂x = cos θ ∂
+∂x′ − sin θ ∂
+∂y ′ , ∂
+∂y = sin θ ∂
+∂x′ + cos θ ∂
+∂y ′ , ∂
+∂z = ∂
+∂z ′ .
+Computing:
+∂2
+∂x2 = cos 2 θ ∂2
+∂x′2 − 2 sin θ cos θ ∂2
+∂x′∂y ′ + sin2 θ ∂2
+∂y ′2 ,
+∂2
+∂y 2 = sin 2 θ ∂2
+∂x′2 + 2 sin θ cos θ ∂2
+∂x′∂y ′ + cos2 θ ∂2
+∂y ′2 .
+Adding:
+∂2
+∂x2 + ∂2
+∂y 2 = (cos 2 θ + sin2 θ) ∂2
+∂x′2 + (sin2 θ + cos2 θ) ∂2
+∂y ′2 = ∂2
+∂x′2 + ∂2
+∂y ′2 .
+1
+
+Therefore:
+∇2 = ∂2
+∂x2 + ∂2
+∂y 2 + ∂2
+∂z 2 = ∂2
+∂x′2 + ∂2
+∂y ′2 + ∂2
+∂z ′2 = ∇′2.
+The same argument applies to rotations about the y-axis (with x and z mixing while y
+is fixed). Since the general rotation is a product of three such rotations, and the Laplacian
+is invariant under each, it is invariant under the general rotation. □
+Part (b):
+The quantum mechanical angular momentum components are:
+Lx = −iℏ
+(
+y ∂
+∂z − z ∂
+∂y
+)
+, L y = −iℏ
+(
+z ∂
+∂x − x ∂
+∂z
+)
+, L z = −iℏ
+(
+x ∂
+∂y − y ∂
+∂x
+)
+.
+Under a rotation by angle θ about the z-axis:
+x′ = x cos θ + y sin θ, y ′ = −x sin θ + y cos θ, z ′ = z.
+Expressing in primed coordinates:
+x = x′ cos θ − y′ sin θ,
+y = x′ sin θ + y′ cos θ,
+z = z′.
+And the partial derivatives transform as:
+∂
+∂x′ = cos θ ∂
+∂x + sin θ ∂
+∂y ,
+∂
+∂y ′ = − sin θ ∂
+∂x + cos θ ∂
+∂y ,
+∂
+∂z ′ = ∂
+∂z .
+Now compute how Lx and Ly transform. In the rotated frame:
+L′
+x = −iℏ
+(
+y′ ∂
+∂z ′ − z′ ∂
+∂y ′
+)
+,
+L′
+y = −iℏ
+(
+z′ ∂
+∂x′ − x′ ∂
+∂z ′
+)
+,
+L′
+z = −iℏ
+(
+x′ ∂
+∂y ′ − y′ ∂
+∂x′
+)
+.
+Substituting back to the unprimed variables:
+L′
+x = cos θ Lx + sin θ Ly,
+L′
+y = − sin θ Lx + cos θ Ly,
+L′
+z = Lz.
+2
+
+In matrix form: 
+
+L′
+x
+L′
+y
+L′
+z
+
+ =
+
+
+cos θ sin θ 0
+− sin θ cos θ 0
+0 0 1
+
+
+
+
+Lx
+Ly
+Lz
+
+ .
+The angular momentum components transform as a vector (i.e., they transform under
+the same rotation matrix that acts on the coordinates). In particular, Lz is invariant under
+rotations about the z-axis, while Lx and Ly mix among themselves.
+3

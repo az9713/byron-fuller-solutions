@@ -1,0 +1,89 @@
+Chapter 10, Problem 16
+Problem. Find the characters and irreducible representations of the group discussed in
+Problem 10.3.
+[Hint: For the two-dimensional representation, the result of Problem 10.15 may be useful.]
+Solution.
+The group from Problem 3 is D4 (the dihedral group of order 8). Its 8 elements fall into
+5 conjugacy classes:
+C1 = {e},
+C2 = {r, r3} (rotations by 90◦, 270◦),
+C3 = {r2} (rotation by 180◦),
+C4 = {σ1, σ2} (reflections through edge midpoints ),
+C5 = {σd, σd′} (reflections through diagonals ).
+With 5 classes, there are 5 irreducible representations. Since ∑ n2
+i = 8 and ni ≥ 1,
+the only solution is 12 + 1 2 + 1 2 + 1 2 + 2 2 = 8 . So there are four 1-dimensional and one
+2-dimensional irreducible representations.
+One-dimensional representations:
+Each 1D representation is a homomorphism D4 → { 1, −1} (since elements have finite
+order). Since r4 = e, we need D(r)4 = 1, and for 1D real representations D(r) = ±1.
+If D(r) = 1 : then D(r2) = 1 . The reflections satisfy σ2 = e, so D(σ) = ±1.
+If D(r) = −1: then D(r2) = 1 , D(r3) = −1. Again D(σ) = ±1.
+The constraint from the group structure rσ1 = σdr (i.e., the reflections are related by ro-
+tations) gives D(r)D(σ1) = D(σd)D(r), so if D(r) = 1 then D(σ1) = D(σd) is unconstrained;
+but the relation rσ1r−1 = σ2 means D(σ1) = D(σ2) and rσdr−1 = σd′ means D(σd) = D(σd′).
+The four 1D representations are:
+C1 C2 C3 C4 C5
+{e} { r, r3} { r2} { σ1, σ2} { σd, σd′}
+Γ1 1 1 1 1 1
+Γ2 1 1 1 −1 −1
+Γ3 1 −1 1 1 −1
+Γ4 1 −1 1 −1 1
+Two-dimensional representation:
+Using orthogonality of characters to find χ(5). Let χ(5) = (2, a, b, c, d) for classes C1, . . . ,C5.
+Orthogonality with Γ1: 1 · 2 + 2 · a + 1 · b + 2 · c + 2 · d = 0 = ⇒ 2a + b + 2c + 2d = −2.
+Orthogonality with Γ2: 2 + 2a + b − 2c − 2d = 0 = ⇒ 2a + b = 2c + 2d − 2.
+From these two: 4c + 4d = 0, so d = −c. Then 2a + b = −2.
+Orthogonality with Γ3: 2 − 2a + b + 2c − 2d = 0 = ⇒ − 2a + b + 4c = −2.
+Combined with 2a + b = −2: −4a + 4c = 0, so c = a, hence d = −a.
+From 2a + b = −2: b = −2 − 2a.
+1
+
+Normalization: 1 · 4 + 2a2 + (2 + 2a)2 + 2a2 + 2a2 = 8.
+4 + 2a2 + 4 + 8a + 4a2 + 2a2 + 2a2 = 8 = ⇒ 10a2 + 8a = 0 = ⇒ a(10a + 8) = 0 .
+So a = 0 or a = −4/5. Since the dimension is 2 and |χ(g)| ≤ 2, we need |b| = |−2 − 2a| ≤ 2.
+For a = 0: b = −2, c = 0, d = 0. Check: | − 2| = 2 ≤ 2. ✓
+The character table is:
+{e} { r, r3} { r2} { σ1, σ2} { σd, σd′}
+1 2 1 2 2
+Γ1 1 1 1 1 1
+Γ2 1 1 1 −1 −1
+Γ3 1 −1 1 1 −1
+Γ4 1 −1 1 −1 1
+Γ5 2 0 −2 0 0
+Explicit 2D representation matrices:
+The natural 2D representation comes from the action of D4 on the plane. With r =
+rotation by 90◦ and σ1 = reflection through the x-axis:
+D(r) =
+( 0 −1
+1 0
+)
+, D (r2) =
+( −1 0
+0 −1
+)
+, D (r3) =
+( 0 1
+−1 0
+)
+,
+D(σ1) =
+( 1 0
+0 −1
+)
+, D (σ2) =
+( −1 0
+0 1
+)
+,
+D(σd) =
+( 0 1
+1 0
+)
+, D (σd′) =
+( 0 −1
+−1 0
+)
+.
+One can verify these traces match the character table above.
+2

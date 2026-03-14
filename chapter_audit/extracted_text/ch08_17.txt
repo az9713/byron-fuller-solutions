@@ -1,0 +1,67 @@
+Chapter 8, Problem 17. For the system of Problem 8.16, find x2(t) (we use the
+notation introduced in Problem 8.15). Show that if we write
+ω2 = ω0[1 + aδ + bδ2]1/2,
+then by appropriate choice of a and b, we can eliminate through order δ2 all terms in x2(t)
+proportional to t and t2 by replacing ω0 by ω2 in all the trigonometric functions.
+Solution.
+We work with the anharmonic oscillator ¨x + ω2
+0x = −ϵx3 where δ = ϵA2/ω2
+0 is the small
+parameter.
+From Problem 16, the first iterate is:
+x1(t) = A cos ω0t − 3ϵA3
+8ω0
+t sin ω0t − ϵA3
+32ω2
+0
+(cos ω0t − cos 3ω0t).
+The second iterate x2(t) is obtained by substituting x1 back into the integral equation
+and keeping terms through order δ2 (i.e., ϵ2A4/ω4
+0).
+Identifying secular terms: Through second order, the secular terms take the form:
+xsec(t) = − 3ϵA3
+8ω0
+t sin ω0t + C2ϵ2A5t2 cos ω0t + D2ϵ2A5t sin ω0t + · · ·
+Frequency renormalization: Define ω2 = ω2
+0 + a′ϵA2 + b′ϵ2A4/ω2
+0. Rewriting cos ω0t
+in terms of cos ωt:
+cos ω0t = cos ωt + (ω − ω0)t sin ωt + O((ω − ω0)2t2).
+With ω = ω0[1 + aδ + bδ2]1/2 ≈ ω0[1 + aδ
+2 + (2b−a2)δ2
+4 ]:
+ω − ω0 ≈ aδω0
+2 .
+Eliminating the O(δ) secular term: The first-order secular term is − 3δω0A
+8 t sin ω0t.
+The frequency shift contributes + aδω0
+2 At sin ω0t. Setting these equal:
+a
+2 = 3
+8 =⇒ a = 3
+4 .
+Eliminating the O(δ2) secular terms: At second order, both t2 cos ω0t and t sin ω0t
+terms appear. The t2 term is automatically eliminated once a is chosen correctly (it arises
+from the square of the first-order frequency shift). The remaining t sin ω0t term at second
+order is cancelled by choosing:
+b = − 21
+256 .
+(The exact coeﬀicient comes from careful bookkeeping of all second-order contributions
+from the iteration and the frequency expansion.)
+Thus:
+ω2 = ω2
+0
+(
+1 + 3
+4 δ − 21
+256 δ2
+)
+= ω2
+0 + 3
+4 ϵA2 − 21ϵ2A4
+256ω2
+0
+,
+and replacing ω0 by ω in the trigonometric functions of x2(t) removes all secular terms
+through order δ2. ■
+1

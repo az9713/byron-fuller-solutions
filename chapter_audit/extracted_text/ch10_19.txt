@@ -1,0 +1,98 @@
+Chapter 10, Problem 19
+Problem. Suppose that we have a linear operator with cubic symmetry, and we apply
+a small perturbation having the symmetry of a rectangular parallelepiped. Making use of
+the results of Problem 10.16 and the work of Section 10.8, find how the various possible
+degenerate states of cubic symmetry break up when this perturbation is applied.
+Solution.
+The cubic symmetry group is O (order 24) with 5 irreducible representations of dimen-
+sions 1, 1, 2, 3, 3 (denoted Γ1, Γ2, Γ3, Γ4, Γ5 following the text’s convention from the character
+table (10.91)).
+The symmetry of a rectangular parallelepiped (with square top/bottom) is D4 (order
+8), which is a subgroup of O. From Problem 16, D4 has 5 irreducible representations of
+dimensions 1, 1, 1, 1, 2 (call them Γ′
+1, Γ′
+2, Γ′
+3, Γ′
+4, Γ′
+5).
+To find how levels split, we must determine how each irreducible representation of O
+decomposes when restricted to the subgroup D4. This is done by comparing characters.
+Character table of O (from Eq. (10.91)):
+O C1 C2 C3 C4 C5
+1 6 3 8 6
+Γ1 1 1 1 1 1
+Γ2 1 −1 1 1 −1
+Γ3 2 0 2 −1 0
+Γ4 3 1 −1 0 −1
+Γ5 3 −1 −1 0 1
+We identify which elements of O belong to D4. Taking D4 as the subgroup preserving
+the z-axis (square cross-section in xy-plane), the 8 elements of D4 within O are:
+• From C1: e (1 element)
+• From C2: Rz(±90◦) (2 elements)
+• From C3: Rz(180◦) (1 element)
+• From C5: Rx(180◦), Ry(180◦) (2 elements from the face-diagonal class — actually these
+are 180 ◦ about axes in the xy-plane)
+• From C3: Rx(180◦), Ry(180◦) (2 more from edge-midpoint axes)
+More carefully, the 8 elements of D4 ⊂ O consist of:
+• e
+• C4, C3
+4 (90◦ and 270 ◦ about z) — from C2 of O
+• C 2
+4 (180◦ about z) — from C3
+• C x
+2 , Cy
+2 (180◦ about x, y axes) — from C3 of O
+1
+
+• C d1
+2 , Cd2
+2 (180◦ about face diagonals in xy-plane) — from C5 of O
+Now we restrict each O-representation to these 8 elements and decompose using the D4
+character table from Problem 16. The restricted characters on the 5 classes of D4 are:
+For Γ1 of O: (1, 1, 1, 1, 1) → Γ′
+1 of D4.
+For Γ2: characters at D4 elements: e → 1, C4 → −1, C 2
+4 → 1, C x,y
+2 → 1, face diag → −1.
+This is Γ′
+3.
+For Γ3 (2D): e → 2, C4 → 0, C 2
+4 → 2, C x,y
+2 → 2, face diag → 0. Decomposing:
+ai = 1
+8
+∑ gjχ′∗
+j χj.
+Using D4 character table: this gives Γ′
+1 + Γ ′
+3 (no splitting of 2D level — it splits into
+1 + 1).
+For Γ4 (3D): e → 3, C4 → 1, C 2
+4 → − 1, C x,y
+2 → − 1, face diag → − 1. Decomposing:
+Γ′
+4 + Γ′
+5 (splits into 1 + 2).
+For Γ5 (3D): e → 3, C4 → − 1, C 2
+4 → − 1, C x,y
+2 → − 1, face diag → 1. Decomposing:
+Γ′
+2 + Γ′
+5 (splits into 1 + 2).
+Summary of splittings:
+Γ1 of O (1-fold) → Γ′
+1 (no splitting )
+Γ2 of O (1-fold) → Γ′
+3 (no splitting )
+Γ3 of O (2-fold) → Γ′
+1 + Γ′
+3 (splits into 1 + 1)
+Γ4 of O (3-fold) → Γ′
+4 + Γ′
+5 (splits into 1 + 2)
+Γ5 of O (3-fold) → Γ′
+2 + Γ′
+5 (splits into 1 + 2)
+The twofold degenerate level splits into two nondegenerate levels. Each threefold degen-
+erate level splits into a nondegenerate level and a twofold degenerate level.
+2

@@ -1,0 +1,34 @@
+Chapter 8, Problem 24. Show that by defining addition and scalar multiplication
+in the obvious way, we can construct a Banach space out of the set of all bounded, linear
+operators on B. This proof can be patterned directly on the proof given in the previous
+problem (for bounded linear functionals). Again, the completeness of the underlying space
+B is the key ingredient in the proof.
+Solution.
+Let B(B) denote the set of all bounded linear operators on the Banach space B.
+Vector space structure: Define for A, C ∈ B (B), α ∈ C, and f ∈ B:
+• (A + C)f = Af + Cf ,
+• (αA)f = α(Af ).
+A + C is linear: (A + C)(αf + βg) = A(αf + βg) +C(αf + βg) = α(A + C)f + β(A + C)g.
+A + C is bounded: ∥(A + C)f ∥ ≤ ∥ Af ∥ + ∥Cf ∥ ≤ (∥A∥ + ∥C∥)∥f ∥, so ∥A + C∥ ≤
+∥A∥ + ∥C∥.
+Similarly αA is bounded with ∥αA∥ = |α|∥A∥. The zero operator is the additive identity.
+All vector space axioms are readily verified. ✓
+Norm properties: The operator norm ∥A∥ = sup ∥f ∥=1 ∥Af ∥ satisfies:
+1. ∥A∥ ≥ 0; ∥A∥ = 0 iff Af = 0 for all f , i.e., A = 0.
+2. ∥αA∥ = |α|∥A∥.
+3. ∥A + C∥ ≤ ∥ A∥ + ∥C∥ (triangle inequality, shown above). ✓
+Completeness: Let {An} be a Cauchy sequence in B(B): ∥An − Am∥ → 0.
+Step 1: For each f ∈ B, {Anf } is Cauchy in B:
+∥Anf − Amf ∥ = ∥(An − Am)f ∥ ≤ ∥ An − Am∥∥f ∥ → 0.
+Since B is complete, Anf converges. Define Af = lim n→∞ Anf .
+Step 2: A is linear:
+A(αf + βg) = lim An(αf + βg) = α lim Anf + β lim Ang = αAf + βAg.
+Step 3: A is bounded: {An} is Cauchy hence {∥An∥} is bounded by some M . Then
+∥Af ∥ = lim ∥Anf ∥ ≤ M ∥f ∥.
+Step 4: An → A in operator norm: For ε > 0, take N such that ∥An − Am∥ < ε for
+n, m > N . For ∥f ∥ = 1:
+∥Anf − Amf ∥ < ε.
+Letting m → ∞: ∥Anf − Af ∥ ≤ ε for all ∥f ∥ = 1. Hence ∥An − A∥ ≤ ε for n > N .
+Therefore B(B) is a Banach space. The proof is exactly parallel to Problem 23, with the
+completeness of B playing the essential role in Step 1. ■
+1

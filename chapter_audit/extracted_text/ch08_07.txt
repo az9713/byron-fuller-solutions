@@ -1,0 +1,70 @@
+Chapter 8, Problem 7.
+(a) Suppose that we have an attractive δ-function potential in one dimension, V (x) =
+−P δ(x). Using the result of Problem 7.10, show that this potential will support one and
+only one bound state, no matter how large P may be. Determine the binding energy and
+wave function of this state.
+(b) Suppose that particles of positive energy E are incident on a δ-function potential,
+V (x) = P δ(x), in one dimension. What fraction of the particles is transmitted through the
+potential barrier and what fraction is reflected?
+Solution.
+Part (a): For a δ-function potential V (x) = −P δ(x) with P > 0 (attractive), the
+time-independent Schrödinger equation in one dimension is:
+− ℏ2
+2m
+d2ψ
+dx2 − P δ(x)ψ = Eψ.
+For a bound state, E = −EB < 0. Define κ = √2mEB/ℏ. Away from x = 0:
+ψ′′ = κ2ψ,
+giving ψ(x) = Ae−κ|x| (normalizable solution).
+Integrating the Schrödinger equation across x = 0:
+− ℏ2
+2m [ψ′(0+) − ψ′(0−)] − P ψ(0) = 0 .
+With ψ′(0+) = −κA and ψ′(0−) = κA:
+− ℏ2
+2m (−2κA) = P A =⇒ κ = mP
+ℏ2 .
+This gives exactly one bound state with energy:
+EB = ℏ2κ2
+2m = mP 2
+2ℏ2 ,
+and normalized wave function:
+ψ(x) = √κ e−κ|x| =
+√
+mP
+ℏ2 e−mP |x|/ℏ2
+.
+Since the matching condition gives a unique κ, there is exactly one bound state regardless
+of the value of P .
+Part (b): For scattering with V (x) = P δ(x) and incident energy E > 0, let k =√
+2mE/ℏ. The wave function is:
+ψ(x) =
+{
+eikx + Re−ikx, x < 0,
+T eikx, x > 0.
+1
+
+Continuity at x = 0: 1 + R = T .
+Discontinuity of derivative (integrating across x = 0):
+− ℏ2
+2m [ikT − ik(1 − R)] + P T = 0,
+− ℏ2
+2m ik(T − 1 + R) = −P T.
+Using T = 1 + R:
+− ℏ2
+2m ik(2R) = −P (1 + R) = ⇒ − iℏ2kR/m = −P (1 + R).
+Solving:
+R = −P
+P + iℏ2k/m = −mP
+mP + iℏ2k .
+T = 1 + R = iℏ2k
+mP + iℏ2k .
+The transmission and reflection coeﬀicients:
+|T |2 = ℏ4k2
+m2P 2 + ℏ4k2 = 1
+1 + m2P 2/(ℏ4k2) = 1
+1 + mP 2/(2ℏ2E) ,
+|R|2 = m2P 2
+m2P 2 + ℏ4k2 = 1
+1 + 2ℏ2E/(mP 2) .
+One can verify |R|2 + |T |2 = 1. ■
+2

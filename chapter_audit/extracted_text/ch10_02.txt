@@ -1,0 +1,66 @@
+Chapter 10, Problem 2
+Problem. Consider the group built up from the unit matrix and the Pauli spin matrices.
+The elements of this group are ±I, ±iσx, ±iσy, and ±iσz, where
+σx =
+(0 1
+1 0
+)
+, σ y =
+(0 −i
+i 0
+)
+, σ z =
+(1 0
+0 −1
+)
+.
+What is the multiplication table? Find all subgroups and classes. Are there any invariant
+subgroups?
+Solution.
+The eight elements of the group are:
+G = {I, −I, iσx, −iσx, iσy, −iσy, iσz, −iσz}.
+For brevity, denote these as {e, ¯e, a, ¯a, b,¯b, c, ¯c} where ¯g = −g.
+The key multiplication rules come from the Pauli matrix algebra:
+σxσy = iσz, σ yσz = iσx, σ zσx = iσy,
+and σ2
+j = I for j = x, y, z. Therefore:
+(iσx)2 = −I, (iσy)2 = −I, (iσz)2 = −I,
+(iσx)(iσy) = −σxσy = −iσz, (iσy)(iσx) = −σyσx = iσz.
+Multiplication Table (using e, ¯e, a, ¯a, b,¯b, c, ¯c):
+e ¯e a ¯a b ¯b c ¯c
+e e ¯e a ¯a b ¯b c ¯c
+¯e ¯e e ¯a a ¯b b ¯c c
+a a ¯a ¯e e ¯c c b ¯b
+¯a ¯a a e ¯e c ¯c ¯b b
+b b ¯b c ¯c ¯e e ¯a a
+¯b ¯b b ¯c c e ¯e a ¯a
+c c ¯c ¯b b a ¯a ¯e e
+¯c ¯c c b ¯b ¯a a e ¯e
+Subgroups:
+By Lagrange’s theorem, proper subgroups of a group of order 8 must have order 2 or 4.
+Order 2: {e, ¯e} = {I, −I}. This is the only subgroup of order 2 (since ¯e is the only
+element of order 2).
+Order 4:
+H1 = {e, ¯e, a, ¯a} = {I, −I, iσx, −iσx},
+H2 = {e, ¯e, b,¯b} = {I, −I, iσy, −iσy},
+H3 = {e, ¯e, c, ¯c} = {I, −I, iσz, −iσz}.
+1
+
+Each is isomorphic to the cyclic group Z4.
+Conjugacy Classes:
+Since −I commutes with everything, {−I} is its own class. For the others, we compute,
+e.g.:
+(iσy)(iσx)(iσy)−1 = (iσy)(iσx)(−iσy) = −iσx.
+So iσx and −iσx are conjugate. Similarly for the others.
+The five conjugacy classes are:
+{e}, {¯e}, {a, ¯a}, {b, ¯b}, {c, ¯c}.
+Invariant Subgroups:
+A subgroup is invariant (normal) if it is a union of complete conjugacy classes. Since the
+classes are {e}, {¯e}, {a, ¯a}, {b, ¯b}, {c, ¯c}:
+• {e, ¯e} is invariant (union of {e} and {¯e}, order 2 divides 8). ✓
+• H1 = {e, ¯e, a, ¯a} is invariant (union of {e}, {¯e}, {a, ¯a}). ✓
+• H2 = {e, ¯e, b,¯b} is invariant. ✓
+• H3 = {e, ¯e, c, ¯c} is invariant. ✓
+All four proper nontrivial subgroups are invariant. This group is known as the quater-
+nion group Q8.
+2

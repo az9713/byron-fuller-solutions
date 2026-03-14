@@ -1,0 +1,39 @@
+Chapter 10, Problem 14
+Problem. Show that any 2 × 2 matrix which commutes with the three Pauli matrices given
+in Problem 10.2 must be a multiple of the unit matrix.
+[Hint: Show that any 2 × 2 matrix can be written as a linear combination of the unit matrix
+and the Pauli matrices.]
+Solution.
+Step 1: Any 2 × 2 matrix can be written as a linear combination of I, σx, σy, σz.
+Let M =
+(a b
+c d
+)
+be an arbitrary 2 × 2 matrix. We write M = α0I + α1σx + α2σy + α3σz:
+α0I + α1σx + α2σy + α3σz =
+( α0 + α3 α1 − iα2
+α1 + iα2 α0 − α3
+)
+.
+Matching entries:
+α0 = a + d
+2 , α 3 = a − d
+2 , α 1 = b + c
+2 , α 2 = c − b
+2i .
+So {I, σx, σy, σz} forms a basis for all 2 × 2 complex matrices.
+Step 2: If M commutes with all three Pauli matrices, then α1 = α2 = α3 = 0.
+We use the commutation relations [σi, σj] = 2 iϵijkσk. Since I commutes with everything,
+[M, σj] = α1[σx, σj] + α2[σy, σj] + α3[σz, σj].
+Commute with σx:
+[M, σx] = α2[σy, σx] + α3[σz, σx] = α2(−2iσz) + α3(2iσy) = 0 .
+Since σy and σz are linearly independent: α3 = 0 and α2 = 0.
+Commute with σy:
+[M, σy] = α1[σx, σy] = α1(2iσz) = 0 = ⇒ α1 = 0.
+Therefore M = α0I, i.e., M is a multiple of the unit matrix. □
+Remark: This is an instance of Schur’s lemma . The three Pauli matrices together with
+I form a representation of the quaternion group (Problem 2). The set {σx, σy, σz} gener-
+ates (via the group in Problem 2) a two-dimensional irreducible representation. By Schur’s
+lemma, any matrix commuting with all elements of an irreducible representation must be a
+scalar multiple of the identity.
+1

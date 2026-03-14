@@ -1,0 +1,109 @@
+Chapter 6, Problem 38. Prove the integral representation for the Hermite polynomi-
+als:
+Hn(x) = 2n
+√π
+∫ ∞
+−∞
+(x + it)ne−t2
+dt.
+Use this result to derive an explicit series for the Hermite polynomials:
+Hn(x) = n!
+⌊n/2⌋∑
+m=0
+(−1)m(2x)n−2m
+m!(n − 2m)! .
+Solution.
+Part 1: Prove the integral representation.
+Consider the integral In =
+∫ ∞
+−∞(x + it)ne−t2
+dt.
+Expand using the binomial theorem:
+(x + it)n =
+n∑
+k=0
+( n
+k
+)
+xn−k(it)k.
+In =
+n∑
+k=0
+( n
+k
+)
+xn−kik
+∫ ∞
+−∞
+tke−t2
+dt.
+The integral
+∫ ∞
+−∞ tke−t2
+dt = 0 for k odd (by symmetry), and for k = 2m:
+∫ ∞
+−∞
+t2me−t2
+dt = (2m)!
+4mm!
+√π =
+√π (2m − 1)!!
+2m .
+More precisely:
+∫ ∞
+−∞ t2me−t2
+dt = (2m)!
+22mm!
+√π.
+So:
+In =
+⌊n/2⌋∑
+m=0
+( n
+2m
+)
+xn−2mi2m (2m)!√π
+22mm! = √π
+⌊n/2⌋∑
+m=0
+n!(−1)mxn−2m
+(2m)!(n − 2m)! · (2m)!
+4mm! .
+= √π
+⌊n/2⌋∑
+m=0
+(−1)mn! xn−2m
+(n − 2m)! 4mm! .
+Now multiply by 2n/√π:
+2n
+√π In =
+⌊n/2⌋∑
+m=0
+(−1)mn! (2x)n−2m
+(n − 2m)! m! · xn−2m
+xn−2m · 2n
+4m · 2n−2m
+Wait, let me redo: 2n
+√π · √π · (−1)mn! xn−2m
+(n−2m)! 4mm! = (−1)mn! 2nxn−2m
+(n−2m)! 4mm! .
+And 2n
+4m = 2n
+22m = 2 n−2m, so each term is (−1)mn! (2x)n−2m
+(n−2m)! m! .
+Therefore:
+2n
+√π In = n!
+⌊n/2⌋∑
+m=0
+(−1)m(2x)n−2m
+m!(n − 2m)! = Hn(x). ✓
+1
+
+Part 2: The explicit series follows directly from the computation above:
+Hn(x) = n!
+⌊n/2⌋∑
+m=0
+(−1)m(2x)n−2m
+m!(n − 2m)! .
+2

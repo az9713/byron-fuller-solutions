@@ -1,0 +1,72 @@
+Chapter 7, Problem 8
+Problem: Show that the Green’s function for the differential operator
+f0(x) dnu
+dxn + f1(x) dn−1u
+dxn−1 + · · · + fn(x) u = g(x)
+is given by
+G(x, x′) =
+n∑
+k=1
+uk(x) ∆k(x′)
+f0(x′) W (x′) ,
+where W (x′) is defined as in the previous problem and
+∆k(x′) = ( −1)n+k Mk(x′),
+Mk(x′) being the minor obtained by deleting the kth column and last row from W (x′).
+The uk(x′) are determined by the boundary conditions the Green’s function must satisfy.
+As in Problem 7, u1, u2, . . . , un are the linearly independent solutions of the homogeneous
+equation.
+Solution:
+We construct the Green’s function using the method of variation of parameters. The
+Green’s function satisfies:
+LxG(x, x′) = δ(x − x′),
+where L is the differential operator.
+For x ̸= x′, G satisfies the homogeneous equation, so we can write:
+G(x, x′) =
+n∑
+k=1
+ck(x′) uk(x).
+The coeﬀicients ck(x′) are piecewise constant (different for x < x ′ and x > x ′). At x = x′,
+the Green’s function must satisfy jump conditions:
+1. G and its first (n − 2) derivatives are continuous at x = x′:
+[ ∂mG
+∂xm
+]x=x′+
+x=x′−
+= 0, m = 0, 1, . . . , n− 2.
+2. The (n − 1)th derivative has a jump:
+[ ∂n−1G
+∂xn−1
+]x=x′+
+x=x′−
+= 1
+f0(x′) .
+These n conditions can be written as the system:
+n∑
+k=1
+∆ck · u(m)
+k (x′) =
+{
+0, m = 0, 1, . . . , n− 2,
+1/f0(x′), m = n − 1,
+1
+
+where ∆ck = c+
+k − c−
+k is the jump in the coeﬀicient across x = x′.
+By Cramer’s rule, the solution to this system is:
+∆ck = (−1)n+k Mk(x′)
+f0(x′) W (x′) = ∆k(x′)
+f0(x′) W (x′) ,
+where Mk(x′) is the minor of the element in the nth row and kth column of the Wronskian
+determinant, since the right-hand side vector is (0, 0, . . . ,0, 1/f0(x′)).
+The particular solution (Green’s function) for the causal case ( G = 0 for x < x ′, i.e., all
+c−
+k = 0) gives:
+G(x, x′) =
+n∑
+k=1
+uk(x) ∆k(x′)
+f0(x′) W (x′) for x > x ′.
+More generally, with boundary conditions determining how to split the coeﬀicients, the
+Green’s function takes the form stated. ■
+2

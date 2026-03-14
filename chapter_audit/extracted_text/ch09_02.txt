@@ -1,0 +1,56 @@
+Chapter 9, Problem 2
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Show that if we modify k(s, t) on a set of measure zero in the plane, then the
+resulting kernel ˜k(s, t) has essentially the same eigenvectors and eigenvalues as k(s, t), and
+the solution to the integral equation
+f (x) = g(x) + λ
+∫
+k(x, t) f (t) dt
+is essentially the same as the solution to the corresponding equation with ˜k. What is meant
+by “essentially” in the above statement?
+Solution.
+Meaning of “essentially”: Two functions that differ only on a set of measure zero are
+equal as elements of L2. That is, they are in the same equivalence class. “Essentially the
+same” means “equal almost everywhere,” i.e., equal as elements of L2.
+Proof: Let ˜k(s, t) = k(s, t) except on a set E ⊂ [a, b] × [a, b] of (two-dimensional
+Lebesgue) measure zero. Define the difference kernel δk(s, t) = ˜k(s, t) − k(s, t). Then
+δk(s, t) = 0 for all (s, t) /∈ E, i.e., δk = 0 almost everywhere on [a, b]2.
+Consider the integral operator δK with kernel δk:
+(δKf )(x) =
+∫ b
+a
+δk(x, t) f (t) dt.
+For any f ∈ L2[a, b], we have by the Cauchy–Schwarz inequality:
+|(δKf )(x)|2 ≤
+∫ b
+a
+|δk(x, t)|2 dt ·
+∫ b
+a
+|f (t)|2 dt = ∥f ∥2
+∫ b
+a
+|δk(x, t)|2 dt.
+Therefore:
+∥δKf ∥2 =
+∫ b
+a
+|(δKf )(x)|2 dx ≤ ∥f ∥2
+∫ b
+a
+∫ b
+a
+|δk(x, t)|2 dx dt = ∥f ∥2 · ∥δk∥2
+L2.
+Since δk = 0 a.e. on [a, b]2, we have ∥δk∥2
+L2 = 0 . Therefore ∥δKf ∥ = 0 for all f , which
+means δK = 0 as an operator on L2.
+Thus ˜K = K +δK = K as operators on L2. Since the two integral operators are identical
+as operators on L2:
+1. They have the same eigenvalues.
+2. Their eigenvectors are the same (as elements of L2, i.e., equal a.e.).
+3. The solutions to f = g + λKf and f = g + λ ˜Kf are the same as elements of L2.
+In summary, modifying the kernel on a set of measure zero does not change the operator
+at all in L2, so all spectral properties and solutions are preserved. The word “essentially”
+refers to equality in the L2 sense (equality almost everywhere). ■
+1

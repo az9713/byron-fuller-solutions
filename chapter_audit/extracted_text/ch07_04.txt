@@ -1,0 +1,158 @@
+Chapter 7, Problem 4
+Problem: Show that the Green’s function of Eq. (7.33) satisfies Eq. (7.36).
+Solution:
+From the text, Eq. (7.33) gives the Green’s function for the operator L = −d2/dx2 on
+the interval [a, b] satisfying appropriate boundary conditions as:
+G(x, x′) = 2
+L
+∞∑
+n=1
+sin(nπx/L) sin( nπx′/L)
+(nπ/L)2 ,
+where L = b − a and we work on [0, L] for simplicity. This is the eigenfunction expansion of
+the Green’s function with eigenfunctions ϕn(x) =
+√
+2/L sin(nπx/L) and eigenvalues λn =
+(nπ/L)2.
+Eq. (7.36) states:
+G(x, x′) = (x<)(L − x>)
+L ,
+where x< = min(x, x′) and x> = max(x, x′). This is the closed-form expression for the same
+Green’s function.
+To verify, we must show the Fourier series equals the closed form. The function f (x) =
+(x<)(L − x>)/L for fixed x′ is:
+f (x) =
+{
+x(L − x′)/L, 0 ≤ x ≤ x′,
+x′(L − x)/L, x ′ ≤ x ≤ L.
+This function vanishes at x = 0 and x = L, so expand in the sine series:
+f (x) =
+∞∑
+n=1
+bn sin nπx
+L ,
+where
+bn = 2
+L
+∫ L
+0
+f (x) sin nπx
+L dx.
+Split the integral:
+bn = 2
+L
+[
+L − x′
+L
+∫ x′
+0
+x sin nπx
+L dx + x′
+L
+∫ L
+x′
+(L − x) sin nπx
+L dx
+]
+. (1)
+Using integration by parts,
+∫ x′
+0 x sin(nπx/L) dx:
+=
+[
+− xL
+nπ cos nπx
+L
+]x′
+0
++ L
+nπ
+∫ x′
+0
+cos nπx
+L dx = − x′L
+nπ cos nπx′
+L + L2
+n2π2 sin nπx′
+L .
+Similarly,
+∫ L
+x′ (L − x) sin(nπx/L) dx:
+=
+[
+− (L − x)L
+nπ cos nπx
+L
+]L
+x′
+− L
+nπ
+∫ L
+x′
+cos nπx
+L dx
+1
+
+= (L − x′)L
+nπ cos nπx′
+L + L2
+n2π2 sin nπx′
+L − L2
+n2π2 sin(nπ).
+Since sin(nπ) = 0 , combining:
+bn = 2
+L
+[
+L − x′
+L
+(
+− x′L
+nπ cos nπx′
+L + L2
+n2π2 sin nπx′
+L
+)
+(2)
++ x′
+L
+( (L − x′)L
+nπ cos nπx′
+L + L2
+n2π2 sin nπx′
+L
+) ]
+. (3)
+The cosine terms cancel:
+(L − x′)(−x′L)
+Lnπ + x′(L − x′)L
+Lnπ = (L − x′)x′L(−1 + 1)
+Lnπ = 0.
+The sine terms combine:
+bn = 2
+L · L2
+n2π2 sin nπx′
+L
+[ L − x′
+L + x′
+L
+]
+= 2L
+n2π2 sin nπx′
+L .
+Therefore:
+G(x, x′) =
+∞∑
+n=1
+2L
+n2π2 sin nπx′
+L sin nπx
+L · 1
+L = 2
+L
+∞∑
+n=1
+sin(nπx/L) sin(nπx′/L)
+(nπ/L)2 ,
+which matches Eq. (7.33). Thus the eigenfunction expansion (7.33) and the closed form
+(7.36) agree. ■
+2

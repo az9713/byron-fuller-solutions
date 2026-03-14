@@ -1,0 +1,127 @@
+Chapter 8, Problem 13. Consider the differential equation
+x′′(t) + ω2
+0x(t) = 0
+for a damped harmonic oscillator.
+(a) Show that if x(0) = a0 and x′(0) = 0 , then x(t) satisfies the integral equation
+x(t) = a0 cos ω0t − 1
+2ω0
+∫ t
+0
+sin ω0(t − s) [−γ x′(s)] ds
+(where we are really considering x′′ + γx′ + ω2
+0x = 0).
+(b) Iterate this equation a few times and show that your results agree with the exact
+result expanded to the appropriate order.
+(c) Show that x(t) as given by Eq. (8.45) satisfies the requirement that energy be con-
+served through order ϵ where ϵ = γ/ω0 ≪ 1. That is, show that
+d
+dt
+[ 1
+2 ˙x2 + 1
+2 ω2
+0x2
+]
+= −γ ˙x2 + O(ϵ2),
+where ( ˙ )denotes terms of order ϵ2 and higher.
+Solution.
+The damped harmonic oscillator equation is:
+x′′ + γx′ + ω2
+0x = 0.
+We rewrite this as:
+x′′ + ω2
+0x = −γx′.
+Part (a): The Green’s function for the operator d2/dt2 + ω2
+0 with causal boundary
+conditions is:
+G(t, s) = 1
+ω0
+sin[ω0(t − s)] θ(t − s).
+The homogeneous solution satisfying x(0) = a0, x′(0) = 0 is xh(t) = a0 cos ω0t. Using the
+Green’s function:
+x(t) = a0 cos ω0t +
+∫ t
+0
+1
+ω0
+sin[ω0(t − s)](−γx′(s)) ds.
+This gives:
+x(t) = a0 cos ω0t − γ
+ω0
+∫ t
+0
+sin[ω0(t − s)] x′(s) ds.
+Part (b): Iteration.
+Zeroth order: x0(t) = a0 cos ω0t, so x′
+0(t) = −a0ω0 sin ω0t.
+First iteration:
+x1(t) = a0 cos ω0t + γa0ω0
+ω0
+∫ t
+0
+sin[ω0(t − s)] sin(ω0s) ds
+= a0 cos ω0t + γa0
+∫ t
+0
+sin[ω0(t − s)] sin(ω0s) ds.
+1
+
+Using sin A sin B = 1
+2 [cos(A − B) − cos(A + B)]:
+∫ t
+0
+sin[ω0(t − s)] sin(ω0s) ds = 1
+2
+∫ t
+0
+[cos(ω0t − 2ω0s) − cos(ω0t)] ds.
+= 1
+2
+[
+− sin(ω0t − 2ω0s)
+2ω0
+] t
+0
+− t
+2 cos ω0t
+= 1
+4ω0
+[sin ω0t + sin ω0t] − t
+2 cos ω0t = sin ω0t
+2ω0
+− t
+2 cos ω0t.
+So:
+x1(t) = a0 cos ω0t + γa0
+[ sin ω0t
+2ω0
+− t
+2 cos ω0t
+]
+.
+Comparison with exact solution: The exact solution is x(t) = a0e−γt/2 cos(ω′t) where
+ω′ =
+√
+ω2
+0 − γ2/4. Expanding to first order in γ:
+x(t) ≈ a0(1 − γt/2) cos ω0t + O(γ2) = a0 cos ω0t − γa0t
+2 cos ω0t + · · ·
+The γ sin ω0t
+2ω0
+term is from the frequency shift ω′ ≈ ω0, appearing at O(γ2) in the energy. The
+iteration agrees to first order. ✓
+Part (c): The energy is E = 1
+2 ˙x2 + 1
+2 ω2
+0x2. From the equation of motion:
+dE
+dt = ˙x¨x + ω2
+0x ˙x = ˙x(¨x + ω2
+0x) = ˙x(−γ ˙x) = −γ ˙x2.
+This is exact. Using the zeroth-order approximation ˙x0 = −a0ω0 sin ω0t:
+dE
+dt = −γa2
+0ω2
+0 sin2 ω0t + O(γ2).
+The energy dissipation is correctly captured through order ϵ = γ/ω0, with corrections of
+order ϵ2. ■
+2

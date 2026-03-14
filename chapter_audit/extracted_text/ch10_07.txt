@@ -1,0 +1,21 @@
+Chapter 10, Problem 7
+Problem. Let {123 · · · l} be a cycle of length l. Prove that if λ < l then {123 · · · l}λ ̸= e,
+while {123 · · · l}l = e.
+Solution.
+Let σ = (1 2 3 · · · l) be the l-cycle. This permutation acts as σ(k) = k + 1 for
+k = 1 , . . . , l − 1 and σ(l) = 1 . In general, σ(k) = k + 1 (mod l) (with representatives in
+{1, 2, . . . , l}).
+Claim 1: σλ(k) = k + λ (mod l) for all k.
+Proof by induction on λ:
+Base case: σ1(k) = k + 1 (mod l). ✓
+Inductive step: Assume σλ(k) = k + λ (mod l). Then
+σλ+1(k) = σ(σλ(k)) = σ(k + λ (mod l)) = ( k + λ) + 1 (mod l) = k + (λ + 1) (mod l). ✓
+Claim 2: σl = e.
+Using Claim 1: σl(k) = k + l ≡ k (mod l) for all k ∈ { 1, . . . , l}. Therefore σl is the
+identity. □
+Claim 3: If 1 ≤ λ < l , then σλ ̸= e.
+Using Claim 1: σλ(1) = 1 + λ (mod l). Since 1 ≤ λ < l , we have 1 + λ ̸≡ 1 (mod l)
+(because λ ̸≡ 0 (mod l)). Therefore σλ(1) ̸= 1, which means σλ ̸= e. □
+Together, these results show that the l-cycle (1 2 3 · · · l) has order exactly l in the
+symmetric group.
+1

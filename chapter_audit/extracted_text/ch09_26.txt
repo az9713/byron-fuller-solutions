@@ -1,0 +1,72 @@
+Chapter 9, Problem 26
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Suppose that {ϕn} and {ψm} are sequences of step functions and that ϕn → f
+and ψm → g. Show that for any step functions ϕ and ψ:
+(V ϕ, ψ) = ⟨ϕ, U ψ⟩, (V ϕ, V ψ) = ⟨ϕ, ψ⟩, (U ϕ, U ψ) = ⟨ϕ, ψ⟩.
+Then show that {V ϕn} and {U ψm} converge to limits V f and U g, and (V f, g) = ⟨f, U g⟩.
+This completes the proof of Theorem 9.11.
+Solution.
+This problem concerns extending the Fourier transform operators U and V from step
+functions to all of L2, thereby completing the proof that the Fourier transform defines a
+unitary transformation on Hilbert space (Theorem 9.11).
+Step 1: Properties on step functions
+For step functions, U and V are defined by the Fourier transform and its inverse. The three
+identities are consequences of the Parseval–Plancherel theorem for step functions:
+(i) (V ϕ, V ψ) = ⟨ϕ, ψ⟩:
+For step functions ϕ, ψ, V ϕ and V ψ are their Fourier transforms (or inverse transforms).
+By Parseval’s theorem (which holds for step functions by direct computation):
+∫ ∞
+−∞
+(V ϕ)(x) (V ψ)(x) dx =
+∫ ∞
+−∞
+ϕ(y) ψ(y) dy.
+Thus (V ϕ, V ψ) = ⟨ϕ, ψ⟩. □
+(ii) (U ϕ, U ψ) = ⟨ϕ, ψ⟩: Same argument with U in place of V . □
+(iii) (V ϕ, ψ) = ⟨ϕ, U ψ⟩:
+This is the adjoint relation. By definition of V and U as Fourier transform/inverse:
+(V ϕ, ψ) =
+∫
+(V ϕ)(x) ψ(x) dx =
+∫ [ 1√
+2π
+∫
+ϕ(y) e−ixy dy
+]
+ψ(x) dx (1)
+=
+∫
+ϕ(y)
+[ 1√
+2π
+∫
+ψ(x) e−ixy dx
+]
+dy =
+∫
+ϕ(y) (U ψ)(y) dy = ⟨ϕ, U ψ⟩, (2)
+where we exchanged the order of integration (justified for step functions) and used (U ψ)(y) =
+1√
+2π
+∫
+ψ(x) eixy dx. □
+Step 2: Extension to L2
+Since ϕn → f in L2, and V is an isometry on step functions ( ∥V ϕ∥ = ∥ϕ∥):
+∥V ϕn − V ϕm∥ = ∥ϕn − ϕm∥ → 0 as n, m → ∞.
+So {V ϕn} is a Cauchy sequence in L2. Since L2 is complete, V ϕn → V f for some V f ∈ L2.
+This defines V f for all f ∈ L2.
+Similarly, U ψm → U g for some U g ∈ L2.
+1
+
+Step 3: The identity (V f, g) = ⟨f, U g⟩
+For step functions, (V ϕn, ψm) = ⟨ϕn, U ψm⟩. Taking limits:
+• Left side: V ϕn → V f and ψm → g in L2, so (V ϕn, ψm) → (V f, g) (inner product is
+continuous).
+• Right side: ϕn → f and U ψm → U g, so ⟨ϕn, U ψm⟩ → ⟨ f, U g⟩.
+Therefore:
+(V f, g) = ⟨f, U g⟩ for all f, g ∈ L2 .
+Similarly, from (V ϕn, V ϕm) = ⟨ϕn, ϕm⟩, taking limits gives (V f, V g) = ⟨f, g⟩, proving V
+is an isometry on all of L2. The same holds for U . Since V † = U (from (V f, g) = ( f, U g))
+and both are isometries, U and V are unitary transformations. This completes the proof of
+Theorem 9.11. ■
+2

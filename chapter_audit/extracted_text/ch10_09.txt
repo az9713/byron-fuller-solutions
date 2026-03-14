@@ -1,0 +1,29 @@
+Chapter 10, Problem 9
+Problem. Show that the group G′ of the previous problem is isomorphic to the factor group
+G/H, where H is as defined in the previous problem.
+Solution.
+This is the First Isomorphism Theorem (also called the Fundamental Theorem of
+Homomorphisms).
+Let ϕ : G → G′ be a surjective homomorphism with kernel H = ker( ϕ). We showed in
+Problem 8 that H is a normal subgroup of G. The factor group G/H consists of cosets gH
+for g ∈ G.
+Define the map ψ : G/H → G′ by:
+ψ(gH ) = ϕ(g).
+Step 1: ψ is well-defined.
+If g1H = g2H, then g−1
+2 g1 ∈ H, so ϕ(g−1
+2 g1) = e′. Therefore:
+ϕ(g2)−1ϕ(g1) = e′ =⇒ ϕ(g1) = ϕ(g2).
+So ψ(g1H) = ψ(g2H), and ψ is well-defined.
+Step 2: ψ is a homomorphism.
+ψ(g1H · g2H) = ψ(g1g2H) = ϕ(g1g2) = ϕ(g1)ϕ(g2) = ψ(g1H) ψ(g2H).
+Step 3: ψ is injective.
+If ψ(gH ) = e′, then ϕ(g) = e′, so g ∈ H, which means gH = H (the identity element of
+G/H). Therefore ker(ψ) = {H}, and ψ is injective.
+Step 4: ψ is surjective.
+For any g′ ∈ G′, since ϕ is surjective, there exists g ∈ G with ϕ(g) = g′. Then ψ(gH ) =
+ϕ(g) = g′.
+Since ψ is a bijective homomorphism, it is an isomorphism:
+G/H ∼= G′.
+□
+1

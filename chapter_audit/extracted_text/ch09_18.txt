@@ -1,0 +1,60 @@
+Chapter 9, Problem 18
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Show that if k(x, y) = |ψ(x)|2ψ∗(y) (a rank-1 kernel... actually k(x, y) =
+ψ(x)ψ∗(y)), then the Fredholm method reduces to D(λ) = 1 − λ
+R
+|ψ(t)|2 dt, N (x, y; λ) =
+k(x, y), and all higher terms vanish. Show this leads to a solution of f = g + λKf in
+agreement with Eq. (8.57).
+Solution.
+Fredholm series for a rank-1 kernel
+Let k(x, y) = ψ(x)ψ∗(y). This is a rank-1 (separable) kernel.
+Fredholm determinant D(λ):
+The first-order term is:
+d1 =
+Z
+k(x, x) dx =
+Z
+|ψ(x)|2 dx = ∥ψ∥2.
+The second-order term involves:
+d2 =
+Z Z 
+k(x1, x1) k(x1, x2)
+k(x2, x1) k(x2, x2)
+ dx1 dx2.
+Computing the determinant:
+k(x1, x1)k(x2, x2) − k(x1, x2)k(x2, x1) (1)
+= |ψ(x1)|2|ψ(x2)|2 − ψ(x1)ψ∗(x2)ψ(x2)ψ∗(x1) (2)
+= |ψ(x1)|2|ψ(x2)|2 − |ψ(x1)|2|ψ(x2)|2 = 0. (3)
+So d2 = 0 . Similarly, all n × n determinants with n ≥ 2 vanish because the matrix Kn
+with entries k(xi, xj) = ψ(xi)ψ∗(xj) has rank 1, so its determinant is zero for n ≥ 2.
+Therefore:
+D(λ) = 1 − λ∥ψ∥2 .
+Fredholm numerator N (x, y; λ):
+N0(x, y) = k(x, y) = ψ(x)ψ∗(y).
+For n ≥ 1, Nn involves an (n+1)×(n+1) determinant where the first row/column involves
+(x, y) and the remaining n rows/columns form a rank-1 matrix. The full (n + 1) × (n + 1)
+matrix also has rank at most 2 (from the outer product structure), and in fact all the n × n
+minors needed vanish for n ≥ 1 by the same rank argument.
+Therefore:
+N (x, y; λ) = k(x, y) = ψ(x)ψ∗(y) .
+1
+
+Solution of the integral equation
+The resolvent is:
+R(x, y; λ) = N (x, y; λ)
+D(λ) = ψ(x)ψ∗(y)
+1 − λ∥ψ∥2 .
+The solution to f = g + λKf is:
+f (x) = g(x) + λ
+Z
+R(x, y; λ) g(y) dy = g(x) + λ ψ(x)
+1 − λ∥ψ∥2
+Z
+ψ∗(y) g(y) dy.
+This can be written as:
+f (x) = g(x) + λ (ψ, g)
+1 − λ∥ψ∥2 ψ(x) ,
+which agrees with the standard result for separable kernels (Eq. 8.57). The solution exists
+for all λ ̸= 1/∥ψ∥2. ■
+2

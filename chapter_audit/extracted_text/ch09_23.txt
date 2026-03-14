@@ -1,0 +1,81 @@
+Chapter 9, Problem 23
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Calculate the second Born approximation to the s-wave scattering amplitude,
+F0(p1), defined by Eqs. (9.112) and (9.113). Compare this result with the curves of Figs. 9.4,
+9.5, and 9.6 and make any comments which seem appropriate.
+Solution.
+The s-wave (l = 0) scattering amplitude in the notation of the text (Eqs. 9.112, 9.113) is
+related to the partial-wave amplitude via the integral equation. The first Born approximation
+gives a real F (1)
+0 .
+The second Born approximation adds the term involving the iterated kernel:
+F (2)
+0 (p1) = F (1)
+0 (p1) + ∆F0(p1),
+where ∆F0 is the second-order correction.
+For the Yukawa potential V (r) = g2e−µr/r with dimensionless variables p1 = q1/µ (mo-
+mentum in units of inverse range), the s-wave kernel involves j0(x) = sin x/x, so:
+First Born:
+F (1)
+0 (p1) = − 2mg2
+ℏ2µ
+∫ ∞
+0
+sin2(p1u)
+p2
+1u e−u du,
+where u = µr.
+This integral evaluates to:
+F (1)
+0 = − mV0
+ℏ2µ · 1
+2p2
+1
+ln(1 + 4p2
+1),
+using the standard result
+∫ ∞
+0
+sin2(ax)
+x e−x dx = 1
+4 ln(1 + 4a2).
+Second Born: The correction involves a double integral with the Green’s function
+G0(r, r′) = −q1 r< [n0(q1r>) + ij0(q1r>)]/r r′ (for l = 0, j0(x) = sin x/x, n0(x) = − cos x/x):
+∆F0 =
+( 2mg2
+ℏ2
+) 2∫ ∞
+0
+∫ ∞
+0
+sin(p1u)
+p1u e−u
+[ eip1u> sin(p1u<)
+p1
+] sin(p1v)
+p1v e−v du dv.
+The imaginary part satisfies the optical theorem (Problem 22):
+Im F (2)
+0 = p1|F (1)
+0 |2.
+The real part involves the principal-value integral with n0 = − cos(q1r)/q1r. This can be
+evaluated numerically for specific values of p1.
+Comparison with figures:
+• Fig. 9.4 (mV0/p2ℏ2 = 1 .4): The second Born approximation gives both real and
+imaginary parts of F0. For small p1, the Born series converges well and the second
+Born correction is small. For larger p1, the correction becomes more significant but
+the series still converges because ∥K∥ < 1.
+1
+
+• Fig. 9.5 (convergence in the complex plane): The second Born approximation shifts
+the “vector” F0 in the complex plane, with the imaginary part growing as p1 increases.
+This is consistent with the spiral convergence pattern shown.
+• Fig. 9.6 (weaker potential mV0/p2ℏ2 = 0.2): For this weaker potential, the Born series
+converges much more rapidly, and the second Born approximation is already very close
+to the exact answer. The real and imaginary parts of F (2)
+0 nearly overlap with the exact
+curves.
+The key observation is that the Born series converges better for weaker potentials and
+higher energies (larger p1), and the optical theorem constraint Im F0 = p1|F0|2 provides an
+important consistency check on the approximation. ■
+2

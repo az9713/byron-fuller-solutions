@@ -1,0 +1,82 @@
+Chapter 9, Problem 22
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Using Eqs. (9.104) and (9.105), show that if we denote the second iterative
+approximation to the amplitude by f 2it
+l (q1), then for any real potential V (r) we have
+Im f 2it
+l (q1) = q1|f it
+l (q1)|2.
+Solution.
+From the text, Eq. (9.104) gives the first iterative (Born) approximation:
+f it
+l (q1) = − 2m
+ℏ2
+Z ∞
+0
+jl(q1r) V (r) jl(q1r) r2 dr,
+which is real for a real potential V (r) (since jl is real for real q1).
+Eq. (9.105) gives the second iterative approximation:
+f 2it
+l (q1) = f it
+l (q1) +
+
+− 2m
+ℏ2
+2 Z ∞
+0
+Z ∞
+0
+jl(q1r) V (r) Gl(r, r′) V (r′) jl(q1r′) r2 r′2 dr dr′,
+where Gl(r, r′) is the free Green’s function for the lth partial wave:
+Gl(r, r′) = −q1 jl(q1r<) [nl(q1r>) + i jl(q1r>)] .
+The key observation is that for a real potential, f it
+l is real, so:
+Im f 2it
+l = Im of the second-order correction .
+The imaginary part comes solely from the i jl(q1r>) term in Gl:
+Im Gl(r, r′) = −q1 jl(q1r) jl(q1r′).
+(Note: for r < r ′, Im Gl = −q1jl(q1r)jl(q1r′), and similarly for r > r ′; the result is
+symmetric.)
+Therefore:
+Im f 2it
+l =
+ 2m
+ℏ2
+2
+q1
+Z ∞
+0
+Z ∞
+0
+jl(q1r) V (r) jl(q1r) jl(q1r′) V (r′) jl(q1r′) r2r′2 dr dr′ (1)
+= q1
+ 2m
+ℏ2
+Z ∞
+0
+jl(q1r)2 V (r) r2 dr
+2
+(2)
+= q1
+
+f it
+l (q1)
+2
+(3)
+= q1
+f it
+l (q1)
+2
+. (4)
+The last equality holds because f it
+l is real.
+Therefore:
+Im f 2it
+l (q1) = q1 |f it
+l (q1)|2 .
+This is the optical theorem (unitarity condition) satisfied to second order. It expresses
+the fact that the imaginary part of the forward scattering amplitude is related to the total
+cross section, ensuring conservation of probability in the scattering process. The exact
+relation Im fl = q1|fl|2 (the full unitarity condition) is satisfied order by order in the Born
+series. ■
+1

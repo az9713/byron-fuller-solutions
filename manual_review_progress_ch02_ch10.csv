@@ -1,0 +1,247 @@
+﻿problem,status,notes
+ch02_01,manually_verified_accept,Derivation correct; straight-line result in polar form validated.
+ch02_02,manually_verified_accept,3D shortest path proof consistent; boundary conditions give line to (a
+ch02_03,manually_verified_accept,Great-circle geodesic derivation and extremum discussion acceptable.
+ch02_04,manually_verified_accept,Isoperimetric circle result correct despite minor intermediate sign restart.
+ch02_05,manually_verified_accept,Reciprocity via multiplier inversion mu=1/lambda is correct for lambda!=0.
+ch02_06,manually_verified_accept,Higher-derivative Euler-Lagrange formula derived correctly; regularity assumption conservative.
+ch02_07,manually_verified_incorrect,Original contains unresolved contradictory draft branches; corrected solution already written.
+ch02_08,manually_verified_accept,Variational setup and elliptic-integral form for central-force brachistochrone acceptable.
+ch02_09,manually_verified_incorrect,Sign error in rearrangement of Euler-Lagrange result for Schr equation; complete correction needed.
+ch02_10,manually_verified_accept,Coupled Euler-Lagrange equations for real meson fields are consistent; complex-field reduction in free space valid.
+ch02_11,manually_verified_accept,Divergence-added Lagrangian invariance proof is correct.
+ch02_12,manually_verified_accept,Covariant EL derivation to inhomogeneous Maxwell equations is acceptable in chosen unit convention.
+ch02_13,manually_verified_accept,Transversality argument and orthogonal cycloid intersection condition are correct.
+ch03_01,manually_verified_accept,Group axioms checked line-by-line; closure modulo n and inverse element are correct.
+ch03_02,manually_verified_accept,Equivalence proof is correct; determinant criterion for linear dependence is properly applied.
+ch03_03,manually_verified_accept,Componentwise triangular system sum_{k=j}^n c_k=0 is correctly derived and solved by back-substitution.
+ch03_04,manually_verified_accept,Dimension argument is correct: homogeneous n x (n+1) system guarantees nontrivial null vector.
+ch03_05,manually_verified_accept,Rescaled-basis proof is correct: linear independence and spanning both preserved for nonzero scalars.
+ch03_06,manually_verified_accept,Proof is correct: basis spanning implies any added vector creates a nontrivial dependence relation.
+ch03_07,manually_verified_accept,Both parts are correct: diagonal products commute and commuting with all diagonal matrices forces off-diagonal entries to vanish.
+ch03_08,manually_verified_accept,Idempotent non-identity matrix must be singular; contradiction argument is valid.
+ch03_09,manually_verified_accept,"All three commutator identities are derived correctly, including full Jacobi expansion with cancellation."
+ch03_10,manually_verified_incorrect,Original argument is inconsistent: the hinted construction is mishandled and the final proof adds an unstated finite-dimensional determinant assumption.
+ch03_11,manually_verified_accept,Odd-order skew-symmetric singularity proof is correct via determinant parity argument.
+ch03_12,manually_verified_accept,Pauli anticommutator and commutator identities are verified correctly by explicit matrix products.
+ch03_13,manually_verified_accept,Trace cyclic identity tr(AB)=tr(BA) and similarity invariance are derived correctly.
+ch03_14,manually_verified_accept,Equivalence A != 0 iff tr(A^T A)>0 is correct for real matrices via sum of squares.
+ch03_15,manually_verified_accept,Idempotent eigenvalue and trace bounds argument is correct.
+ch03_16,manually_verified_accept,"Eigenvalues, eigenvectors, inverse of P, and direct diagonalization check are all correct."
+ch03_17,manually_verified_accept,"Rotation matrix eigenpairs and complex diagonalization are correct; final verification via AP=P diag(e^{i theta},e^{-i theta}) is valid."
+ch03_18,manually_verified_accept,Non-diagonalizability proof is correct: algebraic multiplicity 2 but geometric multiplicity 1 for eigenvalue 1.
+ch03_19,manually_verified_accept,"Determinant-product, trace-sum, and zero-eigenvalue singularity conclusions are correct."
+ch03_20,manually_verified_accept,"Elimination-based argument is correct: determinant-preserving row additions reduce to triangular form, then determinant is product of diagonal entries (up to row-swap sign)."
+ch03_21,manually_verified_accept,Spectral-form inverse and rank-one matrix spectrum are correct; repeated eigenvalue zero for Q is correctly identified.
+ch03_22,manually_verified_accept,Harmonic-oscillator spectrum derivation is correct via ladder operators and ground-state termination.
+ch03_23,manually_verified_accept,Inverse-product identity and similarity-power relation are proven correctly.
+ch03_24,manually_verified_accept,Transpose-inverse identity and formulas C^{-1}=C^T(CC^T)^{-1}=(C^TC)^{-1}C^T are valid for invertible C.
+ch03_25,manually_verified_accept,"Dirac-matrix properties are derived correctly: determinants, zero trace, eigenvalues ±1, even dimension, and 2x2 impossibility."
+ch03_26,manually_verified_accept,Translation-operator proof e^{aD}f(x)=f(x+a) is correct via Taylor expansion and polynomial truncation.
+ch03_27,manually_verified_incomplete,Solution is not self-contained: it defers key derivations to Problem 25 instead of proving all requested parts in this file.
+ch03_28,manually_verified_accept,Operator-difference method and Bernoulli-number expansion for power sums are mathematically consistent despite OCR artifacts in notation.
+ch04_01,manually_verified_accept,Hermitian determinant reality and unitary determinant modulus-one proofs are correct.
+ch04_02,manually_verified_accept,Unitary similarity preserving adjoint is shown correctly.
+ch04_03,manually_verified_accept,Invertibility of I-iA for Hermitian A is correctly established by excluding zero kernel/eigenvalue.
+ch04_04,manually_verified_accept,"Exponential of anti-Hermitian matrix is unitary, and any unitary admits U=e^{iH} via spectral theorem."
+ch04_05,manually_verified_accept,Anti-self-adjoint eigenvalues are purely imaginary; proof is correct up to standard conjugation identity handling.
+ch04_06,manually_verified_accept,Truth-value analysis is correct overall with valid counterexamples for false claims and correct proofs for true claims.
+ch04_07,manually_verified_accept,"Orthogonality criterion, reverse triangle inequality, and triangle inequality are correctly established."
+ch04_08,manually_verified_accept,Quantum oscillator virial theorem and static polarizability derivation are correct.
+ch04_09,manually_verified_accept,"For diagonalizable A, identity det(e^A)=e^{tr A} is derived correctly by similarity to diagonal form."
+ch04_10,manually_verified_accept,"AB and BA eigenvalue relation is correctly stated and proved, including nonzero-eigenvalue eigenvector mapping and square-matrix characteristic-polynomial identity."
+ch04_11,manually_verified_incorrect,"Inner-product verification mishandles conjugate symmetry: it states (B,A)=(A,B) instead of (B,A)=overline{(A,B)} and drops complex conjugation in the component proof."
+ch04_12,manually_verified_accept,Lorentz-boost determinant and one-direction boost group proof are correct.
+ch04_13,manually_verified_accept,Relativistic velocity-addition formula and speed bound proof are correct.
+ch04_14,manually_verified_accept,General-direction Lorentz boost via rotational similarity transform is correctly derived.
+ch04_15,manually_verified_accept,Vector-form Lorentz transformation follows correctly from component expressions of the general boost.
+ch04_16,manually_verified_accept,"Lorentz-boost eigenvalues/eigenvectors, null-direction check, and determinant invariance under similarity are correct."
+ch04_17,manually_verified_accept,Projection-operator identities and spectral decomposition are correctly proved.
+ch04_18,manually_verified_incorrect,Adjoint-entry formula is wrong for complex spaces: it uses A_{ji} instead of conjugate transpose \bar{A}_{ji}.
+ch04_19,manually_verified_accept,Variational Gaussian trial calculation is correct and reaches the exact harmonic-oscillator ground-state energy.
+ch04_20,manually_verified_accept,Second-order nondegenerate perturbation correction to eigenfunction is derived consistently (with imposed orthogonality to zeroth order).
+ch04_21,manually_verified_accept,"Linear-perturbation of harmonic oscillator is solved correctly: first-order shift vanishes and second-order shift is -epsilon^2/(2m omega^2), matching exact completion-of-square result."
+ch04_22,manually_verified_accept,Coupled-oscillator ground-state perturbation corrections are computed correctly through second order.
+ch04_23,manually_verified_incomplete,Solution does not fully resolve the stated target level (3 hbar omega0) and instead switches to a different doubly-degenerate subspace without a complete reconciliation.
+ch04_24,manually_verified_incorrect,"Final conclusions about higher-order scaling are overstated/inconsistent: under the stated block-diagonal condition, the perturbation structure is handled incorrectly in the commentary."
+ch04_25,manually_verified_incomplete,"Problem part (g) is not solved; solution stops after part (f), so the requested realization on complex 2-vectors is missing."
+ch04_26,manually_verified_accept,"Landau-level derivation is mathematically consistent overall: gauge choice, oscillator operators, cyclotron spectrum, and infinite degeneracy argument are correct."
+ch04_27,manually_verified_incorrect,"Several subparts are inconsistent/incomplete, especially part (d) where the example search is unresolved and does not cleanly satisfy the requested condition."
+ch05_01,manually_verified_accept,"Both proofs are correct once the required condition 0 not in [a,b] is made explicit."
+ch05_02,manually_verified_accept,Legendre-series solution for split-potential sphere is mathematically consistent and yields odd-l multipole expansion inside sphere.
+ch05_03,manually_verified_accept,Standard interior/exterior Laplace solutions with Legendre expansion and boundary matching are correct.
+ch05_04,manually_verified_accept,Square-wave Fourier series and derived pi-series identities are correct.
+ch05_05,manually_verified_accept,Hermitian symmetry of Fourier transform for real-valued functions is proved correctly.
+ch05_06,manually_verified_incorrect,Solution is inconsistent: it switches between different integrals and leaves the target expression unresolved without a single coherent derivation tied to one problem statement.
+ch05_07,manually_verified_accept,"Energy-transfer formula for finite ramp force is correct, including adiabatic/sudden limits and node condition sin(omega tau)=0."
+ch05_08,manually_verified_incorrect,Derivation is inconsistent with the stated arctan force profile and does not rigorously produce the provided answer; it mixes in a different tanh profile mid-solution.
+ch05_09,manually_verified_accept,"Three-dimensional Fourier transforms are correct for Yukawa, Coulomb, and Gaussian radial functions under the stated normalization."
+ch05_10,manually_verified_accept,Fourier-space Maxwell equations and resulting mode equation E¨~+c^2k^2 E~=0 are derived correctly.
+ch05_11,manually_verified_accept,Sinc-kernel delta representation is correctly justified at the informal/distributional level requested.
+ch05_12,manually_verified_incorrect,Solution does not prove the weighted series shown in the problem statement; it replaces it with the unweighted completeness expansion and therefore misses the stated formula.
+ch05_13,manually_verified_accept,Distribution identity Laplacian(1/r)=-4pi delta^3(r) is correctly derived via flux integral (and cross-checked by Fourier transform).
+ch05_14,manually_verified_accept,Parseval identity is correctly obtained by polarization from completeness/Bessel relation.
+ch05_15,manually_verified_accept,Parity property of Gegenbauer polynomials is correctly shown: C_n^lambda(-x)=(-1)^n C_n^lambda(x).
+ch05_16,manually_verified_accept,"Uniqueness up to phase for spherical harmonics is correctly argued from eigenvalue equations, regularity, normalization, and ladder-operator structure."
+ch05_17,manually_verified_accept,Angular-momentum commutator identities and ladder-operator relation are derived correctly.
+ch05_18,manually_verified_accept,Hermite values at zero and derivative identity are correctly obtained from generating function.
+ch05_19,manually_verified_accept,Standard spike sequence counterexample correctly shows pointwise convergence (for x>0) without L2-mean convergence to zero.
+ch05_20,manually_verified_accept,Sturm-Liouville orthogonality proof with weight w is correct via weighted Green identity and distinct eigenvalues.
+ch05_21,manually_verified_accept,Completeness-in-mean argument for exponential system is acceptable via density plus orthogonality-to-dense-subset implies zero.
+ch05_22,manually_verified_incorrect,Derivation of e^x expansion becomes inconsistent: coefficient calculations are restarted repeatedly and left with contradictory intermediate values.
+ch05_23,manually_verified_accept,"Bessel Sturm-Liouville weight, orthogonality framework, closure relation form, and Hermiticity condition are correctly identified at the level requested."
+ch05_24,manually_verified_accept,Legendre second-kind construction Q_l=P_l artanh(x)+Pi_l is correctly set up with inhomogeneous equation for polynomial part.
+ch05_25,manually_verified_accept,"Spectral-family properties E(lambda)E(mu)=E(min), idempotence, and saturation to identity are proved correctly from orthogonal projectors."
+ch05_26,manually_verified_accept,Domain characterization and spectral-family form for multiplication operator Xf=xf are correct.
+ch05_27,manually_verified_accept,Jump of spectral family at eigenvalue is correctly identified as projector onto corresponding eigenspace.
+ch05_28,manually_verified_accept,Idempotence of E_lambda-E_mu for lambda>mu is proven correctly using spectral-family multiplication rules.
+ch05_29,manually_verified_accept,"Gaussian-state expectations and dispersions for X and p_x are computed correctly, giving minimum-uncertainty product hbar/2."
+ch05_30,manually_verified_accept,Resolvent representation (A-zI)^{-1}=∫(lambda-z)^{-1} dE_lambda for z outside spectrum follows correctly from spectral functional calculus.
+ch05_31,manually_verified_accept,"First-order eigenvector correction via spectral projectors is correctly derived, and second-order eigenvalue generalization is stated in standard form."
+ch05_32,manually_verified_incomplete,"Variational minimum formula is proved, but the nondegeneracy claim is not established (and is not generally implied by the stated spectral assumptions alone)."
+ch05_33,manually_verified_accept,Spin-1 matrix-mechanics probabilities for Lx/Lz measurements under H=H0+omega Lz are computed consistently.
+ch06_01,manually_verified_accept,Correct conclusion: u=x/(x^2+y^2) with v=0 is nowhere complex-differentiable and hence nowhere analytic.
+ch06_02,manually_verified_accept,Collinearity criterion is proved correctly via real ratio of complex direction vectors.
+ch06_03,manually_verified_accept,"Harmonicity check, conjugate harmonic function, and analytic f(z) reconstruction are correct."
+ch06_04,manually_verified_accept,Polynomial harmonicity condition and corresponding analytic function are derived correctly.
+ch06_05,manually_verified_accept,"Static 2D Maxwell equations are equivalent to Cauchy-Riemann conditions for E_x-iE_y, so that field combination is analytic."
+ch06_06,manually_verified_accept,Polar Cauchy-Riemann form is derived correctly from Cartesian CR equations via chain rule.
+ch06_07,manually_verified_accept,n-valued structure of z^{1/n} and n-sheet Riemann-surface construction are correctly described.
+ch06_08,manually_verified_accept,Analyticity of log z and z^{1/n} on chosen sheets (away from 0) follows correctly from polar CR equations.
+ch06_09,manually_verified_incorrect,"Solution mixes different functions (z^{1/n} vs ((z-a)(z-b))^{1/n}) and gives inconsistent angle/sheet definitions, so branch-cut construction is not coherent."
+ch06_10,manually_verified_accept,"Two-sheet Riemann surface for sqrt(z^2-a^2) with cut [-a,a] is correctly identified."
+ch06_11,manually_verified_accept,Riemann-surface branching for (z^n-1)^{1/n} is correctly characterized with n branch points at n-th roots of unity and n-sheet cycling.
+ch06_12,manually_verified_incorrect,"Solution is self-contradictory relative to the stated prompt: it first asserts an infinite-sheet interpretation, then replaces the problem and solves the two-sheet square-root case."
+ch06_13,manually_verified_accept,Inverse-function identities tan(arctan z)=z and multivalued log(e^z)=z+2pi i n are derived correctly.
+ch06_14,manually_verified_accept,Mean-value property for 2D harmonic potential is correctly proved via Cauchy integral formula and circle parametrization.
+ch06_15,manually_verified_accept,Singularities of tan z are correctly identified as simple poles at z=(2n+1)pi/2 with residue -1.
+ch06_16,manually_verified_accept,"Correct distinction: integral of nonanalytic conjugate term is path-dependent (without path specification), while integral of entire integrand is path-independent and computable."
+ch06_17,manually_verified_accept,Cauchy integral formula applications are correct for both contours.
+ch06_18,manually_verified_incorrect,Solution is not coherent: it changes the problem statement midstream and leaves sign conventions unresolved instead of giving one definitive contour-integral evaluation.
+ch06_19,manually_verified_accept,Polynomial case of Cauchy integral formula is proved correctly (directly and via division by z-a).
+ch06_20,manually_verified_accept,Identity with two poles and Liouville deduction are correctly derived.
+ch06_21,manually_verified_accept,Morera theorem proof via path-independence and antiderivative construction is correct in essence.
+ch06_22,manually_verified_accept,Conformal-angle preservation proof for analytic maps with nonzero derivative is correct.
+ch06_23,manually_verified_accept,Poisson integral formula and mean-value consequence are correctly obtained from Cauchy formula plus inversion-point subtraction.
+ch06_24,manually_verified_accept,Half-plane Cauchy formula to principal-value boundary limit and Hilbert-transform pair is correctly derived.
+ch06_25,manually_verified_incorrect,Distribution-limit derivation has inconsistent normalization/sign conventions and contradictory final symbolic identity for the delta term.
+ch06_26,manually_verified_accept,Convolution-equation solution in Fourier space and Hilbert-transform pairing conditions are correctly stated in general form.
+ch06_27,manually_verified_accept,Once-subtracted dispersion relation for functions approaching a constant at infinity is correctly derived.
+ch06_28,manually_verified_accept,Uniformly convergent series of analytic functions is handled correctly: termwise integration plus Morera implies analytic limit.
+ch06_29,manually_verified_accept,"Pole orders, residues, and contour integrals for cot z, csc^2 z log(1-z), and (sin z-tan z)/z are computed correctly."
+ch06_30,manually_verified_accept,Singularity locations and residues for cot z and 1/(e^z-1) are correctly identified as simple poles with unit residues at lattice points.
+ch06_31,manually_verified_incorrect,"Part (a) has a residue-final-value inversion: the correct result is 2pi/sqrt(a^2-b^2), not 2pi*sqrt(a^2-b^2)."
+ch06_32,manually_verified_accept,Alternating-series summation via pi csc(pi z) is coherent; residue at z=0 gives the needed pi^2/6 term.
+ch06_33,manually_verified_incorrect,The solution incorrectly concludes the two path integrals differ; algebraically they are equal because exp(2pi i(1+1/n))=exp(2pi i/n).
+ch06_34,manually_verified_incorrect,Problem/solution mismatch is unresolved and the original write-up does not provide one coherent final formula consistent with its own statement.
+ch06_35,manually_verified_incorrect,"Original derivation is self-contradictory: it starts from the printed formula, obtains an inconsistency, and switches conventions mid-solution."
+ch06_36,manually_verified_incomplete,"Normalization conventions are mixed (standard vs unnormalized Laguerre), and part (d) is left at a handwavy level without a complete derivation."
+ch06_37,manually_verified_accept,Rodrigues-to-generating-function derivation is mathematically coherent; contour manipulations and Cauchy evaluation are valid.
+ch06_38,manually_verified_accept,Integral representation and explicit Hermite series are correctly derived via binomial expansion and Gaussian moments.
+ch06_39,manually_verified_accept,Gamma recursion and factorial specialization are fully correct with proper boundary-term handling.
+ch07_01,manually_verified_incomplete,"For Eq. (7.9)-type Dirichlet kernel, the mixed derivative is delta(x-x')-1/(b-a); the original solution leaves this mismatch unresolved."
+ch07_02,manually_verified_accept,"Distributional Leibniz-rule proof is correct: variable upper limit contributes f(x), and the x-dependence of the integrand contributes the integral term."
+ch07_03,manually_verified_accept,Symmetry proof for Green function of a real Hermitian operator is correct via real eigenbasis expansion.
+ch07_04,manually_verified_accept,"Fourier-sine coefficient computation correctly recovers the closed-form Green kernel, so Eq. (7.33) and Eq. (7.36) are equivalent."
+ch07_05,manually_verified_incomplete,Setup is largely correct but the original does not complete a clean derivation to the stated Green-kernel representation and leaves normalization/form conversion unfinished.
+ch07_06,manually_verified_accept,Abel identity proof for second-order ODE is correct and complete under the stated continuity/nonvanishing assumptions.
+ch07_07,manually_verified_accept,General n-th order Abel identity derivation is correct: determinant differentiation leaves only last-row contribution and yields W' = -(f1/f0)W.
+ch07_08,manually_verified_accept,General Green-function formula via jump conditions and Cramer minors is correct for n-th order linear ODEs.
+ch07_09,manually_verified_accept,"Third-order constant-coefficient Green function in terms of roots r1,r2,r3 is correct (distinct-root case)."
+ch07_10,manually_verified_accept,Lippmann-Schwinger derivations for E<0 and E>0 are coherent and boundary-condition interpretation (outgoing/incoming) is correctly stated.
+ch07_11,manually_verified_incomplete,"The write-up mixes two different radial substitutions and leaves the Green-function jump verification only schematic, without a complete derivation."
+ch07_12,manually_verified_accept,General solution with homogeneous part plus Green-kernel convolution is correct; imposed initial conditions reduce to the standard Duhamel formula.
+ch07_13,manually_verified_incomplete,Derivation is algebraically disorganized and does not cleanly extract the requested asymptotic identification from Eq. (7.98).
+ch07_14,manually_verified_incomplete,Argument is mostly qualitative; it does not explicitly execute the coefficient substitutions from the cited equations to prove the stated reduction rigorously.
+ch07_15,manually_verified_accept,Correctly explains the implicit boundary condition in Fourier-space bound-state Green functions: decay/transformability at infinity selects the unique kernel.
+ch07_16,manually_verified_accept,"Heat kernel on the ring, delta-initial data evolution, equilibrium value, and R^2 scaling of relaxation time are all correct."
+ch07_17,manually_verified_accept,Method with steady-state subtraction and Dirichlet heat kernel is correct; half-line image-kernel limit is also correctly derived.
+ch07_18,manually_verified_accept,Finite-interval solution with affine steady profile and homogeneous-kernel evolution is correct; infinite-line Gaussian limit is consistent.
+ch07_19,manually_verified_incomplete,Part (b) in the provided solution addresses a Neumann variant instead of executing the printed infinite-line limit/comparison request.
+ch07_20,manually_verified_incomplete,The solution outlines the method but does not provide the explicit eigenfunction expansions for G1 and G2 requested by the problem.
+ch07_21,manually_verified_accept,"2D infinite-plane heat kernel and square-initial-condition convolution are correctly computed, yielding the expected product of error-function factors."
+ch07_22,manually_verified_accept,Derivation of the 2D Laplacian Green function G=(1/4pi)log[(x-x')^2+(y-y')^2] is correct up to additive constant.
+ch07_23,manually_verified_accept,Norm conservation under self-adjoint Schrödinger evolution is correctly proved via d/dt <psi|psi>=0.
+ch07_24,manually_verified_accept,Green's second identity derivation from Helmholtz Green equation to boundary-integral representation is correct up to normal-direction sign convention.
+ch07_25,manually_verified_incomplete,Solution is too schematic and does not rigorously establish the stated advanced/retarded constructions and limiting Lippmann-Schwinger connection requested in all subparts.
+ch07_26,manually_verified_accept,Correctly shows why the naive eigen-expansion is not an acceptable causal Green function and derives the retarded heat kernel with a theta(t-t') factor via Fourier inversion.
+ch07_27,manually_verified_accept,Retarded/advanced wave-equation Green kernels and their physical interpretation at retarded time are correct in substance.
+ch07_28,manually_verified_accept,Fourier-space derivation of advanced/retarded wave Green functions via pole bypass prescriptions is coherent and yields the standard delta-on-light-cone forms.
+ch07_29,manually_verified_incomplete,"For this multi-step Klein-Gordon derivation, the submitted solution only sketches parts (b)-(f) and does not complete the requested contour/Bessel reductions in full detail."
+ch08_01,manually_verified_accept,"Completeness proof for C[a,b] under sup norm is correct: Cauchy in sup norm implies uniform convergence to a continuous limit."
+ch08_02,manually_verified_accept,"Holder/Young inequality chain is correct in substance, despite minor wording slips about extrema in part (a)."
+ch08_03,manually_verified_accept,Minkowski inequality derivation via Holder is correct and complete for p>1.
+ch08_04,manually_verified_accept,Both integral equations are solved correctly by iteration/closed-form reduction; Volterra case converges globally.
+ch08_05,manually_verified_accept,"Weighted-kernel transformation with V^{1/2} is correctly derived, and iteration reproduces Born series up to the outer V^{1/2} factor."
+ch08_06,manually_verified_incomplete,Norm estimate is inconsistent across conventions and ends with unresolved constants; final convergence criterion is not presented in one coherent form.
+ch08_07,manually_verified_accept,Delta-potential bound state and scattering coefficients are correctly computed; uniqueness of one bound state is established.
+ch08_08,manually_verified_accept,Support-restricted LS equation and Born-term magnitude estimate are correct in structure; high-energy convergence condition follows.
+ch08_09,manually_verified_incorrect,Weighted-norm estimate is internally inconsistent and does not deliver a coherent convergent criterion from one valid norm calculation.
+ch08_10,manually_verified_accept,Born-approximation transmission/reflection computation for weak rectangular barrier is coherent; nonunitarity at finite perturbative order is correctly explained.
+ch08_11,manually_verified_incomplete,Answer is too schematic: it does not provide a single rigorous operator-norm estimate in a consistent convention while addressing sign-changing f_l(E).
+ch08_12,manually_verified_incomplete,Derivation does not cleanly reconcile the transformed phi equation with the quoted step-function form; convention/sign handling is left ambiguous.
+ch08_13,manually_verified_accept,"Integral-equation setup, first iterate, and energy-balance statement for weak damping are mathematically consistent to the claimed order."
+ch08_14,manually_verified_incomplete,Secular-removal coefficient discussion is convention-mixed and not consistently mapped between omega and omega^2 expansions.
+ch08_15,manually_verified_accept,Core claim (equal geometric multiplicity for K and K^* at corresponding eigenvalues) is correctly established via finite-rank matrix reduction.
+ch08_16,manually_verified_accept,"Integral-equation formulation and first iterate for anharmonic oscillator are correct, including secular term structure."
+ch08_17,manually_verified_incomplete,Second-order secular-cancellation coefficients are quoted with incomplete derivation and inconsistent parameterization mapping.
+ch08_18,manually_verified_accept,Both integral equations are solved correctly by separable-kernel reduction; singular parameter values are correctly identified.
+ch08_19,manually_verified_incorrect,"Bound-state derivation is not fully coherent as written (several unresolved integral steps and incomplete self-consistency closure), so corrected solution is required."
+ch08_20,manually_verified_incomplete,Analytic-structure discussion is mostly qualitative and does not explicitly execute all pole-order/sheet determinations from the displayed formula.
+ch08_21,manually_verified_accept,Continuity of bounded linear functionals and Holder-based boundedness on Lp are correctly shown (with minor convention note on linear vs conjugate-linear pairing).
+ch08_22,manually_verified_accept,Norm identity ||F||=||f||_q for canonical Lp-Lq pairing is correctly proved via Holder upper bound and extremizer construction.
+ch08_23,manually_verified_accept,"Dual-space Banach structure proof is correct: vector-space axioms, norm properties, and completeness are all established properly."
+ch08_24,manually_verified_accept,Banach-space proof for bounded linear operators on B is correct and parallels the functional-space proof appropriately.
+ch08_25,manually_verified_accept,Finite-rank Fredholm-alternative verification via matrix reduction is correct.
+ch08_26,manually_verified_accept,Identity K_N = P_N K P_N is correctly verified from basis-expansion definitions.
+ch09_01,manually_verified_accept,Proof is correct: finite nonzero eigenspaces plus orthogonal complement where A acts as zero gives complete orthonormal eigenbasis.
+ch09_02,manually_verified_accept,Measure-zero kernel modification leaves the induced L2 operator unchanged; spectral data and solutions are therefore identical a.e.
+ch09_03,manually_verified_accept,"Mean-convergence of partial spectral sums follows from orthonormality, Bessel/Parseval, and completeness of Hilbert space."
+ch09_04,manually_verified_accept,Hilbert-Schmidt norm inequality versus sum 1/lambda_n^2 is correctly obtained (with equality in the fully complete Hilbert-Schmidt expansion case).
+ch09_05,manually_verified_accept,Rayleigh-Ritz extremization correctly yields generalized Hermitian eigenproblem M alpha = lambda N alpha and associated properties.
+ch09_06,manually_verified_accept,"All parts are correct: P commutes with A, P is self-adjoint isometry with norm 1, spectrum of P is +/-1, and A-eigenvectors split by P-parity."
+ch09_07,manually_verified_incomplete,"Symmetry argument is sound, but part (c) does not actually compute the improved two-parameter estimate and instead handwaves that it is nearly unchanged."
+ch09_08,manually_verified_incorrect,Computation is internally inconsistent and incomplete: several key integrals/Rayleigh-quotient steps are restarted and not carried to a clean numerical estimate.
+ch09_09,manually_verified_accept,"Nearly-degenerate 2s-2p treatment and resulting two-level diagonalization are correct, including L->0 limit to symmetric/antisymmetric superpositions."
+ch09_10,manually_verified_accept,Variational inequality Phi<=lambda_1^(2) is correctly proved by square completion in eigenbasis coefficients.
+ch09_11,manually_verified_accept,Simpson discretization to matrix equation and symmetric-kernel reduction via D^{1/2}MD^{1/2} are correct.
+ch09_12,manually_verified_incorrect,"Solution does not consistently match the stated approximation sequence and explicitly acknowledges kernel-form uncertainty, so the derivation is not reliable as written."
+ch09_13,manually_verified_accept,Convergence argument for Fredholm determinant and numerator series via Hadamard bounds is correct in principle and sufficient.
+ch09_14,manually_verified_accept,Minor expansions leading to the two N-recursion relations are correctly stated and consistent with Fredholm identities.
+ch09_15,manually_verified_accept,Resolvent identities are correctly derived from the two N-equations; two-sided inverse relation is established when D(lambda)!=0.
+ch09_16,manually_verified_accept,"Identity D'(lambda) = -int N(x,x;lambda)dx is correctly obtained from series coefficients; noncancellation statement is valid in essence."
+ch09_17,manually_verified_accept,Residue formula at simple pole for nondegenerate spectrum is correctly derived from N/D structure and adjoint eigenfunction factorization.
+ch09_18,manually_verified_accept,"Rank-1 kernel Fredholm reduction is correct: higher determinant terms vanish, giving closed-form resolvent and solution consistent with separable-kernel result."
+ch09_19,manually_verified_accept,Expansion of D^{-1} and N through second order correctly reproduces Neumann-series resolvent through O(lambda^2).
+ch09_20,manually_verified_accept,"Carleman-type extension logic is correct: diagonal modification on measure-zero set leaves L2 operator unchanged, enabling modified determinant definition."
+ch09_21,manually_verified_incomplete,Requested explicit O(lambda^2) expression for the specific Yukawa kernel is not actually computed; answer leaves it in symbolic norm-function form.
+ch09_22,manually_verified_accept,Second-iteration optical-theorem identity Im f_l^{(2)} = q1 |f_l^{(1)}|^2 for real potentials is correctly derived from Im part of the free Green function.
+ch09_23,manually_verified_incomplete,"Problem asks to calculate second Born approximation explicitly, but the provided solution leaves key second-order real-part evaluation symbolic/qualitative."
+ch09_24,manually_verified_accept,Phase-shift extraction relations from complex s-wave amplitude are correct; uniqueness modulo pi with physical continuity convention is correctly discussed.
+ch09_25,manually_verified_accept,Riemann-sum matrix reduction and corresponding homogeneous/inverse-resolvent discrete formulation are correct in structure.
+ch09_26,manually_verified_accept,Extension of U and V from step functions to all L2 via isometry/Cauchy completion and adjoint relation is correctly proved.
+ch09_27,manually_verified_accept,"All Fourier-Hermite statements are correct: oscillator eigen-equation, orthogonality, Fourier eigenvalues, and mod-4 classification of eigenphases."
+ch10_01,manually_verified_accept,"Group axioms, multiplication structure, and conjugacy classes of D3 are correct."
+ch10_02,manually_verified_accept,"Quaternion-group multiplication, subgroup list, classes, and normality claims are correct."
+ch10_03,manually_verified_accept,"Rotational symmetry group identification as D4, classes, normal subgroup, and quotient are correct."
+ch10_04,manually_verified_accept,Tetrahedral rotation group A4 elements/classes/subgroups and normal V4 subgroup are correctly identified.
+ch10_05,manually_verified_accept,Index-two subgroup normality proof via left/right coset complements is correct.
+ch10_06,manually_verified_accept,Generated 5-cycle subgroup of S5 and explicit multiplication consistency with Z5 are correct.
+ch10_07,manually_verified_accept,Order of an l-cycle proven correctly using action modulo l.
+ch10_08,manually_verified_accept,Kernel subgroup and normality proof for surjective homomorphism is correct.
+ch10_09,manually_verified_accept,First isomorphism theorem construction and proof steps are correct.
+ch10_10,manually_verified_accept,Laplacian rotational invariance and L-component transformation under z-rotations are correct.
+ch10_11,manually_verified_accept,Translation action on polynomial basis and representation matrices (including composition law) are correct; representation is non-unitary.
+ch10_12,manually_verified_accept,Closure under D3 actions and resulting characters/irreducibility conclusions are correct.
+ch10_13,manually_verified_accept,Inverse-class property and character-orthogonality/decomposition formulas for general irreps are correctly justified via unitary equivalence.
+ch10_14,manually_verified_accept,Commutant of all Pauli matrices shown correctly to be scalar identity multiple.
+ch10_15,manually_verified_accept,General 2x2 unitary with eigenvalues ±1 derived correctly.
+ch10_16,manually_verified_accept,D4 character table and irreducible representation content are correct.
+ch10_17,manually_verified_accept,Three-dimensional cubic-rotation matrices and construction prescription for second 3D irrep are correct.
+ch10_18,manually_verified_accept,A4 character table and irreducible representation decomposition are correct.
+ch10_19,manually_verified_accept,Restriction O->D4 and degeneracy-splitting decomposition are correct.
+ch10_20,manually_verified_accept,SO(3) l=0..3 characters restricted to tetrahedral symmetry and resulting splittings are correct.
+ch10_21,manually_verified_accept,Direct-product decomposition table for irreps of cubic group O is correct.
+ch10_22,manually_verified_accept,S3 decomposition of three-spin product space is correct; antisymmetric irrep absence correctly explained.
+ch10_23,manually_verified_incorrect,Original solution explicitly fails to produce the requested matrix form and leaves derivation unresolved; revised complete matrix derivation provided.
+ch10_24,manually_verified_accept,Unitary-equivalence argument for basis-invariant eigenvalues is correct.

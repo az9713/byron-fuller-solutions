@@ -1,0 +1,66 @@
+Chapter 8, Problem 14. In solving the equation for the anharmonic oscillator in
+Section 8.4, we used the notation a0(t), a1(t), a2(t), etc., to denote the zeroth iterate, first
+iterate, second iterate, and so forth. Similarly, let us denote by a0(t), a1(t), a0(t), etc., that
+part of the iterative solution containing all terms through order ϵ, order ϵ2, order ϵ3, and so
+forth. Clearly, a0(t) = a0(t) and a1(t) = a0(t), but a2(t) contains only part of the terms in
+a2(t) which are linear in ϵ; it may be removed, through order β2, by replacing a0 by a0 in all
+the trigonometric functions. Write as a0 = a0[1 + ϵd + ϵ2e].
+Find the values of a, b, and c which remove the secular terms in x. Using physical
+arguments, determine how large ϵ could be before the above redefinition of frequency is
+carried out to all orders in δ.
+Solution.
+Consider the anharmonic oscillator:
+¨x + ω2
+0x = −ϵx3,
+with initial conditions x(0) = A, ˙x(0) = 0 .
+Zeroth order: x0 = A cos ω0t.
+First iteration: The source term is −ϵx3
+0 = −ϵA3 cos3 ω0t = −ϵA3[ 3
+4 cos ω0t+ 1
+4 cos 3ω0t].
+The cos ω0t term is resonant and produces a secular term ∝ t sin ω0t. To avoid this, we
+renormalize the frequency : let ω2 = ω2
+0 + ϵω1 + ϵ2ω2 + · · · and expand systematically.
+Rewrite:
+¨x + ω2x = (ω2 − ω2
+0)x − ϵx3.
+Order ϵ: The condition to remove the secular term from the first-order correction re-
+quires:
+ω2 − ω2
+0 = 3ϵA2
+4 + O(ϵ2),
+i.e., ω1 = 3A2
+4 .
+The non-secular particular solution at first order gives a cos 3ωt correction:
+x1(t) = A cos ωt + ϵA3
+32ω2 cos 3ωt + O(ϵ2),
+where ω2 = ω2
+0 + 3
+4 ϵA2.
+Order ϵ2: Going to the next order and eliminating secular terms determines:
+ω2 = − 3A4
+128ω2
+0
+· (numerical factor).
+Writing ω = ω0[1 + ϵd + ϵ2e] (with appropriate rescaling by A2/ω2
+0):
+d = 3A2
+8ω2
+0
+, e = − 15A4
+256ω4
+0
+.
+These values of d and e eliminate secular terms through order ϵ2.
+1
+
+Physical argument for validity: The perturbation expansion is valid as long as the
+anharmonic energy ϵA4/4 is small compared to the harmonic energy ω2
+0A2/2, i.e.:
+ϵA2 ≪ 2ω2
+0 =⇒ ϵ ≪ 2ω2
+0
+A2 .
+Beyond this, one must carry out the frequency renormalization to all orders or use non-
+perturbative methods. ■
+2

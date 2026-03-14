@@ -1,0 +1,79 @@
+Chapter 8, Problem 22. Just as for a bounded, linear operator on B, we define the
+norm of a bounded, linear functional on B as the least upper bound of the set of all M
+satisfying |F (g)| ≤ M ∥g∥ for all g ∈ B. As usual, we denote the norm of F by ∥F ∥.
+(a) Show that the functional F defined on Lp by
+F (g) =
+Z b
+a
+f (x)g(x) dx,
+where f ∈ Lq and 1/p + 1/q = 1 (see the preceding problem), we have ∥F ∥ ≤ ∥ f ∥q. Have
+the norm of F the norm appropriate to Lq, namely ∥ · ∥q.
+(b) Show that the function
+g0 = |f |q/p sgn(f )
+∥f ∥q/p
+q
+belongs to Lp (1/p + 1/q = 1) and therefore that ∥F ∥ ≥ ∥ f ∥q. Combining parts (a) and (b),
+we have ∥F ∥ = ∥f ∥q.
+Solution.
+Part (a): From Hölder’s inequality:
+|F (g)| =
+
+Z
+f g dx
+ ≤ ∥f ∥q∥g∥p.
+Dividing by ∥g∥p:
+|F (g)|
+∥g∥p
+≤ ∥f ∥q for all g ̸= 0.
+Taking the supremum: ∥F ∥ ≤ ∥ f ∥q. ✓
+Part (b): Define g0(x) = |f (x)|q/p sgn(f (x))/∥f ∥q/p
+q where sgn (z) = z/|z| for z ̸= 0.
+First, check g0 ∈ Lp:
+Z
+|g0|p dx = 1
+∥f ∥q
+q
+Z
+|f |q dx = ∥f ∥q
+q
+∥f ∥q
+q
+= 1.
+So ∥g0∥p = 1 and g0 ∈ Lp. ✓
+Now compute F (g0):
+F (g0) =
+Z
+f (x)g0(x) dx = 1
+∥f ∥q/p
+q
+Z
+f (x)|f (x)|q/psgn(f (x)) dx.
+Since f · sgn( ¯f ) = f · ¯f /|f | = |f |2/|f | = |f |:
+F (g0) = 1
+∥f ∥q/p
+q
+Z
+|f (x)|1+q/p dx.
+Now 1 + q/p = ( p + q)/p = q (since 1/p + 1/q = 1 implies p + q = pq, so (p + q)/p = q).
+Therefore:
+F (g0) = 1
+∥f ∥q/p
+q
+Z
+|f |q dx = ∥f ∥q
+q
+∥f ∥q/p
+q
+= ∥f ∥q−q/p
+q = ∥f ∥q(1−1/p)
+q = ∥f ∥q/q
+q = ∥f ∥q.
+1
+
+Since ∥g0∥p = 1:
+∥F ∥ ≥ |F (g0)|
+∥g0∥p
+= ∥f ∥q.
+Combining with part (a):
+∥F ∥ = ∥f ∥q. ■
+2

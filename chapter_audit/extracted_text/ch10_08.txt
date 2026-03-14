@@ -1,0 +1,25 @@
+Chapter 10, Problem 8
+Problem. Let G and G′ be two groups. Show that in a homomorphism of G onto G′ the
+elements of G which are mapped into the identity of G′ form an invariant subgroup, H, of
+G.
+Solution.
+Let ϕ : G → G′ be a surjective homomorphism, and let e′ be the identity element of G′.
+Define
+H = ker(ϕ) = {g ∈ G : ϕ(g) = e′}.
+We must show that H is (1) a subgroup of G and (2) invariant (normal).
+(1) H is a subgroup:
+Non-empty: ϕ(e) = e′ (since for any g ∈ G, ϕ(e)ϕ(g) = ϕ(eg) = ϕ(g), so ϕ(e) = e′). Thus
+e ∈ H.
+Closure: If a, b ∈ H, then ϕ(ab) = ϕ(a)ϕ(b) = e′ · e′ = e′, so ab ∈ H.
+Inverses: If a ∈ H, then ϕ(a−1) = [ ϕ(a)]−1 = (e′)−1 = e′, so a−1 ∈ H.
+Therefore H is a subgroup.
+(2) H is invariant (normal):
+We must show gHg −1 ⊆ H for all g ∈ G. Let g ∈ G and h ∈ H. Then:
+ϕ(ghg −1) = ϕ(g) ϕ(h) ϕ(g−1) = ϕ(g) · e′ · [ϕ(g)]−1 = ϕ(g)[ϕ(g)]−1 = e′.
+Therefore ghg −1 ∈ H for all g ∈ G and h ∈ H, which means gHg −1 ⊆ H.
+Since this holds for all g, replacing g by g−1 gives g−1Hg ⊆ H, hence H ⊆ gHg −1.
+Therefore gHg −1 = H, and H is an invariant (normal) subgroup of G. □
+Remark: The subgroup H = ker( ϕ) is called the kernel of the homomorphism. The fact
+that the kernel of any group homomorphism is a normal subgroup is a fundamental result
+in group theory.
+1

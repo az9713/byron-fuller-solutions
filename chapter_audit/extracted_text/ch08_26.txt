@@ -1,0 +1,54 @@
+Chapter 8, Problem 26. Show that if K is defined by Eq. (8.93) and PN by Eq. (8.94),
+then KN = PN KP N .
+Solution.
+From the chapter, the operator K is a completely continuous operator on a Hilbert space
+H with orthonormal basis {ϕi}. The projection operator PN projects onto the first N basis
+elements:
+PN f =
+N∑
+i=1
+⟨ϕi, f⟩ ϕi,
+and the finite-rank approximation KN to K is defined as:
+KN = PN KP N .
+We verify this explicitly. Writing K in terms of its matrix elements Kij = ⟨ϕi, Kϕj⟩:
+Kf =
+∑
+i,j
+ϕi Kij ⟨ϕj, f⟩.
+Now compute PN KP N :
+PN f =
+N∑
+j=1
+⟨ϕj, f⟩ ϕj.
+Applying K:
+KP N f = K
+N∑
+j=1
+⟨ϕj, f⟩ ϕj =
+N∑
+j=1
+⟨ϕj, f⟩ Kϕ j =
+N∑
+j=1
+⟨ϕj, f⟩
+∞∑
+i=1
+Kijϕi.
+Applying PN :
+PN KP N f =
+N∑
+j=1
+⟨ϕj, f⟩
+N∑
+i=1
+Kijϕi =
+N∑
+i,j=1
+Kij⟨ϕj, f⟩ ϕi.
+This is precisely KN f —the operator that acts like K within the N -dimensional subspace
+spanned by {ϕ1, . . . , ϕN } and gives zero on the orthogonal complement. It is a finite-rank
+operator (rank at most N ) that approximates K.
+By Theorem 8.4 of the chapter, KN → K in operator norm as N → ∞ , since K is
+completely continuous. This confirms that:
+KN = PN KP N . ■
+1

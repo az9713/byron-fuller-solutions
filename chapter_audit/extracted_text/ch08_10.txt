@@ -1,0 +1,76 @@
+Chapter 8, Problem 10. In Problem 8.61, assume that V (x) = V0 = const., with V0
+small in the sense of Problem 8.5. Calculate ψ and dσ using the lowest-order approximation
+to ψ. What is the transmission probability in this approximation? What is the probability
+of reflection? Note that these two probabilities do not add up to 1. Why not?
+(For exact answers, see L. I. Schiff, Quantum Mechanics , McGraw-Hill, second edition,
+1955, Section 17.)
+Solution.
+Consider scattering in one dimension from a constant potential V (x) = V0 for |x| < a
+and V (x) = 0 for |x| > a. The Lippmann–Schwinger equation is:
+ψ(x) = eikx +
+∫ a
+−a
+G0(x, x′)V0 ψ(x′) dx′.
+First Born approximation: Replace ψ(x′) by eikx′
+in the integral:
+ψ(1)(x) = eikx + V0
+∫ a
+−a
+G0(x, x′)eikx′
+dx′.
+Using G0(x, x′) = im
+ℏ2k eik|x−x′|:
+Transmitted wave (x > a ): Here |x − x′| = x − x′ for x′ > −a, so:
+ψ(1)(x) = eikx + imV0
+ℏ2k
+∫ a
+−a
+eik(x−x′)eikx′
+dx′ = eikx
+[
+1 + imV0
+ℏ2k · 2a
+]
+.
+Thus the transmission amplitude is:
+T ≈ 1 + 2imaV0
+ℏ2k .
+The transmission probability:
+|T |2 ≈ 1 + 4m2a2V 2
+0
+ℏ4k2 .
+Reflected wave (x < −a): Here |x − x′| = x′ − x, so:
+ψrefl(x) = imV0
+ℏ2k
+∫ a
+−a
+e−ikxe2ikx′
+dx′ = imV0
+ℏ2k e−ikx · e2ika − e−2ika
+2ik = mV0
+ℏ2k
+sin(2ka)
+k e−ikx.
+The reflection amplitude:
+R = mV0 sin(2ka)
+ℏ2k2 .
+The reflection probability:
+|R|2 = m2V 2
+0 sin2(2ka)
+ℏ4k4 .
+Why don’t they add to 1?
+|T |2 + |R|2 = 1 + 4m2a2V 2
+0
+ℏ4k2 + m2V 2
+0 sin2(2ka)
+ℏ4k4 ̸= 1.
+1
+
+The Born approximation violates unitarity because it is only the first-order term in a
+perturbation expansion. Conservation of probability ( |T |2 + |R|2 = 1 ) is an exact relation
+that requires summing the full Born series. At each finite order of perturbation theory,
+unitarity is only satisfied to the corresponding order in the small parameter mV0a/(ℏ2k). To
+first order in V0, we have |T |2 ≈ 1 and |R|2 ∼ V 2
+0 (second order), so they are consistent to
+order V0 but not exactly. ■
+2

@@ -1,0 +1,67 @@
+Chapter 10, Problem 22
+Problem. In quantum mechanics one defines an electron spin wave function using α for spin
+“up” and β for spin “down”; α and β are orthonormal. For a system of three electrons we
+can form product wave functions of the form α(1)α(2)α(3), α(1)α(2)β(3), etc., there being
+23 = 8 such products. Clearly, these eight functions transform among themselves under the
+action of the elements of S3, and they are mutually orthogonal. They therefore form a set
+of basis functions for a representation of S3. Find how many times the various irreducible
+representations of S3 occur in this representation. Is any representation missing? Why? Can
+you relate some of the objects you’re dealing with to physics?
+Solution.
+The group S3 acts on the three-electron system by permuting the electron labels. The 8
+basis functions are all products σ1(1)σ2(2)σ3(3) where σi ∈ {α, β}.
+Character table of S3:
+S3 {e} { (12), (13), (23)} { (123), (132)}
+1 3 2
+Γ1 1 1 1
+Γ2 1 −1 1
+Γ3 2 0 −1
+Finding the characters of the 8-dimensional representation:
+χ(e) = 8 (identity fixes all 8 basis functions).
+For a transposition like (12): P12 σ1(1)σ2(2)σ3(3) = σ1(2)σ2(1)σ3(3) = σ2(1)σ1(2)σ3(3).
+This equals the original function only if σ1 = σ2. The fixed functions are: ααα, ααβ, ββα ,
+βββ (where the first two indices are equal). So χ((12)) = 4 .
+For a 3-cycle (123): P123 σ1(1)σ2(2)σ3(3) = σ1(3)σ2(1)σ3(2) = σ2(1)σ3(2)σ1(3). This
+equals the original if σ1 = σ2 = σ3. Only ααα and βββ are fixed. So χ((123)) = 2 .
+Decomposition:
+aν = 1
+6
+∑
+i giχ(ν)∗
+i χi.
+a1 = 1
+6 [1 · 1 · 8 + 3 · 1 · 4 + 2 · 1 · 2] = 1
+6 [8 + 12 + 4] = 4 ,
+a2 = 1
+6 [1 · 1 · 8 + 3 · (−1) · 4 + 2 · 1 · 2] = 1
+6 [8 − 12 + 4] = 0 ,
+a3 = 1
+6 [1 · 2 · 8 + 3 · 0 · 4 + 2 · (−1) · 2] = 1
+6 [16 + 0 − 4] = 2 .
+Check: 4 · 1 + 0 · 1 + 2 · 2 = 8 . ✓
+Result:
+D(8) = 4Γ 1 + 0Γ2 + 2Γ3.
+The antisymmetric representation Γ2 is missing.
+Why is Γ2 absent?
+1
+
+The representation Γ2 corresponds to the fully antisymmetric (alternating) representa-
+tion, where every transposition gives a factor of −1. A function that is completely an-
+tisymmetric under exchange of all three electrons would require f (1, 2, 3) = −f (2, 1, 3) =
+−f (1, 3, 2), etc. For spin- 1
+2 particles with only two possible spin states ( α, β), it is impossible
+to antisymmetrize three indices when each takes only two values — by the pigeonhole prin-
+ciple, at least two electrons must have the same spin, making complete antisymmetrization
+impossible. (This is the same reason a 3 × 3 determinant with entries from only two values
+vanishes.)
+Physical interpretation:
+The four copies of Γ1 (symmetric representation) correspond to the total spin S = 3 /2
+multiplet with Sz = 3/2, 1/2, −1/2, −3/2 (the quartet state):
+|S = 3/2, Sz = 3/2⟩ = ααα,
+|S = 3/2, Sz = 1/2⟩ = 1√
+3 (ααβ + αβα + βαα),
+etc.
+The two copies of Γ3 (the 2D representation) correspond to two S = 1 /2 doublet states
+(each with Sz = ±1/2), which have mixed symmetry. These are physically relevant in atomic
+and molecular physics where three-electron systems arise (e.g., the lithium atom).
+2

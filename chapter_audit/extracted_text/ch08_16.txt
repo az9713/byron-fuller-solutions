@@ -1,0 +1,104 @@
+Chapter 8, Problem 16. Obtain an integral equation equivalent to the differential
+equation for the anharmonic oscillator whose motion is governed by
+¨x(t) + ω2x(t) = −ϵx(t)3,
+by making use of the Green’s function for the operator d2/dt2 + ω2. Assume x(0) = A,
+x′(0) = 0 .
+(a) x0(t) = A cos ωt.
+(b) Iterate this equation once to obtain the first correction to the lowest-order solution,
+x0(t) = A cos ωt.
+Solution.
+Part (a): Setting up the integral equation.
+The retarded Green’s function for d2/dt2 + ω2 is:
+G(t, t′) = 1
+ω sin[ω(t − t′)] θ(t − t′).
+The equation ¨x+ω2x = −ϵx3 with x(0) = A, ˙x(0) = 0 can be written as an integral equation:
+x(t) = A cos ωt − ϵ
+ω
+∫ t
+0
+sin[ω(t − t′)] [x(t′)]3 dt′.
+The zeroth approximation is:
+x0(t) = A cos ωt.
+Part (b): First iteration.
+Substitute x0 into the integral:
+x1(t) = A cos ωt − ϵ
+ω
+∫ t
+0
+sin[ω(t − t′)]A3 cos3(ωt′) dt′.
+Using cos3 θ = 3
+4 cos θ + 1
+4 cos 3θ:
+x1(t) = A cos ωt − ϵA3
+ω
+∫ t
+0
+sin[ω(t − t′)]
+[ 3
+4 cos ωt′ + 1
+4 cos 3ωt′
+]
+dt′.
+First integral (cos ωt′ term):
+I1 =
+∫ t
+0
+sin[ω(t − t′)] cos ωt′ dt′ = 1
+2
+∫ t
+0
+[sin ωt + sin(ωt − 2ωt′)] dt′.
+= t
+2 sin ωt + 1
+4ω [cos(ωt − 2ωt′)]t
+0 = t
+2 sin ωt + 1
+4ω [cos(−ωt) − cos ωt] = t
+2 sin ωt.
+Second integral (cos 3ωt′ term):
+I2 =
+∫ t
+0
+sin[ω(t − t′)] cos 3ωt′ dt′.
+1
+
+Using product-to-sum:
+I2 = 1
+2
+∫ t
+0
+[sin(ωt + 2ωt′) + sin(ωt − 4ωt′)] dt′.
+= 1
+2
+[
+− cos(ωt + 2ωt′)
+2ω + cos(ωt − 4ωt′)
+4ω
+]t
+0
+= 1
+4ω [− cos 3ωt + cos ωt] + 1
+8ω [cos(−3ωt) − cos ωt]
+= 1
+4ω (cos ωt − cos 3ωt) + 1
+8ω (cos 3ωt − cos ωt) = 1
+8ω (cos ωt − cos 3ωt).
+Combining:
+x1(t) = A cos ωt − ϵA3
+ω
+[ 3
+4 · t
+2 sin ωt + 1
+4 · 1
+8ω (cos ωt − cos 3ωt)
+]
+.
+x1(t) = A cos ωt − 3ϵA3
+8ω t sin ωt − ϵA3
+32ω2 (cos ωt − cos 3ωt).
+The term ∝ t sin ωt is the secular term, signaling that for large t the perturbation breaks
+down. This is cured by the frequency renormalization ω2 → ω2
+0 + 3
+4 ϵA2 as discussed in
+Problem 14. ■
+2

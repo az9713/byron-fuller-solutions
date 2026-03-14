@@ -1,0 +1,120 @@
+Chapter 7, Problem 6
+Problem: Prove that the Wronskian of a second-order linear differential operator never
+vanishes. Do this by first proving that W (x) cannot be identically equal to zero (because if it
+were, u1 and u2 would be linearly dependent, contrary to assumption). Then, differentiating
+W (x) and using the fact that u1 and u2 are solutions to
+f0(x) d2u
+dx2 + f1(x) du
+dx + f2(x)u = 0,
+prove that
+dW
+dx = − f1
+f0
+W.
+Integrate this and show that if f0(x) and f1(x) are continuous and if f0(x) never vanishes,
+then W (x) never vanishes.
+Solution:
+Step 1: W is not identically zero.
+Let u1 and u2 be two linearly independent solutions of the homogeneous equation. The
+Wronskian is:
+W (x) = u1(x)u′
+2(x) − u2(x)u′
+1(x).
+If W (x) = 0 for all x, then u1u′
+2 = u2u′
+1. At any point where u1 ̸= 0:
+d
+dx
+( u2
+u1
+)
+= u1u′
+2 − u2u′
+1
+u2
+1
+= W
+u2
+1
+= 0,
+so u2/u1 = const, meaning u2 = c u1. This contradicts the assumption that u1 and u2 are
+linearly independent. Hence W is not identically zero.
+Step 2: Derive the ODE for W .
+Since u1 and u2 both satisfy the equation:
+f0 u′′
+i + f1 u′
+i + f2 ui = 0 = ⇒ u′′
+i = − f1
+f0
+u′
+i − f2
+f0
+ui, i = 1, 2.
+Differentiate the Wronskian:
+W ′ = u′
+1u′
+2 + u1u′′
+2 − u′
+2u′
+1 − u2u′′
+1 (1)
+= u1u′′
+2 − u2u′′
+1. (2)
+Substitute the expressions for u′′
+1 and u′′
+2:
+W ′ = u1
+(
+− f1
+f0
+u′
+2 − f2
+f0
+u2
+)
+− u2
+(
+− f1
+f0
+u′
+1 − f2
+f0
+u1
+)
+(3)
+= − f1
+f0
+(u1u′
+2 − u2u′
+1) − f2
+f0
+(u1u2 − u2u1) (4)
+= − f1
+f0
+W. (5)
+1
+
+Step 3: Integrate and conclude.
+This is Abel’s identity. The ODE W ′ = −(f1/f0) W is separable:
+dW
+W = − f1(x)
+f0(x) dx.
+Integrating from x0 to x:
+W (x) = W (x0) exp
+(
+−
+∫ x
+x0
+f1(t)
+f0(t) dt
+)
+.
+Since we showed W is not identically zero, there exists a point x0 where W (x0) ̸= 0. The
+exponential function is never zero, and the integral
+∫ x
+x0
+f1/f0 dt is finite as long as f0 and f1
+are continuous and f0(x) ̸= 0 on the interval.
+Therefore W (x) ̸= 0 for all x in the interval. ■
+2

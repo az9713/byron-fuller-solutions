@@ -1,0 +1,178 @@
+Chapter 9, Problem 10
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Consider the quantity
+Φ = ⟨f, (A0 − λ(0)
+1 )f ⟩ + 2⟨f, (A1 − λ(1)
+1 )x(0)
+1 ⟩,
+where λ(0)
+1 is the largest eigenvalue of A0 with eigenvector x(0)
+1 , A1 is a small perturbation,
+λ(1)
+1 = ⟨x(0)
+1 , A1x(0)
+1 ⟩, and the spectrum of A0 is nondegenerate. Show that Φ ≤ λ(2)
+1 for all
+f ∈ H, with equality iff f = f (1) as given by Eq. (9.40).
+Solution.
+We work in a real Hilbert space as specified. Expand f in eigenvectors of A0:
+f =
+∑
+n
+cn x(0)
+n , c n = ⟨x(0)
+n , f⟩.
+First term: Since A0x(0)
+n = λ(0)
+n x(0)
+n :
+⟨f, (A0 − λ(0)
+1 )f ⟩ =
+∑
+n
+c2
+n(λ(0)
+n − λ(0)
+1 ).
+Since λ(0)
+1 is the largest eigenvalue, λ(0)
+n − λ(0)
+1 ≤ 0 for all n, and = 0 only for n = 1.
+Second term: Define Vn1 = ⟨x(0)
+n , A1x(0)
+1 ⟩. Note V11 = λ(1)
+1 . Then:
+⟨f, (A1 − λ(1)
+1 )x(0)
+1 ⟩ =
+∑
+n
+cn(Vn1 − λ(1)
+1 δn1) =
+∑
+n̸=1
+cnVn1.
+Combining:
+Φ =
+∑
+n
+c2
+n(λ(0)
+n − λ(0)
+1 ) + 2
+∑
+n̸=1
+cnVn1.
+The n = 1 term in the first sum vanishes, so:
+Φ =
+∑
+n̸=1
+[
+c2
+n(λ(0)
+n − λ(0)
+1 ) + 2cnVn1
+]
+.
+For each n ̸= 1, complete the square. Let ∆n = λ(0)
+n − λ(0)
+1 < 0:
+∆nc2
+n + 2cnVn1 = ∆ n
+(
+cn + Vn1
+∆n
+) 2
+− V 2
+n1
+∆n
+.
+Since ∆n < 0, the squared term ∆n(cn + Vn1/∆n)2 ≤ 0. Therefore:
+Φ =
+∑
+n̸=1
+[
+∆n
+(
+cn + Vn1
+∆n
+) 2
+− V 2
+n1
+∆n
+]
+≤ −
+∑
+n̸=1
+V 2
+n1
+∆n
+=
+∑
+n̸=1
+V 2
+n1
+λ(0)
+1 − λ(0)
+n
+.
+1
+
+Now, from Eq. (9.42), the second-order perturbation correction is:
+λ(2)
+1 =
+∑
+n̸=1
+|⟨x(0)
+n , A1x(0)
+1 ⟩|2
+λ(0)
+1 − λ(0)
+n
+=
+∑
+n̸=1
+V 2
+n1
+λ(0)
+1 − λ(0)
+n
+.
+Therefore:
+Φ ≤ λ(2)
+1 .
+Equality holds when each squared term vanishes, i.e., cn = −Vn1/∆n = Vn1/(λ(0)
+1 − λ(0)
+n )
+for all n ̸= 1 (and c1 is arbitrary since the n = 1 term cancels). This means:
+f = c1x(0)
+1 +
+∑
+n̸=1
+Vn1
+λ(0)
+1 − λ(0)
+n
+x(0)
+n .
+The sum (ignoring the c1x(0)
+1 component, which doesn’t affect Φ) is precisely f (1) from
+Eq. (9.40):
+f (1) =
+∑
+n̸=1
+⟨x(0)
+n , A1x(0)
+1 ⟩
+λ(0)
+1 − λ(0)
+n
+x(0)
+n .
+Extension to complex Hilbert space: Replace Φ by
+Φ = ⟨f, (A0 − λ(0)
+1 )f ⟩ + 2 Re ⟨f, (A1 − λ(1)
+1 )x(0)
+1 ⟩,
+since all quantities must be real for the variational principle to apply. ■
+2

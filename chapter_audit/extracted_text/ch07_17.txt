@@ -1,0 +1,111 @@
+Chapter 7, Problem 17
+Problem:
+a) Consider a one-dimensional rod of length L. Let one end, at x = 0 , be held at zero
+temperature and the other end, at x = L, be held at temperature TL. If the initial
+temperature distribution is T (x, 0), show that the temperature at subsequent times t
+is given by
+T (x, t) = Tx(L) +
+∫ L
+0
+G(x, t; x′, 0) T (x′, 0) dx′,
+where
+Tx(L) = TL − TL(x)
+and
+G(x, t; x′, 0) = 2
+L
+∞∑
+n=1
+sin nπx
+L sin nπx′
+L e−n2π2kt/L2
+.
+[Hint: Note that T (x, t) = TLx/L also satisfies the heat equation. What are the boundary
+conditions satisfied by T (x, t)?]
+b) Using the result of part (a), find the Green’s function which will enable one to solve
+the equation
+∇2T = 1
+k
+∂T
+∂t
+on the infinite half-line [0, ∞) when T (x, 0) is given some prescribed functional value.
+Solution:
+Part (a)
+The heat equation is:
+∂T
+∂t = k ∂2T
+∂x2 , T (0, t) = 0 , T (L, t) = TL.
+The boundary conditions are inhomogeneous. We make a substitution to get homoge-
+neous BCs. Let:
+T (x, t) = TLx
+L + u(x, t),
+where TLx/L is the steady-state solution. Then u satisfies:
+∂u
+∂t = k ∂2u
+∂x2 , u (0, t) = 0 , u (L, t) = 0 ,
+with initial condition:
+u(x, 0) = T (x, 0) − TLx
+L .
+The eigenfunctions for d2/dx2 with Dirichlet BCs on [0, L] are ϕn(x) =
+√
+2/L sin(nπx/L)
+with eigenvalues −n2π2/L2.
+1
+
+The Green’s function (heat kernel) for the Dirichlet problem on [0, L] is:
+G(x, t; x′, 0) = 2
+L
+∞∑
+n=1
+sin nπx
+L sin nπx′
+L e−n2π2kt/L2
+.
+Therefore:
+u(x, t) =
+∫ L
+0
+G(x, t; x′, 0) u(x′, 0) dx′ =
+∫ L
+0
+G(x, t; x′, 0)
+[
+T (x′, 0) − TLx′
+L
+]
+dx′.
+And the full solution is:
+T (x, t) = TLx
+L +
+∫ L
+0
+G(x, t; x′, 0)
+[
+T (x′, 0) − TLx′
+L
+]
+dx′. ✓
+Part (b): Infinite half-line
+For the half-line [0, ∞) with T (0, t) = 0 , we take L → ∞ . The discrete sum becomes an
+integral. The eigenvalues become continuous: nπ/L → p and 1/L → dp/π:
+G(x, t; x′, 0) = 2
+π
+∫ ∞
+0
+sin(px) sin(px′) e−p2kt dp.
+Using 2 sin(px) sin(px′) = cos[ p(x − x′)] − cos[p(x + x′)] and the Gaussian integral
+∫ ∞
+0
+cos(pa) e−p2kt dp = 1
+2
+√ π
+kt e−a2/(4kt),
+we get:
+G(x, t; x′, 0) = 1√
+4πkt
+[
+e−(x−x′)2/(4kt) − e−(x+x′)2/(4kt)
+]
+.
+The first term is the free-space heat kernel; the second is the “image” term that enforces
+G(0, t; x′, 0) = 0 (the Dirichlet condition at x = 0). ■
+2

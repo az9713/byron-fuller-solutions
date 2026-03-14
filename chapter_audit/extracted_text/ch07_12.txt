@@ -1,0 +1,49 @@
+Chapter 7, Problem 12
+Problem: This Green’s function was used in Problem 10 to convert Schrödinger’s differential
+equation into the Lippmann–Schwinger integral equation. Show that a general solution to
+the equation
+X ′′(r) + k2X(r) = F (r)
+can be written in terms of the function G(r, r′) as
+X(r) = A cos kr + B sin kr +
+∫
+G(r, r′)F (r′) dr′,
+where A and B are to be determined in terms of the boundary conditions. For classical
+mechanical one-point boundary conditions, they will clearly depend on F . Show that if we
+require x(0) = x0 and x′(0) = 0 , then the equation reduces to the familiar result.
+Solution:
+The Green’s function for the operator d2/dx2 + k2 on [0, ∞) with outgoing boundary
+condition is:
+G(r, r′) = − 1
+k sin k(r − r′) θ(r − r′) = − 1
+k sin k|r − r′|/2 · . . .
+More precisely, the causal (retarded) Green’s function satisfying G(r, r′) = 0 for r < r ′
+is:
+G(r, r′) = sin k(r − r′)
+k θ(r − r′).
+This can be verified: for r > r ′, G′′ + k2G = 0; at r = r′, G is continuous (value 0), and
+G′ jumps by 1.
+The general solution to X ′′ + k2X = F (r) is:
+X(r) = A cos kr + B sin kr + 1
+k
+∫ r
+0
+sin k(r − r′) F (r′) dr′.
+Applying boundary conditions X(0) = x0, X ′(0) = 0 :
+At r = 0: The integral vanishes (limits coincide), so X(0) = A = x0.
+For the derivative:
+X ′(r) = −Ak sin kr + Bk cos kr +
+∫ r
+0
+cos k(r − r′) F (r′) dr′.
+At r = 0: X ′(0) = Bk = 0, so B = 0.
+Therefore:
+X(r) = x0 cos kr + 1
+k
+∫ r
+0
+sin k(r − r′) F (r′) dr′.
+This is the familiar result: the first term is the homogeneous solution satisfying the
+initial conditions, and the integral is the particular solution (Duhamel’s principle / variation
+of parameters). For example, if F = 0, we recover simple harmonic motion X(r) = x0 cos kr.
+■
+1

@@ -1,0 +1,73 @@
+Chapter 9, Problem 19
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Assuming that λ is suﬀiciently small, expand [D(λ)]−1 in powers of λ and
+show that through order λ2, R(x, y; λ) is equal to the Neumann series expansion of the
+resolvent through order λ2.
+Solution.
+The Fredholm resolvent is R(x, y; λ) = N (x, y; λ)/D(λ).
+Neumann series: The resolvent can also be obtained by iterating f = g + λKf :
+R(x, y; λ) = k(x, y) + λ
+∫
+k(x, t)k(t, y) dt + λ2
+∫ ∫
+k(x, t1)k(t1, t2)k(t2, y) dt1 dt2 + · · ·
+i.e., R = K + λK 2 + λ2K 3 + · · · (in operator notation).
+Fredholm series: From Problem 9.13:
+D(λ) = 1 − λc1 + λ2
+2 c2 − · · · , where c1 =
+∫
+k(t, t) dt,
+c2 =
+∫ ∫
+[k(x1, x1)k(x2, x2) − k(x1, x2)k(x2, x1)] dx1 dx2 = c2
+1 −
+∫ ∫
+|k(x1, x2)|2 dx1 dx2.
+And:
+N (x, y; λ) = k(x, y) − λ
+∫
+[k(x, y)k(t, t) − k(x, t)k(t, y)] dt + O(λ2).
+= k(x, y) − λ [c1k(x, y) − k2(x, y)] + O(λ2),
+where k2(x, y) =
+∫
+k(x, t)k(t, y) dt is the iterated kernel.
+Expanding D−1:
+1
+D(λ) = 1
+1 − λc1 + O(λ2) = 1 + λc1 + λ2c2
+1 + O(λ3) − λ2
+2 c2 + O(λ3).
+More precisely:
+1
+D(λ) = 1 + λc1 + λ2
+(
+c2
+1 − c2
+2
+)
++ O(λ3).
+Computing R = N/D through O(λ2):
+R =
+[
+k − λ(c1k − k2) + O(λ2)
+]
+·
+[
+1 + λc1 + O(λ2)
+]
+(1)
+= k + λc1k − λc1k + λk2 + O(λ2) (2)
+= k + λk2 + O(λ2). (3)
+At order λ2: collecting all terms carefully:
+R = k + λk2 + λ2k3 + O(λ3),
+1
+
+where k3(x, y) =
+∫∫
+k(x, t1)k(t1, t2)k(t2, y) dt1 dt2 is the third iterated kernel.
+This is exactly the Neumann series through order λ2:
+R(x, y; λ) = k(x, y) + λk2(x, y) + λ2k3(x, y) + O(λ3) .
+The agreement holds to all orders when |λ| < 1/∥K∥ (the radius of convergence of the
+Neumann series), confirming that the Fredholm and Neumann approaches give the same
+resolvent. ■
+2

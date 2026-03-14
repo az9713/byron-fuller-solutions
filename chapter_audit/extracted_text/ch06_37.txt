@@ -1,0 +1,108 @@
+Chapter 6, Problem 37. In Section 5.10, we defined the Hermite polynomials in terms
+of the generating function
+e−t2+2xt =
+∞X
+n=0
+Hn(x)
+n! tn, t > 0,
+and deduced from this the Rodrigues formula:
+Hn(x) = ( −1)nex2 dn
+dxn e−x2
+.
+Now prove the converse: that Rodrigues’ formula implies the generating function. En-
+route, establish the integral representation
+Hn(x) = n!
+2πi
+I
+C
+2ne−t2+2xt
+tn+1 dt · (or similar ),
+where C encloses the point x.
+Solution.
+Step 1: Integral representation.
+From Rodrigues’ formula Hn(x) = ( −1)nex2 dn
+dxn e−x2
+, apply Cauchy’s formula for the n-th
+derivative:
+dn
+dxn e−x2
+= n!
+2πi
+I
+C
+e−t2
+(t − x)n+1 dt,
+where C encloses t = x.
+Therefore:
+Hn(x) = ( −1)nex2
+· n!
+2πi
+I
+C
+e−t2
+(t − x)n+1 dt = (−1)nn!
+2πi
+I
+C
+ex2−t2
+(t − x)n+1 dt.
+Let u = t − x, so t = u + x and t2 = u2 + 2ux + x2:
+x2 − t2 = −u2 − 2ux.
+Hn(x) = (−1)nn!
+2πi
+I e−u2−2ux
+un+1 du.
+Now substitute u = −s:
+Hn(x) = (−1)nn!
+2πi
+I e−s2+2sx
+(−s)n+1 (−ds) = n!
+2πi
+I e−s2+2sx
+sn+1 ds.
+So:
+Hn(x) = n!
+2πi
+I
+C
+e−s2+2sx
+sn+1 ds.
+Step 2: Derive the generating function.
+1
+
+The generating function is:
+∞X
+n=0
+Hn(x)
+n! tn =
+∞X
+n=0
+tn
+2πi
+I e−s2+2sx
+sn+1 ds.
+Interchange sum and integral:
+= 1
+2πi
+I e−s2+2sx
+s
+∞X
+n=0
+ t
+s
+n
+ds = 1
+2πi
+I e−s2+2sx
+s − t ds,
+where the geometric series converges for |t/s| < 1 (choose C large enough).
+By Cauchy’s integral formula (the pole at s = t is inside C):
+1
+2πi
+I e−s2+2sx
+s − t ds = e−t2+2xt.
+Therefore: ∞X
+n=0
+Hn(x)
+n! tn = e−t2+2xt.
+2

@@ -1,0 +1,56 @@
+Chapter 9, Problem 3
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Show that if {λn} and {xn(t)} are respectively the eigenvalues and eigenvec-
+tors of a completely continuous Hermitian integral operator, then the sum
+SN (t) =
+NX
+n=1
+(xn, f) xn(t)
+converges in the sense of mean convergence.
+Solution.
+By the completeness theorem (Theorem 9.4), the eigenvectors {xn} of a completely con-
+tinuous Hermitian operator A form a complete orthonormal set in the Hilbert space H. For
+any f ∈ H, the Fourier coeﬀicients are cn = (xn, f).
+We need to show that the partial sums SN = PN
+n=1 cn xn converge in the L2 norm (mean
+convergence).
+Consider the difference for M > N :
+∥SM − SN ∥2 =
+
+MX
+n=N +1
+cn xn
+
+2
+=
+MX
+n=N +1
+|cn|2,
+where we used the orthonormality of {xn}.
+By Bessel’s inequality, we know that
+∞X
+n=1
+|cn|2 ≤ ∥f ∥2 < ∞.
+Since the series P |cn|2 converges, its tail PM
+n=N +1 |cn|2 → 0 as N, M → ∞. This means
+{SN } is a Cauchy sequence in the Hilbert space H.
+Since H is complete (it is a Hilbert space), every Cauchy sequence converges. Therefore
+SN converges in the norm of H, i.e., in the sense of mean convergence:
+f −
+NX
+n=1
+(xn, f) xn
+
+2
+= ∥f ∥2 −
+NX
+n=1
+|cn|2 → 0 as N → ∞.
+The last equality uses the completeness relation (Parseval’s equality), which holds because
+{xn} is a complete orthonormal set:
+∥f ∥2 =
+∞X
+n=1
+|(xn, f)|2.
+Therefore SN → f in the mean. ■
+1

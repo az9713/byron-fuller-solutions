@@ -1,0 +1,174 @@
+Chapter 7, Problem 2
+Problem: Show that
+d
+dx
+∫ x
+a
+f (s) ds =
+∫ x
+a
+∂f (s)
+∂x ds + f (x)
+when both sides of the equation are considered to operate on a function in an integrand; i.e.,
+we really mean
+∫ ∞
+−∞
+d
+dx
+[∫ x
+a
+f (s) ds
+]
+g(x) dx =
+∫ ∞
+−∞
+[∫ x
+a
+∂f (s)
+∂x ds + f (x)
+]
+g(x) dx
+for any f (x) with a continuous derivative.
+Solution:
+We use the Leibniz integral rule for differentiation under the integral sign with a variable
+limit. Consider the function:
+F (x) =
+∫ x
+a
+f (s) ds.
+Here f (s) may depend on x as well (in the distributional/generalized-function sense
+relevant to Green’s functions), so we write f = f (s, x) for clarity. Then by Leibniz’s rule:
+d
+dx
+∫ x
+a
+f (s, x) ds = f (x, x) +
+∫ x
+a
+∂f (s, x)
+∂x ds.
+This is the standard Leibniz rule, which holds when f and ∂f /∂x are continuous. The
+first term f (x, x) comes from differentiating the upper limit of integration, and the second
+term comes from differentiating the integrand.
+To prove this in the distributional sense (as the problem requests), consider a test function
+g(x) and examine:
+I =
+∫ ∞
+−∞
+d
+dx
+[∫ x
+a
+f (s, x) ds
+]
+g(x) dx.
+Integrate by parts (assuming g has compact support or vanishes at infinity):
+I = −
+∫ ∞
+−∞
+[∫ x
+a
+f (s, x) ds
+]
+g′(x) dx.
+Now we reverse the order of integration. The region of integration is {(s, x) : a ≤ s ≤ x},
+which we can write as {(s, x) : s ≥ a, x ≥ s}. Therefore:
+I = −
+∫ ∞
+a
+∫ ∞
+s
+f (s, x) g′(x) dx ds.
+For the inner integral, integrate by parts in x:
+∫ ∞
+s
+f (s, x) g′(x) dx =
+[
+f (s, x)g(x)
+]∞
+s −
+∫ ∞
+s
+∂f (s, x)
+∂x g(x) dx.
+1
+
+The boundary term at infinity vanishes (since g has compact support), so:
+∫ ∞
+s
+f (s, x) g′(x) dx = −f (s, s) g(s) −
+∫ ∞
+s
+∂f
+∂x g(x) dx.
+Substituting back:
+I = −
+∫ ∞
+a
+[
+−f (s, s) g(s) −
+∫ ∞
+s
+∂f
+∂x g(x) dx
+]
+ds (1)
+=
+∫ ∞
+a
+f (s, s) g(s) ds +
+∫ ∞
+a
+∫ ∞
+s
+∂f (s, x)
+∂x g(x) dx ds. (2)
+Reversing the order of integration in the double integral back:
+∫ ∞
+a
+∫ ∞
+s
+∂f
+∂x g(x) dx ds =
+∫ ∞
+a
+∫ x
+a
+∂f (s, x)
+∂x ds g(x) dx.
+Therefore:
+I =
+∫ ∞
+−∞
+f (x, x) g(x) dx +
+∫ ∞
+−∞
+[∫ x
+a
+∂f (s, x)
+∂x ds
+]
+g(x) dx,
+which gives us:
+I =
+∫ ∞
+−∞
+[
+f (x) +
+∫ x
+a
+∂f (s)
+∂x ds
+]
+g(x) dx.
+Since this holds for every test function g(x), we conclude that in the distributional sense:
+d
+dx
+∫ x
+a
+f (s) ds = f (x) +
+∫ x
+a
+∂f (s)
+∂x ds. ■
+2

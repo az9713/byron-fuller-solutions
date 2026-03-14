@@ -1,0 +1,100 @@
+Chapter 7, Problem 20
+Problem: Using the eigenfunction expansion method, show that the potential energy in a
+two-dimensional, charge-free region bounded by circles of radii R1 and R2 is given by
+V (r, θ) =
+I
+G1(r, θ; R1, θ′) ∂V
+∂r ′
+
+r′=R1
+R1 dθ′ +
+I
+G2(r, θ; R2, θ′) ∂V
+∂r ′
+
+r′=R2
+R2 dθ′,
+where V (R1, θ) is the known value of the potential on the first surface as a function of θ,
+and V (R2, θ′) is its value on the second surface. Find the eigenfunction expansion of G1 and
+G2, using the fact that ∇2V = 0 is an Hermitian operator if one imposes periodic boundary
+conditions on (0, 2π). Why do we require such conditions? Does the result you expect? Show
+that G1(R1, θ; R1, θ′) = δ(θ − θ′) and G1(R2, θ; R2, θ′) = 0 , and give the result you expect.
+Solution:
+In the annular region R1 ≤ r ≤ R2, Laplace’s equation in polar coordinates is:
+∇2V = 1
+r
+∂
+∂r
+
+r ∂V
+∂r
+
++ 1
+r2
+∂2V
+∂θ 2 = 0.
+Periodic BCs: We require V (θ + 2π) = V (θ) since θ is an angular variable. This makes
+the angular part of ∇2 Hermitian.
+Separation of variables: Write V (r, θ) = R(r)Θ(θ). The angular equation gives Θ′′ =
+−n2Θ with solutions einθ, n = 0, ±1, ±2, . . .
+The radial equation for n ̸= 0 gives R(r) = Anrn+Bnr−n, and for n = 0: R = A0+B0 ln r.
+Green’s function construction: The Green’s function for Laplace’s equation in the
+annular region satisfies:
+∇2G = 1
+r δ(r − r′)δ(θ − θ′)
+with G = 0 on both boundaries r = R1 and r = R2.
+For each angular mode n, the radial Green’s function is constructed from two solutions:
+one vanishing at R1 and one vanishing at R2.
+For n ̸= 0, the solution vanishing at R1 is ϕ1(r) = rn − R2n
+1 r−n and the solution vanishing
+at R2 is ϕ2(r) = rn − R2n
+2 r−n.
+The Green’s function is:
+G(r, θ; r′, θ′) = 1
+2π
+∞X
+n=−∞
+gn(r, r′) ein(θ−θ′),
+where gn(r, r′) is the radial Green’s function for mode n, constructed from ϕ1 and ϕ2 in the
+standard way.
+The boundary Green’s functions G1 and G2 are obtained via Green’s theorem. For the
+Dirichlet problem where V is specified on the boundaries:
+V (r, θ) = −
+I
+R1
+V (R1, θ′) ∂G
+∂r ′
+
+r′=R1
+R1 dθ′ −
+I
+R2
+V (R2, θ′) ∂G
+∂r ′
+
+r′=R2
+R2 dθ′.
+1
+
+We identify:
+G1(r, θ; R1, θ′) = −R1
+∂G
+∂r ′
+
+r′=R1
+, G 2(r, θ; R2, θ′) = −R2
+∂G
+∂r ′
+
+r′=R2
+.
+Verification: At r = R1: G(R1, θ; r′, θ′) = 0 for all r′ in the interior. But ∂G/∂r ′|r′=R1
+contains the delta function information. Specifically:
+G1(R1, θ; R1, θ′) = δ(θ − θ′),
+which ensures that V (R1, θ) =
+R
+V (R1, θ′)δ(θ − θ′) dθ′ = V (R1, θ). ✓
+Similarly, G1(R2, θ; R1, θ′) = 0 because the Green’s function vanishes at r = R2, so
+specifying V on the inner boundary does not directly contribute at the outer boundary (the
+contribution comes through G2 instead). ■
+2

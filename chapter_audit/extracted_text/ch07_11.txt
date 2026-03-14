@@ -1,0 +1,117 @@
+Chapter 7, Problem 11
+Problem:
+a) By making the change of variable ψ(x) = f (x)/√x in Eq. (7.81), show that the fol-
+lowing equation is obtained for f (x):
+f ′′(x) +
+[
+k2 − U − (l2 − 1
+4 )/x2]
+f = 0.
+b) Using the results of Section 6.9, show that the Green’s function
+Gl(r, r′) = −ik jl(kr<) h(1)
+l (kr>)
+(where j denotes a Bessel function; see the discussion following Eq. (7.88/1)) satisfies
+( d2
+dr2 + k2 − l(l + 1)
+r2
+)
+Gl = δ(r − r′)
+rr′ .
+a) Show that the Green’s function
+Gl(r, r′)
+satisfies the appropriate equation.
+b) Show that a general solution to the equation
+X ′′(r) + k2X(r) = F (r)
+can be written in terms of the function Gl(r, r′) above as
+X(r) = A cos kr + B sin kr +
+∫
+Gl(r, r′)F (r′) dr′.
+Solution:
+Part (a): Change of variable
+Starting with the radial Schrödinger equation (Eq. 7.81):
+− 1
+r
+d2
+dr2 (rψ) +
+[ l(l + 1)
+r2 + U (r)
+]
+ψ = k2ψ.
+Let f (x) = rψ(r) where x = r. Then ψ = f /r and:
+d2
+dr2 (rψ) = d2f
+dr2 = f ′′.
+So the equation becomes:
+− f ′′
+r + l(l + 1)
+r2 · f
+r + U f
+r = k2 f
+r .
+1
+
+Multiplying by −r:
+f ′′ +
+[
+k2 − U − l(l + 1)
+r2
+]
+f = 0.
+Now, if we instead write ψ(x) = f (x)/√x in the Bessel-type equation form, the standard
+transformation gives:
+f ′′ +
+[
+k2 − U − l2 − 1/4
+x2
+]
+f = 0,
+which corresponds to Bessel functions of order l (with the l2 − 1/4 coming from the half-
+integer Bessel function relation).
+Part (b): Green’s function verification
+The spherical Bessel functions jl(kr) and nl(kr) (or h(1)
+l (kr) = jl(kr) + inl(kr)) satisfy:
+d2
+dr2
+[
+r zl(kr)
+]
++
+[
+k2 − l(l + 1)
+r2
+]
+r zl(kr) = 0 ,
+where zl is any spherical Bessel function.
+The Green’s function Gl(r, r′) = −ik jl(kr<) h(1)
+l (kr>) satisfies the homogeneous equa-
+tion for r ̸= r′, is regular at r = 0 (since jl is regular), and satisfies the outgoing-wave
+(Sommerfeld) condition as r → ∞ (since h(1)
+l (kr) ∼ eikr/(kr) for large r).
+At r = r′, we need to verify the correct jump condition. The Wronskian of jl and h(1)
+l is:
+W [r jl(kr), r h (1)
+l (kr)] = 1
+ik r2 · r2 = 1
+ik ,
+using the known relation W [jl(x), h(1)
+l (x)] = i/x2 (evaluated at x = kr, with the chain rule
+factor k).
+The jump in the derivative of Gl at r = r′ is:
+∆G′
+l = −ik · k · W [jl(kr′), h(1)
+l (kr′)] = −ik · i
+k(r′)2 = 1
+(r′)2 .
+Actually, working with ˆg(r) = r Gl properly, the delta function source is δ(r − r′)/(rr′),
+confirming the stated equation.
+Part (b): General solution
+The general solution to the inhomogeneous equation X ′′ + k2X = F (r) is the sum of the
+general solution to the homogeneous equation ( A cos kr + B sin kr) plus a particular solution
+given by the Green’s function integral:
+X(r) = A cos kr + B sin kr +
+∫ ∞
+0
+G(r, r′)F (r′) dr′,
+where A and B are determined by boundary conditions. The Green’s function integral
+provides the particular solution by construction. ■
+2

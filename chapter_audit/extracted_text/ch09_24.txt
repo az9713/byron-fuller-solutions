@@ -1,0 +1,84 @@
+Chapter 9, Problem 24
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. It can be shown that f 2
+0 (q1) = 1
+q1
+eiδ0 sin δ0, where δ0 is the s-wave phase shift.
+Using Fig. 9.4, obtain a graph of δ0(q1) versus q1. Are the results from the two different
+curves in Fig. 9.4 consistent? To what extent is δ0 determined uniquely?
+Solution.
+Relation between f0 and δ0
+The s-wave scattering amplitude is parameterized by the phase shift δ0 as:
+f0(q1) = 1
+q1
+eiδ0 sin δ0 = 1
+q1
+e2iδ0 − 1
+2i .
+This gives:
+Re f0 = sin δ0 cos δ0
+q1
+= sin 2δ0
+2q1
+, Im f0 = sin2 δ0
+q1
+.
+From these:
+|f0|2 = sin2 δ0
+q2
+1
+, Im f0 = q1|f0|2 (optical theorem ).
+Extracting δ0 from Fig. 9.4
+From the real and imaginary parts of F0(p1) plotted in Fig. 9.4 (for mV0/p2ℏ2 = 1.4):
+Method 1 (from Im f0):
+δ0 = arcsin
+( √
+q1 Im f0
+)
+.
+Method 2 (from both parts):
+tan δ0 = Im f0
+Re f0
+= sin2 δ0
+sin δ0 cos δ0
+= tan δ0.
+Actually, more usefully: δ0 = arctan
+(
+Im f0
+Re f0
+)
+, but this only gives δ0 modulo π.
+Method 3 (using both real and imaginary parts together):
+δ0 = 1
+2 arctan
+( 2 Re(q1f0)
+1 − 2q1 Im f0
+)
+.
+From Fig. 9.4:
+• At small p1: F0 is primarily real and negative (repulsive potential), so δ0 < 0 and |δ0|
+is small.
+• As p1 increases, |δ0| grows; the imaginary part grows while the real part decreases in
+magnitude.
+• At large p1: δ0 → 0 (Born regime, weak scattering at high energy).
+1
+
+Consistency of the two curves
+Fig. 9.4 shows both the exact result and the first iterative (Born) approximation. For the
+exact result, δ0 extracted from Re and Im parts must be consistent (same δ0 from either). For
+the Born approximation, Im f (1)
+0 = 0 (since it’s real), which would give δ0 = 0 or π—clearly
+inconsistent with unitarity. The exact curves, however, satisfy Im f0 = q1|f0|2 and yield a
+consistent δ0.
+Uniqueness of δ0
+The phase shift δ0 is determined only modulo π from the scattering amplitude, since:
+eiδ0 sin δ0 = ei(δ0+nπ) sin(δ0 + nπ) for integer n.
+Wait—actually sin(δ0 + π) = − sin δ0 and ei(δ0+π) = −eiδ0, so the product is unchanged.
+Therefore δ0 is determined modulo π.
+By convention, δ0 is chosen to be a continuous function of q1 with δ0 → 0 as q1 → ∞ (the
+Levinson theorem may add nπ at q1 = 0 depending on the number of bound states). For a
+repulsive Yukawa potential with no bound states, δ0(0) = 0 and δ0 remains in (−π/2, 0) for
+all q1.
+δ0 is determined modulo π; the physical choice is fixed by continuity and δ0(∞) = 0 .
+■
+2

@@ -1,0 +1,59 @@
+Chapter 7, Problem 22
+Problem: Show that the Green’s function for the two-dimensional Laplacian over the entire
+two-dimensional space is
+G(x, y; x′, y′) = 1
+4π log
+
+(x − x′)2 + (y − y′)2
+.
+[Hint: One can always add a constant to the Green’s function and it will still satisfy
+∇2G = δ(x − x′)δ(y − y′).]
+Solution:
+The two-dimensional Laplacian Green’s function satisfies:
+∇2G = ∂2G
+∂x2 + ∂2G
+∂y 2 = δ(x − x′)δ(y − y′).
+By translational and rotational symmetry, G depends only on ρ = |r−r′| =
+p
+(x − x′)2 + (y − y′)2.
+In polar coordinates centered at r′, for ρ ̸= 0:
+∇2G = 1
+ρ
+d
+dρ
+
+ρ dG
+dρ
+
+= 0.
+This gives ρ G′ = C (constant), so G′ = C/ρ, hence:
+G = C ln ρ + D.
+To determine C, integrate ∇2G = δ2(r − r′) over a disk of radius ϵ:
+Z
+disk
+∇2G dA = 1.
+By the divergence theorem:
+I
+ρ=ϵ
+∂G
+∂ρ ρ dθ = C · 1
+ϵ · ϵ · 2π = 2πC = 1.
+So C = 1/(2π) and:
+G(ρ) = 1
+2π ln ρ = 1
+2π ln
+p
+(x − x′)2 + (y − y′)2 = 1
+4π ln
+
+(x − x′)2 + (y − y′)2
+.
+(We have set D = 0 ; as the hint notes, any additive constant is allowed since the 2D
+Laplacian Green’s function is only defined up to a constant on unbounded domains.)
+Therefore:
+G(x, y; x′, y′) = 1
+4π log
+
+(x − x′)2 + (y − y′)2
+. ■
+1

@@ -1,0 +1,49 @@
+Chapter 10, Problem 1
+Problem. Consider the plane of Fig. 10.3, where the objects at A, B, and C are fixed
+to the circular loop. This figure is clearly invariant under rotation through 120◦ and 240◦
+and under reflection through the lines a, b, and c. Show that these five operations plus the
+identity form a group. Write out the group multiplication table. What are the classes into
+which the various group elements fall?
+Solution.
+The six symmetry operations of the equilateral triangle are:
+• e: the identity
+• R120: rotation by 120◦ (counterclockwise)
+• R240: rotation by 240◦ (counterclockwise)
+• σa: reflection through line a (through vertex A)
+• σb: reflection through line b (through vertex B)
+• σc: reflection through line c (through vertex C)
+This is the group S3 (the symmetric group on three objects), also called the dihedral
+group D3.
+Verification of group axioms:
+(1) Closure: The composition of any two symmetry operations is again a symmetry operation,
+which can be verified by computing all 36 products.
+(2) Associativity: Composition of functions is always associative.
+(3) Identity: The identity operation e satisfies e · g = g · e = g for all g.
+(4) Inverses: e−1 = e, R−1
+120 = R240, R−1
+240 = R120, σ−1
+a = σa, σ−1
+b = σb, σ−1
+c = σc (reflections
+are their own inverses).
+Multiplication Table:
+We label the elements as e, R, R2, σa, σb, σc where R = R120 and R2 = R240.
+e R R 2 σa σb σc
+e e R R 2 σa σb σc
+R R R 2 e σ c σa σb
+R2 R2 e R σ b σc σa
+σa σa σb σc e R R 2
+σb σb σc σa R2 e R
+σc σc σa σb R R 2 e
+Classes (conjugacy classes):
+Two elements g1 and g2 are in the same class if there exists a group element h such that
+g2 = hg1h−1. Computing:
+1
+
+1. {e}: The identity is always in a class by itself.
+2. {R, R2}: We have σaRσ−1
+a = σaRσa = R2, so R and R2 are conjugate.
+3. {σa, σb, σc}: We have RσaR−1 = RσaR2 = σb and R2σaR = σc, so all three reflections
+are conjugate.
+Thus the group has three conjugacy classes: {e}, {R, R2}, and {σa, σb, σc}.
+2

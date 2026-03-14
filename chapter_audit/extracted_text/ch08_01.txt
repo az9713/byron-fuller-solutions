@@ -1,0 +1,31 @@
+Chapter 8, Problem 1. Prove that the space C of continuous functions on [a, b] with
+norm given by
+∥f ∥ = max
+a≤x≤b
+|f (x)|
+for f ∈ C is a Banach space, i.e., show that it is complete with respect to the above norm.
+Solution.
+We must show that every Cauchy sequence {fn} in C[a, b] converges to a limit in C[a, b]
+under the sup norm ∥f ∥ = max x∈[a,b] |f (x)|.
+Step 1: Pointwise convergence. Let {fn} be a Cauchy sequence in C[a, b]. Then for
+every ε > 0, there exists N such that for all m, n > N ,
+∥fm − fn∥ = max
+x∈[a,b]
+|fm(x) − fn(x)| < ε.
+In particular, for each fixed x ∈ [a, b], |fm(x) − fn(x)| ≤ ∥ fm − fn∥ < ε . Thus {fn(x)} is a
+Cauchy sequence of real (or complex) numbers and therefore converges. Define
+f (x) = lim
+n→∞
+fn(x).
+Step 2: Uniform convergence. From the Cauchy condition, for all m, n > N and all
+x ∈ [a, b]:
+|fm(x) − fn(x)| < ε.
+Taking m → ∞ with n > N fixed:
+|f (x) − fn(x)| ≤ ε for all x ∈ [a, b].
+Thus ∥f − fn∥ ≤ ε for all n > N , which means fn → f uniformly.
+Step 3: Continuity of the limit. Since each fn is continuous on [a, b] and fn → f
+uniformly, the uniform limit theorem guarantees that f is continuous on [a, b]. Therefore
+f ∈ C[a, b].
+Since every Cauchy sequence in C[a, b] converges to an element of C[a, b], the space is
+complete, hence a Banach space. ■
+1

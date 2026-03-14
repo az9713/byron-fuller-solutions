@@ -1,0 +1,67 @@
+Chapter 7, Problem 19
+Problem:
+a) Using the result of part (a) of Problem 17, find the Green’s function for the one-
+dimensional heat equation on the infinite half-line [0, ∞) with T (0, t) = 0 (Dirichlet),
+and use it to express the solution.
+b) Find an expression for the Green’s function of part (a) in the limit L → ∞ , that is,
+for the infinite line. Compare this expression with the result found in Section 7.7 for
+periodic boundary conditions.
+Solution:
+Part (a): Half-line Dirichlet Green’s function
+From Problem 17(b), the Green’s function for the heat equation on [0, ∞) with T (0, t) = 0
+is:
+G(x, t; x′, 0) = 1√
+4πkt
+h
+exp
+
+− (x − x′)2
+4kt
+
+− exp
+
+− (x + x′)2
+4kt
+i
+.
+This is obtained from the free-space kernel by the method of images: the image charge
+at −x′ with opposite sign enforces G(0, t; x′, 0) = 0 .
+The solution for initial condition T (x, 0) = f (x) with T (0, t) = 0 is:
+T (x, t) =
+Z ∞
+0
+G(x, t; x′, 0) f (x′) dx′.
+Part (b): Neumann boundary condition
+If instead we require the Neumann condition ∂T /∂x
+
+x=0 = 0 (insulated end), the image has
+the same sign:
+GN (x, t; x′, 0) = 1√
+4πkt
+h
+exp
+
+− (x − x′)2
+4kt
+
++ exp
+
+− (x + x′)2
+4kt
+i
+.
+One can verify ∂GN /∂x|x=0 = 0:
+∂GN
+∂x
+
+x=0
+= 1√
+4πkt
+h x′
+2kt e−x′2/(4kt) − x′
+2kt e−x′2/(4kt)
+i
+= 0. ✓
+Both results are consistent with the infinite-line kernel found in Section 7.7 when the
+domain is extended to the full real line (in which case the image term is unnecessary). ■
+1

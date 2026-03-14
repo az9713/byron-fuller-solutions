@@ -1,0 +1,138 @@
+Chapter 8, Problem 2. Hölder’s Inequality.
+(a) Show that the function f (z) = ez − az − β takes on a maximum value at z = 0 if
+α < 1 and if β = 1 − α, then this maximum value is zero. Thus ez ≥ αz + β with α < 1,
+β = 1 − α.
+(b) By making use of the change of variables x = αy, show that xy ≤ xp
+p + yq
+q where
+α = 1/p and β = 1 − 1/p = 1/q.
+(c) Suppose now that |f (x)|p and |g(x)|q are integrable functions with 1/p + 1/q = 1 .
+Use the result of part (b) to show that
+
+Z b
+a
+f (x)g(x) dx
+ ≤
+Z b
+a
+|f (x)|p dx
+1/p Z b
+a
+|g(x)|q dx
+1/q
+,
+so that |f g| is also integrable.
+(d) Show that if |f (x)|p and |g(x)|q are integrable, then
+
+Z
+f ¯g dx
+ ≤
+Z
+|f |p dx
+1/p Z
+|g|q dx
+1/q
+.
+(Hint: Apply part (c) to F (x) = |f (x)|
+R
+|f |p dx
+−1/p
+and G(x) = |g(x)|
+R
+|g|q dx
+−1/q
+.)
+This result generalizes Schwarz’s inequality of Hilbert space and is known as Hölder’s
+inequality.
+Solution.
+Part (a): Consider f (z) = ez − αz − β. Taking the derivative:
+f ′(z) = ez − α.
+Setting f ′(z) = 0 gives z = ln α. Since α < 1, ln α < 0. The second derivative f ′′(z) = ez > 0
+for all z, so this is a minimum, not a maximum. However, examining f (z) at z = 0:
+f (0) = 1 − α · 0 − β = 1 − β.
+With β = 1 − α, we get f (0) = 1 − (1 − α) = α. Actually, let us reconsider: the statement
+is that f (z) achieves a minimum at z = ln α and with β = 1 − α:
+f (0) = 1 − 0 − (1 − α) = α > 0 ( for 0 < α < 1).
+The key inequality is: since ez is convex and αz + β is the tangent line at z = ln α, we have
+ez ≥ αz + 1 − α
+for all real z, with equality when z = ln α. Equivalently, ez − αz − (1 − α) ≥ 0 for all z. ✓
+Part (b): Set z = ln(xyq/p) in the inequality ez ≥ αz + 1− α with α = 1/p, 1 − α = 1/q:
+xyq/p ≥ 1
+p ln(xyq/p) + 1
+q .
+1
+
+More directly: for x, y > 0, substitute z = ln x−ln y (or use the weighted AM–GM approach).
+With α = 1/p and 1 − α = 1/q where 1/p + 1/q = 1, Young’s inequality states:
+xy ≤ xp
+p + yq
+q .
+Proof: From part (a), ez ≥ z
+p + 1
+q for all real z. Set z = p ln a + q ln b − p ln a...
+More cleanly: by convexity of the exponential, for t = 1/p and 1 − t = 1/q:
+et·u+(1−t)·v ≤ t eu + (1 − t) ev.
+Set eu = xp and ev = yq, so u = p ln x, v = q ln y:
+e(1/p)(p ln x)+(1/q)(q ln y) = eln x+ln y = xy ≤ xp
+p + yq
+q . ■
+Part (c): Let F = ∥f ∥p =
+hR b
+a |f |p dx
+i1/p
+and G = ∥g∥q =
+hR b
+a |g|q dx
+i1/q
+. If either is
+zero, the result is trivial. Otherwise, define
+˜f (x) = |f (x)|
+F , ˜g(x) = |g(x)|
+G .
+By Young’s inequality from part (b):
+˜f (x)˜g(x) ≤
+˜f (x)p
+p + ˜g(x)q
+q .
+Integrating: Z b
+a
+˜f ˜g dx ≤ 1
+p
+Z b
+a
+|f |p
+F p dx + 1
+q
+Z b
+a
+|g|q
+Gq dx = 1
+p + 1
+q = 1.
+Therefore:
+Z b
+a
+|f (x)||g(x)|
+F G dx ≤ 1 = ⇒
+Z b
+a
+|f (x)g(x)| dx ≤ F G = ∥f ∥p∥g∥q.
+Since
+R
+f g dx
+ ≤
+R
+|f g| dx, Hölder’s inequality follows. ■
+Part (d): Since |f ¯g| = |f ||g|, the result of part (c) applies directly:
+
+Z b
+a
+f (x)g(x) dx
+ ≤
+Z b
+a
+|f (x)g(x)| dx =
+Z b
+a
+|f (x)||g(x)| dx ≤ ∥f ∥p∥g∥q. ■
+2

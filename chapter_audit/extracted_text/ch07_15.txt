@@ -1,0 +1,51 @@
+Chapter 7, Problem 15
+Problem: In obtaining the Lippmann–Schwinger bound-state equation by the Fourier trans-
+form method, it almost appears that we applied no boundary conditions at all (no “ a-
+prescription” was necessary) and yet we got a uniquely determined Green’s function. Show
+that this is not actually the case, i.e., that we really did insert a boundary condition. Relate
+your discussion to the work in Section 7.2.
+Solution:
+In the Fourier transform method for the bound-state problem ( E < 0), we solve:
+(
+− d2
+dx2 + κ2
+)
+G(x, x′) = δ(x − x′),
+where κ2 = −k2 > 0.
+Taking the Fourier transform:
+(p2 + κ2) ˜G(p) = e−ipx′
+,
+so
+˜G(p) = e−ipx′
+p2 + κ2 .
+The crucial point is that the denominator p2 + κ2 has no real zeros when κ2 > 0. The
+poles are at p = ±iκ, both on the imaginary axis. Therefore, the Fourier inversion integral:
+G(x, x′) =
+∫ ∞
+−∞
+eip(x−x′)
+p2 + κ2
+dp
+2π
+is unambiguous — no iϵ prescription is needed because the integration contour (the real
+axis) does not pass through any singularities.
+The boundary condition is implicitly imposed by requiring that G be a Fourier-
+transformable function, i.e., that G ∈ L2(R) (square-integrable) or at least that G → 0
+as |x| → ∞ . This is a very specific boundary condition: it selects the unique Green’s
+function that decays at both ±∞.
+Evaluating by contour integration (closing in the upper half-plane for x > x ′ and in the
+lower half-plane for x < x ′):
+G(x, x′) = e−κ|x−x′|
+2κ ,
+which indeed decays exponentially at infinity.
+Relation to Section 7.2: In Section 7.2, the Green’s function is constructed by finding
+two solutions that satisfy the boundary conditions at each endpoint and matching them at
+x = x′. Here, e−κx decays as x → +∞ and e+κx decays as x → −∞ . The Green’s function
+is their product (divided by the Wronskian), which is exactly what the Fourier method
+produces automatically.
+For the scattering case ( E > 0), the poles p = ±k lie on the real axis, and the Fourier
+integral is ambiguous — one must specify an iϵ prescription (outgoing vs. incoming waves),
+corresponding to a genuine physical boundary-condition choice. The fact that no such choice
+was needed for E < 0 is because the decay boundary condition is the only physical option,
+and it is automatically built into the requirement of Fourier transformability. ■
+1

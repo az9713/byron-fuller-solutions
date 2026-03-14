@@ -1,0 +1,96 @@
+Chapter 7, Problem 10
+Problem: Schrödinger’s equation in one dimension is
+− ℏ2
+2m
+d2ψ
+dx2 + V (x)ψ(x) = Eψ(x).
+Using the methods discussed in Section 7.4, derive a Lippmann–Schwinger integral equation
+for ψ(x),
+a) for the case E < 0,
+b) for the case E ≥ 0.
+In case (b) you will find separate equations for ψ1(x) and ψ2(x) corresponding to different
+types of boundary conditions at infinity. Discuss the meaning of ψ1(x) and ψ2(x).
+Solve Problem 10 by the method of Section 7.3. What is the appropriate statement of
+boundary conditions to specify the Green’s function completely in this case?
+Solution:
+Rewrite Schrödinger’s equation as:
+d2ψ
+dx2 + k2ψ = 2m
+ℏ2 V (x)ψ(x),
+where k2 = 2mE/ℏ2.
+The Green’s function satisfies:
+d2G
+dx2 + k2G = δ(x − x′).
+(a) Case E < 0: k2 < 0
+Let κ2 = −k2 = 2m|E|/ℏ2 > 0, so κ > 0. The equation becomes:
+d2G
+dx2 − κ2G = δ(x − x′).
+The two independent solutions of the homogeneous equation are eκx and e−κx. For the
+Green’s function on (−∞, ∞), we require G → 0 as |x| → ∞ :
+G(x, x′) =
+{
+A e−κx, x > x ′,
+B eκx, x < x ′.
+Continuity at x = x′: Ae−κx′
+= Beκx′
+.
+Jump in derivative: −Aκe−κx′
+− Bκeκx′
+= 1.
+Solving: A = − 1
+2κ eκx′
+, B = − 1
+2κ e−κx′
+.
+G(x, x′) = − 1
+2κ e−κ|x−x′|.
+1
+
+The Lippmann–Schwinger equation is:
+ψ(x) = ψ0(x) +
+∫ ∞
+−∞
+G(x, x′) 2m
+ℏ2 V (x′)ψ(x′) dx′,
+where ψ0 is a solution of the free equation. For E < 0, the only normalizable free solution is
+ψ0 = 0, so:
+ψ(x) = − m
+ℏ2κ
+∫ ∞
+−∞
+e−κ|x−x′|V (x′)ψ(x′) dx′.
+(b) Case E ≥ 0: k2 > 0
+Now k > 0 is real. The homogeneous solutions are e±ikx. There is no unique Green’s function
+without specifying boundary conditions. Two choices are:
+Outgoing-wave (retarded) Green’s function:
+G+(x, x′) = − 1
+2ik eik|x−x′|.
+This gives outgoing waves at |x| → ∞ .
+Incoming-wave (advanced) Green’s function:
+G−(x, x′) = 1
+2ik e−ik|x−x′|.
+The corresponding Lippmann–Schwinger equations are:
+ψ±(x) = eikx + 2m
+ℏ2
+∫ ∞
+−∞
+G±(x, x′)V (x′)ψ±(x′) dx′.
+Here ψ0 = eikx represents an incoming plane wave from the left.
+Physical interpretation: ψ+ describes scattering with outgoing scattered waves (the
+physical scattering solution), while ψ− describes scattering with incoming scattered waves
+(time-reversed scattering).
+Method of Section 7.3
+By the eigenfunction expansion method, the Green’s function is:
+G(x, x′) =
+∫ ∞
+−∞
+eip(x−x′)/ℏ
+k2 − p2/ℏ2
+dp
+2πℏ .
+The poles at p = ±ℏk require a prescription for the contour. For the retarded Green’s
+function, we use k → k + iϵ, pushing the poles off the real axis. This uniquely specifies
+the boundary conditions (outgoing waves) and gives G+ after contour integration. For the
+advanced Green’s function, k → k − iϵ. For E < 0, the poles are on the imaginary axis and
+no prescription is needed. ■
+2

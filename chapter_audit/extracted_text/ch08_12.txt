@@ -1,0 +1,91 @@
+Chapter 8, Problem 12. Making use of the definition ϕ(x) = eikxψ(x) in the one-
+dimensional Lippmann–Schwinger equation, show that ϕ(x) satisfies the integral equation
+ϕ(x) = 1 − i
+2k
+∫ ∞
+−∞
+e−2ik(x′−x)θ(x′−x)V (x′)ϕ(x′) dx′
+where θ is the Heaviside step function (here the convention θ(0) = 1 /2 applies).
+(a) [Not explicitly separate in original.]
+(b) Make some plausible arguments to suggest that the last term on the right-hand side
+of the above equation is negligible if E is large (i.e., if the energy of the incident particle is
+large).
+(c) Neglecting this term, show that the resulting ϕ(x), which we will call ϕ0(x), satisfies
+the differential equation
+ϕ′
+0 = i
+2k V (x)ϕ0(x),
+with the boundary condition ϕ0(−∞) = 1 . Hence show that
+ϕ0(x) = exp
+[ i
+2k
+∫ x
+−∞
+V (x′) dx′
+]
+.
+Solution.
+The one-dimensional Lippmann–Schwinger equation is:
+ψ(x) = eikx + im
+ℏ2k
+∫ ∞
+−∞
+eik|x−x′|V (x′)ψ(x′) dx′.
+Deriving the equation for ϕ:
+Define ψ(x) = eikxϕ(x), so ϕ(x) = e−ikxψ(x). Substituting:
+eikxϕ(x) = eikx + im
+ℏ2k
+∫
+eik|x−x′|V (x′)eikx′
+ϕ(x′) dx′.
+Dividing by eikx:
+ϕ(x) = 1 + im
+ℏ2k
+∫
+eik|x−x′|−ikx+ikx′
+V (x′)ϕ(x′) dx′.
+Now consider |x − x′|:
+• If x′ > x: |x−x′| = x′ −x, so the exponent becomes ik(x′ −x)−ikx +ikx′ = 2ik(x′ −x).
+• If x′ < x: |x − x′| = x − x′, so the exponent becomes ik(x − x′) − ikx + ikx′ = 0.
+Therefore (setting m/ℏ2 = 1 for simplicity in natural units):
+ϕ(x) = 1 + i
+2k
+∫ x
+−∞
+V (x′)ϕ(x′) dx′ + i
+2k
+∫ ∞
+x
+e2ik(x′−x)V (x′)ϕ(x′) dx′.
+1
+
+Part (b): High-energy limit. For large k (high energy), the factor e2ik(x′−x) in the
+second integral oscillates rapidly as a function of x′. By the Riemann–Lebesgue lemma, such
+rapidly oscillating integrals tend to zero:
+∫ ∞
+x
+e2ik(x′−x)V (x′)ϕ(x′) dx′ → 0 as k → ∞,
+provided V ϕ is integrable. Thus at high energies, this term is negligible.
+Part (c): The eikonal approximation. Dropping the oscillating term:
+ϕ0(x) = 1 + i
+2k
+∫ x
+−∞
+V (x′)ϕ0(x′) dx′.
+Differentiating with respect to x:
+ϕ′
+0(x) = i
+2k V (x)ϕ0(x).
+This is a first-order ODE with boundary condition ϕ0(−∞) = 1 . The solution is:
+ϕ0(x) = exp
+[ i
+2k
+∫ x
+−∞
+V (x′) dx′
+]
+.
+This is the eikonal approximation . It shows that at high energies, the wave function
+accumulates a phase proportional to the integral of the potential along the path, which is
+the quantum-mechanical analog of the classical eikonal. ■
+2

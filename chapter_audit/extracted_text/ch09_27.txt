@@ -1,0 +1,140 @@
+Chapter 9, Problem 27
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Show that if Hn(x) is the nth Hermite polynomial satisfying Eq. (5.105), then ˜Hn(x) =
+e−x2/2Hn(x) satisfies
+(
+− d2
+dx2 + x2
+)
+˜Hn = (2n + 1) ˜Hn, and
+∫ ∞
+−∞
+˜Hn ˜Hm dx = 0 for n ̸= m.
+(b) Show that { ˜Hn} are eigenfunctions of the Fourier transform UF .
+(c) Show (UF )2f (x) = f (−x), and hence the only possible eigenvalues of UF are ±1, ±i.
+(d) Characterize which Hermite functions have real vs. imaginary eigenvalues.
+Solution.
+(a) Harmonic oscillator eigenfunctions
+The Hermite polynomials satisfy the differential equation (Eq. 5.105):
+H ′′
+n − 2xH ′
+n + 2nHn = 0.
+Define ˜Hn(x) = e−x2/2Hn(x). Compute:
+˜H ′
+n = e−x2/2(H ′
+n − xHn),
+˜H ′′
+n = e−x2/2(H ′′
+n − 2xH ′
+n + x2Hn − Hn).
+Therefore:
+− ˜H ′′
+n + x2 ˜Hn = e−x2/2(−H ′′
+n + 2xH ′
+n − x2Hn + Hn + x2Hn) = e−x2/2(−H ′′
+n + 2xH ′
+n + Hn).
+Using the Hermite equation H ′′
+n − 2xH ′
+n = −2nHn:
+− ˜H ′′
+n + x2 ˜Hn = e−x2/2(2nHn + Hn) = (2 n + 1) ˜Hn.
+Therefore: (
+− d2
+dx2 + x2
+)
+˜Hn = (2n + 1) ˜Hn .
+Orthogonality: Since −d2/dx2 + x2 is a self-adjoint operator on L2(R), eigenfunctions
+with distinct eigenvalues are orthogonal:
+∫ ∞
+−∞
+˜Hn(x) ˜Hm(x) dx = 0 for n ̸= m.
+(This also follows from the known orthogonality
+∫
+HnHme−x2
+dx = 0 for n ̸= m.) □
+1
+
+(b) Eigenfunctions of the Fourier transform
+Denote the Fourier transform (UF ˜Hn)(k) = 1√
+2π
+∫ ∞
+−∞
+˜Hn(x) e−ikx dx.
+Key insight: The operator ˆO = −d2/dx2 + x2 commutes with UF . To see this:
+Under the Fourier transform, x → i d
+dk and d
+dx → ik. Therefore:
+UF ˆOU −1
+F = −(ik)2 +
+(
+i d
+dk
+) 2
+= k2 − d2
+dk2 = ˆO.
+So ˆO commutes with UF . Since ˜Hn is an eigenfunction of ˆO with eigenvalue 2n + 1, the
+function UF ˜Hn is also an eigenfunction of ˆO with the same eigenvalue.
+If the eigenvalue 2n + 1 is non-degenerate (which it is for the harmonic oscillator—each
+level is non-degenerate), then UF ˜Hn must be proportional to ˜Hn:
+UF ˜Hn = cn ˜Hn
+for some constant cn. Thus ˜Hn is an eigenfunction of UF . □
+(c) (UF )2f (x) = f (−x) and eigenvalues
+Apply UF twice:
+(U 2
+F f )(x) = 1√
+2π
+∫
+e−ikx
+[ 1√
+2π
+∫
+e−ikyf (y) dy
+]
+dk (1)
+= 1
+2π
+∫
+f (y)
+[∫
+e−ik(x+y) dk
+]
+dy =
+∫
+f (y) δ(x + y) dy = f (−x). (2)
+So U 2
+F is the parity operator: (U 2
+F f )(x) = f (−x).
+Applying again: (U 4
+F f )(x) = ( U 2
+F f (−·))(x) = f (−(−x)) = f (x), so U 4
+F = I.
+If UF ˜Hn = cn ˜Hn, then c4
+n = 1, giving:
+cn ∈ {1, −1, i, −i} .
+(d) Classification by parity
+Since U 2
+F ˜Hn = c2
+n ˜Hn and U 2
+F f (x) = f (−x):
+c2
+n ˜Hn(x) = ˜Hn(−x) = ( −1)n ˜Hn(x),
+using the parity property Hn(−x) = ( −1)nHn(x) (Hermite polynomials have definite parity).
+Therefore c2
+n = (−1)n, giving:
+• n even: c2
+n = 1, so cn = ±1 (real eigenvalues).
+• n odd: c2
+n = −1, so cn = ±i (imaginary eigenvalues).
+2
+
+More specifically, by direct computation or by tracking phases: cn = (−i)n, i.e.:
+c0 = 1, c 1 = −i, c 2 = −1, c 3 = i, c 4 = 1, . . .
+The pattern repeats with period 4. In summary:
+• n ≡ 0 (mod 4) : eigenvalue +1.
+• n ≡ 1 (mod 4) : eigenvalue −i.
+• n ≡ 2 (mod 4) : eigenvalue −1.
+• n ≡ 3 (mod 4) : eigenvalue +i.
+■
+3

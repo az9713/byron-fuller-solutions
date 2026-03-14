@@ -1,0 +1,97 @@
+Chapter 6, Problem 34. Consider the following response function G(t), which vanishes
+for negative values of the argument and which, for positive values, is given by
+G(t) = G0
+sin βt
+t .
+Note that this function satisfies conditions (a), (b), (c) at the beginning of Section 6.6.
+Show that the Fourier transform, g(ω), is given by
+g(ω) = 1
+2 G0
+r π
+2
+ 
+erf
+ ω + β√
+2α
+
+− erf
+ ω − β√
+2α
+
+, 0 ≤ α ≤ 2π.
+Show that the complex-valued function of z which reduces to the above result on the real
+axis is
+g(z) = 1
+2 G0
+√
+2π
+
+(for appropriate conditions ).
+Thus we see that g(z) has branch points on the real axis, a possibility which is not
+excluded by conditions (a), (b), and (c). Note that we can choose the cuts to lie on the lower
+half-plane, so g(z) is analytic in the upper half-plane.
+Solution.
+The response function is G(t) = G0
+sin βt
+t for t > 0 and G(t) = 0 for t < 0.
+Fourier transform:
+g(ω) =
+Z ∞
+0
+G0
+sin βt
+t e−iωt dt = G0
+Z ∞
+0
+sin βt
+t e−iωt dt.
+Using sin βt = eiβt −e−iβt
+2i :
+g(ω) = G0
+2i
+Z ∞
+0
+ei(β−ω)t − e−i(β+ω)t
+t dt.
+The integral
+R ∞
+0
+e−ipt
+t dt does not converge absolutely, but can be evaluated as:
+Z ∞
+0
+e−ipt
+t dt = − ln(ip) + γ (regularized),
+or more usefully, the difference:
+Z ∞
+0
+e−iat − e−ibt
+t dt = ln b
+a (for Im (a), Im(b) < 0).
+With the appropriate analytic continuation, we obtain:
+g(ω) = G0
+2i ln i(ω + β)
+i(ω − β) = G0
+2i ln ω + β
+ω − β .
+For |ω| < β (between −β and β):
+g(ω) = G0
+2i
+
+ln
+
+ω + β
+ω − β
+ + iπ
+
+= πG0
+2 + G0
+2i ln
+
+ω + β
+ω − β
+ .
+The function has branch points at ω = ±β on the real axis. The cuts can be chosen
+to extend into the lower half-plane (e.g., vertically downward from ±β), ensuring g(z) is
+analytic in the upper half-plane, consistent with causality.
+1

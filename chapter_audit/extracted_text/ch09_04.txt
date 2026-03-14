@@ -1,0 +1,89 @@
+Chapter 9, Problem 4
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Prove that if {λn} and {xn(t)} are respectively the eigenvalues and eigenvec-
+tors of the Hermitian integral operator A, with square-integrable kernel a(t, t′), then
+∫ ∫
+|a(t, t′)|2 dt dt′ ≥
+∑
+n
+1
+λ2
+n
+.
+Solution.
+The eigenvalue equation for A is Axn = 1
+λn
+xn (using the convention of Byron & Fuller
+where λn appears in the denominator), or equivalently λnAxn = xn. In the integral operator
+convention used in this chapter, the eigenvalue equation is:
+∫
+a(t, t′) xn(t′) dt′ = 1
+λn
+xn(t).
+The Hilbert–Schmidt norm (also called the Frobenius norm for the kernel) is:
+∥A∥2
+HS =
+∫ ∫
+|a(t, t′)|2 dt dt′.
+We expand the kernel in terms of the complete orthonormal eigenvectors. By the com-
+pleteness relation for A, any f ∈ H can be written as f = ∑
+n(xn, f) xn + f0, where f0 lies
+in the null space of A. The bilinear expansion of the kernel (Eq. 9.14 in the text) gives:
+a(t, t′) =
+∑
+n
+1
+λn
+xn(t) x∗
+n(t′),
+where the sum is over all nonzero eigenvalues.
+Computing the Hilbert–Schmidt norm using this expansion:
+∫ ∫
+|a(t, t′)|2 dt dt′ =
+∑
+n,m
+1
+λnλ∗
+m
+∫
+xn(t) x∗
+m(t) dt
+∫
+x∗
+n(t′) xm(t′) dt′.
+Using orthonormality,
+∫
+xn(t) x∗
+m(t) dt = δnm, so:
+∫ ∫
+|a(t, t′)|2 dt dt′ =
+∑
+n
+1
+|λn|2 =
+∑
+n
+1
+λ2
+n
+,
+where the last equality holds because A is Hermitian, so all λn are real.
+If the bilinear expansion is exact (complete kernel), this is an equality. However, if the
+kernel has components that are not captured by the eigenvector expansion (which can happen
+if the sum converges only in the L2 sense and the kernel is not a Mercer kernel), then the
+1
+
+expansion may only account for part of the norm. In general, by Bessel’s inequality applied
+to the Hilbert–Schmidt space of kernels:
+∫ ∫
+|a(t, t′)|2 dt dt′ ≥
+∑
+n
+1
+λ2
+n
+.
+Equality holds when the eigenvector expansion of the kernel is complete in L2([a, b]2),
+which is the case for all completely continuous Hermitian operators (Theorem 9.4 and the
+corollary on the bilinear expansion, Eq. 9.14/9.15). ■
+2

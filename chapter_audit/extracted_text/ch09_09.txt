@@ -1,0 +1,117 @@
+Chapter 9, Problem 9
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Consider the hydrogen atom with Hamiltonian H0 and eigenstates ψnℓm. The
+2s–2p states are nearly degenerate (split by the Lamb shift L ≈ 4 × 10−6 eV). An electric
+field H1 = eEz is applied.
+(a) Explain why we can restrict attention to the 2s–2p subspace.
+(b) Show that the Brillouin–Wigner perturbation series (Eq. 9.34) has nonvanishing first
+two terms for ψ2s in terms of ψ2p0, while the Rayleigh–Schrödinger series (Eq. 9.40) would
+not.
+(c) Find ψ2s and λ2s in terms of L and M = ⟨ψ2s, H1ψ2p0⟩.
+(d) Take the limit L → 0.
+Solution.
+(a) Restriction to the 2s–2p subspace
+The perturbation H1 = eEz shifts energies by amounts of order M ∼ eEa0 ∼ L (where a0
+is the Bohr radius). The Lamb shift L ≈ 4 × 10−6 eV separates the 2s and 2p levels.
+The nearest states outside the 2s–2p manifold are the 3s, 3p, 3d states, which lie about
+∆E ≈ 2 eV away. Since L ≪ ∆E, the mixing with these distant states is of order M/∆E ≪ 1
+and can be neglected. The perturbation theory of Section 9.2 (for nearly degenerate states)
+is specifically designed for this situation: states that are nearly degenerate must be treated
+non-perturbatively among themselves, while far-away states contribute negligible corrections.
+Furthermore, by the selection rules for the matrix elements of z = r cos θ, H1 only
+connects states whose ℓ values differ by 1, so within the 2s–2p manifold, only ⟨2s|H1|2p0⟩ =
+M is nonzero (the 2p± states have ∆m = ±1 and don’t couple to 2s via z).
+(b) Perturbation series terms
+Let λ(0)
+2s and λ(0)
+2p = λ(0)
+2s − L be the unperturbed energies (with 2s above 2p by L).
+Brillouin–Wigner (Eq. 9.34): The perturbed eigenvalue λ2s appears in the denomi-
+nators. The expansion involves:
+ψ2s = ψ(0)
+2s + ⟨ψ2p0, H1ψ(0)
+2s ⟩
+λ2s − λ(0)
+2p
+ψ2p0 + · · ·
+The first correction term involves M ∗/(λ2s − λ(0)
+2p ), which is nonzero since M ̸= 0 and the
+denominator involves the (unknown) perturbed energy, not zero. The second-order term also
+contributes.
+Rayleigh–Schrödinger (Eq. 9.40): Here the denominator is λ(0)
+2s − λ(0)
+2p = L. Since L
+is of the same order as the perturbation matrix element M , the RS series does not converge
+properly—the “small” expansion parameter M/L is of order unity, so the first few terms of
+the RS series are all comparable in size and the series is not useful. The BW series, by using
+the exact energy in the denominator, partially resums the RS series and gives a more useful
+result.
+1
+
+(c) Finding ψ2s and λ2s
+Within the 2s–2p0 subspace (ignoring 2p± since they don’t couple), the effective Hamiltonian
+matrix is:
+Heff =
+(
+λ(0)
+2s M
+M ∗ λ(0)
+2p
+)
+=
+(E0 + L M
+M ∗ E0
+)
+,
+where E0 = λ(0)
+2p and we take M to be real for simplicity.
+The eigenvalue equation det(Heff − λI) = 0 gives:
+(E0 + L − λ)(E0 − λ) − M 2 = 0.
+λ2 − (2E0 + L)λ + E0(E0 + L) − M 2 = 0.
+λ = E0 + L
+2 ± 1
+2
+√
+L2 + 4M 2.
+The state that reduces to ψ2s when E → 0 (i.e., M → 0) corresponds to the + sign:
+λ2s = E0 + L
+2 + 1
+2
+√
+L2 + 4M 2 .
+The corresponding eigenvector (unnormalized) is:
+ψ2s ∝ ψ(0)
+2s + M
+λ2s − E0
+ψ2p0 = ψ(0)
+2s + 2M
+L +
+√
+L2 + 4M 2 ψ2p0.
+Using the Brillouin–Wigner form (Eqs. 9.33–9.34):
+ψ2s = N
+[
+ψ(0)
+2s + 2M
+L +
+√
+L2 + 4M 2 ψ2p0
+]
+,
+where N is the normalization constant.
+(d) Limit L → 0
+When L → 0 (exact degeneracy):
+λ2s → E0 + |M |,
+√
+L2 + 4M 2 → 2|M |.
+The coeﬀicient of ψ2p0 becomes 2M
+0+2|M | = sgn(M ) = ±1 (assuming M > 0, this is +1).
+So:
+ψ2s → 1√
+2 (ψ(0)
+2s + ψ2p0), λ 2s → E0 + M.
+This is the standard result for degenerate perturbation theory: the electric field creates
+a linear Stark effect with energy splitting ±M , and the perturbed states are equal superpo-
+sitions of s and p states. This is the well-known linear Stark effect of the hydrogen atom.
+■
+2

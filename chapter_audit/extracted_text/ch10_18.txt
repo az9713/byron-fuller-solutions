@@ -1,0 +1,57 @@
+Chapter 10, Problem 18
+Problem. Using the results of Problem 10.4, find the characters and representations of the
+group of rotational symmetries of the regular tetrahedron.
+Solution.
+From Problem 4, the rotation group of the regular tetrahedron is A4 with 12 elements in
+4 conjugacy classes:
+C1 = {e} (1 element),
+C2 = {(123), (142), (134), (243)} (4 elements),
+C3 = {(132), (143), (124), (234)} (4 elements),
+C4 = {(12)(34), (13)(24), (14)(23)} (3 elements).
+With 4 classes, there are 4 irreducible representations. Since ∑ n2
+i = 12 and ni ≥ 1:
+12 + 12 + 12 + 32 = 12.
+So there are three 1-dimensional and one 3-dimensional irreducible representations.
+One-dimensional representations:
+For 1D representations, D is a homomorphism from A4 to C∗. Since elements of C4 have
+order 2, χ(C4) = ±1. Since elements of C2, C3 have order 3, χ(C2)3 = 1 and χ(C3)3 = 1.
+Let ω = e2πi/3. The three 1D representations are:
+C1 C2 C3 C4
+1 4 4 3
+Γ1 1 1 1 1
+Γ2 1 ω ω 2 1
+Γ3 1 ω2 ω 1
+Note: χ(C4) = 1 for all 1D representations because (12)(34) = (12)(34) can be written
+as a product of elements whose images must give 1 (since (12)(34) · (13)(24) = (14)(23) and
+the constraint from the group structure forces this).
+Three-dimensional representation:
+The character χ(4) can be found from the orthogonality relations. Let χ(4) = (3, a, b, c).
+Orthogonality with Γ1:
+1 · 3 + 4 · a + 4 · b + 3 · c = 0 = ⇒ 4a + 4b + 3c = −3.
+Orthogonality with Γ2:
+3 + 4ωa + 4ω2b + 3c = 0.
+Orthogonality with Γ3:
+3 + 4ω2a + 4ωb + 3c = 0.
+Adding the last two equations: 6 + 4(ω + ω2)(a + b) + 6c = 0. Since ω + ω2 = −1:
+6 − 4(a + b) + 6c = 0 = ⇒ 4(a + b) − 6c = 6.
+1
+
+From the first equation: 4(a + b) + 3c = −3. Subtracting: −9c = 9, so c = −1.
+Then 4(a + b) = −3 + 3 = 0 , so a + b = 0, i.e., b = −a.
+Subtracting the Γ2 and Γ3 orthogonality equations:
+4(ω − ω2)a + 4(ω2 − ω)b = 0 = ⇒ 4(ω − ω2)(a − b) = 0 .
+Since ω ̸= ω2: a = b. Combined with b = −a: a = b = 0.
+Complete character table:
+{e} { (123), . . .} { (132), . . .} { (12)(34), . . .}
+1 4 4 3
+Γ1 1 1 1 1
+Γ2 1 ω ω2 1
+Γ3 1 ω2 ω 1
+Γ4 3 0 0 −1
+where ω = e2πi/3.
+Explicit 3D representation:
+The 3D representation can be constructed from the permutation representation. Assign
+vertex k to basis vector ek (k = 1, 2, 3, 4). The permutation representation is 4-dimensional.
+It decomposes as Γ1 ⊕ Γ4: the invariant subspace spanned by e1 + e2 + e3 + e4 gives Γ1, and
+the orthogonal complement (the 3D subspace with ∑ xi = 0) gives Γ4.
+2

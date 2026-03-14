@@ -1,0 +1,134 @@
+Chapter 9, Problem 5
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Consider the Hermitian integral operator A, whose square-integrable kernel
+is a(s, t), and assume that all eigenvalues of A are positive. Write a “trial eigenvector”
+φ = ∑ν
+n=1 anϕn where {ϕn} is a given set of functions, and extremize (φ, Aφ) subject to
+(φ, φ) = 1 .
+(a) Show the resulting equation is M α = λN α, where Mij =
+∫∫
+ϕ∗
+i (s) a(s, t) ϕj(t) ds dt
+and Nij =
+∫
+ϕ∗
+i (s) ϕj(s) ds.
+(b) Show M and N are Hermitian.
+(c) Show the values of λ are real.
+(d) Discuss orthogonality of eigenvectors.
+(e) Relate the largest λ to the largest eigenvalue of A.
+Solution.
+(a) Derivation of the generalized eigenvalue equation
+We wish to extremize (φ, Aφ) subject to the constraint (φ, φ) = 1 . Using the method of
+Lagrange multipliers, we extremize:
+Φ[{am}] = ( φ, Aφ) − λ
+[
+(φ, φ) − 1
+]
+.
+Computing each inner product:
+(φ, Aφ) =
+∑
+i,j
+a∗
+i aj
+∫ ∫
+ϕ∗
+i (s) a(s, t) ϕj(t) ds dt =
+∑
+i,j
+a∗
+i Mij aj = α†M α,
+(φ, φ) =
+∑
+i,j
+a∗
+i aj
+∫
+ϕ∗
+i (s) ϕj(s) ds =
+∑
+i,j
+a∗
+i Nij aj = α†N α.
+Setting ∂Φ/∂a∗
+m = 0 for each m:
+∑
+j
+Mmj aj − λ
+∑
+j
+Nmj aj = 0 = ⇒ M α = λN α .
+(b) M and N are Hermitian
+For M :
+M ∗
+ij =
+( ∫ ∫
+ϕ∗
+i (s) a(s, t) ϕj(t) ds dt
+) ∗
+=
+∫ ∫
+ϕi(s) a∗(s, t) ϕ∗
+j (t) ds dt.
+Since A is Hermitian, a∗(s, t) = a(t, s), so:
+M ∗
+ij =
+∫ ∫
+ϕ∗
+j (t) a(t, s) ϕi(s) dt ds = Mji.
+1
+
+Therefore M † = M , i.e., M is Hermitian.
+For N :
+N ∗
+ij =
+( ∫
+ϕ∗
+i (s) ϕj(s) ds
+) ∗
+=
+∫
+ϕi(s) ϕ∗
+j (s) ds = Nji.
+So N is also Hermitian. □
+(c) Eigenvalues λ are real
+From M α = λN α, take the inner product with α:
+α†M α = λ α†N α.
+Both α†M α and α†N α are real since M and N are Hermitian. Moreover, α†N α = (φ, φ) =
+∥φ∥2 > 0 (assuming φ ̸= 0). Therefore:
+λ = α†M α
+α†N α ∈ R.
+(d) Orthogonality of eigenvectors
+The eigenvectors are not in general orthogonal in the usual sense, but they satisfy a gen-
+eralized orthogonality with respect to N . If α(k) and α(l) are eigenvectors with distinct
+eigenvalues λk ̸= λl, then from M α(k) = λkN α(k):
+α(l)†
+M α(k) = λk α(l)†
+N α(k), α(k)†
+M α(l) = λl α(k)†
+N α(l).
+Taking the conjugate of the second equation and using Hermiticity of M and N :
+(λk − λl) α(l)†
+N α(k) = 0.
+Since λk ̸= λl, we get α(l)†
+N α(k) = 0 , which means the trial functions φ(k) and φ(l) are
+orthogonal in L2:
+(φ(l), φ(k)) = 0 .
+(e) Relation to the largest eigenvalue of A
+The largest value of λ obtained from M α = λN α provides a lower bound for the largest
+eigenvalue of A.
+By the variational principle (Theorem 9.2 and the Rayleigh–Ritz method), the largest
+eigenvalue of A is:
+λmax(A) = sup
+∥f ∥=1
+(f, Af ).
+The trial function φ = ∑anϕn explores only a ν-dimensional subspace of H, so:
+max
+α
+α†M α
+α†N α ≤ λmax(A).
+The largest λ from the generalized eigenvalue problem is the best approximation to λmax(A)
+within the chosen basis, and by choosing the {ϕn} intelligently, one can obtain an excellent
+approximation. ■
+2

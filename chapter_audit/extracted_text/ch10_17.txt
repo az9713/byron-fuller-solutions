@@ -1,0 +1,104 @@
+Chapter 10, Problem 17
+Problem. Using the three-dimensional representation of the rotation group, given, for
+example, by Eq. (1.25), find the matrices for a three-dimensional representation of the sym-
+metry group, O, of the cube. We saw in Section 10.8 that there were two three-dimensional
+representations of O. Give a simple prescription for finding the matrices belonging to the
+second three-dimensional representation (i.e., the one not given by the rotation group).
+Solution.
+The rotation group of the cube, O, has 24 elements. Using the three-dimensional repre-
+sentation given by 3 × 3 orthogonal rotation matrices acting on (x, y, z):
+The 24 rotation matrices:
+We organize by class (using the character table from Section 10.8):
+Class 1 : Identity (1 element)
+D(e) =
+
+
+1 0 0
+0 1 0
+0 0 1
+
+ .
+Class 2 : Six 90◦ rotations about coordinate axes (6 elements).
+About z-axis by ±90◦:
+Rz(90◦) =
+
+
+0 −1 0
+1 0 0
+0 0 1
+
+ , R z(−90◦) =
+
+
+0 1 0
+−1 0 0
+0 0 1
+
+ .
+Similarly for x and y axes (4 more matrices by cyclic permutation of coordinates).
+Class 3 : Three 180◦ rotations about coordinate axes (3 elements).
+Rz(180◦) =
+
+
+−1 0 0
+0 −1 0
+0 0 1
+
+ ,
+and similarly Rx(180◦), Ry(180◦).
+Class 4 : Eight 120◦ rotations about body diagonals (8 elements).
+For the diagonal (1, 1, 1), rotation by 120◦ cyclically permutes x → y → z → x:
+R111(120◦) =
+
+
+0 0 1
+1 0 0
+0 1 0
+
+ , R 111(240◦) =
+
+
+0 1 0
+0 0 1
+1 0 0
+
+ .
+Similarly for the other three diagonals (1, 1, −1), (1, −1, 1), (−1, 1, 1), giving 6 more matrices.
+Class 5 : Six 180◦ rotations about face-diagonal axes (6 elements).
+About the axis bisecting the x and y axes:
+Rxy(180◦) =
+
+
+0 1 0
+1 0 0
+0 0 −1
+
+ ,
+1
+
+and similarly for the other five face-diagonal axes.
+Characters of this representation:
+Class 1 2 3 4 5
+gi 1 6 3 8 6
+χ 3 1 −1 0 −1
+This matches one of the two 3D irreducible representations from the character table
+(10.91).
+Finding the second 3D representation:
+The second three-dimensional representation can be obtained by a simple prescription:
+multiply each rotation matrix by the determinant of the corresponding per-
+mutation character , or more directly, multiply by the characters of the one-dimensional
+“alternating” representation.
+Specifically, from the character table of O, the second 3D irreducible representation has
+characters:
+χ′ = (3, −1, −1, 0, 1).
+The relationship between the two is: χ′
+i = χ(Γ2)
+i · χi, where Γ2 is the nontrivial 1D
+representation with characters (1, −1, 1, 1, −1).
+Therefore, the matrices D′(g) of the second 3D representation are obtained from the first
+by:
+D′(g) = χ(Γ2)(g) · D(g),
+i.e., multiply each matrix by +1 or −1 according to the alternating representation. This
+means the 90◦ rotations and 180◦ face-diagonal rotations get a sign flip, while the identity,
+180◦ coordinate-axis rotations, and 120◦ diagonal rotations are unchanged.
+2

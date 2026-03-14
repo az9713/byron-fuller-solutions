@@ -1,0 +1,76 @@
+Chapter 9, Problem 25
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Obtain Eqs. (9.98) through (9.101) using the methods employed in Section 9.3 to
+discuss the homogeneous problem.
+(b) Derive an equation which “solves” the integral equation f = g + Kf in the spirit of
+Riemann integration (see Eq. (9.50)).
+(c) [Computational problem – solve numerically for attractive potential.]
+Solution.
+(a) Numerical discretization of the integral equation
+The integral equation is:
+f (x) = g(x) + λ
+∫ b
+a
+k(x, t) f (t) dt. (9.98)
+Following the finite-rank method of Section 9.3, we discretize by dividing [a, b] into N
+subintervals of width h = (b − a)/N, with midpoints xj = a + (j − 1
+2 )h for j = 1, . . . , N.
+Approximating the integral by a Riemann sum:
+∫ b
+a
+k(x, t) f (t) dt ≈ h
+N∑
+j=1
+k(x, xj) f (xj). (9.99)
+Evaluating at the grid points x = xi:
+f (xi) = g(xi) + λh
+N∑
+j=1
+k(xi, xj) f (xj), i = 1, . . . , N. (9.100)
+In matrix form, with f = ( f (x1), . . . , f(xN ))T , g = ( g(x1), . . . , g(xN ))T , and Kij =
+k(xi, xj):
+f = g + λh K f , (9.101)
+or equivalently (I − λhK)f = g. The solution is f = ( I − λhK)−1g, which is a matrix
+inversion problem.
+For the homogeneous equation ( g = 0 ): λhKϕ = ϕ, or Kϕ = (1 /λh)ϕ—a standard
+matrix eigenvalue problem.
+1
+
+(b) Riemann-sum resolvent
+In the spirit of Eq. (9.50) and Riemann integration, the solution can be written as:
+f (x) = g(x) + λ
+∫ b
+a
+R(x, y; λ) g(y) dy,
+where R is the resolvent. In the discrete approximation:
+f = (I − λhK)−1g =
+[
+I + λhK(I − λhK)−1]
+g = g + λh RN g,
+where RN = K(I − λhK)−1 is the discrete resolvent matrix.
+In terms of the eigendecomposition K = ∑
+n µn vnvT
+n (for symmetric K):
+RN =
+∑
+n
+µn
+1 − λhµn
+vnvT
+n .
+The continuous resolvent is then approximated by:
+R(xi, xj; λ) ≈ (RN )ij/h.
+As N → ∞ (and h → 0), this approaches the true resolvent of the integral equation.
+(c) Numerical implementation (outline)
+For the attractive Yukawa potential ( mV0/p2ℏ2 = −1.4), one would:
+1. Discretize [0, rmax] into N points (choosing rmax large enough that V (rmax) ≈ 0).
+2. Construct the N × N kernel matrix from Eqs. (9.112)–(9.113).
+3. Solve (I − λhK)f = g by matrix inversion.
+4. Extract F0(p1) and δ0(p1) for a range of momenta p1.
+The attractive potential supports an s-wave bound state, which manifests as:
+• δ0(0) = π (by Levinson’s theorem, one bound state adds π to δ0(0)).
+• A dramatic change in the behavior of δ0(p1) compared to the repulsive case.
+• The scattering amplitude shows enhanced low-energy scattering.
+■
+2

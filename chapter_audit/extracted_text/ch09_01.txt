@@ -1,0 +1,38 @@
+Chapter 9, Problem 1
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. If A is a completely continuous Hermitian operator with only a finite number
+of nonzero eigenvalues, show that the eigenvectors of A can be chosen to form a complete
+orthonormal set.
+Solution.
+Since A is a completely continuous (compact) Hermitian operator on a Hilbert space
+H, by Theorem 9.4, A has at most a countable number of eigenvalues, and any nonzero
+eigenvalue has finite multiplicity. We are told that there are only a finite number of nonzero
+eigenvalues, say λ1, λ2, . . . , λN (counted with multiplicity).
+For each nonzero eigenvalue λk, let Hk denote the corresponding eigenspace. Since each
+eigenspace is finite-dimensional, we can choose an orthonormal basis for each Hk by the
+Gram–Schmidt process. Eigenvectors corresponding to different eigenvalues of a Hermitian
+operator are automatically orthogonal, so the union of all these orthonormal bases,
+{x1, x2, . . . , xM },
+forms an orthonormal set spanning the direct sum H1 ⊕ H2 ⊕ · · · ⊕ HN .
+Now consider the orthogonal complement of this span:
+H0 =
+(
+span{x1, . . . , xM }
+)⊥
+.
+For any y ∈ H0, we have (y, xk) = 0 for all k. We claim Ay = 0 for all y ∈ H0.
+Since A is Hermitian, H0 is an invariant subspace of A (if y ⊥ xk, then (Ay, xk) =
+(y, Axk) = λk(y, xk) = 0 , so Ay ∈ H0). The restriction A|H0 is also a completely continuous
+Hermitian operator. If A|H0 had any nonzero eigenvalue, it would be a nonzero eigenvalue
+of A itself, contradicting the fact that all nonzero eigenvalues of A have their eigenvectors in
+H1 ⊕ · · · ⊕HN . Therefore A|H0 has no nonzero eigenvalues, and by Theorem 9.2 (the norm of
+a completely continuous self-adjoint operator equals its largest eigenvalue in absolute value),
+we conclude ∥A|H0∥ = 0, hence Ay = 0 for all y ∈ H0.
+Thus every vector in H0 is an eigenvector of A with eigenvalue 0. We can choose an
+orthonormal basis {eα} for H0 (using Zorn’s lemma or, if H0 is separable, the Gram–Schmidt
+process on a countable dense subset).
+The combined set {x1, . . . , xM } ∪ {eα} is an orthonormal set of eigenvectors of A (with
+eigenvalues λk for the xk and 0 for the eα). Since H = ( H1 ⊕ · · · ⊕ HN ) ⊕ H0, this set is a
+complete orthonormal set (basis) for H.
+■
+1

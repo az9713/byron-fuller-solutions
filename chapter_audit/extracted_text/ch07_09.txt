@@ -1,0 +1,116 @@
+Chapter 7, Problem 9
+Problem: Using the results of the previous problem, find the Green’s function for the
+general third-order linear differential operator,
+d3u
+dx3 + a1
+d2u
+dx2 + a2
+du
+dx + a3 u = f (x),
+in terms of the roots r1, r2, and r3 of the characteristic polynomial
+r3 + a1r2 + a2r + a3 = 0.
+Assume the Green’s function and its first two derivatives vanish at x = 0.
+Solution:
+For constant coeﬀicients, the three linearly independent solutions of the homogeneous
+equation are:
+uk(x) = erkx, k = 1, 2, 3,
+where r1, r2, r3 are the roots of the characteristic polynomial (assumed distinct).
+The Wronskian is:
+W (x) =
+
+er1x er2x er3x
+r1er1x r2er2x r3er3x
+r2
+1er1x r2
+2er2x r2
+3er3x
+
+.
+Factoring out the exponentials:
+W (x) = e(r1+r2+r3)x
+
+1 1 1
+r1 r2 r3
+r2
+1 r2
+2 r2
+3
+
+.
+The remaining determinant is the Vandermonde determinant:
+V = (r2 − r1)(r3 − r1)(r3 − r2).
+Since f0 = 1 and f1 = a1, by Abel’s identity: W (x) = W (0)e−a1x. Also, r1+r2+r3 = −a1,
+confirming consistency.
+From Problem 8, the Green’s function with the boundary condition G(0, x′) = G′(0, x′) =
+G′′(0, x′) = 0 (causal Green’s function) is:
+G(x, x′) =
+8
+><
+>:
+0, x < x ′,
+3X
+k=1
+erkx ∆k(x′)
+W (x′) , x > x ′.
+The cofactors ∆k(x′) are obtained from the last row of the Wronskian. Specifically:
+∆1(x′) = ( −1)3+1
+
+er2x′
+er3x′
+r2er2x′
+r3er3x′
+ = (r3 − r2)e(r2+r3)x′
+, (1)
+∆2(x′) = ( −1)3+2
+
+er1x′
+er3x′
+r1er1x′
+r3er3x′
+ = −(r3 − r1)e(r1+r3)x′
+, (2)
+∆3(x′) = ( −1)3+3
+
+er1x′
+er2x′
+r1er1x′
+r2er2x′
+ = (r2 − r1)e(r1+r2)x′
+. (3)
+1
+
+Therefore, for x > x ′:
+G(x, x′) = 1
+V e (r1+r2+r3)x′
+h
+(r3 − r2)er1x+(r2+r3)x′
+(4)
+− (r3 − r1)er2x+(r1+r3)x′
++ (r2 − r1)er3x+(r1+r2)x′
+i
+(5)
+= 1
+V
+h
+(r3 − r2)er1(x−x′) − (r3 − r1)er2(x−x′) + (r2 − r1)er3(x−x′)
+i
+. (6)
+Writing τ = x − x′ and V = (r2 − r1)(r3 − r1)(r3 − r2):
+G(x, x′) = θ(x − x′)
+3X
+k=1
+erk(x−x′)
+Q
+j̸=k(rk − rj)
+where θ is the Heaviside step function.
+One can verify: G(x′, x′) = 0 , G′(x′, x′) = 0 (from the partial fraction identity P
+k 1/ Q
+j̸=k(rk−
+rj) = 0 and P
+k rk/ Q
+j̸=k(rk − rj) = 0 ), and G′′(x′+, x′) = 1 (from P
+k r2
+k/ Q
+j̸=k(rk − rj) = 1 ).
+■
+2

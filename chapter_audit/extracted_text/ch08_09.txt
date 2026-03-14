@@ -1,0 +1,85 @@
+Chapter 8, Problem 9. Using the weight-function method, show that in one dimension
+the iteration of the Lippmann–Schwinger equation will converge to the energy of the particle
+if suﬀiciently large.
+Solution.
+In one dimension, the Lippmann–Schwinger equation for scattering by a potential V (x)
+is:
+ψ(x) = eikx +
+∫
+G0(x, x′)V (x′)ψ(x′) dx′,
+where G0(x, x′) = im
+ℏ2k eik|x−x′| and k =
+√
+2mE/ℏ.
+Weight-function method: Following the approach described in Section 8.5, we use
+the weight function w(x) = |V (x)|. Define the weighted inner product:
+⟨f, g⟩w =
+∫
+f ∗(x)g(x)|V (x)| dx.
+The kernel of the integral operator is K(x, x′) = G0(x, x′)V (x′), and the weighted norm of
+K is:
+∥K∥2
+w =
+∫ ∫
+|G0(x, x′)|2|V (x′)|2|V (x)| dx dx′.
+Since |G0(x, x′)| = m/(ℏ2k) for all x, x′:
+∥K∥2
+w = m2
+ℏ4k2
+∫
+|V (x)| dx
+∫
+|V (x′)|2 dx′.
+For k → ∞ (high energy), ∥K∥w → 0, so the Neumann series converges. More precisely,
+the Born series converges when ∥K∥w < 1, which is satisfied for suﬀiciently large k, i.e.,
+suﬀiciently large energy E.
+Alternatively, using the simpler Hilbert–Schmidt norm:
+∥K∥2 =
+∫ ∫
+|G0(x, x′)|2|V (x′)|2 dx dx′ = m2
+ℏ4k2
+( ∫
+|V (x′)| dx′
+) ( ∫
+|V (x′)|dx′
+)
+.
+Wait—more carefully:
+∥K∥2 =
+∫
+dx
+∫
+dx′ m2
+ℏ4k2 |V (x′)|2.
+The x-integral diverges if taken over all space. This is precisely why the weight-function
+method is needed.
+With the weight function, the effective Hilbert space consists of functions weighted by
+|V |, and the integrals are restricted to the support of V . If V has finite range or decays
+suﬀiciently fast:
+∥K∥2
+w = m2
+ℏ4k2
+∫
+|V (x)| dx
+∫
+|V (x′)|2 dx′ ∝ 1
+k2 ∝ 1
+E .
+Therefore, for E suﬀiciently large:
+∥K∥w < 1 when E > m
+2ℏ2
+( ∫
+|V (x)| dx
+) ( ∫
+|V (x′)|2 dx′
+) 1/appropriate power
+.
+1
+
+The key result is that ∥K∥w ∼ 1/k ∼ 1/
+√
+E, so the Born series is guaranteed to converge
+for suﬀiciently high energy, and the weight-function method provides a well-defined norm
+even for potentials of infinite range (provided they are square-integrable with respect to the
+weight). ■
+2

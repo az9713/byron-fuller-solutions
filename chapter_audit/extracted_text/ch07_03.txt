@@ -1,0 +1,48 @@
+Chapter 7, Problem 3
+Problem: Show that if H is a real, Hermitian operator (that is, H = H ∗, H = H †) then
+the Green’s function for the inhomogeneous equation Hψ (x) = f (x) is symmetric, that is,
+G(x, x′) = G(x′, x).
+[Hint: Show that the eigenfunctions of a real, Hermitian operator can always be chosen
+to be real.]
+Solution:
+Step 1: Eigenfunctions can be chosen real.
+Since H is Hermitian (H = H †), its eigenvalues λn are real. Since H is also real (H = H ∗),
+if ϕn is an eigenfunction with eigenvalue λn:
+Hϕ n = λnϕn,
+then taking the complex conjugate:
+Hϕ ∗
+n = λnϕ∗
+n.
+So ϕ∗
+n is also an eigenfunction with the same eigenvalue. If the eigenvalue is non-degenerate,
+then ϕ∗
+n = c ϕn for some constant c with |c| = 1 , and we can choose ϕn to be real by
+multiplying by an appropriate phase. If the eigenvalue is degenerate, we can form real linear
+combinations (ϕn + ϕ∗
+n)/2 and (ϕn − ϕ∗
+n)/(2i) that span the same eigenspace.
+Step 2: Green’s function is symmetric.
+The Green’s function has the eigenfunction expansion (Eq. 7.18 ′):
+G(x, x′) =
+∑
+n
+ϕn(x) ϕ∗
+n(x′)
+λn
+.
+Since we have shown the eigenfunctions can be chosen real, ϕ∗
+n = ϕn, so:
+G(x, x′) =
+∑
+n
+ϕn(x) ϕn(x′)
+λn
+.
+This expression is manifestly symmetric under x ↔ x′:
+G(x′, x) =
+∑
+n
+ϕn(x′) ϕn(x)
+λn
+= G(x, x′). ■
+1

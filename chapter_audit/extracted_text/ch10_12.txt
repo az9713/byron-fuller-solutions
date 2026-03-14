@@ -1,0 +1,92 @@
+Chapter 10, Problem 12
+Problem. Show that the following three sets of functions, {cos 3θ}, {sin 3θ} and {cos 4θ, sin 4θ},
+transform among themselves under the elements of the group discussed in Problem 10.1.
+What are the representations and characters which are obtained from these three sets of
+functions? Are they irreducible representations? What can you say about the representa-
+tion provided by {cos 5θ, sin 5θ}?
+Solution.
+The group from Problem 1 is the symmetry group of the equilateral triangle, S3 ∼=
+D3, with 6 elements: {e, R, R2, σa, σb, σc}, where R is rotation by 120◦ and σa, σb, σc are
+reflections.
+In terms of the angular coordinate θ:
+• R: θ → θ + 2π/3
+• R2: θ → θ + 4π/3
+• σa: θ → −θ (reflection through line a at θ = 0)
+• σb: θ → −θ + 2π/3
+• σc: θ → −θ + 4π/3
+Set 1: {cos 3θ}
+Under R: cos 3(θ + 2π/3) = cos(3 θ + 2π) = cos 3 θ.
+Under σa: cos 3(−θ) = cos 3 θ.
+So cos 3θ is invariant under all group operations. This gives a one-dimensional repre-
+sentation with all characters equal to 1:
+χ(g) = 1 for all g ∈ S3.
+This is the trivial (identity) representation, Γ1. It is irreducible.
+Set 2: {sin 3θ}
+Under R: sin 3(θ + 2π/3) = sin(3 θ + 2π) = sin 3 θ.
+Under σa: sin 3(−θ) = − sin 3θ.
+Under σb: sin 3(−θ + 2π/3) = sin( −3θ + 2π) = − sin 3θ.
+So rotations give +1 and reflections give −1. This is the one-dimensional “alternat-
+ing” representation Γ2:
+χ(e) = 1 , χ (R) = χ(R2) = 1 , χ (σa) = χ(σb) = χ(σc) = −1.
+This is irreducible.
+Set 3: {cos 4θ, sin 4θ}
+1
+
+Under R (θ → θ + 2π/3):
+cos 4(θ + 2π/3) = cos(4 θ + 8π/3) = cos 4 θ cos(8π/3) − sin 4θ sin(8π/3)
+= cos 4θ · (− 1
+2 ) − sin 4θ · (−
+√
+3
+2 )
+= − 1
+2 cos 4θ +
+√
+3
+2 sin 4θ.
+sin 4(θ + 2π/3) = −
+√
+3
+2 cos 4θ − 1
+2 sin 4θ.
+The representation matrix for R is:
+D(R) =
+(−1/2 −
+√
+3/2√
+3/2 −1/2
+)
+, χ (R) = −1.
+Under σa (θ → −θ):
+cos 4(−θ) = cos 4 θ, sin 4(−θ) = − sin 4θ.
+D(σa) =
+(1 0
+0 −1
+)
+, χ (σa) = 0 .
+The character table for this representation:
+χ(e) = 2 , χ (R) = χ(R2) = −1, χ (σa) = χ(σb) = χ(σc) = 0 .
+This matches the two-dimensional irreducible representation of S3. So this representation
+is irreducible.
+The set {cos 5θ, sin 5θ}:
+Under R: cos 5(θ + 2π/3) = cos(5 θ + 10π/3). Since 10π/3 = 4 π/3 (mod 2 π):
+D(R) =
+(cos(10π/3) − sin(10π/3)
+sin(10π/3) cos(10 π/3)
+)
+=
+( −1/2
+√
+3/2
+−
+√
+3/2 −1/2
+)
+.
+χ(R) = −1.
+Under σa: cos 5(−θ) = cos 5 θ, sin 5(−θ) = − sin 5θ, so χ(σa) = 0 .
+Characters: χ(e) = 2 , χ(R) = χ(R2) = −1, χ(σ) = 0 .
+This is the same set of characters as the two-dimensional irreducible representation.
+Therefore {cos 5θ, sin 5θ} also provides the irreducible two-dimensional representation
+of S3, equivalent to that provided by {cos 4θ, sin 4θ}.
+2

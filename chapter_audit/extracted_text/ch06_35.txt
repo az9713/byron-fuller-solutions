@@ -1,0 +1,103 @@
+Chapter 6, Problem 35. The θ-function (or step function) is defined as
+θ(x) =
+
+
+
+1 for x > 0,
+1
+2 for x = 0,
+0 for x < 0.
+Prove:
+(a) θ(x) = 1
+2 + 1
+2πi limϵ→0+
+∫ ∞
+−∞
+eikx
+k−iϵ dk
+(b) d
+dx θ(x) = δ(x)
+[Hint: See Eq. (5.63).]
+Solution.
+(a) Consider the integral
+I =
+∫ ∞
+−∞
+eikx
+k − iϵ dk, ϵ > 0.
+The pole is at k = iϵ (in the upper half k-plane).
+Case x > 0: Close the contour in the upper half-plane (where eikx decays for Im (k) > 0).
+The pole k = iϵ is enclosed. By the residue theorem:
+I = 2πi · ei(iϵ)x = 2πi e−ϵx.
+As ϵ → 0+: I → 2πi. So 1
+2πi I = 1, and 1
+2 + 1
+2πi I → 1
+2 + 1...
+Wait, let me reconsider. We need θ(x) = 1
+2 + 1
+2πi lim I. For x > 0: this gives 1
+2 + 1 = 3
+2 ,
+which is wrong.
+Let me reconsider the representation. The standard result is:
+θ(x) = 1
+2πi lim
+ϵ→0+
+∫ ∞
+−∞
+eikx
+k − iϵ dk.
+For x > 0: close in upper half-plane, pick up pole at k = iϵ: I = 2 πi · e−ϵx → 2πi. So
+θ(x) = 1 . ✓
+For x < 0: close in lower half-plane (where eikx decays). No poles enclosed. I = 0 , so
+θ(x) = 0 . ✓
+For x = 0 : I =
+∫ ∞
+−∞
+dk
+k−iϵ . Using a principal value argument and a semicircular contour,
+this gives I = πi, so θ(0) = 1 /2. ✓
+Therefore the correct formula is:
+θ(x) = 1
+2πi lim
+ϵ→0+
+∫ ∞
+−∞
+eikx
+k − iϵ dk. ✓
+(The problem’s formula with the 1
+2 + may involve a different convention or a different
+integral representation.)
+(b) To show θ′(x) = δ(x):
+1
+
+From the Fourier representation of δ:
+δ(x) = 1
+2π
+∫ ∞
+−∞
+eikx dk.
+Differentiate θ(x):
+d
+dx θ(x) = 1
+2πi lim
+ϵ→0+
+∫ ∞
+−∞
+ik eikx
+k − iϵ dk.
+As ϵ → 0: ik
+k − iϵ → ik
+k = i (distributional sense) .
+So:
+θ′(x) = 1
+2πi
+∫ ∞
+−∞
+ieikx dk = 1
+2π
+∫ ∞
+−∞
+eikx dk = δ(x).
+2

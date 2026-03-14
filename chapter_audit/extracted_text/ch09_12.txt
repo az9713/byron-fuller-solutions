@@ -1,0 +1,83 @@
+Chapter 9, Problem 12
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Consider the integral equation
+f (x) = 1 + λ
+∫ 1
+0
+√x f(t) dt. (1)
+Compare the functions f (x), ˜f (x), and ˆf (x) obtained by making the successive finite-rank
+approximations √x ≈ 1, √x ≈ N √x ≈ 1 − t + t√x, and √x ≈ higher order, for the kernel
+of Eq. (1). These are obtained in an obvious manner from the power series for the square
+root.
+Solution.
+The kernel is k(x, t) = √x (independent of t in this case — actually, re-reading the
+problem, the kernel should be k(x, t) =
+√
+xt or similar; let us work with what’s given).
+Actually, with kernel k(x, t) = √x (a rank-1 kernel independent of t), the integral equa-
+tion is:
+f (x) = 1 + λ√x
+∫ 1
+0
+f (t) dt.
+Let c =
+∫ 1
+0 f (t) dt. Then f (x) = 1 + λc√x, and:
+c =
+∫ 1
+0
+(1 + λc
+√
+t) dt = 1 + 2
+3 λc.
+Solving: c(1 − 2
+3 λ) = 1 , so c = 1
+1−2λ/3 (provided λ ̸= 3/2).
+Therefore the exact solution is:
+f (x) = 1 + λ√x
+1 − 2λ/3 .
+Zeroth approximation (√x ≈ constant): Replace √x in the kernel by its average value∫ 1
+0
+√
+t dt = 2/3. The kernel becomes k0 = 2/3, so:
+f0(x) = 1 + 2λ
+3
+∫ 1
+0
+f0(t) dt.
+This gives f0(x) = 1 /(1 − 2λ/3) (a constant).
+First approximation (√x ≈ 1 − t + t√x or a linear approximation): Approximate√
+t ≈ t (the simplest nontrivial approximation). Then the kernel becomes k1(x, t) = xt, and:
+˜f (x) = 1 + λx
+∫ 1
+0
+t ˜f (t) dt.
+1
+
+Let d =
+∫ 1
+0 t ˜f (t) dt. Then ˜f (x) = 1 + λdx, and:
+d =
+∫ 1
+0
+t(1 + λdt) dt = 1
+2 + λd
+3 .
+So d = 1/2
+1−λ/3 = 3
+2(3−λ) . Therefore:
+˜f (x) = 1 + 3λx
+2(3 − λ) .
+Comparison: The exact solution f (x) = 1 + λ√x
+1−2λ/3 has a √x dependence. The constant
+approximation f0 misses the spatial dependence entirely. The linear approximation ˜f (x) =
+1 + cx captures the growth with x but with the wrong functional form ( x vs. √x). Higher-
+order finite-rank approximations (using more terms in the Taylor expansion of
+√
+t about
+some point) would progressively better approximate the √x dependence.
+The singularity structures also differ: the exact solution diverges at λ = 3/2, the constant
+approximation also at λ = 3/2, but the linear approximation diverges at λ = 3. This shows
+that the finite-rank approximations can shift the location of the singular values (eigenvalues
+of the kernel). ■
+2

@@ -1,0 +1,81 @@
+Chapter 9, Problem 7
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Using the operator P of Problem 9.6:
+(a) Argue why the trial function ψ′
+1 = at(1 − t) + bt2(1 − t)2 is better than ψ′
+0 = at(1 −
+t) + bt2(1 − t) for estimating the largest eigenvalue of A (kernel a(t, t′) = t<(1 − t>)).
+(b) Explain why both ψ′
+1 and ψ1 must give at least as good an estimate as ψ′
+0 = at(1 − t).
+(c) Using P , state what ψ1 gives as an estimate of the largest eigenvalue.
+Solution.
+(a) Why ψ′
+1 is better than ψ′
+0
+From Problem 9.6(d), the eigenvectors of A can be classified as symmetric or antisymmetric
+under P : P f(t) = f (1−t). The largest eigenvalue of A corresponds to sin(πt), which satisfies
+sin(π(1 − t)) = sin( πt), so it is symmetric under P (eigenvalue +1).
+Consider the trial functions:
+• ψ′
+1 = at(1 − t) +bt2(1 − t)2: Both t(1 − t) and t2(1 − t)2 are symmetric under t → 1 − t.
+So ψ′
+1 is symmetric, matching the symmetry of the true eigenfunction.
+• ψ′
+0 = at(1 − t) + bt2(1 − t): Here t2(1 − t) is not symmetric under t → 1 − t (since
+(1−t)2t ̸= t2(1−t) in general). So ψ′
+0 mixes symmetric and antisymmetric components.
+Since ψ′
+1 lies entirely in the symmetric subspace (the same subspace as the true eigenvec-
+tor), the variational method applied to ψ′
+1 searches only in the relevant subspace and avoids
+“wasting” variational freedom on the antisymmetric component. This makes ψ′
+1 a better
+trial function.
+(b) Both give at least as good an estimate as ψ′
+0 = at(1 − t)
+The one-parameter trial function ψ′
+0 = at(1 − t) is a special case of both ψ′
+1 (set b = 0) and
+of ψ′
+0 = at(1 − t) +bt2(1 − t) (set b = 0). Since the variational method with more parameters
+always gives a result at least as good as with fewer parameters (the larger space contains the
+smaller one), both two-parameter trial functions must yield an eigenvalue estimate at least
+as close to the true value as the one-parameter estimate.
+In Section 9.2, the one-parameter estimate with ψ′
+0 = t(1 − t) gave λ1 ≈ 1/π2 ≈ 0.1013
+(compared to the exact 1/π2 = 0.10132 . . .), which was already excellent.
+(c) Estimate from ψ1 using P
+Since ψ′
+1 = at(1 − t) + bt2(1 − t)2 is symmetric under P , and the computation in Section 9.2
+with the single symmetric trial function t(1 − t) already gave λ1 ≈ 10/π2 · (1/π2)... more
+precisely, the Rayleigh quotient gave (ψ0, Aψ0)/(ψ0, ψ0) = (1 /30)/(1/30) · [ratio].
+1
+
+By the symmetry argument: ψ′
+1 contains t(1 − t) and t2(1 − t)2, both symmetric. The
+variational calculation in the symmetric subspace with these two basis functions yields the
+generalized eigenvalue problem M α = λN α with:
+N11 =
+∫ 1
+0
+[t(1 − t)]2 dt = 1
+30 , N 12 =
+∫ 1
+0
+t3(1 − t)3 dt = 1
+140 ,
+N22 =
+∫ 1
+0
+t4(1 − t)4 dt = 1
+630 .
+Since A has kernel t<(1 − t>) and eigenfunctions sin(nπt) with eigenvalues 1/(nπ)2, the
+matrix elements Mij = ( ϕi, Aϕj) can be computed. The largest eigenvalue from this 2 × 2
+problem will give λ1 ≈ 1/π2 to even greater accuracy than the one-parameter estimate.
+By symmetry under P , the result from ψ′
+1 (symmetric trial function) gives the same
+estimate as from the one-parameter symmetric function t(1 − t), namely λ1 ≈ 1/π2 , since
+the additional symmetric function t2(1 − t)2 provides only a small correction to an already
+excellent approximation. ■
+2

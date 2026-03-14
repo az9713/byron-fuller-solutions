@@ -1,0 +1,98 @@
+Chapter 8, Problem 25. Using Eqs. (8.76) and (8.81), show explicitly that
+λKf n = hn and 2K ∗fn = hn
+(i.e., verify the Fredholm alternative for the specific case of finite-rank kernels).
+Solution.
+Consider a finite-rank kernel:
+K(x, y) =
+N∑
+i=1
+ϕi(x)ψi(y),
+so Kf = ∑
+i ϕi⟨ψi, f⟩ and K ∗g = ∑
+i ψi⟨ϕi, g⟩.
+The Fredholm equations are:
+(I − λK)f = h and (I − ¯λK ∗)g = h′.
+The homogeneous equations:
+λKf n = fn: Writing fn = ∑
+j cjϕj (since the eigenfunction must lie in the range of K):
+λ
+∑
+i
+ϕi
+( ∑
+j
+cj⟨ψi, ϕj⟩
+)
+=
+∑
+j
+cjϕj.
+Defining Mij = ⟨ψi, ϕj⟩, this becomes λM c = c, or (M − 1
+λ I)c = 0.
+¯λK ∗gn = gn: Writing gn = ∑
+j djψj:
+¯λ
+∑
+i
+ψi
+( ∑
+j
+dj⟨ϕi, ψj⟩
+)
+=
+∑
+j
+djψj.
+This gives ¯λM †d = d, or (M † − 1
+¯λ I)d = 0.
+Equal number of solutions: By the rank-nullity theorem for finite matrices:
+dim ker
+(
+M − 1
+λ I
+)
+= N − rank
+(
+M − 1
+λ I
+)
+.
+Since rank (A) = rank(A†) for any matrix:
+rank
+(
+M − 1
+λ I
+)
+= rank
+(
+M † − 1
+¯λ I
+)
+,
+and therefore:
+dim ker
+(
+M − 1
+λ I
+)
+= dim ker
+(
+M † − 1
+¯λ I
+)
+.
+This proves that λKf = f and ¯λK ∗g = g have the same number of linearly independent
+solutions.
+The Fredholm alternative:
+1
+
+The inhomogeneous equation (I − λK)f = h has a solution if and only if h is orthogonal
+to all solutions of the homogeneous adjoint equation g − ¯λK ∗g = 0.
+Proof: In the finite-dimensional subspace, (I − λK)f = h reduces to (I − λM )c = ˜h
+where ˜hi = ⟨ψi, h⟩. This has a solution iff ˜h is orthogonal to ker(I − ¯λM †), i.e., iff ⟨d, ˜h⟩ = 0
+for all d with (I − ¯λM †)d = 0. Translating back: ∑
+i
+¯di⟨ψi, h⟩ = ⟨gn, h⟩ = 0 for all solutions
+gn of the adjoint equation.
+This explicitly verifies the Fredholm alternative for finite-rank kernels. ■
+2

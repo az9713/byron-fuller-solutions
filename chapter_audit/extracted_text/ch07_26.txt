@@ -1,0 +1,76 @@
+Chapter 7, Problem 26
+Problem: Note that Eq. (7.129a) does not make sense if t′ > t. Show that the function
+G(r, r′, t, t′) =
+∑
+n
+ϕn(r)ϕ∗
+n(r′) e−iλn(t−t′)/ℏ
+is not an acceptable Green’s function. Show that if one derives G(r, r′, t, t′) for the case of
+the diffusion (or heat) equation by using the Fourier transform method, one obtains only
+G(r, r′, t, t′) = θ(t − t′) · Gfree(r, r′, t − t′),
+where Gfree is given by the heat kernel Eq. (7.139).
+Solution:
+Why the naive expansion fails:
+The expansion G = ∑
+n ϕnϕ∗
+ne−iλn(t−t′)/ℏ formally satisfies:
+(
+H0 − iℏ ∂
+∂t
+)
+G =
+∑
+n
+(λn − λn)ϕnϕ∗
+ne−iλn(t−t′)/ℏ = 0 for t ̸= t′.
+At t = t′, the completeness relation gives G|t=t′ = ∑
+n ϕnϕ∗
+n = δ3(r − r′).
+However, this G is defined for all t and does not enforce causality. For the Schrödinger
+equation, both Gret (propagating forward) and Gadv (propagating backward) are legitimate
+— the naive expansion gives neither.
+For the diffusion equation ∂u/∂t = k∇2u, the eigenvalues are λn = −kµn where µn >
+0 are eigenvalues of −∇2. The factor e−λn(t−t′) = ekµn(t−t′) diverges for t < t ′, so the
+expansion makes no sense for backward propagation. This shows it is not an acceptable
+Green’s function.
+Fourier transform derivation:
+For the diffusion equation, take the Fourier transform in time:
+(−iω − k∇2) ˜G(r, r′, ω) = δ3(r − r′).
+Expanding in eigenfunctions of ∇2:
+˜G =
+∑
+n
+ϕn(r)ϕ∗
+n(r′)
+−iω + kµn
+.
+Inverting the Fourier transform:
+G(r, r′, t − t′) =
+∑
+n
+ϕnϕ∗
+n
+∫ ∞
+−∞
+e−iω(t−t′)
+−iω + kµn
+dω
+2π .
+The pole is at ω = −ikµn (in the lower half-plane since kµn > 0). For t > t ′, close in the
+lower half-plane, picking up the pole:
+∫ e−iωτ
+−iω + kµn
+dω
+2π = e−kµnτ , τ = t − t′ > 0.
+1
+
+For t < t ′, close in the upper half-plane — no poles are enclosed, giving zero.
+Therefore:
+G(r, r′, t, t′) = θ(t − t′)
+∑
+n
+ϕn(r)ϕ∗
+n(r′) e−kµn(t−t′),
+which is exactly θ(t − t′) times the heat kernel. The Fourier method automatically produces
+the retarded (causal) Green’s function. ■
+2

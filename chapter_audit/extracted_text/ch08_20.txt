@@ -1,0 +1,64 @@
+Chapter 8, Problem 20. Consider the quantity
+f l(E) = 2τ
+(q2
+i + µ2)l + τ
+π (qi − iµ)3
+where τ = 4πmg 2/ℏ2 and qi = (2mEi/ℏ2)1/2 [see Eq. (8.73)]. Show that if we consider E to
+be a complex variable, that is, if we do not restrict E to take on just physical real values,
+then f l(E) is a single-valued function of E on a two-sheeted Riemann surface cut along the
+positive real axis. Show that, as a function of E, f l(E) is analytic everywhere except for a
+pole of second order at E = −ℏ2µ2/2m on the first sheet, a simple pole at E = −ℏ2µ2/2m
+on the second sheet (from the square root), and a so-called bound-state pole which may
+be either on the first or second sheet. If µ > √τ , then this pole is on the second sheet at
+E = −ℏ2(√τ −µ)2/(2m); if √τ > µ , the pole is on the first sheet at E = −ℏ2(√τ −µ)2/(2m).
+This value of E is precisely the energy of the bound state determined in the previous problem.
+Solution.
+The partial-wave scattering amplitude for the separable potential V = −g2|ϕ⟩⟨ϕ| with
+ϕ(r) = e−µr is given by (from the T -matrix formalism):
+f l(E) = − 2m
+ℏ2
+g2| ˜ϕ(q)|2
+1 − g2Π(E) ,
+where Π(E) = 2m
+ℏ2
+∫ | ˜ϕ(k)|2
+k2−q2−iϵ
+k2 dk
+2π2 and q =
+√
+2mE/ℏ2.
+Analytic structure:
+The key variable is q =
+√
+2mE/ℏ2. For real positive E, q is real and positive. But as a
+function of complex E, q has a branch point at E = 0, requiring a branch cut (conventionally
+along the positive real axis) and creating a two-sheeted Riemann surface:
+• First (physical) sheet: Im q > 0 (for E in the upper half-plane).
+• Second (unphysical) sheet: Im q < 0.
+The function f l(E) inherits this two-sheeted structure through its dependence on q.
+Poles:
+1. The form factor ˜ϕ(q) ∝ 1/(q2 + µ2)2 has poles at q2 = −µ2, i.e., q = ±iµ. On the
+first sheet (Im q > 0), this corresponds to q = iµ, giving E = −ℏ2µ2/(2m). This is a pole
+of order 2 in f l (from the denominator of | ˜ϕ|2, which involves (q2 + µ2)4—but only those
+factors not cancelled contribute). Actually, the pole comes from the form factor squared,
+giving a second-order pole at E = −ℏ2µ2/(2m) on the first sheet.
+2. On the second sheet, q = −iµ gives the same energy E = −ℏ2µ2/(2m) but as a simple
+pole.
+3. The bound-state pole comes from the zero of the denominator 1 − g2Π(E) = 0 .
+After evaluation, this occurs at:
+Epole = − ℏ2
+2m (√τ − µ)2,
+where τ = 4πmg 2/ℏ2.
+1
+
+• If √τ > µ : The pole is at q = i(√τ − µ) with Im q > 0, so it is on the first sheet .
+This represents a genuine bound state.
+• If µ > √τ : The pole is at q = −i(µ − √τ ) with Im q < 0, so it is on the second sheet .
+This is a virtual state (not a true bound state).
+The condition for a bound state ( √τ > µ ) is equivalent to g2 > ℏ2µ2/(4πm), which
+matches Problem 19. The bound-state energy EB = ℏ2(√τ − µ)2/(2m) also matches.
+As g2 drops below the critical value, the bound-state pole moves through the threshold
+E = 0 from the first sheet to the second sheet, becoming a virtual state. The effect of the
+bound state does not magically vanish from the scattering amplitude; rather, it moves off
+the physical sheet. ■
+2

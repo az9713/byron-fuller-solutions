@@ -1,0 +1,140 @@
+Chapter 7, Problem 7
+Problem: Prove that for any linear differential operator of the form
+f0(x) dnu
+dxn + f1(x) dn−1u
+dxn−1 + · · · + fn(x) u = f (x),
+we have dW
+dx = − f1
+f0
+W,
+where W is defined by
+W (x) =
+
+u1 u2 · · · un
+u′
+1 u′
+2 · · · u′
+n
+... ... . . . ...
+u(n−1)
+1 u(n−1)
+2 · · · u(n−1)
+n
+
+,
+u1(x), u2(x), . . . , un(x) are the linearly independent solutions of the equation, and u(m) de-
+notes the mth derivative of u. Thus W (x) is given by
+W (x) = C exp
+
+−
+Z f1(x)
+f0(x) dx
+
+.
+Solution:
+To differentiate the determinant, we use the rule that the derivative of a determinant is
+the sum of determinants obtained by differentiating each row separately (keeping all other
+rows unchanged).
+Write W with rows R0, R1, . . . , Rn−1 where row Rk has entries (u(k)
+1 , u(k)
+2 , . . . , u(k)
+n ).
+Differentiating row Rk gives row (u(k+1)
+1 , u(k+1)
+2 , . . . , u(k+1)
+n ).
+For k = 0 , 1, . . . , n− 2: The differentiated row k becomes identical to row k + 1 of the
+original determinant. A determinant with two identical rows is zero. Therefore, these terms
+all vanish.
+The only non-vanishing contribution comes from differentiating the last row Rn−1:
+W ′ =
+
+u1 u2 · · · un
+u′
+1 u′
+2 · · · u′
+n
+... ... . . . ...
+u(n−2)
+1 u(n−2)
+2 · · · u(n−2)
+n
+u(n)
+1 u(n)
+2 · · · u(n)
+n
+
+.
+Since each uj satisfies the homogeneous equation:
+f0 u(n)
+j + f1 u(n−1)
+j + · · · + fn uj = 0,
+we can write:
+u(n)
+j = − f1
+f0
+u(n−1)
+j − f2
+f0
+u(n−2)
+j − · · · − fn
+f0
+uj.
+1
+
+Substitute this into the last row of the determinant:
+W ′ =
+
+u1 · · · un
+... . . . ...
+u(n−2)
+1 · · · u(n−2)
+n
+− f1
+f0
+u(n−1)
+1 − f2
+f0
+u(n−2)
+1 − · · · · · · − f1
+f0
+u(n−1)
+n − f2
+f0
+u(n−2)
+n − · · ·
+
+.
+By multilinearity of the determinant in the last row, this splits into a sum of determinants.
+The term with − fk
+f0
+u(n−k)
+j in the last row (for k = 2 , 3, . . . , n) creates a determinant where
+the last row is proportional to row n − k (the row containing u(n−k)
+j ). Such a determinant
+has two proportional rows and therefore vanishes.
+The only surviving term is k = 1:
+W ′ = − f1
+f0
+
+u1 · · · un
+u′
+1 · · · u′
+n
+... . . . ...
+u(n−1)
+1 · · · u(n−1)
+n
+
+= − f1
+f0
+W.
+This is Abel’s identity generalized to nth-order equations. Integrating:
+W (x) = C exp
+
+−
+Z x f1(t)
+f0(t) dt
+
+. ■
+2

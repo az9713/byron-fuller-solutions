@@ -1,0 +1,75 @@
+Chapter 7, Problem 13
+Problem: Show that from Eq. (7.98) that
+eλ = r(2l + 1)/(kρ), cos θ = (kρ),
+where θ is the angle between k and r.
+[Hint: Consider Eq. (7.98) in the limit |r′| → ∞ .]
+Solution:
+Eq. (7.98) from the text gives the partial-wave expansion of the free-particle Green’s
+function. In the limit |r′| → ∞ , the spherical Hankel function h(1)
+l (kr′) has the asymptotic
+form:
+h(1)
+l (kr′) ∼ (−i)l+1
+kr′ eikr′
+as r′ → ∞.
+The Green’s function (Eq. 7.96) in three dimensions is:
+G(r, r′) = − eik|r−r′|
+4π|r − r′| .
+For r′ ≫ r:
+|r − r′| ≈ r′ − ˆ r′ · r = r′ − r cos γ,
+where γ is the angle between r and r′.
+So:
+G ≈ − eikr′
+4πr′ e−ikr cos γ.
+On the other hand, the partial-wave expansion (Eq. 7.98) gives:
+G(r, r′) = −ik
+∑
+l
+(2l + 1) jl(kr) h(1)
+l (kr′) Pl(cos γ).
+Using the asymptotic form of h(1)
+l :
+G ≈ −ik
+∑
+l
+(2l + 1) jl(kr) (−i)l+1
+kr′ eikr′
+Pl(cos γ).
+= − eikr′
+r′
+∑
+l
+(2l + 1) (−i)l+1 · i jl(kr) Pl(cos γ).
+= eikr′
+r′
+∑
+l
+(2l + 1) (−i)l (−1) jl(kr) Pl(cos γ) · (−1).
+Simplifying: i · (−i)l+1 = i · (−1)l+1i−(l+1) = ( −1)l+1i−l = −(−1)l · i−l = −(−i)−l... Let
+me be more careful:
+ik · (−i)l+1/(k) = i(−i)l+1 = i · (−i)(−i)l = i(−i)(−i)l = (i2)(−1)li−l · il(−i)l
+Actually, let us just compute directly: (−i)l+1 · i = ( −i)l · (−i) · i = ( −i)l · 1 = ( −i)l =
+(−1)l/il = e−ilπ/2.
+1
+
+So:
+G ≈ − eikr′
+4πr′ · 4π
+∑
+l
+(2l + 1) i−l jl(kr) Pl(cos γ) · (−1)l · (−1)l
+The key identity we need to recover is the Rayleigh plane-wave expansion:
+e−ikr cos γ =
+∑
+l
+(2l + 1)(−i)l jl(kr) Pl(cos γ).
+Comparing the two expressions for G in the far-field limit:
+− eikr′
+4πr′ e−ikr cos γ = − eikr′
+4πr′
+∑
+l
+(2l + 1)(−i)l jl(kr) Pl(cos γ),
+which confirms the Rayleigh expansion and validates the consistency of Eq. (7.98). The
+identification k′ = kˆr′ gives cos θ = ˆk′ · ˆr = cos γ. ■
+2

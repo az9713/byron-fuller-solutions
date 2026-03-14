@@ -1,0 +1,132 @@
+Chapter 9, Problem 16
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Using the results of Problem 9.13, show that dD
+dλ = −
+R b
+a N (x, x; λ) dx.
+(b) Show that if D(λ0) = 0 , then N (x, y; λ0) ̸= 0 (the zeros of D are not cancelled by
+zeros of N ).
+Solution.
+(a) Derivative of the Fredholm determinant
+From Problem 9.13, the Fredholm determinant is:
+D(λ) =
+∞X
+n=0
+(−λ)n
+n! dn,
+where d0 = 1 and
+dn =
+Z
+· · ·
+Z
+
+k(x1, x1) · · · k(x1, xn)
+... . . . ...
+k(xn, x1) · · · k(xn, xn)
+
+dx1 · · · dxn.
+Therefore:
+dD
+dλ =
+∞X
+n=1
+(−1)nnλn−1
+n! dn =
+∞X
+n=1
+(−1)nλn−1
+(n − 1)! dn.
+Now consider N (x, y; λ):
+N (x, y; λ) =
+∞X
+n=0
+(−λ)n
+n! Nn(x, y),
+where N0(x, y) = k(x, y) and Nn(x, y) =
+R
+· · ·
+R
+∆n(x, y; x1, . . . , xn) dx1 · · · dxn.
+Setting y = x and integrating:
+Z b
+a
+N (x, x; λ) dx =
+∞X
+n=0
+(−λ)n
+n!
+Z b
+a
+Nn(x, x) dx.
+The key identity is:
+Z b
+a
+Nn(x, x) dx = dn+1 · 1
+n + 1 · (n + 1) = dn+1.
+This follows because setting y = x in ∆n and integrating over x produces an (n + 1) ×
+(n + 1) determinant integrated over n + 1 variables (with x becoming x0), which is precisely
+dn+1.
+1
+
+Therefore: Z b
+a
+N (x, x; λ) dx =
+∞X
+n=0
+(−λ)n
+n! dn+1.
+Comparing with dD/dλ: shifting index m = n + 1:
+dD
+dλ = −
+∞X
+m=1
+(−λ)m−1
+(m − 1)! dm = −
+∞X
+n=0
+(−λ)n
+n! dn+1 = −
+Z b
+a
+N (x, x; λ) dx.
+Therefore:
+dD
+dλ = −
+Z b
+a
+N (x, x; λ) dx . ✓
+(b) Zeros of D are not cancelled by zeros of N
+Suppose D(λ0) = 0 . Write D(λ) = ( λ − λ0)p ˜D(λ) where ˜D(λ0) ̸= 0 and p ≥ 1.
+Assume for contradiction that N (x, y; λ0) = 0 for all x, y, i.e., N (x, y; λ) = ( λ −
+λ0)q ˜N (x, y; λ) with q ≥ 1 for all x, y.
+From part (a):
+dD
+dλ = −
+Z b
+a
+N (x, x; λ) dx.
+At λ = λ0: D′(λ0) = p(λ0 − λ0)p−1 ˜D(λ0) + · · ·
+If p = 1: D′(λ0) = ˜D(λ0) ̸= 0.
+But if N (x, y; λ0) = 0 , then
+R
+N (x, x; λ0) dx = 0 , so D′(λ0) = 0 . Contradiction (when
+p = 1).
+If p ≥ 2: D′(λ0) = 0 is consistent, but we examine D′′(λ0) = −
+R ∂N
+∂λ (x, x; λ0) dx. If q ≥ 1,
+then ∂N
+∂λ
+
+λ0
+may or may not vanish. Continuing this argument through p derivatives: the
+pth derivative D(p)(λ0) = p! ˜D(λ0) ̸= 0, while the corresponding derivative of
+R
+N (x, x; λ) dx
+would require q ≤ p − 1 to be nonzero. This leads to a contradiction with the relation
+dD/dλ = −
+R
+N (x, x; λ) dx (differentiating p − 1 times shows q = p − 1 at most).
+Therefore N (x, y; λ0) cannot vanish identically when D(λ0) = 0 . The resolvent R = N/D
+genuinely has poles at the zeros of D(λ). ■
+2

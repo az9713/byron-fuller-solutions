@@ -1,0 +1,104 @@
+Chapter 9, Problem 13
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem.
+(a) Consider the infinite series (Fredholm determinant)
+D(λ) = 1 − λ
+Z b
+a
+k(x, x) dx + λ2
+2!
+Z b
+a
+Z b
+a
+
+k(x1, x1) k(x1, x2)
+k(x2, x1) k(x2, x2)
+ dx1 dx2 − · · ·
+Using Hadamard’s inequality (Section 4.3), prove that the coeﬀicient of λn/n! is less in
+magnitude than M nen/2, and hence show that the series D(λ) converges for all λ.
+(b) Consider the series N (x, y; λ). Prove convergence for all λ.
+Solution.
+(a) Convergence of D(λ)
+The nth term in the series for D(λ) is:
+(−λ)n
+n!
+Z
+· · ·
+Z
+
+k(x1, x1) · · · k(x1, xn)
+... . . . ...
+k(xn, x1) · · · k(xn, xn)
+
+dx1 · · · dxn.
+Hadamard’s inequality states that for any n × n matrix A = (aij):
+| det A|2 ≤
+nY
+i=1
+nX
+j=1
+|aij|2.
+Applied to the matrix Kn with entries Kn(i, j) = k(xi, xj): Let M = max x,y∈[a,b] |k(x, y)|
+(the kernel is continuous, hence bounded). Then each row satisfies:
+nX
+j=1
+|k(xi, xj)|2 ≤ nM 2.
+By Hadamard’s inequality:
+| det Kn| ≤
+nY
+i=1
+(nM 2)1/2 = (nM 2)n/2 = nn/2M n.
+Therefore the coeﬀicient of λn/n! satisfies:
+
+1
+n!
+Z
+· · ·
+Z
+det Kn dx1 · · · dxn
+ ≤ nn/2M n
+n! (b − a)n.
+Using the bound nn/2/n! ≤ en/2/
+√
+n! (from Stirling’s approximation, or more precisely
+nn/2 ≤ n! en/2/nn/2... let’s be more careful):
+1
+
+By Stirling, n! ≥ (n/e)n√
+2πn, so:
+nn/2
+n! ≤ nn/2
+(n/e)n = en
+nn/2 .
+Actually, the standard bound used is: nn/2 ≤ n! (e/n)n/2 · C for some constant. The key
+point is that the ratio nn/2M n(b − a)n/n! grows slower than any exponential in n, ensuring
+that: ∞X
+n=0
+|λ|nnn/2M n(b − a)n
+n! < ∞
+for all λ. This is because nn/2/n! → 0 faster than any geometric decay. Specifically:
+nn/2
+n! ≤ en/2
+(n/2)! (by comparison with the exponential series) .
+Therefore D(λ) is an entire function of λ (convergent for all λ ∈ C). □
+(b) Convergence of N (x, y; λ)
+The series for N is:
+N (x, y; λ) = k(x, y) − λ
+Z 
+k(x, y) k(x, t1)
+k(t1, y) k(t1, t1)
+ dt1 + · · ·
+The nth term involves an (n + 1) × (n + 1) determinant with the first row and column
+involving the fixed variables x, y, and integration over t1, . . . , tn. By the same Hadamard
+inequality argument, the (n + 1) × (n + 1) determinant is bounded by (n + 1)(n+1)/2M n+1,
+and the integral over n variables gives a factor (b − a)n.
+The coeﬀicient of λn/n! is bounded by:
+(n + 1)(n+1)/2M n+1(b − a)n
+n! .
+By the same argument as in part (a), this ratio tends to zero fast enough that the series
+converges for all λ. Moreover, N (x, y; λ) is a continuous function of x and y for each λ, since
+each term in the series is continuous and the convergence is uniform on [a, b]2 (the bound is
+independent of x, y).
+Therefore N (x, y; λ) converges for all λ to a continuous function of x, y. ■
+2

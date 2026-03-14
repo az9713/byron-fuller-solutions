@@ -1,0 +1,57 @@
+Chapter 8, Problem 15. In solving the equation for the anharmonic oscillator in
+Section 8.4, we used the notation introduced in Problem 8.15. Show that
+2Kf n = hn and 2∗Kf n = hn
+have the same number of linearly independent solutions.
+Solution.
+This problem concerns the Fredholm alternative for the integral operator K. Let K be
+a completely continuous operator on a Hilbert space H, with adjoint K ∗. The Fredholm
+equations are:
+Kf = h and K ∗g = h′.
+We need to show that the homogeneous equations
+Kf n = λfn and K ∗gn = λgn
+have the same number of linearly independent solutions for any given eigenvalue λ.
+Proof for finite-rank operators:
+If K is a finite-rank operator, it can be written as:
+Kf =
+N∑
+i=1
+ϕi⟨ψi, f⟩,
+and the adjoint is:
+K ∗g =
+N∑
+i=1
+ψi⟨ϕi, g⟩.
+The eigenvalue equation Kf = λf reduces to a finite matrix equation. Writing f =∑
+j cjϕj + f⊥ (where f⊥ is orthogonal to all ϕi), we get λf⊥ = 0 , so for λ ̸= 0 , f lies in the
+span of {ϕi}, and the equation becomes:
+∑
+i
+ϕi
+( ∑
+j
+Mijcj
+)
+= λ
+∑
+j
+cjϕj,
+where Mij = ⟨ψi, ϕj⟩. This gives the matrix equation M c = λc.
+Similarly, K ∗g = λg for λ ̸= 0 requires g in the span of {ψi}, leading to M †d = λd.
+The number of linearly independent solutions of M c = λc equals the dimension of
+ker(M − λI), and the number for M †d = λd equals dim ker(M † − λI).
+By the rank-nullity theorem:
+dim ker(M − λI) = N − rank(M − λI) = N − rank(M † − ¯λI) = dim ker( M † − ¯λI).
+For real eigenvalues (or taking conjugates appropriately), this shows both equations have
+the same number of independent solutions.
+Extension to completely continuous operators: By Theorem 8.4, any completely
+continuous operator can be approximated arbitrarily closely by finite-rank operators. Since
+1
+
+the dimension of the eigenspace (for nonzero eigenvalues) is finite (a consequence of complete
+continuity), and this dimension is stable under small perturbations, the result extends from
+finite-rank to completely continuous operators.
+Therefore:
+dim ker(K − λI) = dim ker( K ∗ − ¯λI)
+for all λ ̸= 0, establishing that Kf n = λfn and K ∗gn = ¯λgn have the same number of linearly
+independent solutions. ■
+2

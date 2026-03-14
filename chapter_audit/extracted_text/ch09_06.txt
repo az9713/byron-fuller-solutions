@@ -1,0 +1,95 @@
+Chapter 9, Problem 6
+Byron & Fuller, Mathematics of Classical and Quantum Physics
+Problem. Let L2[0, 1] denote the space of square-integrable functions on [0, 1]. Define
+the operator P on L2[0, 1] by P f(t) = f (1 − t), and the integral operator A with kernel
+a(t, t′) = t<(1 − t>), where t< and t> denote the smaller and larger of t and t′.
+(a) Show that P commutes with A. (b) Show that P is self-adjoint and bounded. Find
+∥P ∥. (c) Find the possible eigenvalues of P . Is P completely continuous? (d) Classify the
+eigenvectors of A according to eigenvalues of P .
+Solution.
+(a) P A = AP
+We need to show (P Af)(t) = ( AP f)(t) for all f ∈ L2[0, 1].
+First, note that a(t, t′) = t<(1 − t>) = min( t, t′)(1 − max(t, t′)). Explicitly:
+a(t, t′) =
+{
+t(1 − t′) if t ≤ t′,
+t′(1 − t) if t′ ≤ t.
+Compute (P Af)(t) = ( Af )(1 − t):
+(Af )(1 − t) =
+∫ 1
+0
+a(1 − t, t′) f (t′) dt′.
+Now compute a(1 − t, t′). If 1 − t ≤ t′, i.e., t′ ≥ 1 − t, then a(1 − t, t′) = (1 − t)(1 − t′).
+If 1 − t > t ′, i.e., t′ < 1 − t, then a(1 − t, t′) = t′(1 − (1 − t)) = t′ · t.
+So:
+a(1 − t, t′) =
+{
+t t′ if t′ < 1 − t,
+(1 − t)(1 − t′) if t′ ≥ 1 − t.
+Now compute (AP f)(t) =
+∫ 1
+0 a(t, t′) f (1 − t′) dt′. Substitute u = 1 − t′, du = −dt′:
+(AP f)(t) =
+∫ 1
+0
+a(t, 1 − u) f (u) du.
+We need a(t, 1 − u). If t ≤ 1 − u (i.e., u ≤ 1 − t), then a(t, 1 − u) = t(1 − (1 − u)) = tu.
+If t > 1 − u (i.e., u > 1 − t), then a(t, 1 − u) = (1 − u)(1 − t).
+So:
+a(t, 1 − u) =
+{
+t u if u ≤ 1 − t,
+(1 − t)(1 − u) if u > 1 − t.
+Comparing with a(1 − t, t′) above (with u in place of t′), we see a(1 − t, u) = a(t, 1 − u)
+for all t, u. Therefore (P Af)(t) = ( AP f)(t), so P A = AP . □
+1
+
+(b) Self-adjointness, boundedness, and norm of P
+Self-adjoint:
+(P f, g) =
+∫ 1
+0
+f (1 − t) g(t) dt.
+Substituting u = 1 − t:
+(P f, g) =
+∫ 1
+0
+f (u) g(1 − u) du = (f, P g).
+So P = P †, i.e., P is self-adjoint.
+Bounded:
+∥P f∥2 =
+∫ 1
+0
+|f (1 − t)|2 dt =
+∫ 1
+0
+|f (u)|2 du = ∥f ∥2.
+So ∥P f∥ = ∥f ∥, meaning P is an isometry. Therefore P is bounded with ∥P ∥ = 1 .
+(c) Eigenvalues of P ; complete continuity
+Since P 2f (t) = P (f (1 − t)) = f (1 − (1 − t)) = f (t), we have P 2 = I. If P f = λf , then
+P 2f = λ2f = f , so λ2 = 1, giving λ = ±1.
+Both eigenvalues are achieved:
+• λ = +1: f (1 − t) = f (t) (symmetric functions), e.g., f (t) = 1 , f (t) = t(1 − t).
+• λ = −1: f (1−t) = −f (t) (antisymmetric functions), e.g., f (t) = t− 1
+2 , f (t) = sin(2 πt).
+P is NOT completely continuous. A completely continuous (compact) operator
+maps bounded sets to precompact sets. But P is an isometry ( ∥P f∥ = ∥f ∥), and the
+identity operator on an infinite-dimensional space is not compact. Since P 2 = I, if P were
+compact, then I = P ◦ P would be compact (composition of compact with bounded), which
+is impossible in infinite dimensions.
+(d) Classification of eigenvectors of A
+Since P A = AP and the eigenvalues of P are ±1, by the simultaneous diagonalization
+theorem (Theorem 4.22), the eigenvectors of A can be chosen to be simultaneous eigenvectors
+of P . That is, each eigenvector of A can be chosen to be either symmetric ( P f = f , i.e.,
+f (1 − t) = f (t)) or antisymmetric ( P f = −f , i.e., f (1 − t) = −f (t)) about t = 1
+2 .
+The known eigenvectors of A (whose kernel is t<(1 − t>)) are xn(t) =
+√
+2 sin(nπt) with
+eigenvalues 1/(nπ)2. Indeed:
+• For n odd: sin(nπ(1 − t)) = sin( nπ) cos(nπt) − cos(nπ) sin(nπt) = sin( nπt). So these
+are symmetric ( P -eigenvalue +1).
+• For n even: sin(nπ(1 − t)) = − sin(nπt). So these are antisymmetric ( P -eigenvalue
+−1).
+■
+2

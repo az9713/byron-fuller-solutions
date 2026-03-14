@@ -1,0 +1,22 @@
+Chapter 10, Problem 5
+Problem. Consider an arbitrary group, G, with a subgroup, H. Show that if H is of index
+two, then H is invariant. Remember that the index of a subgroup is the ratio of the order
+of the group to the order of the subgroup.
+Solution.
+Let |G| = n and |H| = n/2, so H has index 2 in G. This means there are exactly two left
+cosets of H in G: namely H itself and one other coset gH for any g /∈ H. Similarly, there
+are exactly two right cosets: H and Hg .
+We need to show that gHg −1 = H for all g ∈ G, i.e., gH = Hg for all g.
+If g ∈ H, then gH = H = Hg , which is trivially true.
+If g /∈ H, consider the left coset gH . Since there are only two left cosets, H and gH , and
+these partition G, we have:
+G = H ∪ gH (disjoint union).
+Therefore gH = G \ H (the set complement of H in G).
+Similarly, the two right cosets are H and Hg , so:
+G = H ∪ Hg (disjoint union),
+which gives Hg = G \ H.
+Since both gH and Hg equal G \ H, we conclude:
+gH = Hg for all g /∈ H.
+Combined with the trivial case g ∈ H, we have gH = Hg for all g ∈ G. Therefore H is
+a normal (invariant) subgroup of G. □
+1

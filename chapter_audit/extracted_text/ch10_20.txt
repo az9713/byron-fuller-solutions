@@ -1,0 +1,105 @@
+Chapter 10, Problem 20
+Problem. Consider a linear operator, A0, with rotational symmetry. Suppose that a small
+perturbation having the symmetry of a regular tetrahedron is applied. Using the results of
+Problem 10.18 and of Section 10.8, find how the four states of A0 with the lowest degeneracies
+(onefold, threefold, fivefold, and sevenfold) break up when this perturbation is applied.
+Solution.
+The rotationally invariant operator A0 has eigenstates classified by angular momentum
+l, with degeneracy 2l + 1. The four lowest degeneracies are:
+• l = 0: 1-fold (s state)
+• l = 1: 3-fold (p state)
+• l = 2: 5-fold (d state)
+• l = 3: 7-fold (f state)
+The perturbation has the symmetry of the regular tetrahedron, whose rotation group is
+A4 (Problem 18) with character table:
+A4 {e} { C3} { C 2
+3 } { C2}
+1 4 4 3
+Γ1 1 1 1 1
+Γ2 1 ω ω 2 1
+Γ3 1 ω2 ω 1
+Γ4 3 0 0 −1
+The characters of the rotation group representation D(l) for a rotation by angle Φ are
+given by Eq. (10.89):
+χ(l)(Φ) = sin(l + 1
+2 )Φ
+sin(Φ/2) .
+For the classes of A4:
+• C1: Φ = 0 , χ(l) = 2l + 1
+• C2: Φ = 2 π/3, χ(l) = sin(2l+1)π/3
+sin(π/3)
+• C3: Φ = 4 π/3, χ(l) = sin(2l+1)2π/3
+sin(2π/3)
+• C4: Φ = π, χ(l) = sin(2l+1)π/2
+sin(π/2) = sin(2l + 1)π/2 = ( −1)l
+Computing for each l:
+l = 0 (1-fold): χ = (1, 1, 1, 1) → Γ1. No splitting.
+1
+
+l = 1 (3-fold):
+χ(1)(0) = 3 ,
+χ(1)(2π/3) = sin π
+sin(π/3) = 0,
+χ(1)(4π/3) = sin 2π
+sin(2π/3) = 0,
+χ(1)(π) = ( −1)1 = −1.
+So χ = (3, 0, 0, −1) = χ(Γ4). The 3-fold level remains unsplit (it belongs to the irreducible
+representation Γ4).
+l = 2 (5-fold):
+χ(2)(0) = 5 ,
+χ(2)(2π/3) = sin(5π/3)
+sin(π/3) = −
+√
+3/2√
+3/2 = −1,
+χ(2)(4π/3) = sin(10π/3)
+sin(2π/3) = −
+√
+3/2√
+3/2 = −1,
+χ(2)(π) = ( −1)2 = 1.
+χ = (5, −1, −1, 1).
+Decomposing: aν = 1
+12
+∑
+i giχ(ν)∗
+i χi.
+a1 = 1
+12 [1 · 5 + 4 · (−1) + 4 · (−1) + 3 · 1] = 0
+12 = 0,
+a2 = 1
+12 [5 + 4ω2(−1) + 4ω(−1) + 3] = 1
+12 [8 + 4(−1)(ω2 + ω)] = 1
+12 [8 + 4] = 1 ,
+a3 = 1 ( by complex conjugation of a2),
+a4 = 1
+12 [1 · 3 · 5 + 4 · 0 · (−1) + 4 · 0 · (−1) + 3 · (−1) · 1] = 12
+12 = 1.
+So: D(2) → Γ2 + Γ3 + Γ4. The 5-fold level splits into a 3-fold level (Γ4) and two 1-fold
+levels (Γ2, Γ3). Since Γ2 and Γ3 are complex conjugates, if the Hamiltonian is Hermitian,
+these two levels have the same energy, giving effectively a 2-fold + 3-fold splitting.
+l = 3 (7-fold):
+χ(3)(0) = 7 ,
+χ(3)(2π/3) = sin(7π/3)
+sin(π/3) = sin(π/3)
+sin(π/3) = 1,
+χ(3)(4π/3) = sin(14π/3)
+sin(2π/3) = sin(2π/3)
+sin(2π/3) = 1,
+χ(3)(π) = ( −1)3 = −1.
+χ = (7, 1, 1, −1).
+2
+
+Decomposing:
+a1 = 1
+12 [7 + 4 + 4 − 3] = 1 ,
+a2 = 1
+12 [7 + 4ω2 + 4ω − 3] = 1
+12 [4 + 4(ω + ω2)] = 1
+12 [4 − 4] = 0 ,
+a3 = 0,
+a4 = 1
+12 [21 + 0 + 0 + 3] = 2 .
+So: D(3) → Γ1 + 2Γ4. The 7-fold level splits into a 1-fold level (Γ1) and two 3-fold
+levels (both Γ4): 1 + 3 + 3 = 7 .
+3

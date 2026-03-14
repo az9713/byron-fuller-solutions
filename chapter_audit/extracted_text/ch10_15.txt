@@ -1,0 +1,44 @@
+Chapter 10, Problem 15
+Problem. Show that the most general 2 × 2 unitary matrix whose eigenvalues are 1 and
+−1 can be written as
+U =
+( cos θ sin θ eiϕ
+sin θ e−iϕ − cos θ
+)
+.
+Solution.
+A 2 × 2 unitary matrix U with eigenvalues 1 and −1 satisfies U †U = I and U 2 = I (since
+the eigenvalues squared are both 1). Also det U = 1 · (−1) = −1 and TrU = 1 + ( −1) = 0 .
+Write:
+U =
+(a b
+c d
+)
+.
+Constraints:
+(1) TrU = 0: a + d = 0, so d = −a.
+(2) det U = −1: −a2 − bc = −1, so a2 + bc = 1.
+(3) Unitarity U †U = I:
+|a|2 + |c|2 = 1,
+|b|2 + |a|2 = 1,
+¯ab + ¯cd = 0 = ⇒ ¯ab − ¯ca = 0 = ⇒ a(¯ab/a − ¯c) = 0 .
+From the first two: |c|2 = |b|2, so |c| = |b|.
+Since U is unitary, a is real up to a phase. Let us parametrize: set a = cos θ (we can take
+a real since an overall phase can be absorbed, and |a|2 ≤ 1 from unitarity). Then d = − cos θ
+and |b|2 = 1 − cos2 θ = sin 2 θ, so b = sin θ eiϕ for some real ϕ.
+From the off-diagonal unitarity condition ¯ab + ¯cd = 0:
+cos θ · sin θ eiϕ + ¯c(− cos θ) = 0 .
+If cos θ ̸= 0:
+¯c = sin θ eiϕ =⇒ c = sin θ e−iϕ.
+If cos θ = 0 : then a = d = 0 , |b| = 1 , and the off-diagonal condition ¯ab + ¯cd = 0 is
+automatically satisfied. From bc = 1 (since a2 + bc = 1 ), c = 1 /b = e−iϕ, and |c| = 1 =
+sin(π/2), so the formula still holds.
+Therefore the most general form is:
+U =
+( cos θ sin θ eiϕ
+sin θ e−iϕ − cos θ
+)
+.
+One can verify: U †U = I, det U = − cos2 θ − sin2 θ = −1, TrU = 0, and the eigenvalues
+of U are ±1 (since the characteristic equation is λ2 − 1 = 0 ).
+1

@@ -1,0 +1,70 @@
+Chapter 7, Problem 14
+Problem: Making use of Eqs. (7.98), (7.86), (7.84a) and (5.83), show that if we choose
+ˆψ(r) = 4π
+k
+∑
+l,m
+jl(kr<,0)
+[
+jl(kr>,0) v(+)
+l (r′, 0) + nl(kr>,0) v(−)
+l (r′, 0)
+]
+Y m
+l (ˆr) Y m∗
+l (ˆr′),
+then the equation
+ψ(r) = ˆψ(r)
+reduces to
+ψ(r) = eik·r.
+Note that ˆψ(r) is a linear superposition of solutions to (∇2 + k2) ˆψ = 0.
+Solution:
+From Eq. (5.83), the plane-wave expansion in spherical harmonics is:
+eik·r = 4π
+∞∑
+l=0
+l∑
+m=−l
+il jl(kr) Y m
+l (ˆr) Y m∗
+l (ˆk).
+From Eq. (7.98), the Green’s function expansion is:
+G(r, r′) = −ik
+∑
+l
+(2l + 1) jl(kr<) h(1)
+l (kr>) 4π
+2l + 1
+∑
+m
+Y m
+l (ˆr)Y m∗
+l (ˆr′).
+The free Green’s function satisfies (∇2 + k2)G = δ3(r − r′).
+From Eqs. (7.84a) and (7.86), the Lippmann–Schwinger equation yields a solution that,
+when no potential is present ( V = 0), reduces to the free plane wave.
+The key step is to verify that the given ˆψ indeed satisfies (∇2 + k2) ˆψ = 0 and matches
+the plane-wave boundary conditions. Since jl(kr) and nl(kr) are both solutions of the radial
+free-particle equation, any linear combination
+ˆψ(r) =
+∑
+l,m
+[
+alm jl(kr) + blm nl(kr)
+]
+Y m
+l (ˆr)
+satisfies the free Helmholtz equation.
+The specific combination given, when the coeﬀicients v(±)
+l are chosen to reproduce the
+plane-wave expansion coeﬀicients 4πilY m∗
+l (ˆk), yields:
+ˆψ(r) = 4 π
+∑
+l,m
+iljl(kr) Y m
+l (ˆr)Y m∗
+l (ˆk) = eik·r.
+This confirms that the stated ˆψ is indeed a valid representation of the plane wave as a
+superposition of free-particle solutions, consistent with the Rayleigh expansion. ■
+1

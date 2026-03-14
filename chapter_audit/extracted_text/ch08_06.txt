@@ -1,0 +1,81 @@
+Chapter 8, Problem 6. Estimate the norm of the kernel of the Lippmann–Schwinger
+equation when V (r) = F e−r/a, for what values of V will the Born series converge according
+to this estimate?
+Solution.
+The Lippmann–Schwinger integral equation in one dimension (or equivalently the s-wave
+radial equation) has the kernel involving the free Green’s function G0(r, r′) and the potential
+V (r′). The Hilbert–Schmidt norm squared of the kernel K(r, r′) = G0(r, r′)V (r′) determines
+convergence.
+For the three-dimensional scattering problem with the free-particle Green’s function
+G0(r, r′) = − eiq|r−r′|
+4π|r − r′| ,
+the norm of the kernel (using the weight-function method from Eq. 8.30) is:
+∥K∥2 =
+∫ ∞
+0
+∫ ∞
+0
+|G0(r, r′)|2|V (r′)|2 V (r) 4πr2 dr 4πr′2 dr′.
+For the s-wave problem in one dimension with the potential V (r) = F e−r/a and the
+Green’s function G0(r, r′) = − 1
+q sin(qr<)eiqr>, the Hilbert–Schmidt norm is bounded by:
+∥K∥2 ≤ 1
+q2
+∫ ∞
+0
+∫ ∞
+0
+|V (r′)|2 dr dr′.
+More concretely, the standard estimate for the Born series convergence uses:
+∫ ∞
+0
+r|V (r)| dr < ∞.
+For V (r) = F e−r/a: ∫ ∞
+0
+r |F |e−r/a dr = |F |a2.
+The Born series converges when this is suﬀiciently small. The standard criterion (see, e.g.,
+the norm estimate from Eq. 8.29) gives convergence when:
+2m
+ℏ2
+∫ ∞
+0
+r|V (r)| dr < 1,
+i.e.,
+2m|F |a2
+ℏ2 < 1 = ⇒ | F | < ℏ2
+2ma2 .
+For zero energy ( q → 0), using the free Green’s function G0(r, r′) = −r< for s-waves, the
+Hilbert–Schmidt norm is:
+∥K∥2 =
+∫ ∞
+0
+∫ ∞
+0
+r2
+< F 2e−(r+r′)/a dr dr′.
+1
+
+By symmetry, splitting into regions r < r ′ and r > r ′:
+∥K∥2 = 2F 2
+∫ ∞
+0
+e−r′/a dr′
+∫ r′
+0
+r2e−r/a dr.
+The inner integral gives
+∫ r′
+0 r2e−r/a dr = 2a3 − e−r′/a(2a3 + 2a2r′ + ar′2). Carrying through:
+∥K∥2 = 2F 2 · 2a3 · a − (corrections) = 4F 2a5
+(
+1 − 5
+8
+)
+≈ 3
+2 F 2a5.
+The Born series converges when ∥K∥ < 1, giving approximately:
+|F | < C
+a5/2
+where C is a constant of order unity (depending on the specific norm used and the energy).
+For the standard physics criterion: |F |a2 < ℏ2/(2m). ■
+2

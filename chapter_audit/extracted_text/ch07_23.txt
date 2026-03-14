@@ -1,0 +1,98 @@
+Chapter 7, Problem 23
+Problem: Show that if the wave function ψ of a particle satisfies Schrödinger’s equation,
+Hψ = iℏ ∂ψ
+∂t ,
+where H is a self-adjoint operator, and if
+∫
+|ψ|2 d3r ψ∗ = 1 (1)
+at t = 0, then at any subsequent time t, we will also have
+∫
+|ψ|2 d3r = 1. (2)
+Since in quantum mechanics |ψ|2 is the probability density, |ψ|2 d3r gives the probability
+of finding the particle in the volume element d3r, and Eqs. (1) and (2) are a statement of the
+conservation of total probability. If the total probability of finding the particle somewhere
+is initially equal to unity [Eq. (1)], it remains equal to unity at all later times. Clearly,
+the interpretation of |ψ|2 as a probability density would not make sense if this were not the
+case. Note that such an interpretation would not hold for solutions to the heat (or diffusion)
+equation.
+Solution:
+We want to show that d
+dt
+∫
+|ψ|2 d3r = 0.
+Compute:
+d
+dt
+∫
+|ψ|2 d3r =
+∫ ( ∂ψ ∗
+∂t ψ + ψ∗ ∂ψ
+∂t
+)
+d3r.
+From Schrödinger’s equation:
+∂ψ
+∂t = 1
+iℏ Hψ = − i
+ℏ Hψ,
+and taking the complex conjugate (using H = H †, i.e., H is self-adjoint):
+∂ψ ∗
+∂t = i
+ℏ (Hψ )∗ = i
+ℏ H †ψ∗ (formally).
+More precisely, ∂ψ ∗
+∂t = i
+ℏ (Hψ )∗.
+Substituting:
+d
+dt
+∫
+|ψ|2 d3r =
+∫ [ i
+ℏ (Hψ )∗ ψ − i
+ℏ ψ∗ (Hψ )
+]
+d3r (1)
+= i
+ℏ
+[∫
+(Hψ )∗ψ d3r −
+∫
+ψ∗Hψ d 3r
+]
+(2)
+= i
+ℏ
+[
+⟨Hψ |ψ⟩ − ⟨ψ|Hψ ⟩
+]
+. (3)
+1
+
+Since H is self-adjoint ( H = H †):
+⟨Hψ |ψ⟩ = ⟨ψ|H †ψ⟩ = ⟨ψ|Hψ ⟩.
+Therefore: d
+dt
+∫
+|ψ|2 d3r = i
+ℏ
+[
+⟨ψ|Hψ ⟩ − ⟨ψ|Hψ ⟩
+]
+= 0.
+Since the norm is conserved and initially equals 1, it remains 1 for all time.
+Comparison with the heat equation: The heat equation ∂T /∂t = k∇2T has a real
+coeﬀicient (no factor of i). Repeating the argument:
+d
+dt
+∫
+T 2 d3r = 2k
+∫
+T ∇2T d 3r = −2k
+∫
+|∇T |2 d3r ≤ 0.
+So
+∫
+T 2 is not conserved — it decreases with time. This is why T 2 cannot be interpreted as
+a probability density. ■
+2

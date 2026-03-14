@@ -1,0 +1,79 @@
+Chapter 6, Problem 32. We have seen how the function e cot ez may be used to sum
+certain series. But it is useless if the series is an alternating one. Show how alternating series
+may be summed by using the function e csc(ez) in place of e cot(ez). Use the general result
+to prove that
+∞X
+n=1
+(−1)n+1 1
+n2 = π2
+12 .
+Solution.
+The function π csc(πz) has simple poles at z = n (all integers) with residues (−1)n:
+Resz=nπ csc(πz) = π
+(π sin(πz))′|z=n
+· π = 1
+cos(nπ) = (−1)n.
+Wait, more carefully: csc(πz) = 1 / sin(πz) has poles at z = n with Res z=n = 1
+π cos(nπ) =
+(−1)n
+π . So π csc(πz) has residue (−1)n at z = n.
+Consider the contour integral of π csc(πz) · g(z) around a large square contour CN en-
+closing z = −N, . . . , N:
+1
+2πi
+I
+CN
+π csc(πz)g(z) dz =
+NX
+n=−N
+(−1)ng(n) +
+X
+poles of g
+Res[π csc(πz)g(z)].
+For g(z) = 1 /z2: poles of g at z = 0 (order 2). The combined function π csc(πz)/z2 near
+z = 0:
+π csc(πz) = 1
+z + π2z
+6 + · · · , so π csc(πz)
+z2 = 1
+z3 + π2
+6z + · · ·
+The residue of the combined function at z = 0 is π2/6.
+As N → ∞, the contour integral vanishes (since | csc(πz)| is bounded on the square and
+1/z2 → 0). The sum of all residues is zero:
+0 =
+X
+n̸=0
+(−1)n 1
+n2 + π2
+6 .
+X
+n̸=0
+(−1)n 1
+n2 = − π2
+6 .
+∞X
+n=1
+(−1)n
+n2 +
+∞X
+n=1
+(−1)−n
+n2 = 2
+∞X
+n=1
+(−1)n
+n2 = − π2
+6 .
+∞X
+n=1
+(−1)n
+n2 = − π2
+12 .
+Therefore:
+∞X
+n=1
+(−1)n+1
+n2 = π2
+12 .
+1
