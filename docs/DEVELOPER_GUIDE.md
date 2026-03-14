@@ -1,4 +1,14 @@
-# Developer Guide
+﻿# Developer Guide
+
+## Review Provenance Update
+
+The complete solution-review process for this repository was run in **Codex App**, powered by **GPT-5.3-Codex** with **High reasoning**.
+
+Primary review artifacts are in `review_reports_ch02_ch10/`, `revised_ch02_ch10/`, `chapter1_revised/`, and the status trackers at the repository root.
+
+
+Legacy content below may reference the earlier tutorial-generation workflow; for the current solution-review workflow, use `README.md` and `WORKFLOW_DOCUMENTATION.md` as canonical.
+
 
 A comprehensive guide for developers who want to extend, modify, or maintain this project. This guide assumes you have traditional programming experience (C, C++, Java) but may be new to LaTeX and document generation.
 
@@ -24,10 +34,10 @@ A comprehensive guide for developers who want to extend, modify, or maintain thi
 ### High-Level Flow
 
 ```
-┌─────────────┐     ┌──────────────┐     ┌────────────┐     ┌─────────────┐
-│ Source PDFs │────▶│ Claude Code  │────▶│ LaTeX Files│────▶│ Output PDF  │
-│  (docs/)    │     │  + Skills    │     │ (output/)  │     │ (main.pdf)  │
-└─────────────┘     └──────────────┘     └────────────┘     └─────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Source PDFs â”‚â”€â”€â”€â”€â–¶â”‚ Claude Code  â”‚â”€â”€â”€â”€â–¶â”‚ LaTeX Filesâ”‚â”€â”€â”€â”€â–¶â”‚ Output PDF  â”‚
+â”‚  (docs/)    â”‚     â”‚  + Skills    â”‚     â”‚ (output/)  â”‚     â”‚ (main.pdf)  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Component Responsibilities
@@ -166,24 +176,24 @@ code .
 
 ```
 byron_fuller/
-├── CLAUDE.md              # Context file for Claude Code
-├── README.md              # Project overview
-├── .gitignore             # Git exclusions
-├── .claude/               # Claude Code configuration
-├── docs/                  # Source materials and documentation
-├── output/                # Generated LaTeX and PDF
-└── venv/                  # Python virtual environment (optional)
+â”œâ”€â”€ CLAUDE.md              # Context file for Claude Code
+â”œâ”€â”€ README.md              # Project overview
+â”œâ”€â”€ .gitignore             # Git exclusions
+â”œâ”€â”€ .claude/               # Claude Code configuration
+â”œâ”€â”€ docs/                  # Source materials and documentation
+â”œâ”€â”€ output/                # Generated LaTeX and PDF
+â””â”€â”€ venv/                  # Python virtual environment (optional)
 ```
 
 ### The `.claude/` Directory
 
 ```
 .claude/
-└── skills/
-    └── physics-text-to-tutorial/
-        ├── SKILL.md           # Main skill definition
-        ├── latex-template.tex # Document template
-        └── physics-macros.tex # Math notation macros
+â””â”€â”€ skills/
+    â””â”€â”€ physics-text-to-tutorial/
+        â”œâ”€â”€ SKILL.md           # Main skill definition
+        â”œâ”€â”€ latex-template.tex # Document template
+        â””â”€â”€ physics-macros.tex # Math notation macros
 ```
 
 **SKILL.md** defines:
@@ -208,14 +218,14 @@ byron_fuller/
 
 ```
 docs/
-├── (source PDFs)          # Your Byron & Fuller PDFs (not included - copyright)
-├── chunk.py               # PDF splitting utility
-├── USER_GUIDE.md          # User documentation
-├── DEVELOPER_GUIDE.md     # This file
-├── QUICK_START.md         # Quick start guide
-├── TROUBLESHOOTING.md     # Problem solving
-├── LATEX_REFERENCE.md     # LaTeX basics
-└── OUTPUT_FILES_EXPLAINED.md  # What output files do
+â”œâ”€â”€ (source PDFs)          # Your Byron & Fuller PDFs (not included - copyright)
+â”œâ”€â”€ chunk.py               # PDF splitting utility
+â”œâ”€â”€ USER_GUIDE.md          # User documentation
+â”œâ”€â”€ DEVELOPER_GUIDE.md     # This file
+â”œâ”€â”€ QUICK_START.md         # Quick start guide
+â”œâ”€â”€ TROUBLESHOOTING.md     # Problem solving
+â”œâ”€â”€ LATEX_REFERENCE.md     # LaTeX basics
+â””â”€â”€ OUTPUT_FILES_EXPLAINED.md  # What output files do
 ```
 
 **Note:** The source textbook PDFs are not included in this repository due to copyright. You must provide your own copy of "Mathematics of Classical and Quantum Physics" by Byron & Fuller and place the PDFs in this folder.
@@ -224,17 +234,17 @@ docs/
 
 ```
 output/
-├── main.tex               # Master document
-├── main.pdf               # Compiled PDF with expanded proofs
-├── main.aux               # Auxiliary file (cross-references)
-├── main.log               # Compilation log
-├── main.out               # Hyperref bookmarks
-├── main.toc               # Table of contents data
-└── chapters/              # Expanded proofs for Chapter 1 "gaps"
-    ├── ch01_scalar_product.tex   # Proofs for gaps in §1.3-1.4
-    ├── ch01_vector_product.tex   # Proofs for gaps in §1.5
-    ├── ch01_orbit_theory.tex     # Proofs for gaps in §1.6
-    └── ch01_diff_ops.tex         # Proofs for gaps in §1.7
+â”œâ”€â”€ main.tex               # Master document
+â”œâ”€â”€ main.pdf               # Compiled PDF with expanded proofs
+â”œâ”€â”€ main.aux               # Auxiliary file (cross-references)
+â”œâ”€â”€ main.log               # Compilation log
+â”œâ”€â”€ main.out               # Hyperref bookmarks
+â”œâ”€â”€ main.toc               # Table of contents data
+â””â”€â”€ chapters/              # Expanded proofs for Chapter 1 "gaps"
+    â”œâ”€â”€ ch01_scalar_product.tex   # Proofs for gaps in Â§1.3-1.4
+    â”œâ”€â”€ ch01_vector_product.tex   # Proofs for gaps in Â§1.5
+    â”œâ”€â”€ ch01_orbit_theory.tex     # Proofs for gaps in Â§1.6
+    â””â”€â”€ ch01_diff_ops.tex         # Proofs for gaps in Â§1.7
 ```
 
 **What are "gaps"?** These are places in Byron & Fuller's textbook where proofs are left to the reader, derivations are skipped, or steps are marked as "clearly" or "easy to show." The chapter files provide the complete, expanded proofs for these gaps.

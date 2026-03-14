@@ -1,4 +1,14 @@
-# Troubleshooting Guide
+﻿# Troubleshooting Guide
+
+## Review Provenance Update
+
+The complete solution-review process for this repository was run in **Codex App**, powered by **GPT-5.3-Codex** with **High reasoning**.
+
+Primary review artifacts are in `review_reports_ch02_ch10/`, `revised_ch02_ch10/`, `chapter1_revised/`, and the status trackers at the repository root.
+
+
+Legacy content below may reference the earlier tutorial-generation workflow; for the current solution-review workflow, use `README.md` and `WORKFLOW_DOCUMENTATION.md` as canonical.
+
 
 Solutions to common problems you might encounter when using this project.
 
@@ -36,7 +46,7 @@ Solutions to common problems you might encounter when using this project.
 
 **Mac:**
 1. Right-click `main.pdf`
-2. Select "Open With" → "Preview"
+2. Select "Open With" â†’ "Preview"
 3. Or install Adobe Reader: https://get.adobe.com/reader/
 
 **Linux:**
@@ -365,7 +375,7 @@ or
 1. **Install the full tcolorbox package**
 
    **MiKTeX:**
-   - Open MiKTeX Console → Packages
+   - Open MiKTeX Console â†’ Packages
    - Search "tcolorbox"
    - Install "tcolorbox" package
 

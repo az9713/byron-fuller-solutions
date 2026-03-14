@@ -1,4 +1,14 @@
-# User Guide
+﻿# User Guide
+
+## Review Provenance Update
+
+The complete solution-review process for this repository was run in **Codex App**, powered by **GPT-5.3-Codex** with **High reasoning**.
+
+Primary review artifacts are in `review_reports_ch02_ch10/`, `revised_ch02_ch10/`, `chapter1_revised/`, and the status trackers at the repository root.
+
+
+Legacy content below may reference the earlier tutorial-generation workflow; for the current solution-review workflow, use `README.md` and `WORKFLOW_DOCUMENTATION.md` as canonical.
+
 
 A complete, step-by-step guide to using the Physics Textbook to Tutorial Converter.
 
@@ -168,11 +178,11 @@ Full path example:
 
 **Windows:**
 - Double-click `main.pdf` to open in your default PDF viewer
-- Or right-click → Open with → Choose your preferred viewer
+- Or right-click â†’ Open with â†’ Choose your preferred viewer
 
 **macOS:**
 - Double-click `main.pdf` to open in Preview
-- Or right-click → Open With → Choose viewer
+- Or right-click â†’ Open With â†’ Choose viewer
 
 **Linux:**
 - Double-click to open in your default viewer (Evince, Okular, etc.)
@@ -197,37 +207,37 @@ The tutorial uses colored boxes to highlight different types of content:
 
 #### Green Box: Intuition
 ```
-┌─ Intuition ─────────────────────────────┐
-│ The key insight is that...              │
-│ This works because geometrically...     │
-└─────────────────────────────────────────┘
+â”Œâ”€ Intuition â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ The key insight is that...              â”‚
+â”‚ This works because geometrically...     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 Contains explanations of **why** something is true, often with geometric or physical interpretations.
 
 #### Red Box: Warning
 ```
-┌─ Warning ───────────────────────────────┐
-│ A common mistake is to assume...        │
-│ Be careful not to...                    │
-└─────────────────────────────────────────┘
+â”Œâ”€ Warning â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ A common mistake is to assume...        â”‚
+â”‚ Be careful not to...                    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 Highlights common errors and misconceptions to avoid.
 
 #### Blue Box: Physical Interpretation
 ```
-┌─ Physical Interpretation ───────────────┐
-│ In physical terms, this means...        │
-│ An example would be...                  │
-└─────────────────────────────────────────┘
+â”Œâ”€ Physical Interpretation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ In physical terms, this means...        â”‚
+â”‚ An example would be...                  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 Connects mathematical results to real-world physics.
 
 #### Purple Box: Key Step
 ```
-┌─ Key Step ──────────────────────────────┐
-│ The crucial step in this derivation...  │
-│ This is where we use the identity...    │
-└─────────────────────────────────────────┘
+â”Œâ”€ Key Step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ The crucial step in this derivation...  â”‚
+â”‚ This is where we use the identity...    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 Highlights the most important steps in a derivation.
 
@@ -251,7 +261,7 @@ Proof.
 Step 1: We begin by...
 Step 2: Applying the identity...
 ...
-∎
+âˆŽ
 ```
 
 ### Margin Notes
@@ -277,11 +287,11 @@ This helps you locate the corresponding content in Byron & Fuller's original boo
 Many PDF readers show a bookmark panel:
 
 **Adobe Reader:**
-- View → Show/Hide → Navigation Panes → Bookmarks
+- View â†’ Show/Hide â†’ Navigation Panes â†’ Bookmarks
 - Click on any bookmark to jump to that section
 
 **Preview (macOS):**
-- View → Table of Contents
+- View â†’ Table of Contents
 - Click entries to navigate
 
 **Evince (Linux):**
@@ -311,12 +321,12 @@ Every theorem, definition, and proof in the tutorial includes a reference to whe
 
 References appear in margin notes:
 ```
-B&F §1.3, pp. 5-8
+B&F Â§1.3, pp. 5-8
 ```
 
 This means:
 - **B&F** - Byron & Fuller textbook
-- **§1.3** - Section 1.3
+- **Â§1.3** - Section 1.3
 - **pp. 5-8** - Pages 5 through 8
 
 ### Why Source References Matter
@@ -441,7 +451,7 @@ If you use Visual Studio Code:
 
 ### Task 2: Finding the Original Textbook Content
 
-1. Note the source reference (e.g., "B&F §1.5, p. 14")
+1. Note the source reference (e.g., "B&F Â§1.5, p. 14")
 2. Open your Byron & Fuller PDF in the `docs/` folder
 3. Navigate to that page number
 
@@ -450,7 +460,7 @@ If you use Visual Studio Code:
 ### Task 3: Printing the Tutorial
 
 1. Open `output/main.pdf`
-2. File → Print
+2. File â†’ Print
 3. Recommended settings:
    - Print on both sides (if available)
    - Use "Fit to page" for best results

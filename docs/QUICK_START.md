@@ -1,4 +1,14 @@
-# Quick Start Guide
+﻿# Quick Start Guide
+
+## Review Provenance Update
+
+The complete solution-review process for this repository was run in **Codex App**, powered by **GPT-5.3-Codex** with **High reasoning**.
+
+Primary review artifacts are in `review_reports_ch02_ch10/`, `revised_ch02_ch10/`, `chapter1_revised/`, and the status trackers at the repository root.
+
+
+Legacy content below may reference the earlier tutorial-generation workflow; for the current solution-review workflow, use `README.md` and `WORKFLOW_DOCUMENTATION.md` as canonical.
+
 
 Get up and running in 5 minutes, then explore through 12 hands-on use cases.
 
@@ -107,7 +117,7 @@ Each section contains:
 **What You'll Learn**:
 - How the Schwarz inequality is proven from first principles
 - The technique of considering a quadratic function in a parameter
-- Why `|x·y| ≤ |x||y|` is true
+- Why `|xÂ·y| â‰¤ |x||y|` is true
 
 **Time**: 5-10 minutes
 
@@ -126,11 +136,11 @@ Each section contains:
    - It connects to the right-hand rule
 
 3. **Find** the geometric definition:
-   - Look for the equation `|A × B| = |A||B|sin θ`
+   - Look for the equation `|A Ã— B| = |A||B|sin Î¸`
    - Read the explanation of area interpretation
 
 4. **Study** the warning box about anticommutativity:
-   - `A × B = -B × A` (order matters!)
+   - `A Ã— B = -B Ã— A` (order matters!)
 
 **What You'll Learn**:
 - The cross product gives a vector perpendicular to both inputs
@@ -149,7 +159,7 @@ Each section contains:
 
 1. **Navigate** to Section 1.7 (Differential Operations)
 
-2. **Find** the proof that `curl(grad φ) = 0`
+2. **Find** the proof that `curl(grad Ï†) = 0`
 
 3. **Follow** the derivation:
    ```
@@ -180,12 +190,12 @@ Each section contains:
 
 2. **Find** the BAC-CAB Rule:
    ```
-   A × (B × C) = B(A·C) - C(A·B)
+   A Ã— (B Ã— C) = B(AÂ·C) - C(AÂ·B)
    ```
 
 3. **Read** the mnemonic explanation:
    - "BAC minus CAB" helps you remember the order
-   - The middle vector (B × C) "distributes" its factors
+   - The middle vector (B Ã— C) "distributes" its factors
 
 4. **Study** the complete proof:
    - Uses index notation
@@ -218,19 +228,19 @@ Each section contains:
 
 3. **Follow** the derivation of the orbit equation:
    ```
-   r = A / (1 + ε cos θ)
+   r = A / (1 + Îµ cos Î¸)
    ```
 
 4. **Understand** eccentricity:
-   - ε = 0: Circle
-   - 0 < ε < 1: Ellipse
-   - ε = 1: Parabola
-   - ε > 1: Hyperbola
+   - Îµ = 0: Circle
+   - 0 < Îµ < 1: Ellipse
+   - Îµ = 1: Parabola
+   - Îµ > 1: Hyperbola
 
 5. **Connect** to energy:
-   - Negative energy → bound orbit (ellipse)
-   - Zero energy → escape orbit (parabola)
-   - Positive energy → unbound (hyperbola)
+   - Negative energy â†’ bound orbit (ellipse)
+   - Zero energy â†’ escape orbit (parabola)
+   - Positive energy â†’ unbound (hyperbola)
 
 **What You'll Learn**:
 - Elegant vector derivation of Kepler's laws
@@ -249,24 +259,24 @@ Each section contains:
 
 1. **Navigate** to Section 1.7
 
-2. **Start** with the gradient (∇φ):
+2. **Start** with the gradient (âˆ‡Ï†):
    - Read the definition
    - Understand the geometric meaning: "direction of steepest increase"
    - See the formula in Cartesian coordinates
 
-3. **Continue** to divergence (∇·V):
+3. **Continue** to divergence (âˆ‡Â·V):
    - Physical meaning: "net outflow per unit volume"
    - Positive divergence = source
    - Negative divergence = sink
 
-4. **Finish** with curl (∇×V):
+4. **Finish** with curl (âˆ‡Ã—V):
    - Physical meaning: "local rotation"
    - Right-hand rule gives rotation axis
    - Zero curl means "irrotational"
 
 5. **Study** the identities:
-   - `∇·(∇×V) = 0` (divergence of curl is zero)
-   - `∇×(∇φ) = 0` (curl of gradient is zero)
+   - `âˆ‡Â·(âˆ‡Ã—V) = 0` (divergence of curl is zero)
+   - `âˆ‡Ã—(âˆ‡Ï†) = 0` (curl of gradient is zero)
 
 **What You'll Learn**:
 - Complete toolkit for vector calculus
@@ -317,7 +327,7 @@ Each section contains:
 **Steps**:
 
 1. **Find** a source reference in the PDF:
-   - Look for margin notes like "B&F §1.5, p. 14"
+   - Look for margin notes like "B&F Â§1.5, p. 14"
    - This cites Byron & Fuller, Section 1.5, page 14
 
 2. **Open** the original PDF:
@@ -353,7 +363,7 @@ Each section contains:
 2. **Identify** which chapter file:
    - Note the section number (e.g., Section 1.5)
    - Chapter files are in `output/chapters/`
-   - Section 1.5 → `ch01_vector_product.tex`
+   - Section 1.5 â†’ `ch01_vector_product.tex`
 
 3. **Open** the file:
    - Use any text editor (Notepad, VS Code, etc.)
@@ -441,7 +451,7 @@ Each section contains:
    - e.g., Section 1.5 spans pages 8-12
 
 4. **Print** specific pages:
-   - File → Print
+   - File â†’ Print
    - Select "Pages" instead of "All"
    - Enter the page range: "8-12"
 

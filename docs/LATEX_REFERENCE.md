@@ -1,4 +1,14 @@
-# LaTeX Reference for Beginners
+﻿# LaTeX Reference for Beginners
+
+## Review Provenance Update
+
+The complete solution-review process for this repository was run in **Codex App**, powered by **GPT-5.3-Codex** with **High reasoning**.
+
+Primary review artifacts are in `review_reports_ch02_ch10/`, `revised_ch02_ch10/`, `chapter1_revised/`, and the status trackers at the repository root.
+
+
+Legacy content below may reference the earlier tutorial-generation workflow; for the current solution-review workflow, use `README.md` and `WORKFLOW_DOCUMENTATION.md` as canonical.
+
 
 A gentle introduction to LaTeX for those new to document typesetting. This guide assumes you have programming experience (C, C++, Java) but no LaTeX background.
 
@@ -23,8 +33,8 @@ A gentle introduction to LaTeX for those new to document typesetting. This guide
 
 LaTeX (pronounced "LAY-tek" or "LAH-tek") is a document preparation system. Think of it as:
 
-- **Source code** → **Compiler** → **Output**
-- `.tex` file → `pdflatex` → `.pdf` file
+- **Source code** â†’ **Compiler** â†’ **Output**
+- `.tex` file â†’ `pdflatex` â†’ `.pdf` file
 
 Just like you write C code and compile it to an executable, you write LaTeX code and compile it to a PDF.
 
@@ -104,7 +114,7 @@ Hello, world!                    % Content
 \usepackage{hyperref}                 % Clickable links
 
 % Custom commands (like function definitions)
-\newcommand{\vect}[1]{\mathbf{#1}}   % \vect{x} → bold x
+\newcommand{\vect}[1]{\mathbf{#1}}   % \vect{x} â†’ bold x
 
 % ===== DOCUMENT BODY =====
 
@@ -463,7 +473,7 @@ Environments are like blocks in programming - they define a region with special 
 
     Therefore, the result holds.
 \end{proof}
-% Proof automatically adds ∎ at the end
+% Proof automatically adds âˆŽ at the end
 ```
 
 ### Custom Environments in This Project
@@ -551,19 +561,19 @@ Section~\ref{sec:intro}        % "Section" and "1" stay on same line
 
 ```latex
 % Simple replacement
-\newcommand{\R}{\mathbb{R}}    % \R → ℝ
+\newcommand{\R}{\mathbb{R}}    % \R â†’ â„
 
 % With one argument
 \newcommand{\vect}[1]{\mathbf{#1}}
-% Usage: \vect{x} → 𝐱
+% Usage: \vect{x} â†’ ð±
 
 % With two arguments
 \newcommand{\inner}[2]{\langle #1, #2 \rangle}
-% Usage: \inner{x}{y} → ⟨x, y⟩
+% Usage: \inner{x}{y} â†’ âŸ¨x, yâŸ©
 
 % With optional argument
 \newcommand{\norm}[1]{\left\| #1 \right\|}
-% Usage: \norm{x} → ‖x‖
+% Usage: \norm{x} â†’ â€–xâ€–
 ```
 
 ### Commands Used in This Project
@@ -571,13 +581,13 @@ Section~\ref{sec:intro}        % "Section" and "1" stay on same line
 From `physics-macros.tex`:
 
 ```latex
-\vect{x}        % Bold vector: 𝐱
-\uvect{n}       % Unit vector: n̂
-\grad           % Gradient: ∇
-\div            % Divergence: ∇·
-\curl           % Curl: ∇×
-\R              % Real numbers: ℝ
-\C              % Complex numbers: ℂ
+\vect{x}        % Bold vector: ð±
+\uvect{n}       % Unit vector: nÌ‚
+\grad           % Gradient: âˆ‡
+\div            % Divergence: âˆ‡Â·
+\curl           % Curl: âˆ‡Ã—
+\R              % Real numbers: â„
+\C              % Complex numbers: â„‚
 \comm{A}{B}     % Commutator: [A, B]
 ```
 
@@ -666,28 +676,28 @@ Math symbols need math mode!
 | `$x$` | *x* | Inline math |
 | `\[ x \]` | (display) | Display math |
 | `\frac{a}{b}` | a/b | Fraction |
-| `x^2` | x² | Superscript |
-| `x_i` | xᵢ | Subscript |
-| `\sqrt{x}` | √x | Square root |
-| `\sum` | Σ | Summation |
-| `\int` | ∫ | Integral |
+| `x^2` | xÂ² | Superscript |
+| `x_i` | xáµ¢ | Subscript |
+| `\sqrt{x}` | âˆšx | Square root |
+| `\sum` | Î£ | Summation |
+| `\int` | âˆ« | Integral |
 
 ### Greek Letters
 
 | Lowercase | Uppercase | Command |
 |-----------|-----------|---------|
-| α | A | `\alpha`, A |
-| β | B | `\beta`, B |
-| γ | Γ | `\gamma`, `\Gamma` |
-| δ | Δ | `\delta`, `\Delta` |
-| ε | E | `\epsilon`, E |
-| θ | Θ | `\theta`, `\Theta` |
-| λ | Λ | `\lambda`, `\Lambda` |
-| μ | M | `\mu`, M |
-| π | Π | `\pi`, `\Pi` |
-| σ | Σ | `\sigma`, `\Sigma` |
-| φ | Φ | `\phi`, `\Phi` |
-| ω | Ω | `\omega`, `\Omega` |
+| Î± | A | `\alpha`, A |
+| Î² | B | `\beta`, B |
+| Î³ | Î“ | `\gamma`, `\Gamma` |
+| Î´ | Î” | `\delta`, `\Delta` |
+| Îµ | E | `\epsilon`, E |
+| Î¸ | Î˜ | `\theta`, `\Theta` |
+| Î» | Î› | `\lambda`, `\Lambda` |
+| Î¼ | M | `\mu`, M |
+| Ï€ | Î  | `\pi`, `\Pi` |
+| Ïƒ | Î£ | `\sigma`, `\Sigma` |
+| Ï† | Î¦ | `\phi`, `\Phi` |
+| Ï‰ | Î© | `\omega`, `\Omega` |
 
 ### Document Structure
 
